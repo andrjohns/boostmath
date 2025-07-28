@@ -20,9 +20,9 @@ library(boostmath)
 
 ## Special Math Functions
 
-The [Special Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/special.html) section of the Boost Math library cover a broad range of areas
+The [Special Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/special.html) section of the Boost Math library cover a broad range of areas
 
-### [Number Series](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/number_series.html)
+### [Number Series](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/number_series.html)
 
 ```{r}
 bernoulli_b2n(10)
@@ -37,7 +37,7 @@ fibonacci(10)
 unchecked_fibonacci(10)
 ```
 
-### [Gamma Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_gamma.html)
+### [Gamma Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_gamma.html)
 
 ```{r}
 # Gamma function for z = 5
@@ -76,7 +76,7 @@ gamma_p_inva(2, 0.5)
 gamma_p_derivative(5, 2)
 ```
 
-### [Factorials and Binomial Coefficients](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/factorials.html)
+### [Factorials and Binomial Coefficients](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/factorials.html)
 
 ```{r}
 # Factorial of 5
@@ -95,7 +95,7 @@ falling_factorial(3, 2)
 binomial_coefficient(5, 2)
 ```
 
-### [Beta Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_beta.html)
+### [Beta Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_beta.html)
 
 ```{r}
 # Euler beta function B(2, 3)
@@ -125,7 +125,7 @@ ibetac_invb(2, 0.5, 0.5)
 ibeta_derivative(2, 3, 0.5)
 ```
 
-### [Error Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_erf.html)
+### [Error Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_erf.html)
 
 ```{r}
 # Error function
@@ -138,7 +138,7 @@ erf_inv(0.5)
 erfc_inv(0.5)
 ```
 
-### [Polynomials](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly.html)
+### [Polynomials](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly.html)
 
 ```{r}
 # Legendre polynomial of the first kind P_2(0.5)
@@ -202,7 +202,7 @@ jacobi_double_prime(2, 1, 2, 0.5)
 jacobi_derivative(2, 1, 2, 0.5, 3)
 ```
 
-### [Bessel Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/bessel.html)
+### [Bessel Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bessel.html)
 ```{r}
 # Bessel function of the first kind J_0(1)
 cyl_bessel_j(0, 1)
@@ -238,7 +238,7 @@ cyl_bessel_j_zero(0, start_index = 1, number_of_zeros = 5)
 cyl_neumann_zero(0, start_index = 1, number_of_zeros = 5)
 ```
 
-### [Hankel Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/hankel.html)
+### [Hankel Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hankel.html)
 
 ```{r}
 cyl_hankel_1(2, 0.5)
@@ -247,7 +247,7 @@ sph_hankel_1(2, 0.5)
 sph_hankel_2(2, 0.5)
 ```
 
-### [Airy Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/airy.html)
+### [Airy Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/airy.html)
 
 ```{r}
 airy_ai(2)
@@ -260,7 +260,7 @@ airy_ai_zero(start_index = 1, number_of_zeros = 5)
 airy_bi_zero(start_index = 1, number_of_zeros = 5)
 ```
 
-### [Elliptic Integrals](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/ellint.html)
+### [Elliptic Integrals](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ellint.html)
 
 ```{r}
 # Carlson's elliptic integral Rf with parameters x = 1, y = 2, z = 3
@@ -295,7 +295,7 @@ jacobi_zeta(0.5, pi / 4)
 heuman_lambda(0.5, pi / 4)
 ```
 
-### [Jacobi Elliptic Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/jacobi.html)
+### [Jacobi Elliptic Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/jacobi.html)
 
 ```{r}
 # Jacobi Elliptic Functions
@@ -317,7 +317,7 @@ jacobi_sd(k, u)
 jacobi_sn(k, u)
 ```
 
-### [Jacobi Theta Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/jacobi_theta.html)
+### [Jacobi Theta Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/jacobi_theta.html)
 
 ```{r}
 # Jacobi Theta Functions
@@ -338,7 +338,7 @@ jacobi_theta4m1(x, q)
 jacobi_theta4m1tau(x, tau)
 ```
 
-### [Lambert W Function](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/lambert_w.html)
+### [Lambert W Function](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/lambert_w.html)
 
 ```{r}
 # Lambert W Function (Principal Branch)
@@ -351,14 +351,14 @@ lambert_w0_prime(0.3)
 lambert_wm1_prime(-0.3)
 ```
 
-### [Zeta Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/zetas.html)
+### [Zeta Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/zetas.html)
 
 ```{r}
 # Riemann Zeta Function
 zeta(2)  # Should return pi^2 / 6
 ```
 
-### [Exponential Integrals](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/expint.html)
+### [Exponential Integrals](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/expint.html)
 
 ```{r}
 # Exponential integral En with n = 1 and z = 2
@@ -367,7 +367,7 @@ expint_en(1, 2)
 expint_ei(2)
 ```
 
-### [Hypergeometric Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/hypergeometric.html)
+### [Hypergeometric Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hypergeometric.html)
 
 ```{r}
 # Hypergeometric Function 1F0
@@ -386,7 +386,7 @@ log_hypergeometric_1F1(2, 3, 1)
 hypergeometric_pFq(c(2, 3), c(4, 5), 6)
 ```
 
-### [Basic Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/powers.html)
+### [Basic Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/powers.html)
 
 ```{r}
 # sin(pi * 0.5)
@@ -406,7 +406,7 @@ hypot(3, 4)
 rsqrt(4)
 ```
 
-### [Sinus Cardinal and Hyperbolic Sinus Cardinal Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sinc.html)
+### [Sinus Cardinal and Hyperbolic Sinus Cardinal Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sinc.html)
 
 ```{r}
 # Sinus cardinal function
@@ -415,7 +415,7 @@ sinc_pi(0.5)
 sinhc_pi(0.5)
 ```
 
-### [Inverse Hyperbolic Functions](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/inv_hyper.html)
+### [Inverse Hyperbolic Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/inv_hyper.html)
 
 ```{r}
 # Inverse Hyperbolic Cosine
@@ -426,7 +426,7 @@ asinh_boost(1)
 atanh_boost(0.5)
 ```
 
-### [Owen's T Function](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/owens_t.html)
+### [Owen's T Function](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/owens_t.html)
 
 ```{r}
 # Owens T Function

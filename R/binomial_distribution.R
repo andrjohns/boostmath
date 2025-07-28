@@ -6,7 +6,7 @@
 #' @param prob probability of success on each trial (0 <= prob <= 1)
 #' @param p probability (0 <= p <= 1)
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Binomial dist ribution with n = 10, prob = 0.5
 #' binomial_pdf(3, 10, 0.5)

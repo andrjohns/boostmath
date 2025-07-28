@@ -37,5 +37,5 @@ spherical_harmonic_r(2, 1, 0.5, 0.5)
 spherical_harmonic_i(2, 1, 0.5, 0.5)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/sph_harm.html}{Boost Documentation}
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/sph_harm.html}{Boost Documentation}
 }

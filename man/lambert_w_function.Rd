@@ -36,6 +36,6 @@ lambert_w0_prime(0.3)
 lambert_wm1_prime(-0.3)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/lambert_w.html}{Boost Documentation}
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/lambert_w.html}{Boost Documentation}
 for more details on the mathematical background.
 }

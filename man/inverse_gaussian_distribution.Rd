@@ -43,5 +43,5 @@ inverse_gaussian_lcdf(2, 3, 4)
 inverse_gaussian_quantile(0.5, 3, 4)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gaussian_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gaussian_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

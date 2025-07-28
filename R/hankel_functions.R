@@ -1,6 +1,6 @@
 #' @title Hankel Functions
 #' @description Functions to compute cyclic and spherical Hankel functions of the first and second kinds.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/hankel.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hankel.html) for more details on the mathematical background.
 #' @name hankel_functions
 #' @param v Order of the Hankel function
 #' @param x Argument of the Hankel function

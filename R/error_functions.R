@@ -1,7 +1,7 @@
 #' @title Error Functions and Inverses
 #' @name error_functions
 #' @description Functions to compute the error function, complementary error function, and their inverses.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_erf.html) for more details
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_erf.html) for more details
 #' @param x Input numeric value
 #' @param p Probability value (0 <= p <= 1)
 #' @return A single numeric value with the computed error function, complementary error function, or their inverses.

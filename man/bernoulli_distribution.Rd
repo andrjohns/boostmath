@@ -40,5 +40,5 @@ bernoulli_lcdf(1, 0.5)
 bernoulli_quantile(0.5, 0.5)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/bernoulli_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/bernoulli_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

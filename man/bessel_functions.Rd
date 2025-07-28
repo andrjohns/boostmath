@@ -98,5 +98,5 @@ cyl_bessel_j_zero(0, start_index = 1, number_of_zeros = 5)
 cyl_neumann_zero(0, start_index = 1, number_of_zeros = 5)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/bessel.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bessel.html}{Boost Documentation} for more details on the mathematical background.
 }

@@ -1,7 +1,7 @@
 #' @title Jacobi Theta Functions
 #' @name jacobi_theta_functions
 #' @description Functions to compute the Jacobi theta functions \eqn{(\theta_1, \theta_2, \theta_3, \theta_4)} parameterised by either \eqn{(q)} or \eqn{(\tau)}.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/jacobi_theta.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/jacobi_theta.html) for more details on the mathematical background.
 #' @param x Input value
 #' @param q The nome parameter of the Jacobi theta function (0 < q < 1)
 #' @param tau The nome parameter of the Jacobi theta function (tau = u + iv, where u and v are real numbers)

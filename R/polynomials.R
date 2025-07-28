@@ -1,7 +1,7 @@
 #' @title Legendre Polynomials and Related Functions
 #' @name legendre_polynomials
 #' @description Functions to compute Legendre polynomials of the first and second kind, their derivatives, zeros, and related functions.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/legendre.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/legendre.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
 #' @param m Order of the polynomial (for Legendre polynomials of the first kind)
 #' @param x Argument of the polynomial
@@ -70,7 +70,7 @@ legendre_next_m <- function(n, m, x, Pl, Plm1) {
 #' @title Laguerre Polynomials and Related Functions
 #' @name laguerre_polynomials
 #' @description Functions to compute Laguerre polynomials of the first kind.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/laguerre.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/laguerre.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
 #' @param m Order of the polynomial (for Laguerre polynomials of the first kind)
 #' @param x Argument of the polynomial
@@ -115,7 +115,7 @@ laguerre_next_m <- function(n, m, x, Ln, Lnm1) {
 #' @title Hermite Polynomials and Related Functions
 #' @name hermite_polynomials
 #' @description Functions to compute Hermite polynomials.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/hermite.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/hermite.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
 #' @param x Argument of the polynomial
 #' @param Hn Value of the Hermite polynomial \eqn{(H_n(x))}
@@ -143,7 +143,7 @@ hermite_next <- function(n, x, Hn, Hnm1) {
 #' @title Chebyshev Polynomials and Related Functions
 #' @name chebyshev_polynomials
 #' @description Functions to compute Chebyshev polynomials of the first and second kind.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/chebyshev.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/chebyshev.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
 #' @param x Argument of the polynomial
 #' @param Tn Value of the Chebyshev polynomial \eqn{(T_n(x))}
@@ -207,7 +207,7 @@ chebyshev_clenshaw_recurrence_ab <- function(c, a, b, x) {
 #' @title Spherical Harmonics
 #' @name spherical_harmonics
 #' @description Functions to compute spherical harmonics and related functions.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/sph_harm.html)
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/sph_harm.html)
 #' @param n Degree of the spherical harmonic
 #' @param m Order of the spherical harmonic
 #' @param theta Polar angle (colatitude)
@@ -243,7 +243,7 @@ spherical_harmonic_i <- function(n, m, theta, phi) {
 #' @title Gegenbauer Polynomials and Related Functions
 #' @name gegenbauer_polynomials
 #' @description Functions to compute Gegenbauer polynomials, their derivatives, and related functions.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/gegenbauer.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/gegenbauer.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
 #' @param lambda Parameter of the polynomial
 #' @param x Argument of the polynomial
@@ -279,7 +279,7 @@ gegenbauer_derivative <- function(n, lambda, x, k) {
 #' @title Jacobi Polynomials and Related Functions
 #' @name jacobi_polynomials
 #' @description Functions to compute Jacobi polynomials, their derivatives, and related functions.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/jacobi.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/jacobi.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
 #' @param alpha First parameter of the polynomial
 #' @param beta Second parameter of the polynomial

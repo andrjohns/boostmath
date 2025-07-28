@@ -59,5 +59,5 @@ log_hypergeometric_1F1(2, 3, 1)
 hypergeometric_pFq(c(2, 3), c(4, 5), 6)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/hypergeometric.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hypergeometric.html}{Boost Documentation} for more details on the mathematical background.
 }

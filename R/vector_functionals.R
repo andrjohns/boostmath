@@ -1,7 +1,7 @@
 #' @title Vector Functionals
 #' @name vector_functionals
 #' @description Functions to compute various vector norms and distances.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/vector_functionals.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/vector_functionals.html) for more details on the mathematical background.
 #' @param x A numeric vector.
 #' @param y A numeric vector of the same length as `x` (for distance functions).
 #' @param p A positive integer indicating the order of the norm or distance (for Lp functions).

@@ -43,5 +43,5 @@ non_central_t_lcdf(0, 3, 1)
 non_central_t_quantile(0.5, 3, 1)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_t_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_t_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

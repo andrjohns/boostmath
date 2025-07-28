@@ -1,7 +1,7 @@
 #' @title Bessel Functions, Their Derivatives, and Zeros
 #' @name bessel_functions
 #' @description Functions to compute Bessel functions of the first and second kind, their modified versions, spherical Bessel functions, and their derivatives and zeros.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/bessel.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bessel.html) for more details on the mathematical background.
 #' @param v Order of the Bessel function
 #' @param x Argument of the Bessel function
 #' @param m The index of the zero to find (1-based).

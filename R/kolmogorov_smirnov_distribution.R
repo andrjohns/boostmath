@@ -5,7 +5,7 @@
 #' @param n sample size (n > 0)
 #' @param p probability (0 <= p <= 1)
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/kolmogorov_smirnov_dist.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/kolmogorov_smirnov_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Kolmogorov-Smirnov distribution with sample size n = 10
 #' kolmogorov_smirnov_pdf(0.5, 10)

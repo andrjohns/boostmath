@@ -43,5 +43,5 @@ fisher_f_lcdf(1, 5, 2)
 fisher_f_quantile(0.5, 5, 2)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

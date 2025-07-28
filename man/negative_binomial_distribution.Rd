@@ -42,5 +42,5 @@ negative_binomial_lcdf(3, 5, 0.5)
 negative_binomial_quantile(0.5, 5, 0.5)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/negative_binomial_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/negative_binomial_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

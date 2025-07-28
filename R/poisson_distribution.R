@@ -5,7 +5,7 @@
 #' @param lambda rate parameter (default is 1)
 #' @param p probability (0 <= p <= 1)
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/poisson_dist.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/poisson_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Poisson distribution with lambda = 1
 #' poisson_pdf(0, 1)

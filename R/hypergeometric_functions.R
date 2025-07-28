@@ -1,7 +1,7 @@
 #' @title Hypergeometric Functions
 #' @name hypergeometric_functions
 #' @description Functions to compute various hypergeometric functions.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/hypergeometric.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hypergeometric.html) for more details on the mathematical background.
 #' @param a Parameter of the hypergeometric function
 #' @param b Second parameter of the hypergeometric function
 #' @param z Argument of the hypergeometric function

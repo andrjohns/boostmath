@@ -46,5 +46,5 @@ non_central_beta_lcdf(0.5, 2, 3, 1)
 non_central_beta_quantile(0.5, 2, 3, 1)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_beta_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_beta_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

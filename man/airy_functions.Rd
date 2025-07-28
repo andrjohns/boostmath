@@ -48,5 +48,5 @@ airy_ai_zero(start_index = 1, number_of_zeros = 5)
 airy_bi_zero(start_index = 1, number_of_zeros = 5)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/airy.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/airy.html}{Boost Documentation} for more details on the mathematical background.
 }

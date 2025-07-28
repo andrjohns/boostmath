@@ -14,7 +14,7 @@
 #'
 #' The `max_` functions return the maximum index for which the respective numbers can be computed using precomputed lookup tables.
 #'
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/number_series.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/number_series.html) for more details on the mathematical background.
 #'
 #' @examples
 #' bernoulli_b2n(10)

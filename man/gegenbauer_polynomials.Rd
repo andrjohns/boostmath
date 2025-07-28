@@ -37,5 +37,5 @@ gegenbauer_prime(2, 1, 0.5)
 gegenbauer_derivative(2, 1, 0.5, 2)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/gegenbauer.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/gegenbauer.html}{Boost Documentation} for more details on the mathematical background.
 }

@@ -1,7 +1,7 @@
 #' @title Gamma Functions
 #' @name gamma_functions
 #' @description Functions to compute the gamma function, its logarithm, digamma, trigamma, polygamma, and various incomplete gamma functions.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_gamma.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_gamma.html) for more details on the mathematical background.
 #' @param z Input numeric value for the gamma function
 #' @param n Order of the polygamma function (non-negative integer)
 #' @param a Argument for the incomplete gamma functions

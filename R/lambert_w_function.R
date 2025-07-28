@@ -1,7 +1,7 @@
 #' @title Lambert W Function and Its Derivatives
 #' @name lambert_w_function
 #' @description Functions to compute the Lambert W function and its derivatives for the principal branch (\eqn{W_0}) and the branch -1 (\eqn{W_{-1}}).
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/lambert_w.html)
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/lambert_w.html)
 #' for more details on the mathematical background.
 #' @param z Argument of the Lambert W function
 #' @return A single numeric value with the computed Lambert W function or its derivative.

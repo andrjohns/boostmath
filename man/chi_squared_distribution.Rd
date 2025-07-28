@@ -41,5 +41,5 @@ chi_squared_lcdf(2, 3)
 chi_squared_quantile(0.5, 3)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

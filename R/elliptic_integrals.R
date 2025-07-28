@@ -1,7 +1,7 @@
 #' @title Elliptic Integrals
 #' @name elliptic_integrals
 #' @description Functions to compute various elliptic integrals, including Carlson's elliptic integrals and incomplete elliptic integrals.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/ellint.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ellint.html) for more details on the mathematical background.
 #' @param x First parameter of the integral
 #' @param y Second parameter of the integral
 #' @param z Third parameter of the integral

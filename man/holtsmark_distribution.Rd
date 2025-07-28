@@ -46,5 +46,5 @@ Functions to compute the probability density function, cumulative distribution f
 }
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/holtsmark_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/holtsmark_dist.html}{Boost Documentation} for more details on the mathematical background.
 }

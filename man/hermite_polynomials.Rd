@@ -32,5 +32,5 @@ hermite(2, 0.5)
 hermite_next(2, 0.5, hermite(2, 0.5), hermite(1, 0.5))
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_poly/hermite.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/hermite.html}{Boost Documentation} for more details on the mathematical background.
 }

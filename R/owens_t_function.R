@@ -3,7 +3,7 @@
 #' Computes the Owens T function of h and a, giving the probability of
 #' the event (X > h and 0 < Y < a * X) where X and Y are independent
 #' standard normal random variables.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/owens_t.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/owens_t.html) for more details on the mathematical background.
 #'
 #' @param h The first argument of the Owens T function
 #' @param a The second argument of the Owens T function

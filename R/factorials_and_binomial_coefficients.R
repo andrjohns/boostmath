@@ -1,7 +1,7 @@
 #' @title Factorials and Binomial Coefficients
 #' @name factorials_and_binomial_coefficients
 #' @description Functions to compute factorials, double factorials, rising and falling factorials, and binomial coefficients.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/factorials.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/factorials.html) for more details on the mathematical background.
 #' @param i Non-negative integer input for factorials and double factorials.
 #' @param x Base value for rising and falling factorials.
 #' @param n Total number of elements for binomial coefficients.

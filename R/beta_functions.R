@@ -7,7 +7,7 @@
 #' @param p Probability value (0 <= p <= 1)
 #' @param q Probability value (0 <= q <= 1)
 #' @return A single numeric value with the computed beta function, normalised incomplete beta function, or their complements, depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_beta.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_beta.html) for more details on the mathematical background.
 #' @examples
 #' \dontrun{
 #' # Euler beta function B(2, 3)

@@ -115,5 +115,5 @@ gamma_p_derivative(5, 2)
 }
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/sf_gamma.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_gamma.html}{Boost Documentation} for more details on the mathematical background.
 }

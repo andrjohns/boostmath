@@ -46,5 +46,5 @@ non_central_chi_squared_quantile(0.5, 3, 1)
 }
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/1_87_0/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.
 }
