@@ -6,13 +6,13 @@
 \alias{boostmath-package}
 \title{boostmath: 'R' Bindings for the 'Boost' Math Functions}
 \description{
-'R' bindings for the various functions and statistical distributions provided by the 'Boost' Math library \url{https://www.boost.org/doc/libs/boost_1_88_0/libs/math/doc/html/index.html}.
+'R' bindings for the various functions and statistical distributions provided by the 'Boost' Math library \url{https://www.boost.org/doc/libs/latest/libs/math/doc/html/index.html}.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/andrjohns/boostmath}
-  \item \url{https://www.boost.org/doc/libs/boost_1_88_0/libs/math/doc/html/index.html}
+  \item \url{https://www.boost.org/doc/libs/latest/libs/math/doc/html/index.html}
   \item Report bugs at \url{https://github.com/andrjohns/boostmath/issues}
 }
 

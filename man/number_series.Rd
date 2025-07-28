@@ -49,8 +49,6 @@ Efficient computation of Bernoulli numbers, tangent numbers, fibonacci numbers, 
 The \code{checked_} functions ensure that the input is within valid bounds, while the \code{unchecked_} functions do not perform such checks,
 allowing for potentially faster computation at the risk of overflow or invalid input.
 
-The \code{range_} functions allow for computing a sequence of numbers starting from a specified index.
-
 The \code{max_} functions return the maximum index for which the respective numbers can be computed using precomputed lookup tables.
 }
 \examples{
