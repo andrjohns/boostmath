@@ -4,7 +4,7 @@
 
 extern "C" {
   SEXP ooura_fourier_sin_(SEXP f_, SEXP omega_, SEXP relative_error_tolerance_, SEXP levels_) {
-#ifndef __EMSCRIPTEN__
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     std::pair<double, double> result_pair = {std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN()};
     SEXP err = R_NilValue;
     char buf[8192] = "";
@@ -39,13 +39,13 @@ extern "C" {
     return cpp11::as_sexp(result);
 #else
     BEGIN_CPP11
-    cpp11::stop("Ooura Fourier integrals are not supported on WASM as they require long double precision");
+    cpp11::stop("Ooura Fourier integrals are not supported on this platform as they require long double precision");
     END_CPP11
 #endif
   }
 
   SEXP ooura_fourier_cos_(SEXP f_, SEXP omega_, SEXP relative_error_tolerance_, SEXP levels_) {
-#ifndef __EMSCRIPTEN__
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     std::pair<double, double> result_pair = {std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN()};
     SEXP err = R_NilValue;
     char buf[8192] = "";
@@ -80,7 +80,7 @@ extern "C" {
     return cpp11::as_sexp(result);
 #else
     BEGIN_CPP11
-    cpp11::stop("Ooura Fourier integrals are not supported on WASM as they require long double precision");
+    cpp11::stop("Ooura Fourier integrals are not supported on this platform as they require long double precision");
     END_CPP11
 #endif
   }
