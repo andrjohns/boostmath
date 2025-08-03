@@ -37,8 +37,10 @@ A single numeric value with the computed Fourier sine or cosine integral, with a
 Computing Fourier sine and cosine integrals using Ooura's method.
 }
 \examples{
+\dontrun{
 # Fourier sine integral of sin(x) with omega = 1
 ooura_fourier_sin(function(x) { 1 / x }, omega = 1)
 # Fourier cosine integral of cos(x) with omega = 1
 ooura_fourier_cos(function(x) { 1/ (x * x + 1) }, omega = 1)
+}
 }

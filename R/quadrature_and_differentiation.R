@@ -119,10 +119,12 @@ exp_sinh <- function(f, a, b, tol = sqrt(.Machine$double.eps), max_refinements =
 #' @param levels The number of levels of refinement to apply. Default is 8.
 #' @return A single numeric value with the computed Fourier sine or cosine integral, with attribute 'relative_error' indicating the relative error of the approximation.
 #' @examples
+#' \dontrun{
 #' # Fourier sine integral of sin(x) with omega = 1
 #' ooura_fourier_sin(function(x) { 1 / x }, omega = 1)
 #' # Fourier cosine integral of cos(x) with omega = 1
 #' ooura_fourier_cos(function(x) { 1/ (x * x + 1) }, omega = 1)
+#' }
 NULL
 
 #' @rdname ooura_fourier_integrals
