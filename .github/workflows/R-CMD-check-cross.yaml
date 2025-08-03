@@ -1,0 +1,67 @@
+on:
+  push:
+    branches: [main, master]
+
+name: R-CMD-check-crossplatform
+
+jobs:
+  R-CMD-check:
+    runs-on: ubuntu-latest
+
+    name: Check (${{ matrix.config.platform }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          -  { platform: ppc64le }
+          -  { platform: armhf }
+          -  { platform: s390x }
+          -  { platform: riscv64 }
+          -  { platform: FreeBSD }
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: rpackage
+
+      - name: Setup QEMU
+        if: matrix.config.platform != 'FreeBSD'
+        uses: docker/setup-qemu-action@master
+
+      - name: Check
+        if: matrix.config.platform != 'FreeBSD'
+        uses: addnab/docker-run-action@v3
+        with:
+          image: debian:trixie-slim
+          options: -v ${{ github.workspace }}/rpackage:/boostmath --platform=linux/${{ matrix.config.platform }} -e DEBIAN_FRONTEND=noninteractive -e TZ=Etc/UTC -e LANG=en_AU.UTF-8
+          run: |
+            apt-get update
+            apt-get install --no-install-recommends -y build-essential \
+              r-base-core locales pandoc qpdf r-cran-tinytest r-cran-rmarkdown \
+              r-cran-knitr r-cran-rcmdcheck
+            echo "en_AU.UTF-8 UTF-8" >> /etc/locale.gen
+            locale-gen en_AU.UTF-8
+            Rscript -e 'install.packages(c("cpp11", "BH"), repos = "https://cloud.r-project.org")'
+            Rscript -e 'rcmdcheck::rcmdcheck("/boostmath", args = c("--no-manual", "--as-cran"), check_dir = "/boostmath/check")'
+
+      - name: Test in FreeBSD
+        if: matrix.config.platform == 'FreeBSD'
+        uses: vmactions/freebsd-vm@v1
+        with:
+          usesh: true
+          prepare: |
+            pkg install -y R R-cran-tinytest R-cran-rcmdcheck R-cran-knitr R-cran-rmarkdown qpdf
+          run: |
+            Rscript -e 'install.packages(c("cpp11", "BH"), repos = "https://cloud.r-project.org")'
+            Rscript -e 'rcmdcheck::rcmdcheck("/root/work/boostmath/boostmath/rpackage", args = c("--no-manual", "--as-cran"), check_dir = "/root/work/boostmath/boostmath/rpackage/check")'
+
+      - name: Upload check results
+        uses: actions/upload-artifact@v4
+        with:
+          name: arch-${{ matrix.config.platform }}-results
+          path: rpackage/check
