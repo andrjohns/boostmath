@@ -10,6 +10,7 @@ License: MIT + file LICENSE
 URL: https://github.com/andrjohns/boostmath, https://www.boost.org/doc/libs/latest/libs/math/doc/html/index.html
 BugReports: https://github.com/andrjohns/boostmath/issues
 Encoding: UTF-8
+SystemRequirements: C++17
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Depends:
