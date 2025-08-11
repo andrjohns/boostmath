@@ -541,6 +541,9 @@ extern "C" {
   // rootfinding_and_minimisation/minima.cpp
   SEXP brent_find_minima_(SEXP f_, SEXP a_, SEXP b_, SEXP digits_, SEXP max_iter_);
 
+  // constants.cpp
+  SEXP constants_();
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1081,6 +1084,9 @@ extern "C" {
 
     // rootfinding_and_minimisation/minima.cpp
     {"brent_find_minima_", (DL_FUNC) &brent_find_minima_, 5},
+
+    // constants.cpp
+    {"constants_", (DL_FUNC) &constants_, 0},
 
     {NULL, NULL, 0}
   };
