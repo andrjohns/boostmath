@@ -4,10 +4,13 @@
 \alias{constants}
 \title{Boost Math Constants}
 \usage{
-constants()
+constants(constant = NULL)
+}
+\arguments{
+\item{constant}{A string specifying the name of the constant to retrieve. If \code{NULL}, returns a list of all constants (see documentation below for full list).}
 }
 \value{
-A list of constants (see documentation below for full list).
+Requested constant value if \code{constant} is specified, otherwise a list of all available constants.
 }
 \description{
 Provides access to mathematical constants used in the Boost Math library.

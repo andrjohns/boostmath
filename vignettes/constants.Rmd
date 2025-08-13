@@ -1,0 +1,35 @@
+---
+title: "Boost Math - Constants"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Boost Math - Constants}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+library(boostmath)
+```
+
+## [Constants](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/constants.html)
+
+### Retrieve Specific Constants
+
+```{r}
+constants("pi")
+constants("e")
+constants("phi")
+```
+
+### List All Available Constants
+
+```{r}
+constants()
+```
