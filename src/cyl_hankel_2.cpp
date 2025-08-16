@@ -1,7 +1,7 @@
 #include <cpp11.hpp>
 #include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/hankel.hpp>
-#include "boostmath/complex_interop.hpp"
+#include "boostmath/sexp.hpp"
 #include "boostmath/macros.hpp"
 
 BINARY_BOOST_FUNCTION(cyl_hankel_2, double, double)

@@ -544,6 +544,22 @@ extern "C" {
   // constants.cpp
   SEXP constants_();
 
+  // statistics/univariate_statistics.cpp
+  SEXP mean_(SEXP x_);
+  SEXP variance_(SEXP x_);
+  SEXP sample_variance_(SEXP x_);
+  SEXP mean_and_sample_variance_(SEXP x_);
+  SEXP skewness_(SEXP x_);
+  SEXP kurtosis_(SEXP x_);
+  SEXP excess_kurtosis_(SEXP x_);
+  SEXP first_four_moments_(SEXP x_);
+  SEXP median_(SEXP x_);
+  SEXP median_absolute_deviation_(SEXP x_);
+  SEXP interquartile_range_(SEXP x_);
+  SEXP gini_coefficient_(SEXP x_);
+  SEXP sample_gini_coefficient_(SEXP x_);
+  SEXP mode_(SEXP x_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1087,6 +1103,22 @@ extern "C" {
 
     // constants.cpp
     {"constants_", (DL_FUNC) &constants_, 0},
+
+    // statistics/univariate_statistics.cpp
+    {"mean_", (DL_FUNC) &mean_, 1},
+    {"variance_", (DL_FUNC) &variance_, 1},
+    {"sample_variance_", (DL_FUNC) &sample_variance_, 1},
+    {"mean_and_sample_variance_", (DL_FUNC) &mean_and_sample_variance_, 1},
+    {"skewness_", (DL_FUNC) &skewness_, 1},
+    {"kurtosis_", (DL_FUNC) &kurtosis_, 1},
+    {"excess_kurtosis_", (DL_FUNC) &excess_kurtosis_, 1},
+    {"first_four_moments_", (DL_FUNC) &first_four_moments_, 1},
+    {"median_", (DL_FUNC) &median_, 1},
+    {"median_absolute_deviation_", (DL_FUNC) &median_absolute_deviation_, 1},
+    {"interquartile_range_", (DL_FUNC) &interquartile_range_, 1},
+    {"gini_coefficient_", (DL_FUNC) &gini_coefficient_, 1},
+    {"sample_gini_coefficient_", (DL_FUNC) &sample_gini_coefficient_, 1},
+    {"mode_", (DL_FUNC) &mode_, 1},
 
     {NULL, NULL, 0}
   };

@@ -1,7 +1,7 @@
 #ifndef BOOSTMATH_MACROS_HPP
 #define BOOSTMATH_MACROS_HPP
 
-#include "complex_interop.hpp"
+#include "sexp.hpp"
 
 #define NOARG_BOOST_FUNCTION(name) \
   extern "C" SEXP name##_() { \
@@ -16,6 +16,15 @@
     BEGIN_CPP11 \
     const arg_type x = boostmath::as_cpp<arg_type>(x_); \
     const auto result = boost::math::name<double>(x); \
+    return boostmath::as_sexp(result); \
+    END_CPP11 \
+  }
+
+#define UNARY_BOOST_FUNCTION_NAMESPACE(namespace, name, arg_type) \
+  extern "C" SEXP name##_(SEXP x_) { \
+    BEGIN_CPP11 \
+    arg_type x = boostmath::as_cpp<arg_type>(x_); \
+    const auto result = boost::math::namespace::name(x); \
     return boostmath::as_sexp(result); \
     END_CPP11 \
   }
