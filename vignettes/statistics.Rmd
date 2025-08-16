@@ -1,0 +1,56 @@
+---
+title: "Boost Math - Statistics"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Boost Math - Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+library(boostmath)
+```
+
+## Statistics
+
+The [Statistics](https://www.boost.org/doc/libs/latest/libs/math/doc/html/statistics.html) section of the Boost Math library cover a broad range of areas
+
+### [Univariate Statistics](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html)
+
+```{r}
+# Mean
+mean_boost(c(1, 2, 3, 4, 5))
+# Variance
+variance(c(1, 2, 3, 4, 5))
+# Sample Variance
+sample_variance(c(1, 2, 3, 4, 5))
+# Mean and Sample Variance
+mean_and_sample_variance(c(1, 2, 3, 4, 5))
+# Skewness
+skewness(c(1, 2, 3, 4, 5))
+# Kurtosis
+kurtosis(c(1, 2, 3, 4, 5))
+# Excess Kurtosis
+excess_kurtosis(c(1, 2, 3, 4, 5))
+# First Four Moments
+first_four_moments(c(1, 2, 3, 4, 5))
+# Median
+median_boost(c(1, 2, 3, 4, 5))
+# Median Absolute Deviation
+median_absolute_deviation(c(1, 2, 3, 4, 5))
+# Interquartile Range
+interquartile_range(c(1, 2, 3, 4, 5))
+# Gini Coefficient
+gini_coefficient(c(1, 2, 3, 4, 5))
+# Sample Gini Coefficient
+sample_gini_coefficient(c(1, 2, 3, 4, 5))
+# Mode
+mode_boost(c(1, 2, 2, 3, 4))
+```

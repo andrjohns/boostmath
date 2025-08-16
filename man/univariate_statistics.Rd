@@ -86,5 +86,5 @@ sample_gini_coefficient(c(1, 2, 3, 4, 5))
 mode_boost(c(1, 2, 2, 3, 4))
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/univariate_statistics.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html}{Boost Documentation} for more details on the mathematical background.
 }

@@ -1,7 +1,7 @@
 #' @title Univariate Statistics Functions
 #' @name univariate_statistics
 #' @description Functions to compute various univariate statistics.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/univariate_statistics.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html) for more details on the mathematical background.
 #' @param x A numeric vector.
 #' @return A numeric value or vector with the computed statistic.
 #' @examples
