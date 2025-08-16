@@ -106,3 +106,14 @@ two_sample_t_test(c(1, 2, 3), c(4, 5, 6))
 # Paired Samples T-Test
 paired_samples_t_test(c(1, 2, 3), c(4, 5, 6))
 ```
+
+### [Z-Tests](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/z_test.html)
+
+```{r}
+# One Sample Z-Test with parameters
+one_sample_z_test_params(sample_mean = 2, sample_variance = 1, num_samples = 30, assumed_mean = 0)
+# One Sample Z-Test
+one_sample_z_test(c(1, 2, 3, 4, 5), assumed_mean = 0)
+# Two Sample ZTest
+two_sample_z_test(c(1, 2, 3), c(4, 5, 6))
+```

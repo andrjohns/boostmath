@@ -583,6 +583,10 @@ extern "C" {
   SEXP two_sample_t_test_(SEXP x_, SEXP y_);
   SEXP paired_samples_t_test_(SEXP x_, SEXP y_);
 
+  // statistics/z_tests.cpp
+  SEXP one_sample_z_test_params_(SEXP x_, SEXP y_, SEXP z_, SEXP w_);
+  SEXP one_sample_z_test_(SEXP x_, SEXP y_);
+  SEXP two_sample_z_test_(SEXP x_, SEXP y_);
 
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
@@ -1166,6 +1170,11 @@ extern "C" {
     {"one_sample_t_test_", (DL_FUNC) &one_sample_t_test_,  2},
     {"two_sample_t_test_", (DL_FUNC) &two_sample_t_test_,  2},
     {"paired_samples_t_test_", (DL_FUNC) &paired_samples_t_test_,  2},
+
+    // statistics/z_tests.cpp
+    {"one_sample_z_test_params_", (DL_FUNC) &one_sample_t_test_params_,  4},
+    {"one_sample_z_test_", (DL_FUNC) &one_sample_t_test_,  2},
+    {"two_sample_z_test_", (DL_FUNC) &two_sample_t_test_,  2},
 
     {NULL, NULL, 0}
   };
