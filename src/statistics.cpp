@@ -6,3 +6,4 @@
 #include "statistics/univariate_statistics.cpp"
 #include "statistics/bivariate_statistics.cpp"
 #include "statistics/signal_statistics.cpp"
+#include "statistics/anderson_darling_test.cpp"

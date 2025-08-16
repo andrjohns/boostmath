@@ -32,9 +32,9 @@ m2m4_snr_estimator_db(noisy_signal, signal_kurtosis = 1, noise_kurtosis = 3)
 
 \item{noisy_signal}{A numeric vector.}
 
-\item{estimated_signal_kurtosis}{A single numeric value.}
+\item{signal_kurtosis}{A single numeric value.}
 
-\item{estimated_noise_kurtosis}{A single numeric value.}
+\item{noise_kurtosis}{A single numeric value.}
 }
 \value{
 A numeric value or vector with the computed statistic.

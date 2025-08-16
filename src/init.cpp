@@ -574,6 +574,9 @@ extern "C" {
   SEXP m2m4_snr_estimator_(SEXP x_, SEXP y_, SEXP z_);
   SEXP m2m4_snr_estimator_db_(SEXP x_, SEXP y_, SEXP z_);
 
+  // statistics/anderson_darling_test.cpp
+  SEXP anderson_darling_normality_statistic_(SEXP x_, SEXP y_, SEXP z_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1147,6 +1150,9 @@ extern "C" {
     {"oracle_snr_db_", (DL_FUNC) &oracle_snr_db_, 2},
     {"m2m4_snr_estimator_db_", (DL_FUNC) &m2m4_snr_estimator_db_, 3},
     {"m2m4_snr_estimator_", (DL_FUNC) &m2m4_snr_estimator_, 3},
+
+    // statistics/anderson_darling_test.cpp
+    {"anderson_darling_normality_statistic_", (DL_FUNC) &anderson_darling_normality_statistic_,  3},
 
     {NULL, NULL, 0}
   };

@@ -5,8 +5,8 @@
 #' @param x A numeric vector.
 #' @param signal A numeric vector.
 #' @param noisy_signal A numeric vector.
-#' @param estimated_signal_kurtosis A single numeric value.
-#' @param estimated_noise_kurtosis A single numeric value.
+#' @param signal_kurtosis A single numeric value.
+#' @param noise_kurtosis A single numeric value.
 #' @return A numeric value or vector with the computed statistic.
 #' @examples
 #' # Absolute Gini Coefficient
