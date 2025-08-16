@@ -33,8 +33,6 @@ paired_samples_t_test(u, v)
 \item{u}{A numeric vector.}
 
 \item{v}{A numeric vector.}
-
-\item{sd}{A single numeric value.}
 }
 \value{
 A two-element numeric vector containing the t-statistic and the p-value.

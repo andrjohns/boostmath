@@ -592,6 +592,9 @@ extern "C" {
   SEXP runs_above_and_below_threshold_(SEXP x_, SEXP y_);
   SEXP runs_above_and_below_median_(SEXP x_);
 
+  // statistics/ljung_box_test.cpp
+  SEXP ljung_box_(SEXP x_, SEXP y_, SEXP z_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1183,6 +1186,9 @@ extern "C" {
     // statistics/runs_tests.cpp
     {"runs_above_and_below_threshold_", (DL_FUNC) &runs_above_and_below_threshold_,  2},
     {"runs_above_and_below_median_", (DL_FUNC) &runs_above_and_below_median_,  1},
+
+    // statistics/ljung_box_test.cpp
+    {"ljung_box_", (DL_FUNC) &ljung_box_,  4},
 
     {NULL, NULL, 0}
   };

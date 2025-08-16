@@ -10,3 +10,4 @@
 #include "statistics/t_tests.cpp"
 #include "statistics/z_tests.cpp"
 #include "statistics/runs_tests.cpp"
+#include "statistics/ljung_box_test.cpp"
