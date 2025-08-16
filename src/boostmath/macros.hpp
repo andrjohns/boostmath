@@ -136,6 +136,30 @@
     END_CPP11 \
   }
 
+#define QUARTERNARY_BOOST_FUNCTION_NAMESPACE(namespace, name, arg1_type, arg2_type, arg3_type, arg4_type) \
+  extern "C" SEXP name##_(SEXP x_, SEXP y_, SEXP z_, SEXP w_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
+    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
+    const auto result = boost::math::namespace::name(x, y, z, w); \
+    return boostmath::as_sexp(result); \
+    END_CPP11 \
+  }
+
+#define QUARTERNARY_BOOST_FUNCTION_NAMESPACE_SUFFIX(namespace, name, suffix, arg1_type, arg2_type, arg3_type, arg4_type) \
+  extern "C" SEXP name##_##suffix(SEXP x_, SEXP y_, SEXP z_, SEXP w_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
+    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
+    const auto result = boost::math::namespace::name(x, y, z, w); \
+    return boostmath::as_sexp(result); \
+    END_CPP11 \
+  }
+
 #define BINARY_DISTRIBUTION_BOOST_IMPL(func, dist, arg1_type, arg2_type) \
   extern "C" SEXP dist##_##func##_(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \

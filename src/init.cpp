@@ -577,6 +577,13 @@ extern "C" {
   // statistics/anderson_darling_test.cpp
   SEXP anderson_darling_normality_statistic_(SEXP x_, SEXP y_, SEXP z_);
 
+  // statistics/t_tests.cpp
+  SEXP one_sample_t_test_params_(SEXP x_, SEXP y_, SEXP z_, SEXP w_);
+  SEXP one_sample_t_test_(SEXP x_, SEXP y_);
+  SEXP two_sample_t_test_(SEXP x_, SEXP y_);
+  SEXP paired_samples_t_test_(SEXP x_, SEXP y_);
+
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1153,6 +1160,12 @@ extern "C" {
 
     // statistics/anderson_darling_test.cpp
     {"anderson_darling_normality_statistic_", (DL_FUNC) &anderson_darling_normality_statistic_,  3},
+
+    // statistics/t_tests.cpp
+    {"one_sample_t_test_params_", (DL_FUNC) &one_sample_t_test_params_,  4},
+    {"one_sample_t_test_", (DL_FUNC) &one_sample_t_test_,  2},
+    {"two_sample_t_test_", (DL_FUNC) &two_sample_t_test_,  2},
+    {"paired_samples_t_test_", (DL_FUNC) &paired_samples_t_test_,  2},
 
     {NULL, NULL, 0}
   };
