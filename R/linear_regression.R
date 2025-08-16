@@ -1,7 +1,7 @@
 #' @title Linear Regression Functions
 #' @name linear_regression
 #' @description Functions to perform linear regression.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ljulinear_regressiong_box.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/linear_regression.html) for more details on the mathematical background.
 #' @param x A numeric vector.
 #' @param y A numeric vector.
 #' @return A two-element numeric vector containing the intercept and slope of the regression line,

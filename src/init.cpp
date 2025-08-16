@@ -595,6 +595,13 @@ extern "C" {
   // statistics/ljung_box_test.cpp
   SEXP ljung_box_(SEXP x_, SEXP y_, SEXP z_);
 
+  // statistics/linear_regression.cpp
+  SEXP simple_ordinary_least_squares_(SEXP x_, SEXP y_);
+  SEXP simple_ordinary_least_squares_with_R_squared_(SEXP x_, SEXP y_);
+
+  // statistics/chatterjee_correlation.cpp
+  SEXP chatterjee_correlation_(SEXP x_, SEXP y_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1188,7 +1195,14 @@ extern "C" {
     {"runs_above_and_below_median_", (DL_FUNC) &runs_above_and_below_median_,  1},
 
     // statistics/ljung_box_test.cpp
-    {"ljung_box_", (DL_FUNC) &ljung_box_,  4},
+    {"ljung_box_", (DL_FUNC) &ljung_box_,  3},
+
+    // statistics/linear_regression.cpp
+    {"simple_ordinary_least_squares_", (DL_FUNC) &simple_ordinary_least_squares_,  2},
+    {"simple_ordinary_least_squares_with_R_squared_", (DL_FUNC) &simple_ordinary_least_squares_with_R_squared_,  2},
+
+    // statistics/chatterjee_correlation.cpp
+    {"chatterjee_correlation_", (DL_FUNC) &chatterjee_correlation_,  2},
 
     {NULL, NULL, 0}
   };

@@ -31,5 +31,5 @@ simple_ordinary_least_squares(x, y)
 simple_ordinary_least_squares_with_R_squared(x, y)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ljulinear_regressiong_box.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/linear_regression.html}{Boost Documentation} for more details on the mathematical background.
 }

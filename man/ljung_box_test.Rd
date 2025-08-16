@@ -8,11 +8,11 @@
 ljung_box(v, lags = -1, fit_dof = 0)
 }
 \arguments{
+\item{v}{A numeric vector.}
+
 \item{lags}{A single integer value.}
 
 \item{fit_dof}{A single integer value.}
-
-\item{x}{A numeric vector.}
 }
 \value{
 A two-element numeric vector containing the test statistic and the p-value.

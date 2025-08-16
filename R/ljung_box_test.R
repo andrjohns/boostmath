@@ -2,7 +2,7 @@
 #' @name ljung_box_test
 #' @description Functions to perform the Ljung-Box test for autocorrelation.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ljung_box.html) for more details on the mathematical background.
-#' @param x A numeric vector.
+#' @param v A numeric vector.
 #' @param lags A single integer value.
 #' @param fit_dof A single integer value.
 #' @return A two-element numeric vector containing the test statistic and the p-value.

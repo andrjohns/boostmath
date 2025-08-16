@@ -12,3 +12,4 @@
 #include "statistics/runs_tests.cpp"
 #include "statistics/ljung_box_test.cpp"
 #include "statistics/linear_regression.cpp"
+#include "statistics/chatterjee_correlation.cpp"
