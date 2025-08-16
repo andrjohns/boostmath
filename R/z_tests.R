@@ -8,7 +8,6 @@
 #' @param assumed_mean A single value.
 #' @param u A numeric vector.
 #' @param v A numeric vector.
-#' @param sd A single numeric value.
 #' @return A two-element numeric vector containing the t-statistic and the p-value.
 #' @examples
 #' # One Sample T-Test Parameters

@@ -9,3 +9,4 @@
 #include "statistics/anderson_darling_test.cpp"
 #include "statistics/t_tests.cpp"
 #include "statistics/z_tests.cpp"
+#include "statistics/runs_tests.cpp"

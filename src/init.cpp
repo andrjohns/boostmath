@@ -588,6 +588,10 @@ extern "C" {
   SEXP one_sample_z_test_(SEXP x_, SEXP y_);
   SEXP two_sample_z_test_(SEXP x_, SEXP y_);
 
+  // statistics/runs_tests.cpp
+  SEXP runs_above_and_below_threshold_(SEXP x_, SEXP y_);
+  SEXP runs_above_and_below_median_(SEXP x_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1175,6 +1179,10 @@ extern "C" {
     {"one_sample_z_test_params_", (DL_FUNC) &one_sample_t_test_params_,  4},
     {"one_sample_z_test_", (DL_FUNC) &one_sample_t_test_,  2},
     {"two_sample_z_test_", (DL_FUNC) &two_sample_t_test_,  2},
+
+    // statistics/runs_tests.cpp
+    {"runs_above_and_below_threshold_", (DL_FUNC) &runs_above_and_below_threshold_,  2},
+    {"runs_above_and_below_median_", (DL_FUNC) &runs_above_and_below_median_,  1},
 
     {NULL, NULL, 0}
   };

@@ -117,3 +117,13 @@ one_sample_z_test(c(1, 2, 3, 4, 5), assumed_mean = 0)
 # Two Sample ZTest
 two_sample_z_test(c(1, 2, 3), c(4, 5, 6))
 ```
+
+
+### [Runs Tests](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/runs_test.html)
+
+```{r}
+# Runs Above and Below Threshold
+runs_above_and_below_threshold(c(1, 2, 3, 4, 5), threshold = 3)
+#' # Runs Above and Below Median
+runs_above_and_below_median(c(1, 2, 3, 4, 5))
+```
