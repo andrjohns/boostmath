@@ -565,6 +565,15 @@ extern "C" {
   SEXP means_and_covariance_(SEXP x_, SEXP y_);
   SEXP correlation_coefficient_(SEXP x_, SEXP y_);
 
+  // statistics/signal_statistics.cpp
+  SEXP absolute_gini_coefficient_(SEXP x_);
+  SEXP sample_absolute_gini_coefficient_(SEXP x_);
+  SEXP hoyer_sparsity_(SEXP x_);
+  SEXP oracle_snr_(SEXP x_, SEXP y_);
+  SEXP oracle_snr_db_(SEXP x_, SEXP y_);
+  SEXP m2m4_snr_estimator_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP m2m4_snr_estimator_db_(SEXP x_, SEXP y_, SEXP z_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1129,6 +1138,15 @@ extern "C" {
     {"covariance_", (DL_FUNC) &covariance_, 2},
     {"means_and_covariance_", (DL_FUNC) &means_and_covariance_, 2},
     {"correlation_coefficient_", (DL_FUNC) &correlation_coefficient_, 2},
+
+    // statistics/signal_statistics.cpp
+    {"absolute_gini_coefficient_", (DL_FUNC) &absolute_gini_coefficient_, 1},
+    {"sample_absolute_gini_coefficient_", (DL_FUNC) &sample_absolute_gini_coefficient_, 1},
+    {"hoyer_sparsity_", (DL_FUNC) &hoyer_sparsity_, 1},
+    {"oracle_snr_", (DL_FUNC) &oracle_snr_, 2},
+    {"oracle_snr_db_", (DL_FUNC) &oracle_snr_db_, 2},
+    {"m2m4_snr_estimator_db_", (DL_FUNC) &m2m4_snr_estimator_db_, 3},
+    {"m2m4_snr_estimator_", (DL_FUNC) &m2m4_snr_estimator_, 3},
 
     {NULL, NULL, 0}
   };

@@ -5,3 +5,4 @@
 #endif
 #include "statistics/univariate_statistics.cpp"
 #include "statistics/bivariate_statistics.cpp"
+#include "statistics/signal_statistics.cpp"
