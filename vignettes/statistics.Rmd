@@ -133,3 +133,14 @@ runs_above_and_below_median(c(1, 2, 3, 4, 5))
 # Ljung-Box test for autocorrelation
 ljung_box(c(1, 2, 3, 4, 5), lags = 2, fit_dof = 0)
 ```
+
+### [Linear Regression](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/linear_regression.html)
+
+```{r}
+x <- c(1, 2, 3, 4, 5)
+y <- c(2, 3, 5, 7, 11)
+# Simple Ordinary Least Squares
+simple_ordinary_least_squares(x, y)
+# Simple Ordinary Least Squares with R-squared
+simple_ordinary_least_squares_with_R_squared(x, y)
+```
