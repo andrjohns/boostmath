@@ -48,6 +48,16 @@
     END_CPP11 \
   }
 
+#define BINARY_BOOST_FUNCTION_NAMESPACE(namespace, name, arg1_type, arg2_type) \
+  extern "C" SEXP name##_(SEXP x_, SEXP y_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const auto result = boost::math::namespace::name(x, y); \
+    return boostmath::as_sexp(result); \
+    END_CPP11 \
+  }
+
 #define BINARY_BOOST_FUNCTION_VECTOR_SUFFIX(name, suffix, arg1_type, arg2_type) \
   extern "C" SEXP name##_##suffix(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \

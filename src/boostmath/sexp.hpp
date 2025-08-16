@@ -11,7 +11,9 @@ namespace boostmath {
   using is_cpp11 = std::negation<std::disjunction<
     std::is_same<T, std::complex<double>>,
     std::is_same<T, std::pair<double, double>>,
-    std::is_same<T, std::tuple<double, double, double, double>>>>;
+    std::is_same<T, std::tuple<double, double, double>>,
+    std::is_same<T, std::tuple<double, double, double, double>>
+  >>;
 
 
   template <typename T, std::enable_if_t<std::is_same<T, std::complex<double>>::value>* = nullptr>
@@ -23,6 +25,15 @@ namespace boostmath {
   template <typename T, std::enable_if_t<std::is_same<T, std::pair<double, double>>::value>* = nullptr>
   inline T as_cpp(SEXP x) {
     return std::make_pair(REAL_ELT(x, 0), REAL_ELT(x, 1));
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::tuple<double, double, double>>::value>* = nullptr>
+  inline T as_cpp(SEXP x) {
+    return std::make_tuple(
+      REAL_ELT(x, 0),
+      REAL_ELT(x, 1),
+      REAL_ELT(x, 2)
+    );
   }
 
   template <typename T, std::enable_if_t<std::is_same<T, std::tuple<double, double, double, double>>::value>* = nullptr>
@@ -62,6 +73,16 @@ namespace boostmath {
       std::get<1>(x),
       std::get<2>(x),
       std::get<3>(x)
+    };
+    return cpp11::as_sexp(data);
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::tuple<double, double, double>>::value>* = nullptr>
+  inline SEXP as_sexp(const T& x) {
+    std::vector<double> data = {
+      std::get<0>(x),
+      std::get<1>(x),
+      std::get<2>(x)
     };
     return cpp11::as_sexp(data);
   }

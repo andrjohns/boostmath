@@ -54,3 +54,14 @@ sample_gini_coefficient(c(1, 2, 3, 4, 5))
 # Mode
 mode_boost(c(1, 2, 2, 3, 4))
 ```
+
+### [Bivariate Statistics](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bivariate_statistics.html)
+
+```{r}
+# Covariance
+covariance(c(1, 2, 3), c(4, 5, 6))
+# Means and Covariance
+means_and_covariance(c(1, 2, 3), c(4, 5, 6))
+# Correlation Coefficient
+correlation_coefficient(c(1, 2, 3), c(4, 5, 6))
+```

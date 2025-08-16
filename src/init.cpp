@@ -560,6 +560,11 @@ extern "C" {
   SEXP sample_gini_coefficient_(SEXP x_);
   SEXP mode_(SEXP x_);
 
+  // statistics/bivariate_statistics.cpp
+  SEXP covariance_(SEXP x_, SEXP y_);
+  SEXP means_and_covariance_(SEXP x_, SEXP y_);
+  SEXP correlation_coefficient_(SEXP x_, SEXP y_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1119,6 +1124,11 @@ extern "C" {
     {"gini_coefficient_", (DL_FUNC) &gini_coefficient_, 1},
     {"sample_gini_coefficient_", (DL_FUNC) &sample_gini_coefficient_, 1},
     {"mode_", (DL_FUNC) &mode_, 1},
+
+    // statistics/bivariate_statistics.cpp
+    {"covariance_", (DL_FUNC) &covariance_, 2},
+    {"means_and_covariance_", (DL_FUNC) &means_and_covariance_, 2},
+    {"correlation_coefficient_", (DL_FUNC) &correlation_coefficient_, 2},
 
     {NULL, NULL, 0}
   };

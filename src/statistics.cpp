@@ -4,3 +4,4 @@
 #define BOOST_MATH_NO_CXX17_HDR_EXECUTION
 #endif
 #include "statistics/univariate_statistics.cpp"
+#include "statistics/bivariate_statistics.cpp"
