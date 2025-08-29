@@ -1,6 +1,6 @@
 #include "interpolators/barycentric_rational.cpp"
-//#include "interpolators/bezier_polynomials.cpp"
-//#include "interpolators/bilinear_uniform.cpp"
+#include "interpolators/bezier_polynomials.cpp"
+#include "interpolators/bilinear_uniform.cpp"
 #include "interpolators/cardinal_cubic_b_spline.cpp"
 #include "interpolators/cardinal_quadratic_b_spline.cpp"
 #include "interpolators/cardinal_quintic_b_spline.cpp"

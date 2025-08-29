@@ -1,1 +1,27 @@
 CXX_STD=CXX17
+
+SOURCES = init.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+
+BOOST_SOURCES = \
+	constants.cpp \
+	interpolators.cpp \
+	quadrature_and_differentiation.cpp \
+	rootfinding_and_minimisation.cpp \
+	special_functions.cpp \
+	statistical_distributions.cpp \
+	statistics.cpp \
+	vector_functionals.cpp \
+	cyl_hankel_1.cpp \
+	cyl_hankel_2.cpp \
+	sph_hankel_1.cpp \
+	sph_hankel_2.cpp
+
+BOOST_OBJECTS = $(BOOST_SOURCES:.cpp=.o)
+
+PKG_LIBS = $(BOOST_OBJECTS)
+
+$(SHLIB): $(OBJECTS) $(BOOST_OBJECTS)
+
+clean:
+	$(RM) $(OBJECTS) $(BOOST_OBJECTS)
