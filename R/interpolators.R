@@ -39,3 +39,218 @@ cardinal_cubic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, r
     class = "cardinal_cubic_b_spline"
   )
 }
+
+#' Barycentric Rational Interpolation
+#'
+#' Constructs a barycentric rational interpolator given data points.
+#'
+#' @param x Numeric vector of data points (abscissas).
+#' @param y Numeric vector of data values (ordinates).
+#' @param order Integer representing the approximation order of the interpolator, defaults to 3.
+#'
+#' @return An object of class `barycentric_rational_interpolator` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#' @examples
+#' x <- c(0, 1, 2, 3)
+#' y <- c(1, 2, 0, 2)
+#' order <- 3
+#' interpolator <- barycentric_rational(x, y, order)
+#' xi <- 1.5
+#' interpolated_value <- interpolator$interpolate(xi)
+#' derivative_value <- interpolator$derivative(xi)
+#' @export
+barycentric_rational <- function(x, y, order = 3) {
+  stopifnot(length(x) == length(y))
+  ptr <- .Call(`barycentric_rational_init_`, x, y, order)
+  structure(
+    list(
+      interpolate = function(xi) .Call(`barycentric_rational_eval_`, ptr, xi),
+      derivative = function(xi) .Call(`barycentric_rational_prime_`, ptr, xi)
+    ),
+    class = "barycentric_rational"
+  )
+}
+
+#' Bezier Polynomial Interpolator
+#'
+#' Constructs a Bezier polynomial interpolator given control points.
+#'
+#' @param control_points List of control points, where each element is a numeric vector of length 3.
+#'
+#' @return An object of class `bezier_polynomial` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `edit_control_point(new_control_point, index)`: Insert a new control point at the specified index.
+#' @examples
+#' control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
+#' interpolator <- bezier_polynomial(control_points)
+#' xi <- 1.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' new_control_point <- c(1.5, 1, 0)
+#' interpolator$edit_control_point(new_control_point, 2)
+#'
+#' @export
+bezier_polynomial <- function(control_points) {
+  stopifnot(is.list(control_points), all(sapply(control_points, is.numeric)), all(sapply(control_points, length) == 3))
+  ptr <- .Call(`bezier_polynomial_init_`, control_points)
+  structure(
+    list(
+      spline = function(xi) .Call(`bezier_polynomial_eval_`, ptr, xi),
+      prime = function(xi) .Call(`bezier_polynomial_prime_`, ptr, xi),
+      edit_control_point = function(new_control_point, index) {
+        stopifnot(is.numeric(new_control_point), length(new_control_point) == 3)
+        .Call(`bezier_polynomial_edit_control_point_`, ptr, new_control_point, index)
+      }
+    ),
+    class = "bezier_polynomial"
+  )
+}
+
+#' Bilinear Uniform Interpolator
+#'
+#' Constructs a bilinear uniform interpolator given a grid of data points.
+#'
+#' @param x Numeric vector of all grid elements
+#' @param rows Integer representing the number of rows in the grid
+#' @param cols Integer representing the number of columns in the grid
+#' @param dx Numeric value representing the spacing between grid points in the x-direction, defaults to 1
+#' @param dy Numeric value representing the spacing between grid points in the y-direction, defaults to 1
+#' @param x0 Numeric value representing the x-coordinate of the origin, defaults to 0
+#' @param y0 Numeric value representing the y-coordinate of the origin, defaults to 0
+#'
+#' @return An object of class `bilinear_uniform` with methods:
+#'   - `spline(xi, yi)`: Evaluate the interpolator at point `(xi, yi)`.
+#' @examples
+#' x <- seq(0, 1, length.out = 10)
+#' interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
+#' xi <- 0.5
+#' yi <- 0.5
+#' interpolated_value <- interpolator$spline(xi, yi)
+#' @export
+bilinear_uniform <- function(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0) {
+  ptr <- .Call(`bilinear_uniform_init_`, x, rows, cols, dx, dy, x0, y0)
+  structure(
+    list(
+      spline = function(xi, yi) .Call(`bilinear_uniform_eval_`, ptr, xi, yi)
+    ),
+    class = "bilinear_uniform"
+  )
+}
+
+#' Cardinal Quadratic B-Spline Interpolator
+#'
+#' Constructs a cardinal quadratic B-spline interpolator given control points.
+#'
+#' @param y Numeric vector of data points to interpolate.
+#' @param t0 Numeric scalar representing the starting point of the data.
+#' @param h Numeric scalar representing the spacing between data points.
+#' @param left_endpoint_derivative Optional numeric scalar for the derivative at the left endpoint.
+#' @param right_endpoint_derivative Optional numeric scalar for the derivative at the right endpoint.
+#'
+#' @return An object of class `cardinal_quadratic_b_spline` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#' @examples
+#' y <- c(0, 1, 0, 1)
+#' t0 <- 0
+#' h <- 1
+#' interpolator <- cardinal_quadratic_b_spline(y, t0, h)
+#' xi <- 0.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' @export
+cardinal_quadratic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
+  if (is.null(left_endpoint_derivative)) {
+    left_endpoint_derivative <- NaN
+  }
+  if (is.null(right_endpoint_derivative)) {
+    right_endpoint_derivative <- NaN
+  }
+  ptr <- .Call(`cardinal_quadratic_b_spline_init_`, y, t0, h, left_endpoint_derivative, right_endpoint_derivative)
+  structure(
+    list(
+      spline = function(xi) .Call(`cardinal_quadratic_b_spline_eval_`, ptr, xi),
+      prime = function(xi) .Call(`cardinal_quadratic_b_spline_prime_`, ptr, xi)
+    ),
+    class = "cardinal_quadratic_b_spline"
+  )
+}
+
+#' Cardinal Quintic B-Spline Interpolator
+#'
+#' Constructs a cardinal quintic B-spline interpolator given control points.
+#'
+#' @param y Numeric vector of data points to interpolate.
+#' @param t0 Numeric scalar representing the starting point of the data.
+#' @param h Numeric scalar representing the spacing between data points.
+#' @param left_endpoint_derivative Optional numeric scalar for the derivative at the left endpoint.
+#' @param right_endpoint_derivative Optional numeric scalar for the derivative at the right endpoint.
+#'
+#' @return An object of class `cardinal_quintic_b_spline` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `double_prime(xi)`: Evaluate the second derivative of the interpolator at point `xi`.
+#' @examples
+#' y <- c(0, 1, 0, 1)
+#' t0 <- 0
+#' h <- 1
+#' interpolator <- cardinal_quintic_b_spline(y, t0, h)
+#' xi <- 0.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' second_derivative_value <- interpolator$double_prime(xi)
+#' @export
+cardinal_quintic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
+  if (is.null(left_endpoint_derivative)) {
+    left_endpoint_derivative <- NaN
+  }
+  if (is.null(right_endpoint_derivative)) {
+    right_endpoint_derivative <- NaN
+  }
+  ptr <- .Call(`cardinal_quintic_b_spline_init_`, y, t0, h, left_endpoint_derivative, right_endpoint_derivative)
+  structure(
+    list(
+      spline = function(xi) .Call(`cardinal_quintic_b_spline_eval_`, ptr, xi),
+      prime = function(xi) .Call(`cardinal_quintic_b_spline_prime_`, ptr, xi),
+      double_prime = function(xi) .Call(`cardinal_quintic_b_spline_double_prime_`, ptr, xi)
+    ),
+    class = "cardinal_quintic_b_spline"
+  )
+}
+
+#' Catmull-Rom Interpolation
+#'
+#' Constructs a Catmull-Rom spline interpolator given control points.
+#'
+#' @param control_points List of control points, where each element is a numeric vector of length 3.
+#' @param closed Logical indicating whether the spline is closed (i.e., the first and last control points are connected), defaults to false
+#' @param alpha Numeric scalar for the tension parameter, defaults to 0.5
+#'
+#' @return An object of class `catmull_rom` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `max_parameter()`: Get the maximum parameter value of the spline.
+#'   - `parameter_at_point(i)`: Get the parameter value at index `i`.
+#' @examples
+#' control_points <- list(c(0, 0, 0), c(1, 1, 0), c(2, 0, 0), c(3, 1, 0))
+#' interpolator <- catmull_rom(control_points)
+#' xi <- 1.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' max_param <- interpolator$max_parameter()
+#' param_at_point <- interpolator$parameter_at_point(2)
+#' @export
+catmull_rom <- function(control_points, closed = FALSE, alpha = 0.5) {
+  ptr <- .Call(`catmull_rom_init_`, control_points, closed, alpha)
+  structure(
+    list(
+      spline = function(xi) .Call(`catmull_rom_eval_`, ptr, xi),
+      prime = function(xi) .Call(`catmull_rom_prime_`, ptr, xi),
+      max_parameter = function() .Call(`catmull_rom_max_parameter_`, ptr),
+      parameter_at_point = function(i) .Call(`catmull_rom_parameter_at_point_`, ptr, i)
+    ),
+    class = "catmull_rom"
+  )
+}
