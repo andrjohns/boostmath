@@ -606,7 +606,7 @@ extern "C" {
   SEXP barycentric_rational_init_(SEXP x_, SEXP y_, SEXP order_);
   SEXP barycentric_rational_eval_(SEXP ptr_, SEXP x_);
   SEXP barycentric_rational_prime_(SEXP ptr_, SEXP x_);
-
+/*
   // interpolators/bezier_polynomial.cpp
   SEXP bezier_polynomial_init_(SEXP control_points_);
   SEXP bezier_polynomial_eval_(SEXP ptr_, SEXP x_);
@@ -616,7 +616,7 @@ extern "C" {
   // interpolators/bilinear_uniform.cpp
   SEXP bilinear_uniform_init_(SEXP fieldData_, SEXP rows_, SEXP cols_, SEXP dx_, SEXP dy_, SEXP x0_, SEXP y0_);
   SEXP bilinear_uniform_eval_(SEXP ptr_, SEXP x_, SEXP y_);
-
+*/
   // interpolators/cardinal_cubic_b_spline.cpp
   SEXP cardinal_cubic_b_spline_init_(SEXP y_, SEXP t0_, SEXP h_, SEXP left_endpoint_derivative_, SEXP right_endpoint_derivative_);
   SEXP cardinal_cubic_b_spline_eval_(SEXP ptr_, SEXP x_);
@@ -1292,7 +1292,7 @@ extern "C" {
     {"barycentric_rational_init_", (DL_FUNC) &barycentric_rational_init_,  3},
     {"barycentric_rational_eval_", (DL_FUNC) &barycentric_rational_eval_,  2},
     {"barycentric_rational_prime_", (DL_FUNC) &barycentric_rational_prime_,  2},
-
+/*
     // interpolators/bezier_polynomial.cpp
     {"bezier_polynomial_init_", (DL_FUNC) &bezier_polynomial_init_,  1},
     {"bezier_polynomial_eval_", (DL_FUNC) &bezier_polynomial_eval_,  2},
@@ -1302,7 +1302,7 @@ extern "C" {
     // interpolators/bilinear_uniform.cpp
     {"bilinear_uniform_init_", (DL_FUNC) &bilinear_uniform_init_,  7},
     {"bilinear_uniform_eval_", (DL_FUNC) &bilinear_uniform_eval_,  3},
-
+*/
     // interpolators/cardinal_cubic_b_spline.cpp
     {"cardinal_cubic_b_spline_init_", (DL_FUNC) &cardinal_cubic_b_spline_init_,  5},
     {"cardinal_cubic_b_spline_eval_", (DL_FUNC) &cardinal_cubic_b_spline_eval_,  2},

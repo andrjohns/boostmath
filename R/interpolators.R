@@ -72,73 +72,6 @@ barycentric_rational <- function(x, y, order = 3) {
   )
 }
 
-#' Bezier Polynomial Interpolator
-#'
-#' Constructs a Bezier polynomial interpolator given control points.
-#'
-#' @param control_points List of control points, where each element is a numeric vector of length 3.
-#'
-#' @return An object of class `bezier_polynomial` with methods:
-#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
-#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
-#'   - `edit_control_point(new_control_point, index)`: Insert a new control point at the specified index.
-#' @examples
-#' control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
-#' interpolator <- bezier_polynomial(control_points)
-#' xi <- 1.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
-#' new_control_point <- c(1.5, 1, 0)
-#' interpolator$edit_control_point(new_control_point, 2)
-#'
-#' @export
-bezier_polynomial <- function(control_points) {
-  stopifnot(is.list(control_points), all(sapply(control_points, is.numeric)), all(sapply(control_points, length) == 3))
-  ptr <- .Call(`bezier_polynomial_init_`, control_points)
-  structure(
-    list(
-      spline = function(xi) .Call(`bezier_polynomial_eval_`, ptr, xi),
-      prime = function(xi) .Call(`bezier_polynomial_prime_`, ptr, xi),
-      edit_control_point = function(new_control_point, index) {
-        stopifnot(is.numeric(new_control_point), length(new_control_point) == 3)
-        .Call(`bezier_polynomial_edit_control_point_`, ptr, new_control_point, index)
-      }
-    ),
-    class = "bezier_polynomial"
-  )
-}
-
-#' Bilinear Uniform Interpolator
-#'
-#' Constructs a bilinear uniform interpolator given a grid of data points.
-#'
-#' @param x Numeric vector of all grid elements
-#' @param rows Integer representing the number of rows in the grid
-#' @param cols Integer representing the number of columns in the grid
-#' @param dx Numeric value representing the spacing between grid points in the x-direction, defaults to 1
-#' @param dy Numeric value representing the spacing between grid points in the y-direction, defaults to 1
-#' @param x0 Numeric value representing the x-coordinate of the origin, defaults to 0
-#' @param y0 Numeric value representing the y-coordinate of the origin, defaults to 0
-#'
-#' @return An object of class `bilinear_uniform` with methods:
-#'   - `spline(xi, yi)`: Evaluate the interpolator at point `(xi, yi)`.
-#' @examples
-#' x <- seq(0, 1, length.out = 10)
-#' interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
-#' xi <- 0.5
-#' yi <- 0.5
-#' interpolated_value <- interpolator$spline(xi, yi)
-#' @export
-bilinear_uniform <- function(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0) {
-  ptr <- .Call(`bilinear_uniform_init_`, x, rows, cols, dx, dy, x0, y0)
-  structure(
-    list(
-      spline = function(xi, yi) .Call(`bilinear_uniform_eval_`, ptr, xi, yi)
-    ),
-    class = "bilinear_uniform"
-  )
-}
-
 #' Cardinal Quadratic B-Spline Interpolator
 #'
 #' Constructs a cardinal quadratic B-spline interpolator given control points.
@@ -193,7 +126,7 @@ cardinal_quadratic_b_spline <- function(y, t0, h, left_endpoint_derivative = NUL
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `double_prime(xi)`: Evaluate the second derivative of the interpolator at point `xi`.
 #' @examples
-#' y <- c(0, 1, 0, 1)
+#' y <- seq(0, 1, length.out = 20)
 #' t0 <- 0
 #' h <- 1
 #' interpolator <- cardinal_quintic_b_spline(y, t0, h)

@@ -35,7 +35,7 @@ An object of class \code{cardinal_quintic_b_spline} with methods:
 Constructs a cardinal quintic B-spline interpolator given control points.
 }
 \examples{
-y <- c(0, 1, 0, 1)
+y <- seq(0, 1, length.out = 20)
 t0 <- 0
 h <- 1
 interpolator <- cardinal_quintic_b_spline(y, t0, h)
