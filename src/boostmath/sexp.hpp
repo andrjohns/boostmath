@@ -12,7 +12,11 @@ namespace boostmath {
     std::is_same<T, std::complex<double>>,
     std::is_same<T, std::pair<double, double>>,
     std::is_same<T, std::tuple<double, double, double>>,
-    std::is_same<T, std::tuple<double, double, double, double>>
+    std::is_same<T, std::tuple<double, double, double, double>>,
+    std::is_same<T, std::array<double, 3>>,
+    std::is_same<T, std::vector<std::array<double, 3>>>,
+    std::is_same<T, std::array<double, 2>>,
+    std::is_same<T, std::vector<std::array<double, 2>>>
   >>;
 
 
@@ -46,6 +50,40 @@ namespace boostmath {
     );
   }
 
+  template <typename T, std::enable_if_t<std::is_same<T, std::array<double, 3>>::value>* = nullptr>
+  inline T as_cpp(SEXP x) {
+    return {REAL_ELT(x, 0), REAL_ELT(x, 1), REAL_ELT(x, 2)};
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::vector<std::array<double, 3>>>::value>* = nullptr>
+  inline T as_cpp(SEXP x) {
+    R_xlen_t n = Rf_xlength(x);
+    T result;
+    result.reserve(n);
+    for (R_xlen_t i = 0; i < n; ++i) {
+      SEXP xi = VECTOR_ELT(x, i);
+      result.push_back(as_cpp<std::array<double, 3>>(xi));
+    }
+    return result;
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::array<double, 2>>::value>* = nullptr>
+  inline T as_cpp(SEXP x) {
+    return {REAL_ELT(x, 0), REAL_ELT(x, 1)};
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::vector<std::array<double, 2>>>::value>* = nullptr>
+  inline T as_cpp(SEXP x) {
+    R_xlen_t n = Rf_xlength(x);
+    T result;
+    result.reserve(n);
+    for (R_xlen_t i = 0; i < n; ++i) {
+      SEXP xi = VECTOR_ELT(x, i);
+      result.push_back(as_cpp<std::array<double, 2>>(xi));
+    }
+    return result;
+  }
+
   template <typename T, std::enable_if_t<is_cpp11<T>::value>* = nullptr>
   inline T as_cpp(SEXP x) {
     return cpp11::as_cpp<T>(x);
@@ -66,6 +104,16 @@ namespace boostmath {
     return cpp11::as_sexp(data);
   }
 
+  template <typename T, std::enable_if_t<std::is_same<T, std::tuple<double, double, double>>::value>* = nullptr>
+  inline SEXP as_sexp(const T& x) {
+    std::vector<double> data = {
+      std::get<0>(x),
+      std::get<1>(x),
+      std::get<2>(x)
+    };
+    return cpp11::as_sexp(data);
+  }
+
   template <typename T, std::enable_if_t<std::is_same<T, std::tuple<double, double, double, double>>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
     std::vector<double> data = {
@@ -77,14 +125,36 @@ namespace boostmath {
     return cpp11::as_sexp(data);
   }
 
-  template <typename T, std::enable_if_t<std::is_same<T, std::tuple<double, double, double>>::value>* = nullptr>
+  template <typename T, std::enable_if_t<std::is_same<T, std::array<double, 3>>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
-    std::vector<double> data = {
-      std::get<0>(x),
-      std::get<1>(x),
-      std::get<2>(x)
-    };
+    std::vector<double> data = {x[0], x[1], x[2]};
     return cpp11::as_sexp(data);
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::vector<std::array<double, 3>>>::value>* = nullptr>
+  inline SEXP as_sexp(const T& x) {
+    R_xlen_t n = x.size();
+    SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
+    for (R_xlen_t i = 0; i < n; ++i) {
+      SET_VECTOR_ELT(data, i, as_sexp(x[i]));
+    }
+    return data;
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::array<double, 2>>::value>* = nullptr>
+  inline SEXP as_sexp(const T& x) {
+    std::vector<double> data = {x[0], x[1]};
+    return cpp11::as_sexp(data);
+  }
+
+  template <typename T, std::enable_if_t<std::is_same<T, std::vector<std::array<double, 2>>>::value>* = nullptr>
+  inline SEXP as_sexp(const T& x) {
+    R_xlen_t n = x.size();
+    SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
+    for (R_xlen_t i = 0; i < n; ++i) {
+      SET_VECTOR_ELT(data, i, as_sexp(x[i]));
+    }
+    return data;
   }
 
   template <typename T, std::enable_if_t<is_cpp11<T>::value>* = nullptr>
