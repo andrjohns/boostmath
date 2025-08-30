@@ -79,3 +79,4 @@ extern "C" {
 
     return boostmath::as_sexp(ptr->domain());
   }
+}
