@@ -254,3 +254,155 @@ catmull_rom <- function(control_points, closed = FALSE, alpha = 0.5) {
     class = "catmull_rom"
   )
 }
+
+#' Cubic Hermite Interpolator
+#'
+#' Constructs a cubic Hermite interpolator given the vectors of abscissas, ordinates, and derivatives.
+#'
+#' @param x Numeric vector of abscissas (x-coordinates).
+#' @param y Numeric vector of ordinates (y-coordinates).
+#' @param dydx Numeric vector of derivatives (slopes) at each point.
+#'
+#' @return An object of class `cubic_hermite` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `push_back(x, y, dydx)`: Add a new control point to the interpolator.
+#'   - `domain()`: Get the domain of the interpolator.
+#' @examples
+#' x <- c(0, 1, 2)
+#' y <- c(0, 1, 0)
+#' dydx <- c(1, 0, -1)
+#' interpolator <- cubic_hermite(x, y, dydx)
+#' xi <- 0.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' interpolator$push_back(3, 0, 1)
+#' domain <- interpolator$domain()
+#' @export
+cubic_hermite <- function(x, y, dydx) {
+  ptr <- .Call(`cubic_hermite_init_`, x, y, dydx)
+  structure(
+    list(
+      spline = function(xi) .Call(`cubic_hermite_eval_`, ptr, xi),
+      prime = function(xi) .Call(`cubic_hermite_prime_`, ptr, xi),
+      push_back = function(x, y, dydx) .Call(`cubic_hermite_push_back_`, ptr, x, y, dydx),
+      domain = function() .Call(`cubic_hermite_domain_`, ptr)
+    ),
+    class = "cubic_hermite"
+  )
+}
+
+#' Cardinal Cubic Hermite Interpolator
+#'
+#' Constructs a cardinal cubic Hermite interpolator given the vectors of abscissas, ordinates, and derivatives.
+#'
+#' @param y Numeric vector of ordinates (y-coordinates).
+#' @param dydx Numeric vector of derivatives (slopes) at each point.
+#' @param x0 Numeric value of the first abscissa (x-coordinate).
+#' @param dx Numeric value of the spacing between abscissas.
+#'
+#' @return An object of class `cardinal_cubic_hermite` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `domain()`: Get the domain of the interpolator.
+#' @examples
+#' x <- c(0, 1, 2)
+#' y <- c(0, 1, 0)
+#' dydx <- c(1, 0, -1)
+#' interpolator <- cardinal_cubic_hermite(x, y, dydx)
+#' xi <- 0.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' domain <- interpolator$domain()
+#' @export
+cardinal_cubic_hermite <- function(y, dydx, x0, dx) {
+  ptr <- .Call(`cardinal_cubic_hermite_init_`, y, dydx, x0, dx)
+  structure(
+    list(
+      spline = function(xi) .Call(`cardinal_cubic_hermite_eval_`, ptr, xi),
+      prime = function(xi) .Call(`cardinal_cubic_hermite_prime_`, ptr, xi),
+      domain = function() .Call(`cardinal_cubic_hermite_domain_`, ptr)
+    ),
+    class = "cardinal_cubic_hermite"
+  )
+}
+
+#' Modified Akima Interpolator
+#'
+#' Constructs a Modified Akima interpolator given the vectors of abscissas, ordinates, and derivatives.
+#'
+#' @param x Numeric vector of abscissas (x-coordinates).
+#' @param y Numeric vector of ordinates (y-coordinates).
+#' @param left_endpoint_derivative Optional numeric value of the derivative at the left endpoint.
+#' @param right_endpoint_derivative Optional numeric value of the derivative at the right endpoint.
+#'
+#' @return An object of class `makima` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `push_back(x, y)`: Add a new control point
+#' @examples
+#' x <- c(0, 1, 2)
+#' y <- c(0, 1, 0)
+#' interpolator <- makima(x, y)
+#' xi <- 0.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' interpolator$push_back(3, 1)
+#' @export
+makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
+  if (is.null(left_endpoint_derivative)) {
+    left_endpoint_derivative <- NaN
+  }
+  if (is.null(right_endpoint_derivative)) {
+    right_endpoint_derivative <- NaN
+  }
+  ptr <- .Call(`makima_init_`, x, y, left_endpoint_derivative, right_endpoint_derivative)
+  structure(
+    list(
+      spline = function(xi) .Call(`makima_eval_`, ptr, xi),
+      prime = function(xi) .Call(`makima_prime_`, ptr, xi),
+      push_back = function(x, y) .Call(`makima_push_back_`, ptr, x, y)
+    ),
+    class = "makima"
+  )
+}
+
+#' PCHIP Interpolator
+#'
+#' Constructs a PCHIP interpolator given the vectors of abscissas, ordinates, and derivatives.
+#'
+#' @param x Numeric vector of abscissas (x-coordinates).
+#' @param y Numeric vector of ordinates (y-coordinates).
+#' @param left_endpoint_derivative Optional numeric value of the derivative at the left endpoint.
+#' @param right_endpoint_derivative Optional numeric value of the derivative at the right endpoint.
+#'
+#' @return An object of class `pchip` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `push_back(x, y)`: Add a new control point
+#' @examples
+#' x <- c(0, 1, 2)
+#' y <- c(0, 1, 0)
+#' interpolator <- pchip(x, y)
+#' xi <- 0.5
+#' interpolated_value <- interpolator$spline(xi)
+#' derivative_value <- interpolator$prime(xi)
+#' interpolator$push_back(3, 1)
+#' @export
+pchip <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
+  if (is.null(left_endpoint_derivative)) {
+    left_endpoint_derivative <- NaN
+  }
+  if (is.null(right_endpoint_derivative)) {
+    right_endpoint_derivative <- NaN
+  }
+  ptr <- .Call(`pchip_init_`, x, y, left_endpoint_derivative, right_endpoint_derivative)
+  structure(
+    list(
+      spline = function(xi) .Call(`pchip_eval_`, ptr, xi),
+      prime = function(xi) .Call(`pchip_prime_`, ptr, xi),
+      push_back = function(x, y) .Call(`pchip_push_back_`, ptr, x, y)
+    ),
+    class = "pchip"
+  )
+}

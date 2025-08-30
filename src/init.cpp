@@ -651,10 +651,6 @@ extern "C" {
   SEXP cardinal_cubic_hermite_eval_(SEXP ptr_, SEXP x_);
   SEXP cardinal_cubic_hermite_prime_(SEXP ptr_, SEXP x_);
   SEXP cardinal_cubic_hermite_domain_(SEXP ptr_);
-  SEXP cardinal_cubic_hermite_aos_init_(SEXP data_, SEXP x0_, SEXP dx_);
-  SEXP cardinal_cubic_hermite_aos_eval_(SEXP ptr_, SEXP x_);
-  SEXP cardinal_cubic_hermite_aos_prime_(SEXP ptr_, SEXP x_);
-  SEXP cardinal_cubic_hermite_aos_domain_(SEXP ptr_);
 
   // interpolators/makima.cpp
   SEXP makima_init_(SEXP abscissa_, SEXP ordinates_, SEXP left_endpoint_derivative_, SEXP right_endpoint_derivative_);
@@ -680,11 +676,6 @@ extern "C" {
   SEXP cardinal_quintic_hermite_prime_(SEXP ptr_, SEXP x_);
   SEXP cardinal_quintic_hermite_double_prime_(SEXP ptr_, SEXP x_);
   SEXP cardinal_quintic_hermite_domain_(SEXP ptr_);
-  SEXP cardinal_quintic_hermite_aos_init_(SEXP data_, SEXP x0_, SEXP dx_);
-  SEXP cardinal_quintic_hermite_aos_eval_(SEXP ptr_, SEXP x_);
-  SEXP cardinal_quintic_hermite_aos_prime_(SEXP ptr_, SEXP x_);
-  SEXP cardinal_quintic_hermite_aos_double_prime_(SEXP ptr_, SEXP x_);
-  SEXP cardinal_quintic_hermite_aos_domain_(SEXP ptr_);
 
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
@@ -1337,10 +1328,6 @@ extern "C" {
     {"cardinal_cubic_hermite_eval_", (DL_FUNC) &cardinal_cubic_hermite_eval_,  2},
     {"cardinal_cubic_hermite_prime_", (DL_FUNC) &cardinal_cubic_hermite_prime_,  2},
     {"cardinal_cubic_hermite_domain_", (DL_FUNC) &cardinal_cubic_hermite_domain_,  1},
-    {"cardinal_cubic_hermite_aos_init_", (DL_FUNC) &cardinal_cubic_hermite_aos_init_,  3},
-    {"cardinal_cubic_hermite_aos_eval_", (DL_FUNC) &cardinal_cubic_hermite_aos_eval_,  2},
-    {"cardinal_cubic_hermite_aos_prime_", (DL_FUNC) &cardinal_cubic_hermite_aos_prime_,  2},
-    {"cardinal_cubic_hermite_aos_domain_", (DL_FUNC) &cardinal_cubic_hermite_aos_domain_,  1},
 
     // interpolators/makima.cpp
     {"makima_init_", (DL_FUNC) &makima_init_,  4},
@@ -1354,7 +1341,7 @@ extern "C" {
     {"pchip_prime_", (DL_FUNC) &pchip_prime_,  2},
     {"pchip_push_back_", (DL_FUNC) &pchip_push_back_,  3},
 
-  // interpolators/quintic_hermite.cpp
+    // interpolators/quintic_hermite.cpp
     {"quintic_hermite_init_", (DL_FUNC) &quintic_hermite_init_,  4},
     {"quintic_hermite_eval_", (DL_FUNC) &quintic_hermite_eval_,  2},
     {"quintic_hermite_prime_", (DL_FUNC) &quintic_hermite_prime_,  2},
@@ -1366,11 +1353,6 @@ extern "C" {
     {"cardinal_quintic_hermite_prime_", (DL_FUNC) &cardinal_quintic_hermite_prime_,  2},
     {"cardinal_quintic_hermite_double_prime_", (DL_FUNC) &cardinal_quintic_hermite_double_prime_,  2},
     {"cardinal_quintic_hermite_domain_", (DL_FUNC) &cardinal_quintic_hermite_domain_,  1},
-    {"cardinal_quintic_hermite_aos_init_", (DL_FUNC) &cardinal_quintic_hermite_aos_init_,  3},
-    {"cardinal_quintic_hermite_aos_eval_", (DL_FUNC) &cardinal_quintic_hermite_aos_eval_,  2},
-    {"cardinal_quintic_hermite_aos_prime_", (DL_FUNC) &cardinal_quintic_hermite_aos_prime_,  2},
-    {"cardinal_quintic_hermite_aos_double_prime_", (DL_FUNC) &cardinal_quintic_hermite_aos_double_prime_,  2},
-    {"cardinal_quintic_hermite_aos_domain_", (DL_FUNC) &cardinal_quintic_hermite_aos_domain_,  1},
 
     {NULL, NULL, 0}
   };

@@ -79,34 +79,3 @@ extern "C" {
 
     return boostmath::as_sexp(ptr->domain());
   }
-
-  SEXP cardinal_cubic_hermite_aos_init_(SEXP data_, SEXP x0_, SEXP dx_) {
-    std::vector<std::array<double, 2>> data = boostmath::as_cpp<std::vector<std::array<double, 2>>>(data_);
-    double x0 = boostmath::as_cpp<double>(x0_);
-    double dx = boostmath::as_cpp<double>(dx_);
-    
-    using interpolator_t = boost::math::interpolators::cardinal_cubic_hermite_aos<std::vector<std::array<double, 2>>>;
-    cpp11::external_pointer<interpolator_t> ptr(new interpolator_t(std::move(data), x0, dx));
-    return ptr;
-  }
-
-  SEXP cardinal_cubic_hermite_aos_eval_(SEXP ptr_, SEXP x_) {
-    cpp11::external_pointer<boost::math::interpolators::cardinal_cubic_hermite_aos<std::vector<std::array<double, 2>>>> ptr(ptr_);
-    double x = boostmath::as_cpp<double>(x_);
-
-    return boostmath::as_sexp(ptr->operator()(x));
-  }
-
-  SEXP cardinal_cubic_hermite_aos_prime_(SEXP ptr_, SEXP x_) {
-    cpp11::external_pointer<boost::math::interpolators::cardinal_cubic_hermite_aos<std::vector<std::array<double, 2>>>> ptr(ptr_);
-    double x = boostmath::as_cpp<double>(x_);
-
-    return boostmath::as_sexp(ptr->prime(x));
-  }
-
-  SEXP cardinal_cubic_hermite_aos_domain_(SEXP ptr_) {
-    cpp11::external_pointer<boost::math::interpolators::cardinal_cubic_hermite_aos<std::vector<std::array<double, 2>>>> ptr(ptr_);
-
-    return boostmath::as_sexp(ptr->domain());
-  }
-}
