@@ -306,10 +306,9 @@ cubic_hermite <- function(x, y, dydx) {
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `domain()`: Get the domain of the interpolator.
 #' @examples
-#' x <- c(0, 1, 2)
 #' y <- c(0, 1, 0)
 #' dydx <- c(1, 0, -1)
-#' interpolator <- cardinal_cubic_hermite(x, y, dydx)
+#' interpolator <- cardinal_cubic_hermite(y, dydx, 0, 1)
 #' xi <- 0.5
 #' interpolated_value <- interpolator$spline(xi)
 #' derivative_value <- interpolator$prime(xi)
@@ -341,13 +340,13 @@ cardinal_cubic_hermite <- function(y, dydx, x0, dx) {
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `push_back(x, y)`: Add a new control point
 #' @examples
-#' x <- c(0, 1, 2)
-#' y <- c(0, 1, 0)
+#' x <- c(0, 1, 2, 3)
+#' y <- c(0, 1, 0, 1)
 #' interpolator <- makima(x, y)
 #' xi <- 0.5
 #' interpolated_value <- interpolator$spline(xi)
 #' derivative_value <- interpolator$prime(xi)
-#' interpolator$push_back(3, 1)
+#' interpolator$push_back(4, 1)
 #' @export
 makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
   if (is.null(left_endpoint_derivative)) {
@@ -381,13 +380,13 @@ makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivat
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `push_back(x, y)`: Add a new control point
 #' @examples
-#' x <- c(0, 1, 2)
-#' y <- c(0, 1, 0)
+#' x <- c(0, 1, 2, 3)
+#' y <- c(0, 1, 0, 1)
 #' interpolator <- pchip(x, y)
 #' xi <- 0.5
 #' interpolated_value <- interpolator$spline(xi)
 #' derivative_value <- interpolator$prime(xi)
-#' interpolator$push_back(3, 1)
+#' interpolator$push_back(4, 1)
 #' @export
 pchip <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
   if (is.null(left_endpoint_derivative)) {

@@ -27,11 +27,11 @@ An object of class \code{pchip} with methods:
 Constructs a PCHIP interpolator given the vectors of abscissas, ordinates, and derivatives.
 }
 \examples{
-x <- c(0, 1, 2)
-y <- c(0, 1, 0)
+x <- c(0, 1, 2, 3)
+y <- c(0, 1, 0, 1)
 interpolator <- pchip(x, y)
 xi <- 0.5
 interpolated_value <- interpolator$spline(xi)
 derivative_value <- interpolator$prime(xi)
-interpolator$push_back(3, 1)
+interpolator$push_back(4, 1)
 }

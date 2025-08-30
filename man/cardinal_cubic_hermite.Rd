@@ -27,10 +27,9 @@ An object of class \code{cardinal_cubic_hermite} with methods:
 Constructs a cardinal cubic Hermite interpolator given the vectors of abscissas, ordinates, and derivatives.
 }
 \examples{
-x <- c(0, 1, 2)
 y <- c(0, 1, 0)
 dydx <- c(1, 0, -1)
-interpolator <- cardinal_cubic_hermite(x, y, dydx)
+interpolator <- cardinal_cubic_hermite(y, dydx, 0, 1)
 xi <- 0.5
 interpolated_value <- interpolator$spline(xi)
 derivative_value <- interpolator$prime(xi)
