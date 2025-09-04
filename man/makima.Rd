@@ -31,7 +31,7 @@ x <- c(0, 1, 2, 3)
 y <- c(0, 1, 0, 1)
 interpolator <- makima(x, y)
 xi <- 0.5
-interpolated_value <- interpolator$spline(xi)
-derivative_value <- interpolator$prime(xi)
+interpolator$spline(xi)
+interpolator$prime(xi)
 interpolator$push_back(4, 1)
 }

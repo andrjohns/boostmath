@@ -35,5 +35,5 @@ x <- seq(0, 1, length.out = 10)
 interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
 xi <- 0.5
 yi <- 0.5
-interpolated_value <- interpolator$spline(xi, yi)
+interpolator$spline(xi, yi)
 }

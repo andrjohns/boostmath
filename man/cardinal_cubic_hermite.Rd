@@ -31,7 +31,7 @@ y <- c(0, 1, 0)
 dydx <- c(1, 0, -1)
 interpolator <- cardinal_cubic_hermite(y, dydx, 0, 1)
 xi <- 0.5
-interpolated_value <- interpolator$spline(xi)
-derivative_value <- interpolator$prime(xi)
-domain <- interpolator$domain()
+interpolator$spline(xi)
+interpolator$prime(xi)
+interpolator$domain()
 }

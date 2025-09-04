@@ -24,8 +24,8 @@ Constructs a Bezier polynomial interpolator given control points.
 control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
 interpolator <- bezier_polynomial(control_points)
 xi <- 1.5
-interpolated_value <- interpolator$spline(xi)
-derivative_value <- interpolator$prime(xi)
+interpolator$spline(xi)
+interpolator$prime(xi)
 new_control_point <- c(1.5, 1, 0)
 interpolator$edit_control_point(new_control_point, 2)
 

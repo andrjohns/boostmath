@@ -39,6 +39,6 @@ t0 <- 0
 h <- 1
 interpolator <- cardinal_quadratic_b_spline(y, t0, h)
 xi <- 0.5
-interpolated_value <- interpolator$spline(xi)
-derivative_value <- interpolator$prime(xi)
+interpolator$spline(xi)
+interpolator$prime(xi)
 }

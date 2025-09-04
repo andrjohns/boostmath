@@ -40,7 +40,7 @@ t0 <- 0
 h <- 1
 spline_obj <- cardinal_cubic_b_spline(y, t0, h)
 x <- 0.5
-spline_value <- spline_obj$spline(x)
-prime_value <- spline_obj$prime(x)
-double_prime_value <- spline_obj$double_prime(x)
+spline_obj$spline(x)
+spline_obj$prime(x)
+spline_obj$double_prime(x)
 }

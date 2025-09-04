@@ -18,9 +18,9 @@
 #' h <- 1
 #' spline_obj <- cardinal_cubic_b_spline(y, t0, h)
 #' x <- 0.5
-#' spline_value <- spline_obj$spline(x)
-#' prime_value <- spline_obj$prime(x)
-#' double_prime_value <- spline_obj$double_prime(x)
+#' spline_obj$spline(x)
+#' spline_obj$prime(x)
+#' spline_obj$double_prime(x)
 #' @export
 cardinal_cubic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
   if (is.null(left_endpoint_derivative)) {
@@ -57,8 +57,8 @@ cardinal_cubic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, r
 #' order <- 3
 #' interpolator <- barycentric_rational(x, y, order)
 #' xi <- 1.5
-#' interpolated_value <- interpolator$interpolate(xi)
-#' derivative_value <- interpolator$derivative(xi)
+#' interpolator$interpolate(xi)
+#' interpolator$derivative(xi)
 #' @export
 barycentric_rational <- function(x, y, order = 3) {
   stopifnot(length(x) == length(y))
@@ -86,8 +86,8 @@ barycentric_rational <- function(x, y, order = 3) {
 #' control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
 #' interpolator <- bezier_polynomial(control_points)
 #' xi <- 1.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
 #' new_control_point <- c(1.5, 1, 0)
 #' interpolator$edit_control_point(new_control_point, 2)
 #'
@@ -127,7 +127,7 @@ bezier_polynomial <- function(control_points) {
 #' interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
 #' xi <- 0.5
 #' yi <- 0.5
-#' interpolated_value <- interpolator$spline(xi, yi)
+#' interpolator$spline(xi, yi)
 #' @export
 bilinear_uniform <- function(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0) {
   ptr <- .Call(`bilinear_uniform_init_`, x, rows, cols, dx, dy, x0, y0)
@@ -158,8 +158,8 @@ bilinear_uniform <- function(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0) {
 #' h <- 1
 #' interpolator <- cardinal_quadratic_b_spline(y, t0, h)
 #' xi <- 0.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
 #' @export
 cardinal_quadratic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
   if (is.null(left_endpoint_derivative)) {
@@ -185,8 +185,8 @@ cardinal_quadratic_b_spline <- function(y, t0, h, left_endpoint_derivative = NUL
 #' @param y Numeric vector of data points to interpolate.
 #' @param t0 Numeric scalar representing the starting point of the data.
 #' @param h Numeric scalar representing the spacing between data points.
-#' @param left_endpoint_derivative Optional numeric scalar for the derivative at the left endpoint.
-#' @param right_endpoint_derivative Optional numeric scalar for the derivative at the right endpoint.
+#' @param left_endpoint_derivatives Optional two-element numeric vector for the derivative at the left endpoint.
+#' @param right_endpoint_derivatives Optional two-element numeric vector for the derivative at the right endpoint.
 #'
 #' @return An object of class `cardinal_quintic_b_spline` with methods:
 #'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
@@ -198,18 +198,18 @@ cardinal_quadratic_b_spline <- function(y, t0, h, left_endpoint_derivative = NUL
 #' h <- 1
 #' interpolator <- cardinal_quintic_b_spline(y, t0, h)
 #' xi <- 0.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
-#' second_derivative_value <- interpolator$double_prime(xi)
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
+#' interpolator$double_prime(xi)
 #' @export
-cardinal_quintic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
-  if (is.null(left_endpoint_derivative)) {
-    left_endpoint_derivative <- NaN
+cardinal_quintic_b_spline <- function(y, t0, h, left_endpoint_derivatives = NULL, right_endpoint_derivatives = NULL) {
+  if (is.null(left_endpoint_derivatives)) {
+    left_endpoint_derivatives <- c(NaN, NaN)
   }
-  if (is.null(right_endpoint_derivative)) {
-    right_endpoint_derivative <- NaN
+  if (is.null(right_endpoint_derivatives)) {
+    right_endpoint_derivatives <- c(NaN, NaN)
   }
-  ptr <- .Call(`cardinal_quintic_b_spline_init_`, y, t0, h, left_endpoint_derivative, right_endpoint_derivative)
+  ptr <- .Call(`cardinal_quintic_b_spline_init_`, y, t0, h, left_endpoint_derivatives, right_endpoint_derivatives)
   structure(
     list(
       spline = function(xi) .Call(`cardinal_quintic_b_spline_eval_`, ptr, xi),
@@ -237,10 +237,10 @@ cardinal_quintic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL,
 #' control_points <- list(c(0, 0, 0), c(1, 1, 0), c(2, 0, 0), c(3, 1, 0))
 #' interpolator <- catmull_rom(control_points)
 #' xi <- 1.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
-#' max_param <- interpolator$max_parameter()
-#' param_at_point <- interpolator$parameter_at_point(2)
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
+#' interpolator$max_parameter()
+#' interpolator$parameter_at_point(2)
 #' @export
 catmull_rom <- function(control_points, closed = FALSE, alpha = 0.5) {
   ptr <- .Call(`catmull_rom_init_`, control_points, closed, alpha)
@@ -274,10 +274,10 @@ catmull_rom <- function(control_points, closed = FALSE, alpha = 0.5) {
 #' dydx <- c(1, 0, -1)
 #' interpolator <- cubic_hermite(x, y, dydx)
 #' xi <- 0.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
 #' interpolator$push_back(3, 0, 1)
-#' domain <- interpolator$domain()
+#' interpolator$domain()
 #' @export
 cubic_hermite <- function(x, y, dydx) {
   ptr <- .Call(`cubic_hermite_init_`, x, y, dydx)
@@ -310,9 +310,9 @@ cubic_hermite <- function(x, y, dydx) {
 #' dydx <- c(1, 0, -1)
 #' interpolator <- cardinal_cubic_hermite(y, dydx, 0, 1)
 #' xi <- 0.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
-#' domain <- interpolator$domain()
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
+#' interpolator$domain()
 #' @export
 cardinal_cubic_hermite <- function(y, dydx, x0, dx) {
   ptr <- .Call(`cardinal_cubic_hermite_init_`, y, dydx, x0, dx)
@@ -344,8 +344,8 @@ cardinal_cubic_hermite <- function(y, dydx, x0, dx) {
 #' y <- c(0, 1, 0, 1)
 #' interpolator <- makima(x, y)
 #' xi <- 0.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
 #' interpolator$push_back(4, 1)
 #' @export
 makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
@@ -384,8 +384,8 @@ makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivat
 #' y <- c(0, 1, 0, 1)
 #' interpolator <- pchip(x, y)
 #' xi <- 0.5
-#' interpolated_value <- interpolator$spline(xi)
-#' derivative_value <- interpolator$prime(xi)
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
 #' interpolator$push_back(4, 1)
 #' @export
 pchip <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL) {
@@ -403,5 +403,88 @@ pchip <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivati
       push_back = function(x, y) .Call(`pchip_push_back_`, ptr, x, y)
     ),
     class = "pchip"
+  )
+}
+
+#' Quintic Hermite Interpolator
+#'
+#' Constructs a quintic Hermite interpolator given the vectors of abscissas, ordinates, first derivatives, and second derivatives.
+#'
+#' @param x Numeric vector of abscissas (x-coordinates).
+#' @param y Numeric vector of ordinates (y-coordinates).
+#' @param dydx Numeric vector of first derivatives (slopes) at each point.
+#' @param d2ydx2 Numeric vector of second derivatives at each point.
+#'
+#' @return An object of class `quintic_hermite` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `double_prime(xi)`: Evaluate the second derivative of the interpolator at point `xi`.
+#'   - `push_back(x, y, dydx, d2ydx2)`: Add a new control point to the interpolator.
+#'   - `domain()`: Get the domain of the interpolator.
+#' @examples
+#' x <- c(0, 1, 2)
+#' y <- c(0, 1, 0)
+#' dydx <- c(1, 0, -1)
+#' d2ydx2 <- c(0, -1, 0)
+#' interpolator <- quintic_hermite(x, y, dydx, d2ydx2)
+#' xi <- 0.5
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
+#' interpolator$double_prime(xi)
+#' interpolator$push_back(3, 0, 1, 0)
+#' interpolator$domain()
+#' @export
+quintic_hermite <- function(x, y, dydx, d2ydx2) {
+  ptr <- .Call(`quintic_hermite_init_`, x, y, dydx, d2ydx2)
+  structure(
+    list(
+      spline = function(xi) .Call(`quintic_hermite_eval_`, ptr, xi),
+      prime = function(xi) .Call(`quintic_hermite_prime_`, ptr, xi),
+      double_prime = function(xi) .Call(`quintic_hermite_double_prime_`, ptr, xi),
+      push_back = function(x, y, dydx, d2ydx2) .Call(`quintic_hermite_push_back_`, ptr, x, y, dydx, d2ydx2),
+      domain = function() .Call(`quintic_hermite_domain_`, ptr)
+    ),
+    class = "quintic_hermite"
+  )
+}
+
+#' Cardinal Quintic Hermite Interpolator
+#'
+#' Constructs a cardinal quintic Hermite interpolator given the vectors of ordinates, first derivatives, and second derivatives.
+#'
+#' @param y Numeric vector of ordinates (y-coordinates).
+#' @param dydx Numeric vector of first derivatives (slopes) at each point.
+#' @param d2ydx2 Numeric vector of second derivatives at each point.
+#' @param x0 Numeric value of the first abscissa (x-coordinate).
+#' @param dx Numeric value of the spacing between abscissas.
+#'
+#' @return An object of class `cardinal_quintic_hermite` with methods:
+#'   - `spline(xi)`: Evaluate the interpolator at point `xi`.
+#'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#'   - `double_prime(xi)`: Evaluate the second derivative of the interpolator at point `xi`.
+#'   - `domain()`: Get the domain of the interpolator.
+#' @examples
+#' y <- c(0, 1, 0)
+#' dydx <- c(1, 0, -1)
+#' d2ydx2 <- c(0, -1, 0)
+#' x0 <- 0
+#' dx <- 1
+#' interpolator <- cardinal_quintic_hermite(y, dydx, d2ydx2, x0, dx)
+#' xi <- 0.5
+#' interpolator$spline(xi)
+#' interpolator$prime(xi)
+#' interpolator$double_prime(xi)
+#' interpolator$domain()
+#' @export
+cardinal_quintic_hermite <- function(y, dydx, d2ydx2, x0, dx) {
+  ptr <- .Call(`cardinal_quintic_hermite_init_`, y, dydx, d2ydx2, x0, dx)
+  structure(
+    list(
+      spline = function(xi) .Call(`cardinal_quintic_hermite_eval_`, ptr, xi),
+      prime = function(xi) .Call(`cardinal_quintic_hermite_prime_`, ptr, xi),
+      double_prime = function(xi) .Call(`cardinal_quintic_hermite_double_prime_`, ptr, xi),
+      domain = function() .Call(`cardinal_quintic_hermite_domain_`, ptr)
+    ),
+    class = "cardinal_quintic_hermite"
   )
 }

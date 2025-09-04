@@ -29,6 +29,6 @@ y <- c(1, 2, 0, 2)
 order <- 3
 interpolator <- barycentric_rational(x, y, order)
 xi <- 1.5
-interpolated_value <- interpolator$interpolate(xi)
-derivative_value <- interpolator$derivative(xi)
+interpolator$interpolate(xi)
+interpolator$derivative(xi)
 }

@@ -8,8 +8,8 @@ cardinal_quintic_b_spline(
   y,
   t0,
   h,
-  left_endpoint_derivative = NULL,
-  right_endpoint_derivative = NULL
+  left_endpoint_derivatives = NULL,
+  right_endpoint_derivatives = NULL
 )
 }
 \arguments{
@@ -19,9 +19,9 @@ cardinal_quintic_b_spline(
 
 \item{h}{Numeric scalar representing the spacing between data points.}
 
-\item{left_endpoint_derivative}{Optional numeric scalar for the derivative at the left endpoint.}
+\item{left_endpoint_derivatives}{Optional two-element numeric vector for the derivative at the left endpoint.}
 
-\item{right_endpoint_derivative}{Optional numeric scalar for the derivative at the right endpoint.}
+\item{right_endpoint_derivatives}{Optional two-element numeric vector for the derivative at the right endpoint.}
 }
 \value{
 An object of class \code{cardinal_quintic_b_spline} with methods:
@@ -40,7 +40,7 @@ t0 <- 0
 h <- 1
 interpolator <- cardinal_quintic_b_spline(y, t0, h)
 xi <- 0.5
-interpolated_value <- interpolator$spline(xi)
-derivative_value <- interpolator$prime(xi)
-second_derivative_value <- interpolator$double_prime(xi)
+interpolator$spline(xi)
+interpolator$prime(xi)
+interpolator$double_prime(xi)
 }
