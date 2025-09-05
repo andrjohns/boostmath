@@ -10,11 +10,40 @@
     END_CPP11 \
   }
 
+#define NOARG_BOOST_MEMBER(name) \
+  extern "C" SEXP name##_() { \
+    BEGIN_CPP11 \
+    return boostmath::as_sexp(boost::math::name); \
+    END_CPP11 \
+  }
+
+#define NOARG_BOOST_MEMBER_VALUE(name) \
+  extern "C" SEXP name##_() { \
+    BEGIN_CPP11 \
+    return boostmath::as_sexp(boost::math::name<double>::value); \
+    END_CPP11 \
+  }
+
+#define NOARG_BOOST_FUNCTION_TYPE(name, template_type) \
+  extern "C" SEXP name##_() { \
+    BEGIN_CPP11 \
+    return boostmath::as_sexp(boost::math::name<template_type>()); \
+    END_CPP11 \
+  }
+
 #define UNARY_BOOST_FUNCTION(name, arg_type) \
   extern "C" SEXP name##_(SEXP x_) { \
     BEGIN_CPP11 \
     const arg_type x = boostmath::as_cpp<arg_type>(x_); \
     return boostmath::as_sexp(boost::math::name<double>(x)); \
+    END_CPP11 \
+  }
+
+#define UNARY_BOOST_FUNCTION_NOTYPE(name, arg_type) \
+  extern "C" SEXP name##_(SEXP x_) { \
+    BEGIN_CPP11 \
+    const arg_type x = boostmath::as_cpp<arg_type>(x_); \
+    return boostmath::as_sexp(boost::math::name(x)); \
     END_CPP11 \
   }
 
@@ -40,6 +69,15 @@
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     return boostmath::as_sexp(boost::math::name(x, y)); \
+    END_CPP11 \
+  }
+
+#define BINARY_BOOST_FUNCTION_TYPE(name, template_type, arg1_type, arg2_type) \
+  extern "C" SEXP name##_(SEXP x_, SEXP y_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    return boostmath::as_sexp(boost::math::name<template_type>(x, y)); \
     END_CPP11 \
   }
 
@@ -144,6 +182,18 @@
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
     const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
     return boostmath::as_sexp(boost::math::namespace::name(x, y, z, w)); \
+    END_CPP11 \
+  }
+
+#define PENTA_BOOST_FUNCTION_NAMESPACE(namespace, name, arg1_type, arg2_type, arg3_type, arg4_type, arg5_type) \
+  extern "C" SEXP name##_(SEXP x_, SEXP y_, SEXP z_, SEXP w_, SEXP v_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
+    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
+    const arg4_type v = boostmath::as_cpp<arg4_type>(v_); \
+    return boostmath::as_sexp(boost::math::namespace::name(x, y, z, w, v)); \
     END_CPP11 \
   }
 

@@ -68,16 +68,4 @@ extern "C" {
     return cpp11::as_sexp(result);
     END_CPP11
   }
-
-  SEXP quadratic_roots_(SEXP a_, SEXP b_, SEXP c_) {
-    BEGIN_CPP11
-    double a = cpp11::as_cpp<double>(a_);
-    double b = cpp11::as_cpp<double>(b_);
-    double c = cpp11::as_cpp<double>(c_);
-
-    std::pair<double, double> roots = boost::math::tools::quadratic_roots(a, b, c);
-    std::vector<double> result = {roots.first, roots.second};
-    return cpp11::as_sexp(result);
-    END_CPP11
-  }
 }
