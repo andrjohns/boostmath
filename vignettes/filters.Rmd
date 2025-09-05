@@ -1,0 +1,32 @@
+---
+title: "Boost Math - Filters"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Boost Math - Filters}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+library(boostmath)
+```
+
+## Filters
+
+The [Filters](https://www.boost.org/doc/libs/latest/libs/math/doc/html/filters.html) section of the Boost Math library cover a broad range of areas
+
+### [Daubechies Filters](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/daubechies_filters.html)
+
+```{r}
+# Daubechies Scaling Filter of order 4
+daubechies_scaling_filter(4)
+# Daubechies Wavelet Filter of order 4
+daubechies_wavelet_filter(4)
+```

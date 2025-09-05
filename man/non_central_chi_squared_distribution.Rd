@@ -35,6 +35,7 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Noncentral Chi-Squared distribution.
 }
 \examples{
+\dontrun{
 # Noncentral Chi-Squared distribution with 3 degrees of freedom and noncentrality
 # parameter 1
 non_central_chi_squared_pdf(2, 3, 1)
@@ -42,6 +43,7 @@ non_central_chi_squared_lpdf(2, 3, 1)
 non_central_chi_squared_cdf(2, 3, 1)
 non_central_chi_squared_lcdf(2, 3, 1)
 non_central_chi_squared_quantile(0.5, 3, 1)
+}
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.

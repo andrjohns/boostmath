@@ -677,6 +677,10 @@ extern "C" {
   SEXP cardinal_quintic_hermite_double_prime_(SEXP ptr_, SEXP x_);
   SEXP cardinal_quintic_hermite_domain_(SEXP ptr_);
 
+  // filters.cpp
+  SEXP daubechies_scaling_filter_(SEXP order_);
+  SEXP daubechies_wavelet_filter_(SEXP order_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -1353,6 +1357,10 @@ extern "C" {
     {"cardinal_quintic_hermite_prime_", (DL_FUNC) &cardinal_quintic_hermite_prime_,  2},
     {"cardinal_quintic_hermite_double_prime_", (DL_FUNC) &cardinal_quintic_hermite_double_prime_,  2},
     {"cardinal_quintic_hermite_domain_", (DL_FUNC) &cardinal_quintic_hermite_domain_,  1},
+
+    // filters
+    {"daubechies_scaling_filter_", (DL_FUNC) &daubechies_scaling_filter_,  1},
+    {"daubechies_wavelet_filter_", (DL_FUNC) &daubechies_wavelet_filter_,  1},
 
     {NULL, NULL, 0}
   };

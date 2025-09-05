@@ -5,6 +5,7 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 BOOST_SOURCES = \
 	constants.cpp \
+	filters.cpp \
 	interpolators.cpp \
 	quadrature_and_differentiation.cpp \
 	rootfinding_and_minimisation.cpp \
