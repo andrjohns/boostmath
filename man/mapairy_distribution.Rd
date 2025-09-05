@@ -35,15 +35,12 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Map-Airy distribution.
 }
 \examples{
-# Distribution only available with Boost version 1.87.0 or later.
-\dontrun{
 # Map-Airy distribution with location 0 and scale 1
-  mapairy_pdf(3)
-  mapairy_lpdf(3)
-  mapairy_cdf(3)
-  mapairy_lcdf(3)
-  mapairy_quantile(0.5)
-}
+mapairy_pdf(3)
+mapairy_lpdf(3)
+mapairy_cdf(3)
+mapairy_lcdf(3)
+mapairy_quantile(0.5)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/mapairy_dist.html}{Boost Documentation} for more details on the mathematical background.

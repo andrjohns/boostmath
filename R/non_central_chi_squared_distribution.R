@@ -8,7 +8,6 @@
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_chi_squared_dist.html) for more details on the mathematical background.
 #' @examples
-#' \dontrun{
 #' # Noncentral Chi-Squared distribution with 3 degrees of freedom and noncentrality
 #' # parameter 1
 #' non_central_chi_squared_pdf(2, 3, 1)
@@ -16,7 +15,6 @@
 #' non_central_chi_squared_cdf(2, 3, 1)
 #' non_central_chi_squared_lcdf(2, 3, 1)
 #' non_central_chi_squared_quantile(0.5, 3, 1)
-#' }
 NULL
 
 #' @rdname non_central_chi_squared_distribution

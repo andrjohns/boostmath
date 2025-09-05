@@ -8,15 +8,12 @@
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/holtsmark_dist.html) for more details on the mathematical background.
 #' @examples
-#' # Distribution only available with Boost version 1.87.0 or later.
-#' \dontrun{
 #' # Holtsmark distribution with location 0 and scale 1
-#'   holtsmark_pdf(3)
-#'   holtsmark_lpdf(3)
-#'   holtsmark_cdf(3)
-#'   holtsmark_lcdf(3)
-#'   holtsmark_quantile(0.5)
-#' }
+#' holtsmark_pdf(3)
+#' holtsmark_lpdf(3)
+#' holtsmark_cdf(3)
+#' holtsmark_lcdf(3)
+#' holtsmark_quantile(0.5)
 NULL
 
 #' @rdname holtsmark_distribution
