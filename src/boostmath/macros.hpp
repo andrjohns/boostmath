@@ -6,8 +6,7 @@
 #define NOARG_BOOST_FUNCTION(name) \
   extern "C" SEXP name##_() { \
     BEGIN_CPP11 \
-    const auto result = boost::math::name(); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name()); \
     END_CPP11 \
   }
 
@@ -15,8 +14,7 @@
   extern "C" SEXP name##_(SEXP x_) { \
     BEGIN_CPP11 \
     const arg_type x = boostmath::as_cpp<arg_type>(x_); \
-    const auto result = boost::math::name<double>(x); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name<double>(x)); \
     END_CPP11 \
   }
 
@@ -24,8 +22,7 @@
   extern "C" SEXP name##_(SEXP x_) { \
     BEGIN_CPP11 \
     arg_type x = boostmath::as_cpp<arg_type>(x_); \
-    const auto result = boost::math::namespace::name(x); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::namespace::name(x)); \
     END_CPP11 \
   }
 
@@ -33,8 +30,7 @@
   extern "C" SEXP name##_##suffix(SEXP x_) { \
     BEGIN_CPP11 \
     const arg_type x = boostmath::as_cpp<arg_type>(x_); \
-    const auto result = boost::math::name(x); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name(x)); \
     END_CPP11 \
   }
 
@@ -43,8 +39,7 @@
     BEGIN_CPP11 \
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const auto result = boost::math::name(x, y); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name(x, y)); \
     END_CPP11 \
   }
 
@@ -53,8 +48,7 @@
     BEGIN_CPP11 \
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const auto result = boost::math::namespace::name(x, y); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::namespace::name(x, y)); \
     END_CPP11 \
   }
 
@@ -74,8 +68,7 @@
     BEGIN_CPP11 \
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const auto result = boost::math::name(x, y); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name(x, y)); \
     END_CPP11 \
   }
 
@@ -85,8 +78,7 @@
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const auto result = boost::math::name(x, y, z); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name(x, y, z)); \
     END_CPP11 \
   }
 
@@ -96,8 +88,7 @@
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const auto result = boost::math::namespace::name(x, y, z); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::namespace::name(x, y, z)); \
     END_CPP11 \
   }
 
@@ -119,8 +110,7 @@
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const auto result = boost::math::name(x, y, z); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name(x, y, z)); \
     END_CPP11 \
   }
 
@@ -131,8 +121,7 @@
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
     const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    const auto result = boost::math::name(x, y, z, w); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::name(x, y, z, w)); \
     END_CPP11 \
   }
 
@@ -143,8 +132,7 @@
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
     const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    const auto result = boost::math::namespace::name(x, y, z, w); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::namespace::name(x, y, z, w)); \
     END_CPP11 \
   }
 
@@ -155,8 +143,7 @@
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
     const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    const auto result = boost::math::namespace::name(x, y, z, w); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::namespace::name(x, y, z, w)); \
     END_CPP11 \
   }
 
@@ -165,8 +152,7 @@
     BEGIN_CPP11 \
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const auto result = boost::math::func(boost::math::dist##_distribution<>(y), x); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::func(boost::math::dist##_distribution<>(y), x)); \
     END_CPP11 \
   }
 
@@ -183,8 +169,7 @@
     const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const auto result = boost::math::func(boost::math::dist##_distribution<>(y, z), x); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::func(boost::math::dist##_distribution<>(y, z), x)); \
     END_CPP11 \
   }
 
@@ -202,8 +187,7 @@
     const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
     const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
     const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    const auto result = boost::math::func(boost::math::dist##_distribution<>(y, z, w), x); \
-    return boostmath::as_sexp(result); \
+    return boostmath::as_sexp(boost::math::func(boost::math::dist##_distribution<>(y, z, w), x)); \
     END_CPP11 \
   }
 
