@@ -1,62 +1,22 @@
-#ifndef CPP11_COMPLEX_HPP
-#define CPP11_COMPLEX_HPP
+#ifndef BOOSTMATH_SEXP_HPP
+#define BOOSTMATH_SEXP_HPP
 
 #include <cpp11.hpp>
 #include <complex>
-#include <vector>
-
-// cpp11 does not support interop for std::complex, implement our own and delegate to cpp11 only for other types
+#include "./type_traits.hpp"
 
 namespace boostmath {
   namespace internal {
     template <typename T, std::size_t... Is>
-    auto as_cpp_doubles_tuple_impl(SEXP x, std::index_sequence<Is...>) {
-      return std::make_tuple(REAL_ELT(x, Is)...);
+    T as_cpp_doubles_container_impl(SEXP x, std::index_sequence<Is...>) {
+      return {REAL_ELT(x, Is)...};
     }
 
     template <typename T, std::size_t... Is>
-    auto as_cpp_doubles_array_impl(SEXP x, std::index_sequence<Is...>) {
-      return std::array<double, sizeof...(Is)>{REAL_ELT(x, Is)...};
-    }
-
-    template <typename T, std::size_t... Is>
-    auto as_sexp_doubles_tuple_impl(const T& x, std::index_sequence<Is...>) {
+    auto as_sexp_doubles_container_impl(const T& x, std::index_sequence<Is...>) {
       return cpp11::as_sexp(std::vector<double>{std::get<Is>(x)...});
     }
-
-    template <typename T, std::size_t... Is>
-    auto as_sexp_doubles_array_impl(const T& x, std::index_sequence<Is...>) {
-      return cpp11::as_sexp(std::vector<double>{x[Is]...});
-    }
   }
-  template <typename... Targs>
-  struct is_doubles_tuple : std::false_type {};
-
-  template <typename... Targs>
-  struct is_doubles_tuple<std::tuple<Targs...>>
-    : std::conjunction<std::is_same<Targs, double>...> {};
-
-  template <typename T>
-  struct is_doubles_array : std::false_type {};
-
-  template <std::size_t N>
-  struct is_doubles_array<std::array<double, N>> : std::true_type {};
-
-  template <typename T>
-  struct is_doubles_array_vector : std::false_type {};
-
-  template <std::size_t N>
-  struct is_doubles_array_vector<std::vector<std::array<double, N>>> : std::true_type {};
-
-  template <typename T>
-  using is_cpp11 = std::negation<std::disjunction<
-    std::is_same<T, std::complex<double>>,
-    std::is_same<T, std::pair<double, double>>,
-    is_doubles_tuple<T>,
-    is_doubles_array<T>,
-    is_doubles_array_vector<T>
-  >>;
-
 
   template <typename T, std::enable_if_t<std::is_same<T, std::complex<double>>::value>* = nullptr>
   inline std::complex<double> as_cpp(SEXP x) {
@@ -64,19 +24,9 @@ namespace boostmath {
     return std::complex<double>(r_complex.r, r_complex.i);
   }
 
-  template <typename T, std::enable_if_t<std::is_same<T, std::pair<double, double>>::value>* = nullptr>
+  template <typename T, std::enable_if_t<is_doubles_container<T>::value>* = nullptr>
   inline T as_cpp(SEXP x) {
-    return std::make_pair(REAL_ELT(x, 0), REAL_ELT(x, 1));
-  }
-
-  template <typename T, std::enable_if_t<is_doubles_tuple<T>::value>* = nullptr>
-  inline T as_cpp(SEXP x) {
-    return internal::as_cpp_doubles_tuple_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
-  }
-
-  template <typename T, std::enable_if_t<is_doubles_array<T>::value>* = nullptr>
-  inline T as_cpp(SEXP x) {
-    return internal::as_cpp_doubles_array_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
+    return internal::as_cpp_doubles_container_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
   }
 
   template <typename T, std::enable_if_t<is_doubles_array_vector<T>::value>* = nullptr>
@@ -106,25 +56,13 @@ namespace boostmath {
     return data;
   }
 
-  template <typename T, std::enable_if_t<std::is_same<T, std::pair<double, double>>::value>* = nullptr>
+  template <typename T, std::enable_if_t<is_doubles_container<T>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
-    std::vector<double> data = {x.first, x.second};
-    return cpp11::as_sexp(data);
-  }
-
-  template <typename T, std::enable_if_t<is_doubles_tuple<T>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    return internal::as_sexp_doubles_tuple_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
-  }
-
-  template <typename T, std::enable_if_t<is_doubles_array<T>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    return internal::as_sexp_doubles_array_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
+    return internal::as_sexp_doubles_container_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
   }
 
   template <typename T, std::enable_if_t<is_doubles_array_vector<T>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
-    using array_type = typename T::value_type;
     R_xlen_t n = x.size();
     SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
     for (R_xlen_t i = 0; i < n; ++i) {
@@ -140,4 +78,4 @@ namespace boostmath {
 
 }
 
-#endif // CPP11_COMPLEX_HPP
+#endif // BOOSTMATH_SEXP_HPP
