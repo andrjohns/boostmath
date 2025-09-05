@@ -71,6 +71,10 @@ namespace boostmath {
     return data;
   }
 
+  inline SEXP as_sexp(void) {
+    return R_NilValue;
+  }
+
   template <typename T, std::enable_if_t<is_cpp11<T>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
     return cpp11::as_sexp(x);

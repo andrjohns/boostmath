@@ -39,7 +39,8 @@ namespace boostmath {
     std::disjunction<
       std::is_same<T, std::complex<double>>,
       is_doubles_container<T>,
-      is_doubles_array_vector<T>
+      is_doubles_array_vector<T>,
+      std::is_void<T>
     >
   >;
 }
