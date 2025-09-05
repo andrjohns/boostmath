@@ -311,7 +311,7 @@
   }
 
 #define POLYNOMIAL_NOARG_CALL_NOSPACE_BOOST(name, call, template_type) \
-  extern "C" SEXP name##_##call##_(SEXP ptr_, SEXP x_) { \
+  extern "C" SEXP name##_##call##_(SEXP ptr_) { \
     BEGIN_CPP11 \
     cpp11::external_pointer<boost::math::name<template_type>> ptr(ptr_); \
     return boostmath::as_sexp(ptr->call()); \
@@ -319,7 +319,7 @@
   }
 
 #define POLYNOMIAL_NOARG_CALL_BOOST(name, call, template_type) \
-  extern "C" SEXP name##_##call##_(SEXP ptr_, SEXP x_) { \
+  extern "C" SEXP name##_##call##_(SEXP ptr_) { \
     BEGIN_CPP11 \
     cpp11::external_pointer<boost::math::interpolators::name<template_type>> ptr(ptr_); \
     return boostmath::as_sexp(ptr->call()); \
