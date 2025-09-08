@@ -26,7 +26,7 @@ cardinal_quintic_b_spline(
 \value{
 An object of class \code{cardinal_quintic_b_spline} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{double_prime(xi)}: Evaluate the second derivative of the interpolator at point \code{xi}.
 }
@@ -40,7 +40,7 @@ t0 <- 0
 h <- 1
 interpolator <- cardinal_quintic_b_spline(y, t0, h)
 xi <- 0.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$double_prime(xi)
 }

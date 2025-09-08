@@ -16,7 +16,7 @@ barycentric_rational(x, y, order = 3)
 \value{
 An object of class \code{barycentric_rational_interpolator} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 }
 }
@@ -30,5 +30,5 @@ order <- 3
 interpolator <- barycentric_rational(x, y, order)
 xi <- 1.5
 interpolator$interpolate(xi)
-interpolator$derivative(xi)
+interpolator$prime(xi)
 }

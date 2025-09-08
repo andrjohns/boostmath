@@ -16,7 +16,7 @@ catmull_rom(control_points, closed = FALSE, alpha = 0.5)
 \value{
 An object of class \code{catmull_rom} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{max_parameter()}: Get the maximum parameter value of the spline.
 \item \code{parameter_at_point(i)}: Get the parameter value at index \code{i}.
@@ -29,7 +29,7 @@ Constructs a Catmull-Rom spline interpolator given control points.
 control_points <- list(c(0, 0, 0), c(1, 1, 0), c(2, 0, 0), c(3, 1, 0))
 interpolator <- catmull_rom(control_points)
 xi <- 1.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$max_parameter()
 interpolator$parameter_at_point(2)

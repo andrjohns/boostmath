@@ -18,7 +18,7 @@ cardinal_cubic_hermite(y, dydx, x0, dx)
 \value{
 An object of class \code{cardinal_cubic_hermite} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{domain()}: Get the domain of the interpolator.
 }
@@ -31,7 +31,7 @@ y <- c(0, 1, 0)
 dydx <- c(1, 0, -1)
 interpolator <- cardinal_cubic_hermite(y, dydx, 0, 1)
 xi <- 0.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$domain()
 }

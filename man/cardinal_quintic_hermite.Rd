@@ -20,7 +20,7 @@ cardinal_quintic_hermite(y, dydx, d2ydx2, x0, dx)
 \value{
 An object of class \code{cardinal_quintic_hermite} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{double_prime(xi)}: Evaluate the second derivative of the interpolator at point \code{xi}.
 \item \code{domain()}: Get the domain of the interpolator.
@@ -37,7 +37,7 @@ x0 <- 0
 dx <- 1
 interpolator <- cardinal_quintic_hermite(y, dydx, d2ydx2, x0, dx)
 xi <- 0.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$double_prime(xi)
 interpolator$domain()

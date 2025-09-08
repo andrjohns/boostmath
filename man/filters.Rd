@@ -26,5 +26,5 @@ daubechies_scaling_filter(4)
 daubechies_wavelet_filter(4)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/wavelets.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/daubechies_filters.html}{Boost Documentation} for more details on the mathematical background.
 }

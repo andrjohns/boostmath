@@ -12,7 +12,7 @@ bezier_polynomial(control_points)
 \value{
 An object of class \code{bezier_polynomial} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{edit_control_point(new_control_point, index)}: Insert a new control point at the specified index.
 }
@@ -24,7 +24,7 @@ Constructs a Bezier polynomial interpolator given control points.
 control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
 interpolator <- bezier_polynomial(control_points)
 xi <- 1.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 new_control_point <- c(1.5, 1, 0)
 interpolator$edit_control_point(new_control_point, 2)

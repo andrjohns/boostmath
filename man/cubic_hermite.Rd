@@ -16,7 +16,7 @@ cubic_hermite(x, y, dydx)
 \value{
 An object of class \code{cubic_hermite} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{push_back(x, y, dydx)}: Add a new control point to the interpolator.
 \item \code{domain()}: Get the domain of the interpolator.
@@ -31,7 +31,7 @@ y <- c(0, 1, 0)
 dydx <- c(1, 0, -1)
 interpolator <- cubic_hermite(x, y, dydx)
 xi <- 0.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$push_back(3, 0, 1)
 interpolator$domain()

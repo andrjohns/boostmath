@@ -24,7 +24,7 @@ bilinear_uniform(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0)
 \value{
 An object of class \code{bilinear_uniform} with methods:
 \itemize{
-\item \code{spline(xi, yi)}: Evaluate the interpolator at point \verb{(xi, yi)}.
+\item \code{interpolate(xi, yi)}: Evaluate the interpolator at point \verb{(xi, yi)}.
 }
 }
 \description{
@@ -35,5 +35,5 @@ x <- seq(0, 1, length.out = 10)
 interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
 xi <- 0.5
 yi <- 0.5
-interpolator$spline(xi, yi)
+interpolator$interpolate(xi, yi)
 }

@@ -18,7 +18,7 @@ makima(x, y, left_endpoint_derivative = NULL, right_endpoint_derivative = NULL)
 \value{
 An object of class \code{makima} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{push_back(x, y)}: Add a new control point
 }
@@ -31,7 +31,7 @@ x <- c(0, 1, 2, 3)
 y <- c(0, 1, 0, 1)
 interpolator <- makima(x, y)
 xi <- 0.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$push_back(4, 1)
 }

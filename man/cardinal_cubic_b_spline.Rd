@@ -26,7 +26,7 @@ cardinal_cubic_b_spline(
 \value{
 An object of class \code{cardinal_cubic_b_spline} with methods:
 \itemize{
-\item \code{spline(x)}: Evaluate the spline at point \code{x}.
+\item \code{interpolate(x)}: Evaluate the spline at point \code{x}.
 \item \code{prime(x)}: Evaluate the first derivative of the spline at point \code{x}.
 \item \code{double_prime(x)}: Evaluate the second derivative of the spline at point \code{x}.
 }
@@ -40,7 +40,7 @@ t0 <- 0
 h <- 1
 spline_obj <- cardinal_cubic_b_spline(y, t0, h)
 x <- 0.5
-spline_obj$spline(x)
+spline_obj$interpolate(x)
 spline_obj$prime(x)
 spline_obj$double_prime(x)
 }

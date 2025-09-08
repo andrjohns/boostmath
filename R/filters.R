@@ -1,7 +1,7 @@
 #' @title Filters
 #' @name filters
 #' @description Functions to compute Daubechies wavelet and scaling filters.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/wavelets.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/daubechies_filters.html) for more details on the mathematical background.
 #' @param order An integer specifying the order of the Daubechies filter (must be between 1 and 19).
 #' @return A numeric vector of size 2*order containing the filter coefficients.
 #' @examples

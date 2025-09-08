@@ -18,7 +18,7 @@ quintic_hermite(x, y, dydx, d2ydx2)
 \value{
 An object of class \code{quintic_hermite} with methods:
 \itemize{
-\item \code{spline(xi)}: Evaluate the interpolator at point \code{xi}.
+\item \code{interpolate(xi)}: Evaluate the interpolator at point \code{xi}.
 \item \code{prime(xi)}: Evaluate the derivative of the interpolator at point \code{xi}.
 \item \code{double_prime(xi)}: Evaluate the second derivative of the interpolator at point \code{xi}.
 \item \code{push_back(x, y, dydx, d2ydx2)}: Add a new control point to the interpolator.
@@ -35,7 +35,7 @@ dydx <- c(1, 0, -1)
 d2ydx2 <- c(0, -1, 0)
 interpolator <- quintic_hermite(x, y, dydx, d2ydx2)
 xi <- 0.5
-interpolator$spline(xi)
+interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$double_prime(xi)
 interpolator$push_back(3, 0, 1, 0)
