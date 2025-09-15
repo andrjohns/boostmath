@@ -101,7 +101,7 @@ bezier_polynomial <- function(control_points) {
       prime = function(xi) .Call(`bezier_polynomial_prime_`, ptr, xi),
       edit_control_point = function(new_control_point, index) {
         stopifnot(is.numeric(new_control_point), length(new_control_point) == 3)
-        .Call(`bezier_polynomial_edit_control_point_`, ptr, new_control_point, index)
+        invisible(.Call(`bezier_polynomial_edit_control_point_`, ptr, new_control_point, index))
       }
     ),
     class = "bezier_polynomial"
@@ -285,7 +285,7 @@ cubic_hermite <- function(x, y, dydx) {
     list(
       interpolate = function(xi) .Call(`cubic_hermite_eval_`, ptr, xi),
       prime = function(xi) .Call(`cubic_hermite_prime_`, ptr, xi),
-      push_back = function(x, y, dydx) .Call(`cubic_hermite_push_back_`, ptr, x, y, dydx),
+      push_back = function(x, y, dydx) invisible(.Call(`cubic_hermite_push_back_`, ptr, x, y, dydx)),
       domain = function() .Call(`cubic_hermite_domain_`, ptr)
     ),
     class = "cubic_hermite"
@@ -360,7 +360,7 @@ makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivat
     list(
       interpolate = function(xi) .Call(`makima_eval_`, ptr, xi),
       prime = function(xi) .Call(`makima_prime_`, ptr, xi),
-      push_back = function(x, y) .Call(`makima_push_back_`, ptr, x, y)
+      push_back = function(x, y) invisible(.Call(`makima_push_back_`, ptr, x, y))
     ),
     class = "makima"
   )
@@ -400,7 +400,7 @@ pchip <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivati
     list(
       interpolate = function(xi) .Call(`pchip_eval_`, ptr, xi),
       prime = function(xi) .Call(`pchip_prime_`, ptr, xi),
-      push_back = function(x, y) .Call(`pchip_push_back_`, ptr, x, y)
+      push_back = function(x, y) invisible(.Call(`pchip_push_back_`, ptr, x, y))
     ),
     class = "pchip"
   )

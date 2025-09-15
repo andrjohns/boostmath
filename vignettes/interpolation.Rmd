@@ -116,7 +116,12 @@ interpolator <- cubic_hermite(x, y, dydx)
 xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
+interpolator$domain()
+
+# Add a new point
 interpolator$push_back(3, 0, 1)
+interpolator$interpolate(xi)
+interpolator$prime(xi)
 interpolator$domain()
 ```
 
@@ -141,7 +146,11 @@ interpolator <- makima(x, y)
 xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
+
+# Add a new point
 interpolator$push_back(4, 1)
+interpolator$interpolate(xi)
+interpolator$prime(xi)
 ```
 
 ### [PCHIP](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/pchip.html)
@@ -153,7 +162,11 @@ interpolator <- pchip(x, y)
 xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
+
+# Add a new point
 interpolator$push_back(4, 1)
+interpolator$interpolate(xi)
+interpolator$prime(xi)
 ```
 
 ### [Quintic Hermite](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html)
@@ -168,6 +181,12 @@ xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$double_prime(xi)
+interpolator$domain()
+
+# Add a new point
 interpolator$push_back(3, 0, 1, 0)
+interpolator$interpolate(xi)
+interpolator$prime(xi)
+interpolator$double_prime(xi)
 interpolator$domain()
 ```
