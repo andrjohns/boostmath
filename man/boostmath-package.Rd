@@ -13,6 +13,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/andrjohns/boostmath}
   \item \url{https://www.boost.org/doc/libs/latest/libs/math/doc/html/index.html}
+  \item \url{https://andrjohns.github.io/boostmath/}
   \item Report bugs at \url{https://github.com/andrjohns/boostmath/issues}
 }
 

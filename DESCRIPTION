@@ -7,7 +7,7 @@ Authors@R:
 Description: 'R' bindings for the various functions and statistical distributions
     provided by the 'Boost' Math library <https://www.boost.org/doc/libs/latest/libs/math/doc/html/index.html>.
 License: MIT + file LICENSE
-URL: https://github.com/andrjohns/boostmath, https://www.boost.org/doc/libs/latest/libs/math/doc/html/index.html
+URL: https://github.com/andrjohns/boostmath, https://www.boost.org/doc/libs/latest/libs/math/doc/html/index.html, https://andrjohns.github.io/boostmath/
 BugReports: https://github.com/andrjohns/boostmath/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
