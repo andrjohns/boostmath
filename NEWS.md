@@ -1,3 +1,7 @@
+# boostmath 1.2.0
+  * Added `filters`
+  * Interpolators now use `$interpolate()` instead of `$spline()`
+
 # boostmath 1.1.0
   * Added `statistics`, `interpolators`, and `constants`
 
