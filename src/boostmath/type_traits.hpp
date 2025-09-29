@@ -26,10 +26,10 @@ namespace boostmath {
   struct is_doubles_pair<std::pair<double, double>> : std::true_type {};
 
   template <typename T>
-  struct is_doubles_array_vector : std::false_type {};
+  struct is_vector_of_doubles_containers : std::false_type {};
 
   template <std::size_t N>
-  struct is_doubles_array_vector<std::vector<std::array<double, N>>> : std::true_type {};
+  struct is_vector_of_doubles_containers<std::vector<std::array<double, N>>> : std::true_type {};
 
   template <typename T>
   using is_doubles_container = std::disjunction<is_doubles_tuple<T>, is_doubles_array<T>, is_doubles_pair<T>>;
@@ -39,7 +39,7 @@ namespace boostmath {
     std::disjunction<
       std::is_same<T, std::complex<double>>,
       is_doubles_container<T>,
-      is_doubles_array_vector<T>,
+      is_vector_of_doubles_containers<T>,
       std::is_void<T>
     >
   >;

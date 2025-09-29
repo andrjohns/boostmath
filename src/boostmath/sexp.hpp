@@ -14,7 +14,10 @@ namespace boostmath {
 
     template <typename T, std::size_t... Is>
     auto as_sexp_doubles_container_impl(const T& x, std::index_sequence<Is...>) {
-      return cpp11::as_sexp(std::vector<double>{std::get<Is>(x)...});
+      SEXP data = cpp11::safe[Rf_allocVector](REALSXP, sizeof...(Is));
+      double* ptr = REAL(data);
+      ((ptr[Is] = std::get<Is>(x)), ...);
+      return data;
     }
   }
 
@@ -29,7 +32,7 @@ namespace boostmath {
     return internal::as_cpp_doubles_container_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
   }
 
-  template <typename T, std::enable_if_t<is_doubles_array_vector<T>::value>* = nullptr>
+  template <typename T, std::enable_if_t<is_vector_of_doubles_containers<T>::value>* = nullptr>
   inline T as_cpp(SEXP x) {
     using array_type = typename T::value_type;
     R_xlen_t n = Rf_xlength(x);
@@ -61,7 +64,7 @@ namespace boostmath {
     return internal::as_sexp_doubles_container_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
   }
 
-  template <typename T, std::enable_if_t<is_doubles_array_vector<T>::value>* = nullptr>
+  template <typename T, std::enable_if_t<is_vector_of_doubles_containers<T>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
     R_xlen_t n = x.size();
     SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
