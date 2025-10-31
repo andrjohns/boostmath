@@ -3,6 +3,25 @@
 #include <boost/math/distributions.hpp>
 #include "boostmath/macros.hpp"
 
+BINARY_DISTRIBUTION_BOOST_INIT(arcsine, double, double)
+UNARY_DISTRIBUTION_BOOST_FUNCTION(arcsine, cdf, double)
+UNARY_DISTRIBUTION_BOOST_FUNCTION(arcsine, logcdf, double)
+UNARY_DISTRIBUTION_BOOST_FUNCTION(arcsine, pdf, double)
+UNARY_DISTRIBUTION_BOOST_FUNCTION(arcsine, logpdf, double)
+UNARY_DISTRIBUTION_BOOST_FUNCTION(arcsine, hazard, double)
+UNARY_DISTRIBUTION_BOOST_FUNCTION(arcsine, chf, double)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, mean)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, median)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, mode)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, range)
+UNARY_DISTRIBUTION_BOOST_FUNCTION(arcsine, quantile, double)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, standard_deviation)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, support)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, variance)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, skewness)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, kurtosis)
+NOARG_DISTRIBUTION_BOOST_FUNCTION(arcsine, kurtosis_excess)
+
 TERNARY_DISTRIBUTION_BOOST(arcsine, double, double, double)
 BINARY_DISTRIBUTION_BOOST(bernoulli, int, double)
 TERNARY_DISTRIBUTION_BOOST(beta, double, double, double)

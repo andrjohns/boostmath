@@ -3,11 +3,11 @@
 \name{univariate_statistics}
 \alias{univariate_statistics}
 \alias{mean_boost}
-\alias{variance}
+\alias{variance.default}
 \alias{sample_variance}
 \alias{mean_and_sample_variance}
-\alias{skewness}
-\alias{kurtosis}
+\alias{skewness.default}
+\alias{kurtosis.default}
 \alias{excess_kurtosis}
 \alias{first_four_moments}
 \alias{median_boost}
@@ -20,15 +20,15 @@
 \usage{
 mean_boost(x)
 
-variance(x)
+\method{variance}{default}(x)
 
 sample_variance(x)
 
 mean_and_sample_variance(x)
 
-skewness(x)
+\method{skewness}{default}(x)
 
-kurtosis(x)
+\method{kurtosis}{default}(x)
 
 excess_kurtosis(x)
 

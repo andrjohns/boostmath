@@ -42,8 +42,8 @@ mean_boost <- function(x) {
 }
 
 #' @rdname univariate_statistics
-#' @export
-variance <- function(x) {
+#' @exportS3Method
+variance.default <- function(x) {
   .Call(`variance_`, x)
 }
 
@@ -60,14 +60,14 @@ mean_and_sample_variance <- function(x) {
 }
 
 #' @rdname univariate_statistics
-#' @export
-skewness <- function(x) {
+#' @exportS3Method
+skewness.default <- function(x) {
   .Call(`skewness_`, x)
 }
 
 #' @rdname univariate_statistics
-#' @export
-kurtosis <- function(x) {
+#' @exportS3Method
+kurtosis.default <- function(x) {
   .Call(`kurtosis_`, x)
 }
 

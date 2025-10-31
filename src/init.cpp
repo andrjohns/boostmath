@@ -241,6 +241,25 @@ extern "C" {
   SEXP complex_step_derivative_(SEXP f_, SEXP x_);
 
   // statistical_distributions/arcsine.cpp
+  SEXP arcsine_init_(SEXP x_min_, SEXP x_max_);
+  SEXP arcsine_cdf_ptr_(SEXP ptr_, SEXP x_);
+  SEXP arcsine_logcdf_ptr_(SEXP ptr_, SEXP x_);
+  SEXP arcsine_pdf_ptr_(SEXP ptr_, SEXP x_);
+  SEXP arcsine_logpdf_ptr_(SEXP ptr_, SEXP x_);
+  SEXP arcsine_hazard_ptr_(SEXP ptr_, SEXP x_);
+  SEXP arcsine_chf_ptr_(SEXP ptr_, SEXP x_);
+  SEXP arcsine_mean_ptr_(SEXP ptr_);
+  SEXP arcsine_median_ptr_(SEXP ptr_);
+  SEXP arcsine_mode_ptr_(SEXP ptr_);
+  SEXP arcsine_range_ptr_(SEXP ptr_);
+  SEXP arcsine_quantile_ptr_(SEXP ptr_, SEXP p_);
+  SEXP arcsine_standard_deviation_ptr_(SEXP ptr_);
+  SEXP arcsine_support_ptr_(SEXP ptr_);
+  SEXP arcsine_variance_ptr_(SEXP ptr_);
+  SEXP arcsine_skewness_ptr_(SEXP ptr_);
+  SEXP arcsine_kurtosis_ptr_(SEXP ptr_);
+  SEXP arcsine_kurtosis_excess_ptr_(SEXP ptr_);
+
   SEXP arcsine_pdf_(SEXP x_, SEXP x_min_, SEXP x_max_);
   SEXP arcsine_logpdf_(SEXP x_, SEXP x_min_, SEXP x_max_);
   SEXP arcsine_cdf_(SEXP x_, SEXP x_min_, SEXP x_max_);
@@ -921,6 +940,25 @@ extern "C" {
     {"complex_step_derivative_", (DL_FUNC) &complex_step_derivative_, 2},
 
     // statistical_distributions/arcsine.cpp
+    {"arcsine_init_", (DL_FUNC) &arcsine_init_, 2},
+    {"arcsine_cdf_ptr_", (DL_FUNC) &arcsine_cdf_ptr_, 2},
+    {"arcsine_logcdf_ptr_", (DL_FUNC) &arcsine_logcdf_ptr_, 2},
+    {"arcsine_pdf_ptr_", (DL_FUNC) &arcsine_pdf_ptr_, 2},
+    {"arcsine_logpdf_ptr_", (DL_FUNC) &arcsine_logpdf_ptr_, 2},
+    {"arcsine_hazard_ptr_", (DL_FUNC) &arcsine_hazard_ptr_, 2},
+    {"arcsine_chf_ptr_", (DL_FUNC) &arcsine_chf_ptr_, 2},
+    {"arcsine_mean_ptr_", (DL_FUNC) &arcsine_mean_ptr_, 1},
+    {"arcsine_median_ptr_", (DL_FUNC) &arcsine_median_ptr_, 1},
+    {"arcsine_mode_ptr_", (DL_FUNC) &arcsine_mode_ptr_, 1},
+    {"arcsine_range_ptr_", (DL_FUNC) &arcsine_range_ptr_, 1},
+    {"arcsine_quantile_ptr_", (DL_FUNC) &arcsine_quantile_ptr_, 2},
+    {"arcsine_standard_deviation_ptr_", (DL_FUNC) &arcsine_standard_deviation_ptr_, 1},
+    {"arcsine_support_ptr_", (DL_FUNC) &arcsine_support_ptr_, 1},
+    {"arcsine_variance_ptr_", (DL_FUNC) &arcsine_variance_ptr_, 1},
+    {"arcsine_skewness_ptr_", (DL_FUNC) &arcsine_skewness_ptr_, 1},
+    {"arcsine_kurtosis_ptr_", (DL_FUNC) &arcsine_kurtosis_ptr_, 1},
+    {"arcsine_kurtosis_excess_ptr_", (DL_FUNC) &arcsine_kurtosis_excess_ptr_, 1},
+
     {"arcsine_pdf_", (DL_FUNC) &arcsine_pdf_, 3},
     {"arcsine_logpdf_", (DL_FUNC) &arcsine_logpdf_, 3},
     {"arcsine_cdf_", (DL_FUNC) &arcsine_cdf_, 3},

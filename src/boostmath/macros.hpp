@@ -197,6 +197,33 @@
     END_CPP11 \
   }
 
+#define BINARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type, arg2_type) \
+  extern "C" SEXP dist##_init_(SEXP x_, SEXP y_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    cpp11::external_pointer<boost::math::dist##_distribution<>> ptr(new boost::math::dist##_distribution<>(x, y)); \
+    return ptr; \
+    END_CPP11 \
+  }
+
+#define NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, func) \
+  extern "C" SEXP dist##_##func##_ptr_(SEXP ptr_) { \
+    BEGIN_CPP11 \
+    cpp11::external_pointer<boost::math::dist##_distribution<>> ptr(ptr_); \
+    return boostmath::as_sexp(func(*ptr)); \
+    END_CPP11 \
+  }
+
+#define UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, func, arg_type) \
+  extern "C" SEXP dist##_##func##_ptr_(SEXP ptr_, SEXP x_) { \
+    BEGIN_CPP11 \
+    cpp11::external_pointer<boost::math::dist##_distribution<>> ptr(ptr_); \
+    const arg_type x = boostmath::as_cpp<arg_type>(x_); \
+    return boostmath::as_sexp(boost::math::func(*ptr, x)); \
+    END_CPP11 \
+  }
+
 #define BINARY_DISTRIBUTION_BOOST_IMPL(func, dist, arg1_type, arg2_type) \
   extern "C" SEXP dist##_##func##_(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \
