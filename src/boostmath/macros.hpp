@@ -197,6 +197,15 @@
     END_CPP11 \
   }
 
+#define UNARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type) \
+  extern "C" SEXP dist##_init_(SEXP x_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    cpp11::external_pointer<boost::math::dist##_distribution<>> ptr(new boost::math::dist##_distribution<>(x)); \
+    return ptr; \
+    END_CPP11 \
+  }
+
 #define BINARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type, arg2_type) \
   extern "C" SEXP dist##_init_(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \
@@ -223,6 +232,33 @@
     return boostmath::as_sexp(boost::math::func(*ptr, x)); \
     END_CPP11 \
   }
+
+#define DISTRIBUTION_FUNCTIONS(dist) \
+  UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, cdf, double) \
+  UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, logcdf, double) \
+  UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, pdf, double) \
+  UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, logpdf, double) \
+  UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, hazard, double) \
+  UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, chf, double) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, mean) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, median) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, mode) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, range) \
+  UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, quantile, double) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, standard_deviation) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, support) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, variance) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, skewness) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, kurtosis) \
+  NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, kurtosis_excess)
+
+#define UNARY_DISTRIBUTION_BOOST_NEW(dist, arg1_type) \
+  UNARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type) \
+  DISTRIBUTION_FUNCTIONS(dist)
+
+#define BINARY_DISTRIBUTION_BOOST_NEW(dist, arg1_type, arg2_type) \
+  BINARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type, arg2_type) \
+  DISTRIBUTION_FUNCTIONS(dist)
 
 #define BINARY_DISTRIBUTION_BOOST_IMPL(func, dist, arg1_type, arg2_type) \
   extern "C" SEXP dist##_##func##_(SEXP x_, SEXP y_) { \

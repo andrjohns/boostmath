@@ -17,9 +17,14 @@ NULL
 
 #' @export
 arcsine_distribution <- function(x_min = 0, x_max = 1) {
-  res <- list(extptr = .Call(`arcsine_init_`, x_min, x_max))
-  class(res) <- "arcsine_distribution"
-  res
+  structure(
+    list(
+      extptr = .Call(`arcsine_init_`, x_min, x_max),
+      x_min = x_min,
+      x_max = x_max
+    ),
+    class = c("arcsine_distribution", "boost_distribution")
+  )
 }
 
 #' @exportS3Method cdf arcsine_distribution
@@ -111,29 +116,29 @@ kurtosis_excess.arcsine_distribution <- function(x, ...) {
 #' @rdname arcsine_distribution
 #' @export
 arcsine_pdf <- function(x, x_min = 0, x_max = 1) {
-  .Call(`arcsine_pdf_`, x, x_min, x_max)
+  pdf(arcsine_distribution(x_min, x_max), x)
 }
 
 #' @rdname arcsine_distribution
 #' @export
 arcsine_lpdf <- function(x, x_min = 0, x_max = 1) {
-  .Call(`arcsine_logpdf_`, x, x_min, x_max)
+  logpdf(arcsine_distribution(x_min, x_max), x)
 }
 
 #' @rdname arcsine_distribution
 #' @export
 arcsine_cdf <- function(x, x_min = 0, x_max = 1) {
-  .Call(`arcsine_cdf_`, x, x_min, x_max)
+  cdf(arcsine_distribution(x_min, x_max), x)
 }
 
 #' @rdname arcsine_distribution
 #' @export
 arcsine_lcdf <- function(x, x_min = 0, x_max = 1) {
-  .Call(`arcsine_logcdf_`, x, x_min, x_max)
+  logcdf(arcsine_distribution(x_min, x_max), x)
 }
 
 #' @rdname arcsine_distribution
 #' @export
 arcsine_quantile <- function(p, x_min = 0, x_max = 1) {
-  .Call(`arcsine_quantile_`, p, x_min, x_max)
+  quantile(arcsine_distribution(x_min, x_max), p)
 }

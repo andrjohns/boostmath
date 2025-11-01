@@ -1,5 +1,6 @@
 #include <Rinternals.h>
 #include <R_ext/Visibility.h>
+#include "boostmath/init_macros.hpp"
 
 extern "C" {
   // number_series.cpp
@@ -240,59 +241,11 @@ extern "C" {
   SEXP finite_difference_derivative_(SEXP f_, SEXP x_, SEXP order_);
   SEXP complex_step_derivative_(SEXP f_, SEXP x_);
 
-  // statistical_distributions/arcsine.cpp
-  SEXP arcsine_init_(SEXP x_min_, SEXP x_max_);
-  SEXP arcsine_cdf_ptr_(SEXP ptr_, SEXP x_);
-  SEXP arcsine_logcdf_ptr_(SEXP ptr_, SEXP x_);
-  SEXP arcsine_pdf_ptr_(SEXP ptr_, SEXP x_);
-  SEXP arcsine_logpdf_ptr_(SEXP ptr_, SEXP x_);
-  SEXP arcsine_hazard_ptr_(SEXP ptr_, SEXP x_);
-  SEXP arcsine_chf_ptr_(SEXP ptr_, SEXP x_);
-  SEXP arcsine_mean_ptr_(SEXP ptr_);
-  SEXP arcsine_median_ptr_(SEXP ptr_);
-  SEXP arcsine_mode_ptr_(SEXP ptr_);
-  SEXP arcsine_range_ptr_(SEXP ptr_);
-  SEXP arcsine_quantile_ptr_(SEXP ptr_, SEXP p_);
-  SEXP arcsine_standard_deviation_ptr_(SEXP ptr_);
-  SEXP arcsine_support_ptr_(SEXP ptr_);
-  SEXP arcsine_variance_ptr_(SEXP ptr_);
-  SEXP arcsine_skewness_ptr_(SEXP ptr_);
-  SEXP arcsine_kurtosis_ptr_(SEXP ptr_);
-  SEXP arcsine_kurtosis_excess_ptr_(SEXP ptr_);
-
-  SEXP arcsine_pdf_(SEXP x_, SEXP x_min_, SEXP x_max_);
-  SEXP arcsine_logpdf_(SEXP x_, SEXP x_min_, SEXP x_max_);
-  SEXP arcsine_cdf_(SEXP x_, SEXP x_min_, SEXP x_max_);
-  SEXP arcsine_logcdf_(SEXP x_, SEXP x_min_, SEXP x_max_);
-  SEXP arcsine_quantile_(SEXP p_, SEXP x_min_, SEXP x_max_);
-
-  // statistical_distributions/bernoulli.cpp
-  SEXP bernoulli_pdf_(SEXP x_, SEXP p_);
-  SEXP bernoulli_logpdf_(SEXP x_, SEXP p_);
-  SEXP bernoulli_cdf_(SEXP x_, SEXP p_);
-  SEXP bernoulli_logcdf_(SEXP x_, SEXP p_);
-  SEXP bernoulli_quantile_(SEXP p_, SEXP q_);
-
-  // statistical_distributions/beta.cpp
-  SEXP beta_pdf_(SEXP x_, SEXP alpha_, SEXP beta_);
-  SEXP beta_logpdf_(SEXP x_, SEXP alpha_, SEXP beta_);
-  SEXP beta_cdf_(SEXP x_, SEXP alpha_, SEXP beta_);
-  SEXP beta_logcdf_(SEXP x_, SEXP alpha_, SEXP beta_);
-  SEXP beta_quantile_(SEXP p_, SEXP alpha_, SEXP beta_);
-
-  // statistical_distributions/binomial.cpp
-  SEXP binomial_pdf_(SEXP k_, SEXP n_, SEXP prob_);
-  SEXP binomial_logpdf_(SEXP k_, SEXP n_, SEXP prob_);
-  SEXP binomial_cdf_(SEXP k_, SEXP n_, SEXP prob_);
-  SEXP binomial_logcdf_(SEXP k_, SEXP n_, SEXP prob_);
-  SEXP binomial_quantile_(SEXP p_, SEXP n_, SEXP prob_);
-
-  // statistical_distributions/cauchy.cpp
-  SEXP cauchy_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP cauchy_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP cauchy_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP cauchy_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP cauchy_quantile_(SEXP p_, SEXP location_, SEXP scale_);
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(arcsine)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(beta)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(binomial)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(cauchy)
+  UNARY_DISTRIBUTION_BOOST_DECLARATIONS(chi_squared)
 
   // statistical_distributions/chi_squared.cpp
   SEXP chi_squared_pdf_(SEXP x_, SEXP df_);
@@ -939,66 +892,12 @@ extern "C" {
     {"finite_difference_derivative_", (DL_FUNC) &finite_difference_derivative_, 3},
     {"complex_step_derivative_", (DL_FUNC) &complex_step_derivative_, 2},
 
-    // statistical_distributions/arcsine.cpp
-    {"arcsine_init_", (DL_FUNC) &arcsine_init_, 2},
-    {"arcsine_cdf_ptr_", (DL_FUNC) &arcsine_cdf_ptr_, 2},
-    {"arcsine_logcdf_ptr_", (DL_FUNC) &arcsine_logcdf_ptr_, 2},
-    {"arcsine_pdf_ptr_", (DL_FUNC) &arcsine_pdf_ptr_, 2},
-    {"arcsine_logpdf_ptr_", (DL_FUNC) &arcsine_logpdf_ptr_, 2},
-    {"arcsine_hazard_ptr_", (DL_FUNC) &arcsine_hazard_ptr_, 2},
-    {"arcsine_chf_ptr_", (DL_FUNC) &arcsine_chf_ptr_, 2},
-    {"arcsine_mean_ptr_", (DL_FUNC) &arcsine_mean_ptr_, 1},
-    {"arcsine_median_ptr_", (DL_FUNC) &arcsine_median_ptr_, 1},
-    {"arcsine_mode_ptr_", (DL_FUNC) &arcsine_mode_ptr_, 1},
-    {"arcsine_range_ptr_", (DL_FUNC) &arcsine_range_ptr_, 1},
-    {"arcsine_quantile_ptr_", (DL_FUNC) &arcsine_quantile_ptr_, 2},
-    {"arcsine_standard_deviation_ptr_", (DL_FUNC) &arcsine_standard_deviation_ptr_, 1},
-    {"arcsine_support_ptr_", (DL_FUNC) &arcsine_support_ptr_, 1},
-    {"arcsine_variance_ptr_", (DL_FUNC) &arcsine_variance_ptr_, 1},
-    {"arcsine_skewness_ptr_", (DL_FUNC) &arcsine_skewness_ptr_, 1},
-    {"arcsine_kurtosis_ptr_", (DL_FUNC) &arcsine_kurtosis_ptr_, 1},
-    {"arcsine_kurtosis_excess_ptr_", (DL_FUNC) &arcsine_kurtosis_excess_ptr_, 1},
-
-    {"arcsine_pdf_", (DL_FUNC) &arcsine_pdf_, 3},
-    {"arcsine_logpdf_", (DL_FUNC) &arcsine_logpdf_, 3},
-    {"arcsine_cdf_", (DL_FUNC) &arcsine_cdf_, 3},
-    {"arcsine_logcdf_", (DL_FUNC) &arcsine_logcdf_, 3},
-    {"arcsine_quantile_", (DL_FUNC) &arcsine_quantile_, 3},
-
-    // statistical_distributions/bernoulli.cpp
-    {"bernoulli_pdf_", (DL_FUNC) &bernoulli_pdf_, 2},
-    {"bernoulli_logpdf_", (DL_FUNC) &bernoulli_logpdf_, 2},
-    {"bernoulli_cdf_", (DL_FUNC) &bernoulli_cdf_, 2},
-    {"bernoulli_logcdf_", (DL_FUNC) &bernoulli_logcdf_, 2},
-    {"bernoulli_quantile_", (DL_FUNC) &bernoulli_quantile_, 2},
-
-    // statistical_distributions/beta.cpp
-    {"beta_pdf_", (DL_FUNC) &beta_pdf_, 3},
-    {"beta_logpdf_", (DL_FUNC) &beta_logpdf_, 3},
-    {"beta_cdf_", (DL_FUNC) &beta_cdf_, 3},
-    {"beta_logcdf_", (DL_FUNC) &beta_logcdf_, 3},
-    {"beta_quantile_", (DL_FUNC) &beta_quantile_, 3},
-
-    // statistical_distributions/binomial.cpp
-    {"binomial_pdf_", (DL_FUNC) &binomial_pdf_, 3},
-    {"binomial_logpdf_", (DL_FUNC) &binomial_logpdf_, 3},
-    {"binomial_cdf_", (DL_FUNC) &binomial_cdf_, 3},
-    {"binomial_logcdf_", (DL_FUNC) &binomial_logcdf_, 3},
-    {"binomial_quantile_", (DL_FUNC) &binomial_quantile_, 3},
-
-    // statistical_distributions/cauchy.cpp
-    {"cauchy_pdf_", (DL_FUNC) &cauchy_pdf_, 3},
-    {"cauchy_logpdf_", (DL_FUNC) &cauchy_logpdf_, 3},
-    {"cauchy_cdf_", (DL_FUNC) &cauchy_cdf_, 3},
-    {"cauchy_logcdf_", (DL_FUNC) &cauchy_logcdf_, 3},
-    {"cauchy_quantile_", (DL_FUNC) &cauchy_quantile_, 3},
-
-    // statistical_distributions/chi_squared.cpp
-    {"chi_squared_pdf_", (DL_FUNC) &chi_squared_pdf_, 2},
-    {"chi_squared_logpdf_", (DL_FUNC) &chi_squared_logpdf_, 2},
-    {"chi_squared_cdf_", (DL_FUNC) &chi_squared_cdf_, 2},
-    {"chi_squared_logcdf_", (DL_FUNC) &chi_squared_logcdf_, 2},
-    {"chi_squared_quantile_", (DL_FUNC) &chi_squared_quantile_, 2},
+    // statistical_distributions.cpp
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(arcsine)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(beta)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(binomial)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(cauchy)
+    UNARY_DISTRIBUTION_BOOST_CALLDEFS(chi_squared)
 
     // statistical_distributions/exponential.cpp
     {"exponential_pdf_", (DL_FUNC) &exponential_pdf_, 2},
