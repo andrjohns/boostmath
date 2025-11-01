@@ -16,32 +16,129 @@
 #' holtsmark_quantile(0.5)
 NULL
 
+#' @export
+holtsmark_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`holtsmark_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("holtsmark_distribution", "boost_distribution")
+  )
+}
+
+#' @exportS3Method cdf holtsmark_distribution
+cdf.holtsmark_distribution <- function(x, y, ...) {
+  .Call(`holtsmark_cdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method logcdf holtsmark_distribution
+logcdf.holtsmark_distribution <- function(x, y, ...) {
+  .Call(`holtsmark_logcdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method pdf holtsmark_distribution
+pdf.holtsmark_distribution <- function(x, y, ...) {
+  .Call(`holtsmark_pdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method logpdf holtsmark_distribution
+logpdf.holtsmark_distribution <- function(x, y, ...) {
+  .Call(`holtsmark_logpdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method hazard holtsmark_distribution
+hazard.holtsmark_distribution <- function(x, y, ...) {
+  .Call(`holtsmark_hazard_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method chf holtsmark_distribution
+chf.holtsmark_distribution <- function(x, y, ...) {
+  .Call(`holtsmark_chf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method mean holtsmark_distribution
+mean.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_mean_ptr_`, x$extptr)
+}
+
+#' @exportS3Method median holtsmark_distribution
+median.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_median_ptr_`, x$extptr)
+}
+
+#' @exportS3Method mode holtsmark_distribution
+mode.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_mode_ptr_`, x$extptr)
+}
+
+#' @exportS3Method range holtsmark_distribution
+range.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_range_ptr_`, x$extptr)
+}
+
+#' @exportS3Method quantile holtsmark_distribution
+quantile.holtsmark_distribution <- function(x, y, ...) {
+  .Call(`holtsmark_quantile_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method standard_deviation holtsmark_distribution
+standard_deviation.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_standard_deviation_ptr_`, x$extptr)
+}
+
+#' @exportS3Method support holtsmark_distribution
+support.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_support_ptr_`, x$extptr)
+}
+
+#' @exportS3Method variance holtsmark_distribution
+variance.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_variance_ptr_`, x$extptr)
+}
+
+#' @exportS3Method skewness holtsmark_distribution
+skewness.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_skewness_ptr_`, x$extptr)
+}
+
+#' @exportS3Method kurtosis holtsmark_distribution
+kurtosis.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_kurtosis_ptr_`, x$extptr)
+}
+
+#' @exportS3Method kurtosis_excess holtsmark_distribution
+kurtosis_excess.holtsmark_distribution <- function(x, ...) {
+  .Call(`holtsmark_kurtosis_excess_ptr_`, x$extptr)
+}
+
 #' @rdname holtsmark_distribution
 #' @export
 holtsmark_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`holtsmark_pdf_`, x, location, scale)
+  pdf(holtsmark_distribution(location, scale), x)
 }
 
 #' @rdname holtsmark_distribution
 #' @export
 holtsmark_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`holtsmark_logpdf_`, x, location, scale)
+  logpdf(holtsmark_distribution(location, scale), x)
 }
 
 #' @rdname holtsmark_distribution
 #' @export
 holtsmark_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`holtsmark_cdf_`, x, location, scale)
+  cdf(holtsmark_distribution(location, scale), x)
 }
 
 #' @rdname holtsmark_distribution
 #' @export
 holtsmark_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`holtsmark_logcdf_`, x, location, scale)
+  logcdf(holtsmark_distribution(location, scale), x)
 }
 
 #' @rdname holtsmark_distribution
 #' @export
 holtsmark_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`holtsmark_quantile_`, p, location, scale)
+  quantile(holtsmark_distribution(location, scale), p)
 }

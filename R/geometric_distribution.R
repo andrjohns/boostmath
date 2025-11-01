@@ -15,32 +15,129 @@
 #' geometric_quantile(0.5, 0.5)
 NULL
 
+#' @export
+geometric_distribution <- function(prob) {
+  structure(
+    list(
+      extptr = .Call(`geometric_init_`, prob),
+      prob = prob
+    ),
+    class = c("geometric_distribution", "boost_distribution")
+  )
+}
+
+#' @exportS3Method cdf geometric_distribution
+cdf.geometric_distribution <- function(x, y, ...) {
+  .Call(`geometric_cdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method logcdf geometric_distribution
+logcdf.geometric_distribution <- function(x, y, ...) {
+  .Call(`geometric_logcdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method pdf geometric_distribution
+pdf.geometric_distribution <- function(x, y, ...) {
+  .Call(`geometric_pdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method logpdf geometric_distribution
+logpdf.geometric_distribution <- function(x, y, ...) {
+  .Call(`geometric_logpdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method hazard geometric_distribution
+hazard.geometric_distribution <- function(x, y, ...) {
+  .Call(`geometric_hazard_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method chf geometric_distribution
+chf.geometric_distribution <- function(x, y, ...) {
+  .Call(`geometric_chf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method mean geometric_distribution
+mean.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_mean_ptr_`, x$extptr)
+}
+
+#' @exportS3Method median geometric_distribution
+median.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_median_ptr_`, x$extptr)
+}
+
+#' @exportS3Method mode geometric_distribution
+mode.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_mode_ptr_`, x$extptr)
+}
+
+#' @exportS3Method range geometric_distribution
+range.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_range_ptr_`, x$extptr)
+}
+
+#' @exportS3Method quantile geometric_distribution
+quantile.geometric_distribution <- function(x, y, ...) {
+  .Call(`geometric_quantile_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method standard_deviation geometric_distribution
+standard_deviation.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_standard_deviation_ptr_`, x$extptr)
+}
+
+#' @exportS3Method support geometric_distribution
+support.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_support_ptr_`, x$extptr)
+}
+
+#' @exportS3Method variance geometric_distribution
+variance.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_variance_ptr_`, x$extptr)
+}
+
+#' @exportS3Method skewness geometric_distribution
+skewness.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_skewness_ptr_`, x$extptr)
+}
+
+#' @exportS3Method kurtosis geometric_distribution
+kurtosis.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_kurtosis_ptr_`, x$extptr)
+}
+
+#' @exportS3Method kurtosis_excess geometric_distribution
+kurtosis_excess.geometric_distribution <- function(x, ...) {
+  .Call(`geometric_kurtosis_excess_ptr_`, x$extptr)
+}
+
+
 #' @rdname geometric_distribution
 #' @export
 geometric_pdf <- function(x, prob) {
-  .Call(`geometric_pdf_`, x, prob)
+  pdf(geometric_distribution(prob), x)
 }
 
 #' @rdname geometric_distribution
 #' @export
 geometric_lpdf <- function(x, prob) {
-  .Call(`geometric_logpdf_`, x, prob)
+  logpdf(geometric_distribution(prob), x)
 }
 
 #' @rdname geometric_distribution
 #' @export
 geometric_cdf <- function(x, prob) {
-  .Call(`geometric_cdf_`, x, prob)
+  cdf(geometric_distribution(prob), x)
 }
 
 #' @rdname geometric_distribution
 #' @export
 geometric_lcdf <- function(x, prob) {
-  .Call(`geometric_logcdf_`, x, prob)
+  logcdf(geometric_distribution(prob), x)
 }
 
 #' @rdname geometric_distribution
 #' @export
 geometric_quantile <- function(p, prob) {
-  .Call(`geometric_quantile_`, p, prob)
+  quantile(geometric_distribution(prob), p)
 }

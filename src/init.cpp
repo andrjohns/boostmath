@@ -246,55 +246,12 @@ extern "C" {
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(binomial)
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(cauchy)
   UNARY_DISTRIBUTION_BOOST_DECLARATIONS(chi_squared)
-
-  // statistical_distributions/chi_squared.cpp
-  SEXP chi_squared_pdf_(SEXP x_, SEXP df_);
-  SEXP chi_squared_logpdf_(SEXP x_, SEXP df_);
-  SEXP chi_squared_cdf_(SEXP x_, SEXP df_);
-  SEXP chi_squared_logcdf_(SEXP x_, SEXP df_);
-  SEXP chi_squared_quantile_(SEXP p_, SEXP df_);
-
-  // statistical_distributions/exponential.cpp
-  SEXP exponential_pdf_(SEXP x_, SEXP rate_);
-  SEXP exponential_logpdf_(SEXP x_, SEXP rate_);
-  SEXP exponential_cdf_(SEXP x_, SEXP rate_);
-  SEXP exponential_logcdf_(SEXP x_, SEXP rate_);
-  SEXP exponential_quantile_(SEXP p_, SEXP rate_);
-
-  // statistical_distributions/extreme_value.cpp
-  SEXP extreme_value_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP extreme_value_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP extreme_value_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP extreme_value_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP extreme_value_quantile_(SEXP p_, SEXP location_, SEXP scale_);
-
-  // statistical_distributions/fisher_f.cpp
-  SEXP fisher_f_pdf_(SEXP x_, SEXP df1_, SEXP df2_);
-  SEXP fisher_f_logpdf_(SEXP x_, SEXP df1_, SEXP df2_);
-  SEXP fisher_f_cdf_(SEXP x_, SEXP df1_, SEXP df2_);
-  SEXP fisher_f_logcdf_(SEXP x_, SEXP df1_, SEXP df2_);
-  SEXP fisher_f_quantile_(SEXP p_, SEXP df1_, SEXP df2_);
-
-  // statistical_distributions/gamma.cpp
-  SEXP gamma_pdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP gamma_logpdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP gamma_cdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP gamma_logcdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP gamma_quantile_(SEXP p_, SEXP shape_, SEXP scale_);
-
-  // statistical_distributions/geometric.cpp
-  SEXP geometric_pdf_(SEXP x_, SEXP prob_);
-  SEXP geometric_logpdf_(SEXP x_, SEXP prob_);
-  SEXP geometric_cdf_(SEXP x_, SEXP prob_);
-  SEXP geometric_logcdf_(SEXP x_, SEXP prob_);
-  SEXP geometric_quantile_(SEXP p_, SEXP prob_);
-
-  // statistical_distributions/holtsmark.cpp
-  SEXP holtsmark_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP holtsmark_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP holtsmark_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP holtsmark_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP holtsmark_quantile_(SEXP p_, SEXP location_, SEXP scale_);
+  UNARY_DISTRIBUTION_BOOST_DECLARATIONS(exponential)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(extreme_value)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(fisher_f)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(gamma)
+  UNARY_DISTRIBUTION_BOOST_DECLARATIONS(geometric)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(holtsmark)
 
   // statistical_distributions/hyperexponential.cpp
   SEXP hyperexponential_pdf_(SEXP x_, SEXP probabilities_, SEXP rates_);
@@ -898,48 +855,12 @@ extern "C" {
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(binomial)
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(cauchy)
     UNARY_DISTRIBUTION_BOOST_CALLDEFS(chi_squared)
-
-    // statistical_distributions/exponential.cpp
-    {"exponential_pdf_", (DL_FUNC) &exponential_pdf_, 2},
-    {"exponential_logpdf_", (DL_FUNC) &exponential_logpdf_, 2},
-    {"exponential_cdf_", (DL_FUNC) &exponential_cdf_, 2},
-    {"exponential_logcdf_", (DL_FUNC) &exponential_logcdf_, 2},
-    {"exponential_quantile_", (DL_FUNC) &exponential_quantile_, 2},
-
-    // statistical_distributions/extreme_value.cpp
-    {"extreme_value_pdf_", (DL_FUNC) &extreme_value_pdf_, 3},
-    {"extreme_value_logpdf_", (DL_FUNC) &extreme_value_logpdf_, 3},
-    {"extreme_value_cdf_", (DL_FUNC) &extreme_value_cdf_, 3},
-    {"extreme_value_logcdf_", (DL_FUNC) &extreme_value_logcdf_, 3},
-    {"extreme_value_quantile_", (DL_FUNC) &extreme_value_quantile_, 3},
-
-    // statistical_distributions/fisher_f.cpp
-    {"fisher_f_pdf_", (DL_FUNC) &fisher_f_pdf_, 3},
-    {"fisher_f_logpdf_", (DL_FUNC) &fisher_f_logpdf_, 3},
-    {"fisher_f_cdf_", (DL_FUNC) &fisher_f_cdf_, 3},
-    {"fisher_f_logcdf_", (DL_FUNC) &fisher_f_logcdf_, 3},
-    {"fisher_f_quantile_", (DL_FUNC) &fisher_f_quantile_, 3},
-
-    // statistical_distributions/gamma.cpp
-    {"gamma_pdf_", (DL_FUNC) &gamma_pdf_, 3},
-    {"gamma_logpdf_", (DL_FUNC) &gamma_logpdf_, 3},
-    {"gamma_cdf_", (DL_FUNC) &gamma_cdf_, 3},
-    {"gamma_logcdf_", (DL_FUNC) &gamma_logcdf_, 3},
-    {"gamma_quantile_", (DL_FUNC) &gamma_quantile_, 3},
-
-    // statistical_distributions/geometric.cpp
-    {"geometric_pdf_", (DL_FUNC) &geometric_pdf_, 2},
-    {"geometric_logpdf_", (DL_FUNC) &geometric_logpdf_, 2},
-    {"geometric_cdf_", (DL_FUNC) &geometric_cdf_, 2},
-    {"geometric_logcdf_", (DL_FUNC) &geometric_logcdf_, 2},
-    {"geometric_quantile_", (DL_FUNC) &geometric_quantile_, 2},
-
-    // statistical_distributions/holtsmark.cpp
-    {"holtsmark_pdf_", (DL_FUNC) &holtsmark_pdf_, 3},
-    {"holtsmark_logpdf_", (DL_FUNC) &holtsmark_logpdf_, 3},
-    {"holtsmark_cdf_", (DL_FUNC) &holtsmark_cdf_, 3},
-    {"holtsmark_logcdf_", (DL_FUNC) &holtsmark_logcdf_, 3},
-    {"holtsmark_quantile_", (DL_FUNC) &holtsmark_quantile_, 3},
+    UNARY_DISTRIBUTION_BOOST_CALLDEFS(exponential)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(extreme_value)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(fisher_f)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(gamma)
+    UNARY_DISTRIBUTION_BOOST_CALLDEFS(geometric)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(holtsmark)
 
     // statistical_distributions/hyperexponential.cpp
     {"hyperexponential_pdf_", (DL_FUNC) &hyperexponential_pdf_, 3},

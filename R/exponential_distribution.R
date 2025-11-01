@@ -15,32 +15,128 @@
 #' exponential_quantile(0.5, 2)
 NULL
 
-#' @rdname exponential_distribution
 #' @export
-exponential_pdf <- function(x, lambda) {
-  .Call(`exponential_pdf_`, x, lambda)
+exponential_distribution <- function(lambda = 1) {
+  structure(
+    list(
+      extptr = .Call(`exponential_init_`, lambda),
+      rate = lambda
+    ),
+    class = c("exponential_distribution", "boost_distribution")
+  )
+}
+
+#' @exportS3Method cdf exponential_distribution
+cdf.exponential_distribution <- function(x, y, ...) {
+  .Call(`exponential_cdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method logcdf exponential_distribution
+logcdf.exponential_distribution <- function(x, y, ...) {
+  .Call(`exponential_logcdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method pdf exponential_distribution
+pdf.exponential_distribution <- function(x, y, ...) {
+  .Call(`exponential_pdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method logpdf exponential_distribution
+logpdf.exponential_distribution <- function(x, y, ...) {
+  .Call(`exponential_logpdf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method hazard exponential_distribution
+hazard.exponential_distribution <- function(x, y, ...) {
+  .Call(`exponential_hazard_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method chf exponential_distribution
+chf.exponential_distribution <- function(x, y, ...) {
+  .Call(`exponential_chf_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method mean exponential_distribution
+mean.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_mean_ptr_`, x$extptr)
+}
+
+#' @exportS3Method median exponential_distribution
+median.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_median_ptr_`, x$extptr)
+}
+
+#' @exportS3Method mode exponential_distribution
+mode.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_mode_ptr_`, x$extptr)
+}
+
+#' @exportS3Method range exponential_distribution
+range.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_range_ptr_`, x$extptr)
+}
+
+#' @exportS3Method quantile exponential_distribution
+quantile.exponential_distribution <- function(x, y, ...) {
+  .Call(`exponential_quantile_ptr_`, x$extptr, y)
+}
+
+#' @exportS3Method standard_deviation exponential_distribution
+standard_deviation.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_standard_deviation_ptr_`, x$extptr)
+}
+
+#' @exportS3Method support exponential_distribution
+support.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_support_ptr_`, x$extptr)
+}
+
+#' @exportS3Method variance exponential_distribution
+variance.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_variance_ptr_`, x$extptr)
+}
+
+#' @exportS3Method skewness exponential_distribution
+skewness.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_skewness_ptr_`, x$extptr)
+}
+
+#' @exportS3Method kurtosis exponential_distribution
+kurtosis.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_kurtosis_ptr_`, x$extptr)
+}
+
+#' @exportS3Method kurtosis_excess exponential_distribution
+kurtosis_excess.exponential_distribution <- function(x, ...) {
+  .Call(`exponential_kurtosis_excess_ptr_`, x$extptr)
 }
 
 #' @rdname exponential_distribution
 #' @export
-exponential_lpdf <- function(x, lambda) {
-  .Call(`exponential_logpdf_`, x, lambda)
+exponential_pdf <- function(x, lambda = 1) {
+  pdf(exponential_distribution(lambda), x)
 }
 
 #' @rdname exponential_distribution
 #' @export
-exponential_cdf <- function(x, lambda) {
-  .Call(`exponential_cdf_`, x, lambda)
+exponential_lpdf <- function(x, lambda = 1) {
+  logpdf(exponential_distribution(lambda), x)
 }
 
 #' @rdname exponential_distribution
 #' @export
-exponential_lcdf <- function(x, lambda) {
-  .Call(`exponential_logcdf_`, x, lambda)
+exponential_cdf <- function(x, lambda = 1) {
+  cdf(exponential_distribution(lambda), x)
 }
 
 #' @rdname exponential_distribution
 #' @export
-exponential_quantile <- function(p, lambda) {
-  .Call(`exponential_quantile_`, p, lambda)
+exponential_lcdf <- function(x, lambda = 1) {
+  logcdf(exponential_distribution(lambda), x)
+}
+
+#' @rdname exponential_distribution
+#' @export
+exponential_quantile <- function(p, lambda = 1) {
+  quantile(exponential_distribution(lambda), p)
 }
