@@ -16,32 +16,44 @@
 #' laplace_quantile(0.5)
 NULL
 
+#' @export
+laplace_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`laplace_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("laplace_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname laplace_distribution
 #' @export
 laplace_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`laplace_pdf_`, x, location, scale)
+  pdf(laplace_distribution(location, scale), x)
 }
 
 #' @rdname laplace_distribution
 #' @export
 laplace_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`laplace_logpdf_`, x, location, scale)
+  logpdf(laplace_distribution(location, scale), x)
 }
 
 #' @rdname laplace_distribution
 #' @export
 laplace_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`laplace_cdf_`, x, location, scale)
+  cdf(laplace_distribution(location, scale), x)
 }
 
 #' @rdname laplace_distribution
 #' @export
 laplace_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`laplace_logcdf_`, x, location, scale)
+  logcdf(laplace_distribution(location, scale), x)
 }
 
 #' @rdname laplace_distribution
 #' @export
 laplace_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`laplace_quantile_`, p, location, scale)
+  quantile(laplace_distribution(location, scale), p)
 }

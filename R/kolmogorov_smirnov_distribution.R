@@ -15,32 +15,43 @@
 #' kolmogorov_smirnov_quantile(0.5, 10)
 NULL
 
+#' @export
+kolmogorov_smirnov_distribution <- function(n) {
+  structure(
+    list(
+      extptr = .Call(`kolmogorov_smirnov_init_`, n),
+      number_of_observations = n
+    ),
+    class = c("kolmogorov_smirnov_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname kolmogorov_smirnov_distribution
 #' @export
 kolmogorov_smirnov_pdf <- function(x, n) {
-  .Call(`kolmogorov_smirnov_pdf_`, x, n)
+  pdf(kolmogorov_smirnov_distribution(n), x)
 }
 
 #' @rdname kolmogorov_smirnov_distribution
 #' @export
 kolmogorov_smirnov_lpdf <- function(x, n) {
-  .Call(`kolmogorov_smirnov_logpdf_`, x, n)
+  logpdf(kolmogorov_smirnov_distribution(n), x)
 }
 
 #' @rdname kolmogorov_smirnov_distribution
 #' @export
 kolmogorov_smirnov_cdf <- function(x, n) {
-  .Call(`kolmogorov_smirnov_cdf_`, x, n)
+  cdf(kolmogorov_smirnov_distribution(n), x)
 }
 
 #' @rdname kolmogorov_smirnov_distribution
 #' @export
 kolmogorov_smirnov_lcdf <- function(x, n) {
-  .Call(`kolmogorov_smirnov_logcdf_`, x, n)
+  logcdf(kolmogorov_smirnov_distribution(n), x)
 }
 
 #' @rdname kolmogorov_smirnov_distribution
 #' @export
 kolmogorov_smirnov_quantile <- function(p, n) {
-  .Call(`kolmogorov_smirnov_quantile_`, p, n)
+  quantile(kolmogorov_smirnov_distribution(n), p)
 }

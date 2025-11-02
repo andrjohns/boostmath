@@ -252,188 +252,32 @@ extern "C" {
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(gamma)
   UNARY_DISTRIBUTION_BOOST_DECLARATIONS(geometric)
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(holtsmark)
-
-  // statistical_distributions/hyperexponential.cpp
-  SEXP hyperexponential_pdf_(SEXP x_, SEXP probabilities_, SEXP rates_);
-  SEXP hyperexponential_logpdf_(SEXP x_, SEXP probabilities_, SEXP rates_);
-  SEXP hyperexponential_cdf_(SEXP x_, SEXP probabilities_, SEXP rates_);
-  SEXP hyperexponential_logcdf_(SEXP x_, SEXP probabilities_, SEXP rates_);
-  SEXP hyperexponential_quantile_(SEXP p_, SEXP probabilities_, SEXP rates_);
-
-  // statistical_distributions/hypergeometric.cpp
-  SEXP hypergeometric_pdf_(SEXP x_, SEXP r_, SEXP n_, SEXP N_);
-  SEXP hypergeometric_logpdf_(SEXP x_, SEXP r_, SEXP n_, SEXP N_);
-  SEXP hypergeometric_cdf_(SEXP x_, SEXP r_, SEXP n_, SEXP N_);
-  SEXP hypergeometric_logcdf_(SEXP x_, SEXP r_, SEXP n_, SEXP N_);
-  SEXP hypergeometric_quantile_(SEXP p_, SEXP r_, SEXP n_, SEXP N_);
-
-  // statistical_distributions/inverse_chi_squared.cpp
-  SEXP inverse_chi_squared_pdf_(SEXP x_, SEXP df_, SEXP scale_);
-  SEXP inverse_chi_squared_logpdf_(SEXP x_, SEXP df_, SEXP scale_);
-  SEXP inverse_chi_squared_cdf_(SEXP x_, SEXP df_, SEXP scale_);
-  SEXP inverse_chi_squared_logcdf_(SEXP x_, SEXP df_, SEXP scale_);
-  SEXP inverse_chi_squared_quantile_(SEXP p_, SEXP df_, SEXP scale_);
-
-  // statistical_distributions/inverse_gamma.cpp
-  SEXP inverse_gamma_pdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP inverse_gamma_logpdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP inverse_gamma_cdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP inverse_gamma_logcdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP inverse_gamma_quantile_(SEXP p_, SEXP shape_, SEXP scale_);
-
-  // statistical_distributions/inverse_gaussian.cpp
-  SEXP inverse_gaussian_pdf_(SEXP x_, SEXP mu_, SEXP lambda_);
-  SEXP inverse_gaussian_logpdf_(SEXP x_, SEXP mu_, SEXP lambda_);
-  SEXP inverse_gaussian_cdf_(SEXP x_, SEXP mu_, SEXP lambda_);
-  SEXP inverse_gaussian_logcdf_(SEXP x_, SEXP mu_, SEXP lambda_);
-  SEXP inverse_gaussian_quantile_(SEXP p_, SEXP mu_, SEXP lambda_);
-
-  // statistical_distributions/kolmogorov_smirnov.cpp
-  SEXP kolmogorov_smirnov_pdf_(SEXP x_, SEXP n_);
-  SEXP kolmogorov_smirnov_logpdf_(SEXP x_, SEXP n_);
-  SEXP kolmogorov_smirnov_cdf_(SEXP x_, SEXP n_);
-  SEXP kolmogorov_smirnov_logcdf_(SEXP x_, SEXP n_);
-  SEXP kolmogorov_smirnov_quantile_(SEXP p_, SEXP n_);
-
-  // statistical_distributions/landau.cpp
-  SEXP landau_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP landau_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP landau_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP landau_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP landau_quantile_(SEXP p_, SEXP location_, SEXP scale_);
-
-  // statistical_distributions/laplace.cpp
-  SEXP laplace_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP laplace_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP laplace_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP laplace_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP laplace_quantile_(SEXP p_, SEXP location_, SEXP scale_);
-
-  // statistical_distributions/logistic.cpp
-  SEXP logistic_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP logistic_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP logistic_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP logistic_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP logistic_quantile_(SEXP p_, SEXP location_, SEXP scale_);
-
-  // statistical_distributions/lognormal.cpp
-  SEXP lognormal_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP lognormal_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP lognormal_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP lognormal_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP lognormal_quantile_(SEXP p_, SEXP location_, SEXP scale_);
-
-  // statistical_distributions/mapairy.cpp
-  SEXP mapairy_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP mapairy_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP mapairy_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP mapairy_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP mapairy_quantile_(SEXP p_, SEXP location_, SEXP scale_);
-
-  // statistical_distributions/negative_binomial.cpp
-  SEXP negative_binomial_pdf_(SEXP x_, SEXP successes_, SEXP success_fraction_);
-  SEXP negative_binomial_logpdf_(SEXP x_, SEXP successes_, SEXP success_fraction_);
-  SEXP negative_binomial_cdf_(SEXP x_, SEXP successes_, SEXP success_fraction_);
-  SEXP negative_binomial_logcdf_(SEXP x_, SEXP successes_, SEXP success_fraction_);
-  SEXP negative_binomial_quantile_(SEXP p_, SEXP successes_, SEXP success_fraction_);
-
-  // statistical_distributions/non_central_beta.cpp
-  SEXP non_central_beta_pdf_(SEXP x_, SEXP alpha_, SEXP beta_, SEXP lambda_);
-  SEXP non_central_beta_logpdf_(SEXP x_, SEXP alpha_, SEXP beta_, SEXP lambda_);
-  SEXP non_central_beta_cdf_(SEXP x_, SEXP alpha_, SEXP beta_, SEXP lambda_);
-  SEXP non_central_beta_logcdf_(SEXP x_, SEXP alpha_, SEXP beta_, SEXP lambda_);
-  SEXP non_central_beta_quantile_(SEXP p_, SEXP alpha_, SEXP beta_, SEXP lambda_);
-
-  // statistical_distributions/non_central_chi_squared.cpp
-  SEXP non_central_chi_squared_pdf_(SEXP x_, SEXP df_, SEXP lambda_);
-  SEXP non_central_chi_squared_logpdf_(SEXP x_, SEXP df_, SEXP lambda_);
-  SEXP non_central_chi_squared_cdf_(SEXP x_, SEXP df_, SEXP lambda_);
-  SEXP non_central_chi_squared_logcdf_(SEXP x_, SEXP df_, SEXP lambda_);
-  SEXP non_central_chi_squared_quantile_(SEXP p_, SEXP df_, SEXP lambda_);
-
-  // statistical_distributions/non_central_f.cpp
-  SEXP non_central_f_pdf_(SEXP x_, SEXP df1_, SEXP df2_, SEXP lambda_);
-  SEXP non_central_f_logpdf_(SEXP x_, SEXP df1_, SEXP df2_, SEXP lambda_);
-  SEXP non_central_f_cdf_(SEXP x_, SEXP df1_, SEXP df2_, SEXP lambda_);
-  SEXP non_central_f_logcdf_(SEXP x_, SEXP df1_, SEXP df2_, SEXP lambda_);
-  SEXP non_central_f_quantile_(SEXP p_, SEXP df1_, SEXP df2_, SEXP lambda_);
-
-  // statistical_distributions/non_central_t.cpp
-  SEXP non_central_t_pdf_(SEXP x_, SEXP df_, SEXP delta_);
-  SEXP non_central_t_logpdf_(SEXP x_, SEXP df_, SEXP delta_);
-  SEXP non_central_t_cdf_(SEXP x_, SEXP df_, SEXP delta_);
-  SEXP non_central_t_logcdf_(SEXP x_, SEXP df_, SEXP delta_);
-  SEXP non_central_t_quantile_(SEXP p_, SEXP df_, SEXP delta_);
-
-  // statistical_distributions/normal.cpp
-  SEXP normal_pdf_(SEXP x_, SEXP mean_, SEXP sd_);
-  SEXP normal_logpdf_(SEXP x_, SEXP mean_, SEXP sd_);
-  SEXP normal_cdf_(SEXP x_, SEXP mean_, SEXP sd_);
-  SEXP normal_logcdf_(SEXP x_, SEXP mean_, SEXP sd_);
-  SEXP normal_quantile_(SEXP p_, SEXP mean_, SEXP sd_);
-
-  // statistical_distributions/pareto.cpp
-  SEXP pareto_pdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP pareto_logpdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP pareto_cdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP pareto_logcdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP pareto_quantile_(SEXP p_, SEXP shape_, SEXP scale_);
-
-  // statistical_distributions/poisson.cpp
-  SEXP poisson_pdf_(SEXP x_, SEXP lambda_);
-  SEXP poisson_logpdf_(SEXP x_, SEXP lambda_);
-  SEXP poisson_cdf_(SEXP x_, SEXP lambda_);
-  SEXP poisson_logcdf_(SEXP x_, SEXP lambda_);
-  SEXP poisson_quantile_(SEXP p_, SEXP lambda_);
-
-  // statistical_distributions/rayleigh.cpp
-  SEXP rayleigh_pdf_(SEXP x_, SEXP scale_);
-  SEXP rayleigh_logpdf_(SEXP x_, SEXP scale_);
-  SEXP rayleigh_cdf_(SEXP x_, SEXP scale_);
-  SEXP rayleigh_logcdf_(SEXP x_, SEXP scale_);
-  SEXP rayleigh_quantile_(SEXP p_, SEXP scale_);
-
-  // statistical_distributions/saspoint5.cpp
-  SEXP saspoint5_pdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP saspoint5_logpdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP saspoint5_cdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP saspoint5_logcdf_(SEXP x_, SEXP location_, SEXP scale_);
-  SEXP saspoint5_quantile_(SEXP p_, SEXP location_, SEXP scale_);
-
-  // statistical_distributions/skew_normal.cpp
-  SEXP skew_normal_pdf_(SEXP x_, SEXP location_, SEXP scale_, SEXP shape_);
-  SEXP skew_normal_logpdf_(SEXP x_, SEXP location_, SEXP scale_, SEXP shape_);
-  SEXP skew_normal_cdf_(SEXP x_, SEXP location_, SEXP scale_, SEXP shape_);
-  SEXP skew_normal_logcdf_(SEXP x_, SEXP location_, SEXP scale_, SEXP shape_);
-  SEXP skew_normal_quantile_(SEXP p_, SEXP location_, SEXP scale_, SEXP shape_);
-
-  // statistical_distributions/students_t.cpp
-  SEXP students_t_pdf_(SEXP x_, SEXP df_);
-  SEXP students_t_logpdf_(SEXP x_, SEXP df_);
-  SEXP students_t_cdf_(SEXP x_, SEXP df_);
-  SEXP students_t_logcdf_(SEXP x_, SEXP df_);
-  SEXP students_t_quantile_(SEXP p_, SEXP df_);
-
-  // statistical_distributions/triangular.cpp
-  SEXP triangular_pdf_(SEXP x_, SEXP lower_, SEXP mode_, SEXP upper_);
-  SEXP triangular_logpdf_(SEXP x_, SEXP lower_, SEXP mode_, SEXP upper_);
-  SEXP triangular_cdf_(SEXP x_, SEXP lower_, SEXP mode_, SEXP upper_);
-  SEXP triangular_logcdf_(SEXP x_, SEXP lower_, SEXP mode_, SEXP upper_);
-  SEXP triangular_quantile_(SEXP p_, SEXP lower_, SEXP mode_, SEXP upper_);
-
-  // statistical_distributions/uniform.cpp
-  SEXP uniform_pdf_(SEXP x_, SEXP lower_, SEXP upper_);
-  SEXP uniform_logpdf_(SEXP x_, SEXP lower_, SEXP upper_);
-  SEXP uniform_cdf_(SEXP x_, SEXP lower_, SEXP upper_);
-  SEXP uniform_logcdf_(SEXP x_, SEXP lower_, SEXP upper_);
-  SEXP uniform_quantile_(SEXP p_, SEXP lower_, SEXP upper_);
-
-  // statistical_distributions/weibull.cpp
-  SEXP weibull_pdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP weibull_logpdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP weibull_cdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP weibull_logcdf_(SEXP x_, SEXP shape_, SEXP scale_);
-  SEXP weibull_quantile_(SEXP p_, SEXP shape_, SEXP scale_);
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(hyperexponential)
+  TERNARY_DISTRIBUTION_BOOST_DECLARATIONS(hypergeometric)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(inverse_chi_squared)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(inverse_gamma)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(inverse_gaussian)
+  UNARY_DISTRIBUTION_BOOST_DECLARATIONS(kolmogorov_smirnov)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(landau)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(laplace)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(logistic)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(lognormal)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(mapairy)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(negative_binomial)
+  TERNARY_DISTRIBUTION_BOOST_DECLARATIONS(non_central_beta)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(non_central_chi_squared)
+  TERNARY_DISTRIBUTION_BOOST_DECLARATIONS(non_central_f)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(non_central_t)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(normal)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(pareto)
+  UNARY_DISTRIBUTION_BOOST_DECLARATIONS(poisson)
+  UNARY_DISTRIBUTION_BOOST_DECLARATIONS(rayleigh)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(saspoint5)
+  TERNARY_DISTRIBUTION_BOOST_DECLARATIONS(skew_normal)
+  UNARY_DISTRIBUTION_BOOST_DECLARATIONS(students_t)
+  TERNARY_DISTRIBUTION_BOOST_DECLARATIONS(triangular)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(uniform)
+  BINARY_DISTRIBUTION_BOOST_DECLARATIONS(weibull)
 
   // vector_functionals/norms.cpp
   SEXP l0_pseudo_norm_(SEXP x_);
@@ -861,188 +705,32 @@ extern "C" {
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(gamma)
     UNARY_DISTRIBUTION_BOOST_CALLDEFS(geometric)
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(holtsmark)
-
-    // statistical_distributions/hyperexponential.cpp
-    {"hyperexponential_pdf_", (DL_FUNC) &hyperexponential_pdf_, 3},
-    {"hyperexponential_logpdf_", (DL_FUNC) &hyperexponential_logpdf_, 3},
-    {"hyperexponential_cdf_", (DL_FUNC) &hyperexponential_cdf_, 3},
-    {"hyperexponential_logcdf_", (DL_FUNC) &hyperexponential_logcdf_, 3},
-    {"hyperexponential_quantile_", (DL_FUNC) &hyperexponential_quantile_, 3},
-
-    // statistical_distributions/hypergeometric.cpp
-    {"hypergeometric_pdf_", (DL_FUNC) &hypergeometric_pdf_, 4},
-    {"hypergeometric_logpdf_", (DL_FUNC) &hypergeometric_logpdf_, 4},
-    {"hypergeometric_cdf_", (DL_FUNC) &hypergeometric_cdf_, 4},
-    {"hypergeometric_logcdf_", (DL_FUNC) &hypergeometric_logcdf_, 4},
-    {"hypergeometric_quantile_", (DL_FUNC) &hypergeometric_quantile_, 4},
-
-    // statistical_distributions/inverse_chi_squared.cpp
-    {"inverse_chi_squared_pdf_", (DL_FUNC) &inverse_chi_squared_pdf_, 3},
-    {"inverse_chi_squared_logpdf_", (DL_FUNC) &inverse_chi_squared_logpdf_, 3},
-    {"inverse_chi_squared_cdf_", (DL_FUNC) &inverse_chi_squared_cdf_, 3},
-    {"inverse_chi_squared_logcdf_", (DL_FUNC) &inverse_chi_squared_logcdf_, 3},
-    {"inverse_chi_squared_quantile_", (DL_FUNC) &inverse_chi_squared_quantile_, 3},
-
-    // statistical_distributions/inverse_gamma.cpp
-    {"inverse_gamma_pdf_", (DL_FUNC) &inverse_gamma_pdf_, 3},
-    {"inverse_gamma_logpdf_", (DL_FUNC) &inverse_gamma_logpdf_, 3},
-    {"inverse_gamma_cdf_", (DL_FUNC) &inverse_gamma_cdf_, 3},
-    {"inverse_gamma_logcdf_", (DL_FUNC) &inverse_gamma_logcdf_, 3},
-    {"inverse_gamma_quantile_", (DL_FUNC) &inverse_gamma_quantile_, 3},
-
-    // statistical_distributions/inverse_gaussian.cpp
-    {"inverse_gaussian_pdf_", (DL_FUNC) &inverse_gaussian_pdf_, 3},
-    {"inverse_gaussian_logpdf_", (DL_FUNC) &inverse_gaussian_logpdf_, 3},
-    {"inverse_gaussian_cdf_", (DL_FUNC) &inverse_gaussian_cdf_, 3},
-    {"inverse_gaussian_logcdf_", (DL_FUNC) &inverse_gaussian_logcdf_, 3},
-    {"inverse_gaussian_quantile_", (DL_FUNC) &inverse_gaussian_quantile_, 3},
-
-    // statistical_distributions/kolmogorov_smirnov.cpp
-    {"kolmogorov_smirnov_pdf_", (DL_FUNC) &kolmogorov_smirnov_pdf_, 2},
-    {"kolmogorov_smirnov_logpdf_", (DL_FUNC) &kolmogorov_smirnov_logpdf_, 2},
-    {"kolmogorov_smirnov_cdf_", (DL_FUNC) &kolmogorov_smirnov_cdf_, 2},
-    {"kolmogorov_smirnov_logcdf_", (DL_FUNC) &kolmogorov_smirnov_logcdf_, 2},
-    {"kolmogorov_smirnov_quantile_", (DL_FUNC) &kolmogorov_smirnov_quantile_, 2},
-
-    // statistical_distributions/landau.cpp
-    {"landau_pdf_", (DL_FUNC) &landau_pdf_, 3},
-    {"landau_logpdf_", (DL_FUNC) &landau_logpdf_, 3},
-    {"landau_cdf_", (DL_FUNC) &landau_cdf_, 3},
-    {"landau_logcdf_", (DL_FUNC) &landau_logcdf_, 3},
-    {"landau_quantile_", (DL_FUNC) &landau_quantile_, 3},
-
-    // statistical_distributions/laplace.cpp
-    {"laplace_pdf_", (DL_FUNC) &laplace_pdf_, 3},
-    {"laplace_logpdf_", (DL_FUNC) &laplace_logpdf_, 3},
-    {"laplace_cdf_", (DL_FUNC) &laplace_cdf_, 3},
-    {"laplace_logcdf_", (DL_FUNC) &laplace_logcdf_, 3},
-    {"laplace_quantile_", (DL_FUNC) &laplace_quantile_, 3},
-
-    // statistical_distributions/logistic.cpp
-    {"logistic_pdf_", (DL_FUNC) &logistic_pdf_, 3},
-    {"logistic_logpdf_", (DL_FUNC) &logistic_logpdf_, 3},
-    {"logistic_cdf_", (DL_FUNC) &logistic_cdf_, 3},
-    {"logistic_logcdf_", (DL_FUNC) &logistic_logcdf_, 3},
-    {"logistic_quantile_", (DL_FUNC) &logistic_quantile_, 3},
-
-    // statistical_distributions/lognormal.cpp
-    {"lognormal_pdf_", (DL_FUNC) &lognormal_pdf_, 3},
-    {"lognormal_logpdf_", (DL_FUNC) &lognormal_logpdf_, 3},
-    {"lognormal_cdf_", (DL_FUNC) &lognormal_cdf_, 3},
-    {"lognormal_logcdf_", (DL_FUNC) &lognormal_logcdf_, 3},
-    {"lognormal_quantile_", (DL_FUNC) &lognormal_quantile_, 3},
-
-    // statistical_distributions/mapairy.cpp
-    {"mapairy_pdf_", (DL_FUNC) &mapairy_pdf_, 3},
-    {"mapairy_logpdf_", (DL_FUNC) &mapairy_logpdf_, 3},
-    {"mapairy_cdf_", (DL_FUNC) &mapairy_cdf_, 3},
-    {"mapairy_logcdf_", (DL_FUNC) &mapairy_logcdf_, 3},
-    {"mapairy_quantile_", (DL_FUNC) &mapairy_quantile_, 3},
-
-    // statistical_distributions/negative_binomial.cpp
-    {"negative_binomial_pdf_", (DL_FUNC) &negative_binomial_pdf_, 3},
-    {"negative_binomial_logpdf_", (DL_FUNC) &negative_binomial_logpdf_, 3},
-    {"negative_binomial_cdf_", (DL_FUNC) &negative_binomial_cdf_, 3},
-    {"negative_binomial_logcdf_", (DL_FUNC) &negative_binomial_logcdf_, 3},
-    {"negative_binomial_quantile_", (DL_FUNC) &negative_binomial_quantile_, 3},
-
-    // statistical_distributions/non_central_beta.cpp
-    {"non_central_beta_pdf_", (DL_FUNC) &non_central_beta_pdf_, 4},
-    {"non_central_beta_logpdf_", (DL_FUNC) &non_central_beta_logpdf_, 4},
-    {"non_central_beta_cdf_", (DL_FUNC) &non_central_beta_cdf_, 4},
-    {"non_central_beta_logcdf_", (DL_FUNC) &non_central_beta_logcdf_, 4},
-    {"non_central_beta_quantile_", (DL_FUNC) &non_central_beta_quantile_, 4},
-
-    // statistical_distributions/non_central_chi_squared.cpp
-    {"non_central_chi_squared_pdf_", (DL_FUNC) &non_central_chi_squared_pdf_, 3},
-    {"non_central_chi_squared_logpdf_", (DL_FUNC) &non_central_chi_squared_logpdf_, 3},
-    {"non_central_chi_squared_cdf_", (DL_FUNC) &non_central_chi_squared_cdf_, 3},
-    {"non_central_chi_squared_logcdf_", (DL_FUNC) &non_central_chi_squared_logcdf_, 3},
-    {"non_central_chi_squared_quantile_", (DL_FUNC) &non_central_chi_squared_quantile_, 3},
-
-    // statistical_distributions/non_central_f.cpp
-    {"non_central_f_pdf_", (DL_FUNC) &non_central_f_pdf_, 4},
-    {"non_central_f_logpdf_", (DL_FUNC) &non_central_f_logpdf_, 4},
-    {"non_central_f_cdf_", (DL_FUNC) &non_central_f_cdf_, 4},
-    {"non_central_f_logcdf_", (DL_FUNC) &non_central_f_logcdf_, 4},
-    {"non_central_f_quantile_", (DL_FUNC) &non_central_f_quantile_, 4},
-
-    // statistical_distributions/non_central_t.cpp
-    {"non_central_t_pdf_", (DL_FUNC) &non_central_t_pdf_, 3},
-    {"non_central_t_logpdf_", (DL_FUNC) &non_central_t_logpdf_, 3},
-    {"non_central_t_cdf_", (DL_FUNC) &non_central_t_cdf_, 3},
-    {"non_central_t_logcdf_", (DL_FUNC) &non_central_t_logcdf_, 3},
-    {"non_central_t_quantile_", (DL_FUNC) &non_central_t_quantile_, 3},
-
-    // statistical_distributions/normal.cpp
-    {"normal_pdf_", (DL_FUNC) &normal_pdf_, 3},
-    {"normal_logpdf_", (DL_FUNC) &normal_logpdf_, 3},
-    {"normal_cdf_", (DL_FUNC) &normal_cdf_, 3},
-    {"normal_logcdf_", (DL_FUNC) &normal_logcdf_, 3},
-    {"normal_quantile_", (DL_FUNC) &normal_quantile_, 3},
-
-    // statistical_distributions/pareto.cpp
-    {"pareto_pdf_", (DL_FUNC) &pareto_pdf_, 3},
-    {"pareto_logpdf_", (DL_FUNC) &pareto_logpdf_, 3},
-    {"pareto_cdf_", (DL_FUNC) &pareto_cdf_, 3},
-    {"pareto_logcdf_", (DL_FUNC) &pareto_logcdf_, 3},
-    {"pareto_quantile_", (DL_FUNC) &pareto_quantile_, 3},
-
-    // statistical_distributions/poisson.cpp
-    {"poisson_pdf_", (DL_FUNC) &poisson_pdf_, 2},
-    {"poisson_logpdf_", (DL_FUNC) &poisson_logpdf_, 2},
-    {"poisson_cdf_", (DL_FUNC) &poisson_cdf_, 2},
-    {"poisson_logcdf_", (DL_FUNC) &poisson_logcdf_, 2},
-    {"poisson_quantile_", (DL_FUNC) &poisson_quantile_, 2},
-
-    // statistical_distributions/rayleigh.cpp
-    {"rayleigh_pdf_", (DL_FUNC) &rayleigh_pdf_, 2},
-    {"rayleigh_logpdf_", (DL_FUNC) &rayleigh_logpdf_, 2},
-    {"rayleigh_cdf_", (DL_FUNC) &rayleigh_cdf_, 2},
-    {"rayleigh_logcdf_", (DL_FUNC) &rayleigh_logcdf_, 2},
-    {"rayleigh_quantile_", (DL_FUNC) &rayleigh_quantile_, 2},
-
-    // statistical_distributions/saspoint5.cpp
-    {"saspoint5_pdf_", (DL_FUNC) &saspoint5_pdf_, 3},
-    {"saspoint5_logpdf_", (DL_FUNC) &saspoint5_logpdf_, 3},
-    {"saspoint5_cdf_", (DL_FUNC) &saspoint5_cdf_, 3},
-    {"saspoint5_logcdf_", (DL_FUNC) &saspoint5_logcdf_, 3},
-    {"saspoint5_quantile_", (DL_FUNC) &saspoint5_quantile_, 3},
-
-    // statistical_distributions/skew_normal.cpp
-    {"skew_normal_pdf_", (DL_FUNC) &skew_normal_pdf_, 4},
-    {"skew_normal_logpdf_", (DL_FUNC) &skew_normal_logpdf_, 4},
-    {"skew_normal_cdf_", (DL_FUNC) &skew_normal_cdf_, 4},
-    {"skew_normal_logcdf_", (DL_FUNC) &skew_normal_logcdf_, 4},
-    {"skew_normal_quantile_", (DL_FUNC) &skew_normal_quantile_, 4},
-
-    // statistical_distributions/students_t.cpp
-    {"students_t_pdf_", (DL_FUNC) &students_t_pdf_, 2},
-    {"students_t_logpdf_", (DL_FUNC) &students_t_logpdf_, 2},
-    {"students_t_cdf_", (DL_FUNC) &students_t_cdf_, 2},
-    {"students_t_logcdf_", (DL_FUNC) &students_t_logcdf_, 2},
-    {"students_t_quantile_", (DL_FUNC) &students_t_quantile_, 2},
-
-    // statistical_distributions/triangular.cpp
-    {"triangular_pdf_", (DL_FUNC) &triangular_pdf_, 4},
-    {"triangular_logpdf_", (DL_FUNC) &triangular_logpdf_, 4},
-    {"triangular_cdf_", (DL_FUNC) &triangular_cdf_, 4},
-    {"triangular_logcdf_", (DL_FUNC) &triangular_logcdf_, 4},
-    {"triangular_quantile_", (DL_FUNC) &triangular_quantile_, 4},
-
-    // statistical_distributions/uniform.cpp
-    {"uniform_pdf_", (DL_FUNC) &uniform_pdf_, 3},
-    {"uniform_logpdf_", (DL_FUNC) &uniform_logpdf_, 3},
-    {"uniform_cdf_", (DL_FUNC) &uniform_cdf_, 3},
-    {"uniform_logcdf_", (DL_FUNC) &uniform_logcdf_, 3},
-    {"uniform_quantile_", (DL_FUNC) &uniform_quantile_, 3},
-
-    // statistical_distributions/weibull.cpp
-    {"weibull_pdf_", (DL_FUNC) &weibull_pdf_, 3},
-    {"weibull_logpdf_", (DL_FUNC) &weibull_logpdf_, 3},
-    {"weibull_cdf_", (DL_FUNC) &weibull_cdf_, 3},
-    {"weibull_logcdf_", (DL_FUNC) &weibull_logcdf_, 3},
-    {"weibull_quantile_", (DL_FUNC) &weibull_quantile_, 3},
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(hyperexponential)
+    TERNARY_DISTRIBUTION_BOOST_CALLDEFS(hypergeometric)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(inverse_chi_squared)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(inverse_gamma)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(inverse_gaussian)
+    UNARY_DISTRIBUTION_BOOST_CALLDEFS(kolmogorov_smirnov)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(landau)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(laplace)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(logistic)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(lognormal)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(mapairy)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(negative_binomial)
+    TERNARY_DISTRIBUTION_BOOST_CALLDEFS(non_central_beta)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(non_central_chi_squared)
+    TERNARY_DISTRIBUTION_BOOST_CALLDEFS(non_central_f)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(non_central_t)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(normal)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(pareto)
+    UNARY_DISTRIBUTION_BOOST_CALLDEFS(poisson)
+    UNARY_DISTRIBUTION_BOOST_CALLDEFS(rayleigh)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(saspoint5)
+    TERNARY_DISTRIBUTION_BOOST_CALLDEFS(skew_normal)
+    UNARY_DISTRIBUTION_BOOST_CALLDEFS(students_t)
+    TERNARY_DISTRIBUTION_BOOST_CALLDEFS(triangular)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(uniform)
+    BINARY_DISTRIBUTION_BOOST_CALLDEFS(weibull)
 
     // vector_functions/norms.cpp
     {"l0_pseudo_norm_", (DL_FUNC) &l0_pseudo_norm_, 1},

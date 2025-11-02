@@ -19,32 +19,44 @@
 #' }
 NULL
 
+#' @export
+non_central_chi_squared_distribution <- function(df, lambda) {
+  structure(
+    list(
+      extptr = .Call(`non_central_chi_squared_init_`, df, lambda),
+      degrees_of_freedom = df,
+      non_centrality = lambda
+    ),
+    class = c("non_central_chi_squared_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname non_central_chi_squared_distribution
 #' @export
 non_central_chi_squared_pdf <- function(x, df, lambda) {
-  .Call(`non_central_chi_squared_pdf_`, x, df, lambda)
+  pdf(non_central_chi_squared_distribution(df, lambda), x)
 }
 
 #' @rdname non_central_chi_squared_distribution
 #' @export
 non_central_chi_squared_lpdf <- function(x, df, lambda) {
-  .Call(`non_central_chi_squared_logpdf_`, x, df, lambda)
+  logpdf(non_central_chi_squared_distribution(df, lambda), x)
 }
 
 #' @rdname non_central_chi_squared_distribution
 #' @export
 non_central_chi_squared_cdf <- function(x, df, lambda) {
-  .Call(`non_central_chi_squared_cdf_`, x, df, lambda)
+  cdf(non_central_chi_squared_distribution(df, lambda), x)
 }
 
 #' @rdname non_central_chi_squared_distribution
 #' @export
 non_central_chi_squared_lcdf <- function(x, df, lambda) {
-  .Call(`non_central_chi_squared_logcdf_`, x, df, lambda)
+  logcdf(non_central_chi_squared_distribution(df, lambda), x)
 }
 
 #' @rdname non_central_chi_squared_distribution
 #' @export
 non_central_chi_squared_quantile <- function(p, df, lambda) {
-  .Call(`non_central_chi_squared_quantile_`, p, df, lambda)
+  quantile(non_central_chi_squared_distribution(df, lambda), p)
 }

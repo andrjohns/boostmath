@@ -9,24 +9,24 @@
 \alias{triangular_quantile}
 \title{Triangular Distribution Functions}
 \usage{
-triangular_pdf(x, lower = 0, mode = 1, upper = 2)
+triangular_pdf(x, lower = -1, mode = 0, upper = 1)
 
-triangular_lpdf(x, lower = 0, mode = 1, upper = 2)
+triangular_lpdf(x, lower = -1, mode = 0, upper = 1)
 
-triangular_cdf(x, lower = 0, mode = 1, upper = 2)
+triangular_cdf(x, lower = -1, mode = 0, upper = 1)
 
-triangular_lcdf(x, lower = 0, mode = 1, upper = 2)
+triangular_lcdf(x, lower = -1, mode = 0, upper = 1)
 
-triangular_quantile(p, lower = 0, mode = 1, upper = 2)
+triangular_quantile(p, lower = -1, mode = 0, upper = 1)
 }
 \arguments{
 \item{x}{quantile}
 
-\item{lower}{lower limit of the distribution (default is 0)}
+\item{lower}{lower limit of the distribution (default is -1)}
 
-\item{mode}{mode of the distribution (default is 1)}
+\item{mode}{mode of the distribution (default is 0)}
 
-\item{upper}{upper limit of the distribution (default is 2)}
+\item{upper}{upper limit of the distribution (default is 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }

@@ -15,32 +15,43 @@
 #' students_t_quantile(0.5, 3)
 NULL
 
+#' @export
+students_t_distribution <- function(df = 1) {
+  structure(
+    list(
+      extptr = .Call(`students_t_init_`, df),
+      degrees_of_freedom = df
+    ),
+    class = c("students_t_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname students_t_distribution
 #' @export
 students_t_pdf <- function(x, df = 1) {
-  .Call(`students_t_pdf_`, x, df)
+  pdf(students_t_distribution(df), x)
 }
 
 #' @rdname students_t_distribution
 #' @export
 students_t_lpdf <- function(x, df = 1) {
-  .Call(`students_t_logpdf_`, x, df)
+  logpdf(students_t_distribution(df), x)
 }
 
 #' @rdname students_t_distribution
 #' @export
 students_t_cdf <- function(x, df = 1) {
-  .Call(`students_t_cdf_`, x, df)
+  cdf(students_t_distribution(df), x)
 }
 
 #' @rdname students_t_distribution
 #' @export
 students_t_lcdf <- function(x, df = 1) {
-  .Call(`students_t_logcdf_`, x, df)
+  logcdf(students_t_distribution(df), x)
 }
 
 #' @rdname students_t_distribution
 #' @export
 students_t_quantile <- function(p, df = 1) {
-  .Call(`students_t_quantile_`, p, df)
+  quantile(students_t_distribution(df), p)
 }

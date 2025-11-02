@@ -17,32 +17,45 @@
 #' skew_normal_quantile(0.5)
 NULL
 
+#' @export
+skew_normal_distribution <- function(location = 0, scale = 1, shape = 0) {
+  structure(
+    list(
+      extptr = .Call(`skew_normal_init_`, location, scale, shape),
+      location = location,
+      scale = scale,
+      shape = shape
+    ),
+    class = c("skew_normal_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname skew_normal_distribution
 #' @export
 skew_normal_pdf <- function(x, location = 0, scale = 1, shape = 0) {
-  .Call(`skew_normal_pdf_`, x, location, scale, shape)
+  pdf(skew_normal_distribution(location, scale, shape), x)
 }
 
 #' @rdname skew_normal_distribution
 #' @export
 skew_normal_lpdf <- function(x, location = 0, scale = 1, shape = 0) {
-  .Call(`skew_normal_logpdf_`, x, location, scale, shape)
+  logpdf(skew_normal_distribution(location, scale, shape), x)
 }
 
 #' @rdname skew_normal_distribution
 #' @export
 skew_normal_cdf <- function(x, location = 0, scale = 1, shape = 0) {
-  .Call(`skew_normal_cdf_`, x, location, scale, shape)
+  cdf(skew_normal_distribution(location, scale, shape), x)
 }
 
 #' @rdname skew_normal_distribution
 #' @export
 skew_normal_lcdf <- function(x, location = 0, scale = 1, shape = 0) {
-  .Call(`skew_normal_logcdf_`, x, location, scale, shape)
+  logcdf(skew_normal_distribution(location, scale, shape), x)
 }
 
 #' @rdname skew_normal_distribution
 #' @export
 skew_normal_quantile <- function(p, location = 0, scale = 1, shape = 0) {
-  .Call(`skew_normal_quantile_`, p, location, scale, shape)
+  quantile(skew_normal_distribution(location, scale, shape), p)
 }

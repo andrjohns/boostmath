@@ -18,32 +18,45 @@
 #' non_central_f_quantile(0.5, 5, 2, 1)
 NULL
 
+#' @export
+non_central_f_distribution <- function(df1, df2, lambda) {
+  structure(
+    list(
+      extptr = .Call(`non_central_f_init_`, df1, df2, lambda),
+      degrees_of_freedom1 = df1,
+      degrees_of_freedom2 = df2,
+      non_centrality = lambda
+    ),
+    class = c("non_central_f_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname non_central_f_distribution
 #' @export
 non_central_f_pdf <- function(x, df1, df2, lambda) {
-  .Call(`non_central_f_pdf_`, x, df1, df2, lambda)
+  pdf(non_central_f_distribution(df1, df2, lambda), x)
 }
 
 #' @rdname non_central_f_distribution
 #' @export
 non_central_f_lpdf <- function(x, df1, df2, lambda) {
-  .Call(`non_central_f_logpdf_`, x, df1, df2, lambda)
+  logpdf(non_central_f_distribution(df1, df2, lambda), x)
 }
 
 #' @rdname non_central_f_distribution
 #' @export
 non_central_f_cdf <- function(x, df1, df2, lambda) {
-  .Call(`non_central_f_cdf_`, x, df1, df2, lambda)
+  cdf(non_central_f_distribution(df1, df2, lambda), x)
 }
 
 #' @rdname non_central_f_distribution
 #' @export
 non_central_f_lcdf <- function(x, df1, df2, lambda) {
-  .Call(`non_central_f_logcdf_`, x, df1, df2, lambda)
+  logcdf(non_central_f_distribution(df1, df2, lambda), x)
 }
 
 #' @rdname non_central_f_distribution
 #' @export
 non_central_f_quantile <- function(p, df1, df2, lambda) {
-  .Call(`non_central_f_quantile_`, p, df1, df2, lambda)
+  quantile(non_central_f_distribution(df1, df2, lambda), p)
 }

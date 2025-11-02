@@ -9,22 +9,22 @@
 \alias{pareto_quantile}
 \title{Pareto Distribution Functions}
 \usage{
-pareto_pdf(x, shape = 1, scale = 1)
+pareto_pdf(x, scale = 1, shape = 1)
 
-pareto_lpdf(x, shape = 1, scale = 1)
+pareto_lpdf(x, scale = 1, shape = 1)
 
-pareto_cdf(x, shape = 1, scale = 1)
+pareto_cdf(x, scale = 1, shape = 1)
 
-pareto_lcdf(x, shape = 1, scale = 1)
+pareto_lcdf(x, scale = 1, shape = 1)
 
-pareto_quantile(p, shape = 1, scale = 1)
+pareto_quantile(p, scale = 1, shape = 1)
 }
 \arguments{
 \item{x}{quantile}
 
-\item{shape}{shape parameter (default is 1)}
-
 \item{scale}{scale parameter (default is 1)}
+
+\item{shape}{shape parameter (default is 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }

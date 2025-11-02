@@ -16,32 +16,44 @@
 #' uniform_quantile(0.5)
 NULL
 
+#' @export
+uniform_distribution <- function(lower = 0, upper = 1) {
+  structure(
+    list(
+      extptr = .Call(`uniform_init_`, lower, upper),
+      lower = lower,
+      upper = upper
+    ),
+    class = c("uniform_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname uniform_distribution
 #' @export
 uniform_pdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_pdf_`, x, lower, upper)
+  pdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_lpdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_logpdf_`, x, lower, upper)
+  logpdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_cdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_cdf_`, x, lower, upper)
+  cdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_lcdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_logcdf_`, x, lower, upper)
+  logcdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_quantile <- function(p, lower = 0, upper = 1) {
-  .Call(`uniform_quantile_`, p, lower, upper)
+  quantile(uniform_distribution(lower, upper), p)
 }

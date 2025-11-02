@@ -436,9 +436,9 @@ uniform_quantile(0.5)
 
 ```{r}
 # Weibull distribution with shape = 1, scale = 1
-weibull_pdf(1)
-weibull_lpdf(1)
-weibull_cdf(1)
-weibull_lcdf(1)
-weibull_quantile(0.5)
+weibull_pdf(1, shape = 1, scale = 1)
+weibull_lpdf(1, shape = 1, scale = 1)
+weibull_cdf(1, shape = 1, scale = 1)
+weibull_lcdf(1, shape = 1, scale = 1)
+weibull_quantile(0.5, shape = 1, scale = 1)
 ```

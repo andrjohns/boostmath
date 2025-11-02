@@ -3,6 +3,7 @@
 #' @description Functions to compute various univariate statistics.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html) for more details on the mathematical background.
 #' @param x A numeric vector.
+#' @param ... Additional arguments (not used).
 #' @return A numeric value or vector with the computed statistic.
 #' @examples
 #' # Mean
@@ -43,7 +44,7 @@ mean_boost <- function(x) {
 
 #' @rdname univariate_statistics
 #' @exportS3Method
-variance.default <- function(x) {
+variance.default <- function(x, ...) {
   .Call(`variance_`, x)
 }
 
@@ -61,13 +62,13 @@ mean_and_sample_variance <- function(x) {
 
 #' @rdname univariate_statistics
 #' @exportS3Method
-skewness.default <- function(x) {
+skewness.default <- function(x, ...) {
   .Call(`skewness_`, x)
 }
 
 #' @rdname univariate_statistics
 #' @exportS3Method
-kurtosis.default <- function(x) {
+kurtosis.default <- function(x, ...) {
   .Call(`kurtosis_`, x)
 }
 

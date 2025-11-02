@@ -15,33 +15,44 @@
 #' negative_binomial_quantile(0.5, 5, 0.5)
 NULL
 
+#' @export
+negative_binomial_distribution <- function(successes, success_fraction) {
+  structure(
+    list(
+      extptr = .Call(`negative_binomial_init_`, successes, success_fraction),
+      successes = successes,
+      success_fraction = success_fraction
+    ),
+    class = c("negative_binomial_distribution", "boost_distribution")
+  )
+}
 
 #' @rdname negative_binomial_distribution
 #' @export
 negative_binomial_pdf <- function(x, successes, success_fraction) {
-  .Call(`negative_binomial_pdf_`, x, successes, success_fraction)
+  pdf(negative_binomial_distribution(successes, success_fraction), x)
 }
 
 #' @rdname negative_binomial_distribution
 #' @export
 negative_binomial_lpdf <- function(x, successes, success_fraction) {
-  .Call(`negative_binomial_logpdf_`, x, successes, success_fraction)
+  logpdf(negative_binomial_distribution(successes, success_fraction), x)
 }
 
 #' @rdname negative_binomial_distribution
 #' @export
 negative_binomial_cdf <- function(x, successes, success_fraction) {
-  .Call(`negative_binomial_cdf_`, x, successes, success_fraction)
+  cdf(negative_binomial_distribution(successes, success_fraction), x)
 }
 
 #' @rdname negative_binomial_distribution
 #' @export
 negative_binomial_lcdf <- function(x, successes, success_fraction) {
-  .Call(`negative_binomial_logcdf_`, x, successes, success_fraction)
+  logcdf(negative_binomial_distribution(successes, success_fraction), x)
 }
 
 #' @rdname negative_binomial_distribution
 #' @export
 negative_binomial_quantile <- function(p, successes, success_fraction) {
-  .Call(`negative_binomial_quantile_`, p, successes, success_fraction)
+  quantile(negative_binomial_distribution(successes, success_fraction), p)
 }

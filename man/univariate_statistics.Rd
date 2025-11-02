@@ -20,15 +20,15 @@
 \usage{
 mean_boost(x)
 
-\method{variance}{default}(x)
+\method{variance}{default}(x, ...)
 
 sample_variance(x)
 
 mean_and_sample_variance(x)
 
-\method{skewness}{default}(x)
+\method{skewness}{default}(x, ...)
 
-\method{kurtosis}{default}(x)
+\method{kurtosis}{default}(x, ...)
 
 excess_kurtosis(x)
 
@@ -48,6 +48,8 @@ mode_boost(x)
 }
 \arguments{
 \item{x}{A numeric vector.}
+
+\item{...}{Additional arguments (not used).}
 }
 \value{
 A numeric value or vector with the computed statistic.

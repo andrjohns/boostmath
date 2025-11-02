@@ -16,32 +16,44 @@
 #' landau_quantile(0.5)
 NULL
 
+#' @export
+landau_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`landau_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("landau_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname landau_distribution
 #' @export
 landau_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_pdf_`, x, location, scale)
+  pdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_logpdf_`, x, location, scale)
+  logpdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_cdf_`, x, location, scale)
+  cdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_logcdf_`, x, location, scale)
+  logcdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`landau_quantile_`, p, location, scale)
+  quantile(landau_distribution(location, scale), p)
 }

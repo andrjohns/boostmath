@@ -16,32 +16,44 @@
 #' hyperexponential_quantile(0.5, c(0.5, 0.5), c(1, 2))
 NULL
 
+#' @export
+hyperexponential_distribution <- function(probabilities, rates) {
+  structure(
+    list(
+      extptr = .Call(`hyperexponential_init_`, probabilities, rates),
+      probabilities = probabilities,
+      rates = rates
+    ),
+    class = c("hyperexponential_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname hyperexponential_distribution
 #' @export
 hyperexponential_pdf <- function(x, probabilities, rates) {
-  .Call(`hyperexponential_pdf_`, x, probabilities, rates)
+  pdf(hyperexponential_distribution(probabilities, rates), x)
 }
 
 #' @rdname hyperexponential_distribution
 #' @export
 hyperexponential_lpdf <- function(x, probabilities, rates) {
-  .Call(`hyperexponential_logpdf_`, x, probabilities, rates)
+  logpdf(hyperexponential_distribution(probabilities, rates), x)
 }
 
 #' @rdname hyperexponential_distribution
 #' @export
 hyperexponential_cdf <- function(x, probabilities, rates) {
-  .Call(`hyperexponential_cdf_`, x, probabilities, rates)
+  cdf(hyperexponential_distribution(probabilities, rates), x)
 }
 
 #' @rdname hyperexponential_distribution
 #' @export
 hyperexponential_lcdf <- function(x, probabilities, rates) {
-  .Call(`hyperexponential_logcdf_`, x, probabilities, rates)
+  logcdf(hyperexponential_distribution(probabilities, rates), x)
 }
 
 #' @rdname hyperexponential_distribution
 #' @export
 hyperexponential_quantile <- function(p, probabilities, rates) {
-  .Call(`hyperexponential_quantile_`, p, probabilities, rates)
+  quantile(hyperexponential_distribution(probabilities, rates), p)
 }

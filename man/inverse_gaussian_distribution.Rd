@@ -9,22 +9,22 @@
 \alias{inverse_gaussian_quantile}
 \title{Inverse Gaussian Distribution Functions}
 \usage{
-inverse_gaussian_pdf(x, mu, lambda)
+inverse_gaussian_pdf(x, mu = 1, lambda = 1)
 
-inverse_gaussian_lpdf(x, mu, lambda)
+inverse_gaussian_lpdf(x, mu = 1, lambda = 1)
 
-inverse_gaussian_cdf(x, mu, lambda)
+inverse_gaussian_cdf(x, mu = 1, lambda = 1)
 
-inverse_gaussian_lcdf(x, mu, lambda)
+inverse_gaussian_lcdf(x, mu = 1, lambda = 1)
 
-inverse_gaussian_quantile(p, mu, lambda)
+inverse_gaussian_quantile(p, mu = 1, lambda = 1)
 }
 \arguments{
 \item{x}{quantile}
 
-\item{mu}{mean parameter (mu > 0)}
+\item{mu}{mean parameter (mu > 0; default is 1)}
 
-\item{lambda}{scale (precision) parameter (lambda > 0)}
+\item{lambda}{scale parameter (lambda > 0; default is 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }

@@ -15,32 +15,43 @@
 #' poisson_quantile(0.5, 1)
 NULL
 
+#' @export
+poisson_distribution <- function(lambda = 1) {
+  structure(
+    list(
+      extptr = .Call(`poisson_init_`, lambda),
+      lambda = lambda
+    ),
+    class = c("poisson_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname poisson_distribution
 #' @export
 poisson_pdf <- function(x, lambda = 1) {
-  .Call(`poisson_pdf_`, x, lambda)
+  pdf(poisson_distribution(lambda), x)
 }
 
 #' @rdname poisson_distribution
 #' @export
 poisson_lpdf <- function(x, lambda = 1) {
-  .Call(`poisson_logpdf_`, x, lambda)
+  logpdf(poisson_distribution(lambda), x)
 }
 
 #' @rdname poisson_distribution
 #' @export
 poisson_cdf <- function(x, lambda = 1) {
-  .Call(`poisson_cdf_`, x, lambda)
+  cdf(poisson_distribution(lambda), x)
 }
 
 #' @rdname poisson_distribution
 #' @export
 poisson_lcdf <- function(x, lambda = 1) {
-  .Call(`poisson_logcdf_`, x, lambda)
+  logcdf(poisson_distribution(lambda), x)
 }
 
 #' @rdname poisson_distribution
 #' @export
 poisson_quantile <- function(p, lambda = 1) {
-  .Call(`poisson_quantile_`, p, lambda)
+  quantile(poisson_distribution(lambda), p)
 }

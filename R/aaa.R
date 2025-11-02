@@ -5,8 +5,8 @@ dist_function <- function(fun_name, x, ...) {
   if (dist_name == "bernoulli") {
     dist_name <- "binomial"
   }
-  fun_dll <- get(paste0(dist_name, "_", fun_name, "_ptr_"))
-  .Call(fun_dll, x$extptr, ...)
+  fun_dll <- paste0(".Call(`", dist_name, "_", fun_name, "_ptr_`, x$extptr, ...)")
+  eval(parse(text = fun_dll))
 }
 
 #' @export
@@ -40,8 +40,28 @@ chf <- function(x, ...) {
 }
 
 #' @export
+mean <- function(x, ...) {
+  UseMethod("mean")
+}
+
+#' @export
+median <- function(x, ...) {
+  UseMethod("median")
+}
+
+#' @export
 mode <- function(x, ...) {
   UseMethod("mode")
+}
+
+#' @export
+quantile <- function(x, ...) {
+  UseMethod("quantile")
+}
+
+#' @export
+range <- function(x, ...) {
+  UseMethod("range")
 }
 
 #' @export
@@ -158,4 +178,3 @@ kurtosis.boost_distribution <- function(x, ...) {
 kurtosis_excess.boost_distribution <- function(x, ...) {
   dist_function("kurtosis_excess", x)
 }
-

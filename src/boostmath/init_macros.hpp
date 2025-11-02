@@ -50,12 +50,20 @@
   SEXP dist##_init_(SEXP param1_, SEXP param2_); \
   DISTRIBUTION_DECLARATIONS(dist)
 
+#define TERNARY_DISTRIBUTION_BOOST_DECLARATIONS(dist) \
+  SEXP dist##_init_(SEXP param1_, SEXP param2_, SEXP param3_); \
+  DISTRIBUTION_DECLARATIONS(dist)
+
 #define UNARY_DISTRIBUTION_BOOST_CALLDEFS(dist) \
   {xstr(dist##_init_), (DL_FUNC) &dist##_init_, 1}, \
   DISTRIBUTION_CALLDEFS(dist)
 
 #define BINARY_DISTRIBUTION_BOOST_CALLDEFS(dist) \
   {xstr(dist##_init_), (DL_FUNC) &dist##_init_, 2}, \
+  DISTRIBUTION_CALLDEFS(dist)
+
+#define TERNARY_DISTRIBUTION_BOOST_CALLDEFS(dist) \
+  {xstr(dist##_init_), (DL_FUNC) &dist##_init_, 3}, \
   DISTRIBUTION_CALLDEFS(dist)
 
 #endif // BOOSTMATH_INIT_MACROS_HPP

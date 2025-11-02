@@ -16,32 +16,44 @@
 #' logistic_quantile(0.5)
 NULL
 
+#' @export
+logistic_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`logistic_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("logistic_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname logistic_distribution
 #' @export
 logistic_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`logistic_pdf_`, x, location, scale)
+  pdf(logistic_distribution(location, scale), x)
 }
 
 #' @rdname logistic_distribution
 #' @export
 logistic_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`logistic_logpdf_`, x, location, scale)
+  logpdf(logistic_distribution(location, scale), x)
 }
 
 #' @rdname logistic_distribution
 #' @export
 logistic_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`logistic_cdf_`, x, location, scale)
+  cdf(logistic_distribution(location, scale), x)
 }
 
 #' @rdname logistic_distribution
 #' @export
 logistic_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`logistic_logcdf_`, x, location, scale)
+  logcdf(logistic_distribution(location, scale), x)
 }
 
 #' @rdname logistic_distribution
 #' @export
 logistic_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`logistic_quantile_`, p, location, scale)
+  quantile(logistic_distribution(location, scale), p)
 }

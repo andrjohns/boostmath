@@ -16,32 +16,44 @@
 #' mapairy_quantile(0.5)
 NULL
 
+#' @export
+mapairy_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`mapairy_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("mapairy_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname mapairy_distribution
 #' @export
 mapairy_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`mapairy_pdf_`, x, location, scale)
+  pdf(mapairy_distribution(location, scale), x)
 }
 
 #' @rdname mapairy_distribution
 #' @export
 mapairy_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`mapairy_logpdf_`, x, location, scale)
+  logpdf(mapairy_distribution(location, scale), x)
 }
 
 #' @rdname mapairy_distribution
 #' @export
 mapairy_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`mapairy_cdf_`, x, location, scale)
+  cdf(mapairy_distribution(location, scale), x)
 }
 
 #' @rdname mapairy_distribution
 #' @export
 mapairy_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`mapairy_logcdf_`, x, location, scale)
+  logcdf(mapairy_distribution(location, scale), x)
 }
 
 #' @rdname mapairy_distribution
 #' @export
 mapairy_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`mapairy_quantile_`, p, location, scale)
+  quantile(mapairy_distribution(location, scale), p)
 }

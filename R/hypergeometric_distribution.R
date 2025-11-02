@@ -17,32 +17,45 @@
 #' hypergeometric_quantile(0.5, 5, 10, 20)
 NULL
 
+#' @export
+hypergeometric_distribution <- function(r, n, N) {
+  structure(
+    list(
+      extptr = .Call(`hypergeometric_init_`, r, n, N),
+      defective = r,
+      sample_count = n,
+      total = N
+    ),
+    class = c("hypergeometric_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname hypergeometric_distribution
 #' @export
 hypergeometric_pdf <- function(x, r, n, N) {
-  .Call(`hypergeometric_pdf_`, x, r, n, N)
+  pdf(hypergeometric_distribution(r, n, N), x)
 }
 
 #' @rdname hypergeometric_distribution
 #' @export
 hypergeometric_lpdf <- function(x, r, n, N) {
-  .Call(`hypergeometric_logpdf_`, x, r, n, N)
+  logpdf(hypergeometric_distribution(r, n, N), x)
 }
 
 #' @rdname hypergeometric_distribution
 #' @export
 hypergeometric_cdf <- function(x, r, n, N) {
-  .Call(`hypergeometric_cdf_`, x, r, n, N)
+  cdf(hypergeometric_distribution(r, n, N), x)
 }
 
 #' @rdname hypergeometric_distribution
 #' @export
 hypergeometric_lcdf <- function(x, r, n, N) {
-  .Call(`hypergeometric_logcdf_`, x, r, n, N)
+  logcdf(hypergeometric_distribution(r, n, N), x)
 }
 
 #' @rdname hypergeometric_distribution
 #' @export
 hypergeometric_quantile <- function(p, r, n, N) {
-  .Call(`hypergeometric_quantile_`, p, r, n, N)
+  quantile(hypergeometric_distribution(r, n, N), p)
 }

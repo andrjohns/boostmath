@@ -9,22 +9,22 @@
 \alias{inverse_gamma_quantile}
 \title{Inverse Gamma Distribution Functions}
 \usage{
-inverse_gamma_pdf(x, shape, scale)
+inverse_gamma_pdf(x, shape, scale = 1)
 
-inverse_gamma_lpdf(x, shape, scale)
+inverse_gamma_lpdf(x, shape, scale = 1)
 
-inverse_gamma_cdf(x, shape, scale)
+inverse_gamma_cdf(x, shape, scale = 1)
 
-inverse_gamma_lcdf(x, shape, scale)
+inverse_gamma_lcdf(x, shape, scale = 1)
 
-inverse_gamma_quantile(p, shape, scale)
+inverse_gamma_quantile(p, shape, scale = 1)
 }
 \arguments{
 \item{x}{quantile}
 
 \item{shape}{shape parameter (shape > 0)}
 
-\item{scale}{scale parameter (scale > 0)}
+\item{scale}{scale parameter (scale > 0; default is 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }

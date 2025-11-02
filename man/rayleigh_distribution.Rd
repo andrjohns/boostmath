@@ -9,20 +9,20 @@
 \alias{rayleigh_quantile}
 \title{Rayleigh Distribution Functions}
 \usage{
-rayleigh_pdf(x, scale = 1)
+rayleigh_pdf(x, sigma = 1)
 
-rayleigh_lpdf(x, scale = 1)
+rayleigh_lpdf(x, sigma = 1)
 
-rayleigh_cdf(x, scale = 1)
+rayleigh_cdf(x, sigma = 1)
 
-rayleigh_lcdf(x, scale = 1)
+rayleigh_lcdf(x, sigma = 1)
 
-rayleigh_quantile(p, scale = 1)
+rayleigh_quantile(p, sigma = 1)
 }
 \arguments{
 \item{x}{quantile}
 
-\item{scale}{scale parameter (default is 1)}
+\item{sigma}{scale parameter (default is 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -33,7 +33,7 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Rayleigh distribution.
 }
 \examples{
-# Rayleigh distribution with scale = 1
+# Rayleigh distribution with sigma = 1
 rayleigh_pdf(1)
 rayleigh_lpdf(1)
 rayleigh_cdf(1)

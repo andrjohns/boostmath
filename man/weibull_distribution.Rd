@@ -9,20 +9,20 @@
 \alias{weibull_quantile}
 \title{Weibull Distribution Functions}
 \usage{
-weibull_pdf(x, shape = 1, scale = 1)
+weibull_pdf(x, shape, scale = 1)
 
-weibull_lpdf(x, shape = 1, scale = 1)
+weibull_lpdf(x, shape, scale = 1)
 
-weibull_cdf(x, shape = 1, scale = 1)
+weibull_cdf(x, shape, scale = 1)
 
-weibull_lcdf(x, shape = 1, scale = 1)
+weibull_lcdf(x, shape, scale = 1)
 
-weibull_quantile(p, shape = 1, scale = 1)
+weibull_quantile(p, shape, scale = 1)
 }
 \arguments{
 \item{x}{quantile}
 
-\item{shape}{shape parameter (default is 1)}
+\item{shape}{shape parameter}
 
 \item{scale}{scale parameter (default is 1)}
 
@@ -36,11 +36,11 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Weibull distribution with shape = 1, scale = 1
-weibull_pdf(1)
-weibull_lpdf(1)
-weibull_cdf(1)
-weibull_lcdf(1)
-weibull_quantile(0.5)
+weibull_pdf(1, shape = 1, scale = 1)
+weibull_lpdf(1, shape = 1, scale = 1)
+weibull_cdf(1, shape = 1, scale = 1)
+weibull_lcdf(1, shape = 1, scale = 1)
+weibull_quantile(0.5, shape = 1, scale = 1)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/weibull_dist.html}{Boost Documentation} for more details on the mathematical background.

@@ -9,22 +9,22 @@
 \alias{inverse_chi_squared_quantile}
 \title{Inverse Chi-Squared Distribution Functions}
 \usage{
-inverse_chi_squared_pdf(x, df, scale = 1)
+inverse_chi_squared_pdf(x, df = 1, scale = 1/df)
 
-inverse_chi_squared_lpdf(x, df, scale = 1)
+inverse_chi_squared_lpdf(x, df = 1, scale = 1/df)
 
-inverse_chi_squared_cdf(x, df, scale = 1)
+inverse_chi_squared_cdf(x, df = 1, scale = 1/df)
 
-inverse_chi_squared_lcdf(x, df, scale = 1)
+inverse_chi_squared_lcdf(x, df = 1, scale = 1/df)
 
-inverse_chi_squared_quantile(p, df, scale = 1)
+inverse_chi_squared_quantile(p, df = 1, scale = 1/df)
 }
 \arguments{
 \item{x}{quantile}
 
-\item{df}{degrees of freedom (df > 0)}
+\item{df}{degrees of freedom (df > 0; default is 1)}
 
-\item{scale}{scale parameter (default is 1)}
+\item{scale}{scale parameter (default is 1/df)}
 
 \item{p}{probability (0 <= p <= 1)}
 }

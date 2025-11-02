@@ -16,32 +16,44 @@
 #' normal_quantile(0.5)
 NULL
 
+#' @export
+normal_distribution <- function(mean = 0, sd = 1) {
+  structure(
+    list(
+      extptr = .Call(`normal_init_`, mean, sd),
+      mean = mean,
+      standard_deviation = sd
+    ),
+    class = c("normal_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname normal_distribution
 #' @export
 normal_pdf <- function(x, mean = 0, sd = 1) {
-  .Call(`normal_pdf_`, x, mean, sd)
+  pdf(normal_distribution(mean, sd), x)
 }
 
 #' @rdname normal_distribution
 #' @export
 normal_lpdf <- function(x, mean = 0, sd = 1) {
-  .Call(`normal_logpdf_`, x, mean, sd)
+  logpdf(normal_distribution(mean, sd), x)
 }
 
 #' @rdname normal_distribution
 #' @export
 normal_cdf <- function(x, mean = 0, sd = 1) {
-  .Call(`normal_cdf_`, x, mean, sd)
+  cdf(normal_distribution(mean, sd), x)
 }
 
 #' @rdname normal_distribution
 #' @export
 normal_lcdf <- function(x, mean = 0, sd = 1) {
-  .Call(`normal_logcdf_`, x, mean, sd)
+  logcdf(normal_distribution(mean, sd), x)
 }
 
 #' @rdname normal_distribution
 #' @export
 normal_quantile <- function(p, mean = 0, sd = 1) {
-  .Call(`normal_quantile_`, p, mean, sd)
+  quantile(normal_distribution(mean, sd), p)
 }

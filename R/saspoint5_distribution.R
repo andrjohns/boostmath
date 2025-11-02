@@ -16,32 +16,44 @@
 #' saspoint5_quantile(0.5)
 NULL
 
+#' @export
+saspoint5_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`saspoint5_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("saspoint5_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_pdf_`, x, location, scale)
+  pdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_logpdf_`, x, location, scale)
+  logpdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_cdf_`, x, location, scale)
+  cdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_logcdf_`, x, location, scale)
+  logcdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`saspoint5_quantile_`, p, location, scale)
+  quantile(saspoint5_distribution(location, scale), p)
 }

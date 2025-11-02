@@ -18,32 +18,45 @@
 #' non_central_beta_quantile(0.5, 2, 3, 1)
 NULL
 
+#' @export
+non_central_beta_distribution <- function(alpha, beta, lambda) {
+  structure(
+    list(
+      extptr = .Call(`non_central_beta_init_`, alpha, beta, lambda),
+      alpha = alpha,
+      beta = beta,
+      non_centrality = lambda
+    ),
+    class = c("non_central_beta_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname non_central_beta_distribution
 #' @export
 non_central_beta_pdf <- function(x, alpha, beta, lambda) {
-  .Call(`non_central_beta_pdf_`, x, alpha, beta, lambda)
+  pdf(non_central_beta_distribution(alpha, beta, lambda), x)
 }
 
 #' @rdname non_central_beta_distribution
 #' @export
 non_central_beta_lpdf <- function(x, alpha, beta, lambda) {
-  .Call(`non_central_beta_logpdf_`, x, alpha, beta, lambda)
+  logpdf(non_central_beta_distribution(alpha, beta, lambda), x)
 }
 
 #' @rdname non_central_beta_distribution
 #' @export
 non_central_beta_cdf <- function(x, alpha, beta, lambda) {
-  .Call(`non_central_beta_cdf_`, x, alpha, beta, lambda)
+  cdf(non_central_beta_distribution(alpha, beta, lambda), x)
 }
 
 #' @rdname non_central_beta_distribution
 #' @export
 non_central_beta_lcdf <- function(x, alpha, beta, lambda) {
-  .Call(`non_central_beta_logcdf_`, x, alpha, beta, lambda)
+  logcdf(non_central_beta_distribution(alpha, beta, lambda), x)
 }
 
 #' @rdname non_central_beta_distribution
 #' @export
 non_central_beta_quantile <- function(p, alpha, beta, lambda) {
-  .Call(`non_central_beta_quantile_`, p, alpha, beta, lambda)
+  quantile(non_central_beta_distribution(alpha, beta, lambda), p)
 }

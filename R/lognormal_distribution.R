@@ -16,32 +16,44 @@
 #' lognormal_quantile(0.5)
 NULL
 
+#' @export
+lognormal_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`lognormal_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("lognormal_distribution", "boost_distribution")
+  )
+}
+
 #' @rdname lognormal_distribution
 #' @export
 lognormal_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`lognormal_pdf_`, x, location, scale)
+  pdf(lognormal_distribution(location, scale), x)
 }
 
 #' @rdname lognormal_distribution
 #' @export
 lognormal_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`lognormal_logpdf_`, x, location, scale)
+  logpdf(lognormal_distribution(location, scale), x)
 }
 
 #' @rdname lognormal_distribution
 #' @export
 lognormal_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`lognormal_cdf_`, x, location, scale)
+  cdf(lognormal_distribution(location, scale), x)
 }
 
 #' @rdname lognormal_distribution
 #' @export
 lognormal_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`lognormal_logcdf_`, x, location, scale)
+  logcdf(lognormal_distribution(location, scale), x)
 }
 
 #' @rdname lognormal_distribution
 #' @export
 lognormal_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`lognormal_quantile_`, p, location, scale)
+  quantile(lognormal_distribution(location, scale), p)
 }
