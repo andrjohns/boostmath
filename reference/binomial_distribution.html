@@ -161,18 +161,16 @@
 <span class="r-in"><span><span class="fu">binomial_quantile</span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">10</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Find lower bound on p given k = 3 successes in n = 10 trials with 95% confidence</span></span></span>
 <span class="r-in"><span><span class="fu">binomial_find_lower_bound_on_p</span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span>, <span class="fl">0.05</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.08726443</span>
 <span class="r-in"><span><span class="co"># Find upper bound on p given k = 3 successes in n = 10 trials with 95% confidence</span></span></span>
 <span class="r-in"><span><span class="fu">binomial_find_upper_bound_on_p</span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span>, <span class="fl">0.05</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6066242</span>
 <span class="r-in"><span><span class="co"># Find minimum number of trials n to observe k = 3 successes with p = 0.5 at 95% confidence</span></span></span>
 <span class="r-in"><span><span class="fu">binomial_find_minimum_number_of_trials</span><span class="op">(</span><span class="fl">3</span>, <span class="fl">0.5</span>, <span class="fl">0.05</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12.8277</span>
 <span class="r-in"><span><span class="co"># Find maximum number of trials n to observe k = 3 successes with p = 0.5 at 95% confidence</span></span></span>
 <span class="r-in"><span><span class="fu">binomial_find_maximum_number_of_trials</span><span class="op">(</span><span class="fl">3</span>, <span class="fl">0.5</span>, <span class="fl">0.05</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.86605</span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
