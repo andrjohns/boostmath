@@ -51,7 +51,9 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">uniform_pdf</span><span class="op">(</span><span class="va">x</span>, lower <span class="op">=</span> <span class="fl">0</span>, upper <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">uniform_distribution</span><span class="op">(</span>lower <span class="op">=</span> <span class="fl">0</span>, upper <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">uniform_pdf</span><span class="op">(</span><span class="va">x</span>, lower <span class="op">=</span> <span class="fl">0</span>, upper <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">uniform_lpdf</span><span class="op">(</span><span class="va">x</span>, lower <span class="op">=</span> <span class="fl">0</span>, upper <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
@@ -66,16 +68,16 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>quantile</p></dd>
-
-
-<dt id="arg-lower">lower<a class="anchor" aria-label="anchor" href="#arg-lower"></a></dt>
+<dl><dt id="arg-lower">lower<a class="anchor" aria-label="anchor" href="#arg-lower"></a></dt>
 <dd><p>lower bound of the distribution (default is 0)</p></dd>
 
 
 <dt id="arg-upper">upper<a class="anchor" aria-label="anchor" href="#arg-upper"></a></dt>
 <dd><p>upper bound of the distribution (default is 1)</p></dd>
+
+
+<dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
+<dd><p>quantile</p></dd>
 
 
 <dt id="arg-p">p<a class="anchor" aria-label="anchor" href="#arg-p"></a></dt>
@@ -94,6 +96,44 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Uniform distribution with lower = 0, upper = 1</span></span></span>
+<span class="r-in"><span><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu">uniform_distribution</span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Apply generic functions</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">cdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">logcdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.6931472</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">pdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">logpdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">hazard</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">chf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6931472</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">mode</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -1.797693e+308  1.797693e+308</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.2</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">standard_deviation</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.2886751</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">support</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0 1</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">variance</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.08333333</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">skewness</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">kurtosis</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.8</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">kurtosis_excess</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -1.2</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Convenience functions</span></span></span>
 <span class="r-in"><span><span class="fu">uniform_pdf</span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-in"><span><span class="fu">uniform_lpdf</span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span></span></span>

@@ -51,7 +51,9 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hyperexponential_pdf</span><span class="op">(</span><span class="va">x</span>, <span class="va">probabilities</span>, <span class="va">rates</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hyperexponential_distribution</span><span class="op">(</span><span class="va">probabilities</span>, <span class="va">rates</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">hyperexponential_pdf</span><span class="op">(</span><span class="va">x</span>, <span class="va">probabilities</span>, <span class="va">rates</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">hyperexponential_lpdf</span><span class="op">(</span><span class="va">x</span>, <span class="va">probabilities</span>, <span class="va">rates</span><span class="op">)</span></span>
 <span></span>
@@ -66,16 +68,16 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>quantile</p></dd>
-
-
-<dt id="arg-probabilities">probabilities<a class="anchor" aria-label="anchor" href="#arg-probabilities"></a></dt>
+<dl><dt id="arg-probabilities">probabilities<a class="anchor" aria-label="anchor" href="#arg-probabilities"></a></dt>
 <dd><p>vector of probabilities (sum must be 1)</p></dd>
 
 
 <dt id="arg-rates">rates<a class="anchor" aria-label="anchor" href="#arg-rates"></a></dt>
 <dd><p>vector of rates (all rates must be &gt; 0)</p></dd>
+
+
+<dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
+<dd><p>quantile</p></dd>
 
 
 <dt id="arg-p">p<a class="anchor" aria-label="anchor" href="#arg-p"></a></dt>
@@ -94,6 +96,44 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Hyperexponential distribution with probabilities = c(0.5, 0.5) and rates = c(1, 2)</span></span></span>
+<span class="r-in"><span><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu">hyperexponential_distribution</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Apply generic functions</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">cdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5127949</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">logcdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.6678792</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">pdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6711448</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">logpdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.3987704</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">hazard</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.377541</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">chf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7190702</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.75</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.4812118</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">mode</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]   0 Inf</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1506519</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">standard_deviation</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.8291562</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">support</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.225074e-308 1.797693e+308</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">variance</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6875</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">skewness</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.466911</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">kurtosis</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12.47107</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">kurtosis_excess</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9.471074</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Convenience functions</span></span></span>
 <span class="r-in"><span><span class="fu">hyperexponential_pdf</span><span class="op">(</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.08598328</span>
 <span class="r-in"><span><span class="fu">hyperexponential_lpdf</span><span class="op">(</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>

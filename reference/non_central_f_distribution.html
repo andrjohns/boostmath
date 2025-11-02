@@ -51,7 +51,9 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">non_central_f_pdf</span><span class="op">(</span><span class="va">x</span>, <span class="va">df1</span>, <span class="va">df2</span>, <span class="va">lambda</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">non_central_f_distribution</span><span class="op">(</span><span class="va">df1</span>, <span class="va">df2</span>, <span class="va">lambda</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">non_central_f_pdf</span><span class="op">(</span><span class="va">x</span>, <span class="va">df1</span>, <span class="va">df2</span>, <span class="va">lambda</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">non_central_f_lpdf</span><span class="op">(</span><span class="va">x</span>, <span class="va">df1</span>, <span class="va">df2</span>, <span class="va">lambda</span><span class="op">)</span></span>
 <span></span>
@@ -66,11 +68,7 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>quantile</p></dd>
-
-
-<dt id="arg-df-">df1<a class="anchor" aria-label="anchor" href="#arg-df-"></a></dt>
+<dl><dt id="arg-df-">df1<a class="anchor" aria-label="anchor" href="#arg-df-"></a></dt>
 <dd><p>degrees of freedom for the numerator (df1 &gt; 0)</p></dd>
 
 
@@ -80,6 +78,10 @@
 
 <dt id="arg-lambda">lambda<a class="anchor" aria-label="anchor" href="#arg-lambda"></a></dt>
 <dd><p>noncentrality parameter (lambda &gt;= 0)</p></dd>
+
+
+<dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
+<dd><p>quantile</p></dd>
 
 
 <dt id="arg-p">p<a class="anchor" aria-label="anchor" href="#arg-p"></a></dt>
@@ -97,8 +99,46 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Noncentral F distribution with df1 = 5, df2 = 2 and noncentrality</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality</span></span></span>
 <span class="r-in"><span><span class="co"># parameter 1</span></span></span>
+<span class="r-in"><span><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu">non_central_f_distribution</span><span class="op">(</span><span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Apply generic functions</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">cdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1142528</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">logcdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -2.169342</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">pdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5754471</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">logpdf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.552608</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">hazard</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6496742</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">chf</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1213237</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.375</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.10075</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">mode</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7349843</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.000000e+00 1.797693e+308</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">dist</span>, <span class="fl">0.2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6363179</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">standard_deviation</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.063113</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">support</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.000000e+00 1.797693e+308</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">variance</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.130208</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">skewness</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.609738</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">kurtosis</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 51.0825</span>
+<span class="r-in"><span><span class="fu"><a href="generic_distribution_functions.html">kurtosis_excess</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 48.0825</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Convenience functions</span></span></span>
 <span class="r-in"><span><span class="fu">non_central_f_pdf</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.3051418</span>
 <span class="r-in"><span><span class="fu">non_central_f_lpdf</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span></span>
