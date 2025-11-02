@@ -80,6 +80,7 @@ geometric_lpdf(3, 0.5)
 geometric_cdf(3, 0.5)
 geometric_lcdf(3, 0.5)
 geometric_quantile(0.5, 0.5)
+\dontrun{
 # Find lower bound on p given 5 trials with 95\% confidence
 geometric_find_lower_bound_on_p(5, 0.05)
 # Find upper bound on p given 5 trials with 95\% confidence
@@ -88,6 +89,7 @@ geometric_find_upper_bound_on_p(5, 0.05)
 geometric_find_minimum_number_of_trials(3, 0.5, 0.05)
 # Find maximum number of trials to observe 3 failures with p = 0.5 at 95\% confidence
 geometric_find_maximum_number_of_trials(3, 0.5, 0.05)
+}
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/geometric_dist.html}{Boost Documentation} for more details on the mathematical background.
