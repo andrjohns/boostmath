@@ -62,32 +62,8 @@ chf <- function(x, ...) {
 
 #' @rdname generic_distribution_functions
 #' @export
-mean <- function(x, ...) {
-  UseMethod("mean")
-}
-
-#' @rdname generic_distribution_functions
-#' @export
-median <- function(x, ...) {
-  UseMethod("median")
-}
-
-#' @rdname generic_distribution_functions
-#' @export
 mode <- function(x, ...) {
   UseMethod("mode")
-}
-
-#' @rdname generic_distribution_functions
-#' @export
-quantile <- function(x, ...) {
-  UseMethod("quantile")
-}
-
-#' @rdname generic_distribution_functions
-#' @export
-range <- function(x, ...) {
-  UseMethod("range")
 }
 
 #' @rdname generic_distribution_functions
@@ -156,12 +132,12 @@ chf.boost_distribution <- function(x, y, ...) {
   dist_function("chf", x, y)
 }
 
-#' @exportS3Method mean boost_distribution
+#' @exportS3Method base::mean boost_distribution
 mean.boost_distribution <- function(x, ...) {
   dist_function("mean", x)
 }
 
-#' @exportS3Method median boost_distribution
+#' @exportS3Method stats::median boost_distribution
 median.boost_distribution <- function(x, ...) {
   dist_function("median", x)
 }
@@ -171,12 +147,12 @@ mode.boost_distribution <- function(x, ...) {
   dist_function("mode", x)
 }
 
-#' @exportS3Method range boost_distribution
+#' @exportS3Method base::range boost_distribution
 range.boost_distribution <- function(x, ...) {
   dist_function("range", x)
 }
 
-#' @exportS3Method quantile boost_distribution
+#' @exportS3Method stats::quantile boost_distribution
 quantile.boost_distribution <- function(x, y, ...) {
   dist_function("quantile", x, y)
 }

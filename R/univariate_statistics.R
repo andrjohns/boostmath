@@ -33,7 +33,7 @@
 #' # Sample Gini Coefficient
 #' sample_gini_coefficient(c(1, 2, 3, 4, 5))
 #' # Mode
-#' mode_boost(c(1, 2, 2, 3, 4))
+#' mode(c(1, 2, 2, 3, 4))
 NULL
 
 #' @rdname univariate_statistics
@@ -116,6 +116,6 @@ sample_gini_coefficient <- function(x) {
 
 #' @rdname univariate_statistics
 #' @export
-mode_boost <- function(x) {
+mode.default <- function(x, ...) {
   .Call(`mode_`, x)
 }

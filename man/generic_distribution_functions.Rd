@@ -8,11 +8,7 @@
 \alias{logpdf}
 \alias{hazard}
 \alias{chf}
-\alias{mean}
-\alias{median}
 \alias{mode}
-\alias{quantile}
-\alias{range}
 \alias{standard_deviation}
 \alias{support}
 \alias{variance}
@@ -33,15 +29,7 @@ hazard(x, ...)
 
 chf(x, ...)
 
-mean(x, ...)
-
-median(x, ...)
-
 mode(x, ...)
-
-quantile(x, ...)
-
-range(x, ...)
 
 standard_deviation(x, ...)
 

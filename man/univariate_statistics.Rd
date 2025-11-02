@@ -15,7 +15,7 @@
 \alias{interquartile_range}
 \alias{gini_coefficient}
 \alias{sample_gini_coefficient}
-\alias{mode_boost}
+\alias{mode.default}
 \title{Univariate Statistics Functions}
 \usage{
 mean_boost(x)
@@ -44,7 +44,7 @@ gini_coefficient(x)
 
 sample_gini_coefficient(x)
 
-mode_boost(x)
+\method{mode}{default}(x, ...)
 }
 \arguments{
 \item{x}{A numeric vector.}
@@ -85,7 +85,7 @@ gini_coefficient(c(1, 2, 3, 4, 5))
 # Sample Gini Coefficient
 sample_gini_coefficient(c(1, 2, 3, 4, 5))
 # Mode
-mode_boost(c(1, 2, 2, 3, 4))
+mode(c(1, 2, 2, 3, 4))
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html}{Boost Documentation} for more details on the mathematical background.

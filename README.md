@@ -41,15 +41,12 @@ Functions can be used directly after loading the package:
 library(boostmath)
 #> 
 #> Attaching package: 'boostmath'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     median, quantile
 #> The following object is masked from 'package:grDevices':
 #> 
 #>     pdf
-#> The following objects are masked from 'package:base':
+#> The following object is masked from 'package:base':
 #> 
-#>     mean, mode, range
+#>     mode
 
 hypergeometric_pFq(c(1, 2.5), c(0.5, 2), 1)
 #> [1] 6.675991
