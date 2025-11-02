@@ -9,6 +9,8 @@
 \alias{non_central_beta_quantile}
 \title{Noncentral Beta Distribution Functions}
 \usage{
+non_central_beta_distribution(alpha, beta, lambda)
+
 non_central_beta_pdf(x, alpha, beta, lambda)
 
 non_central_beta_lpdf(x, alpha, beta, lambda)
@@ -20,13 +22,13 @@ non_central_beta_lcdf(x, alpha, beta, lambda)
 non_central_beta_quantile(p, alpha, beta, lambda)
 }
 \arguments{
-\item{x}{quantile (0 <= x <= 1)}
-
 \item{alpha}{first shape parameter (alpha > 0)}
 
 \item{beta}{second shape parameter (beta > 0)}
 
 \item{lambda}{noncentrality parameter (lambda >= 0)}
+
+\item{x}{quantile (0 <= x <= 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -39,6 +41,24 @@ Functions to compute the probability density function, cumulative distribution f
 \examples{
 # Noncentral Beta distribution with shape parameters alpha = 2, beta = 3
 # and noncentrality parameter lambda = 1
+dist <- non_central_beta_distribution(2, 3, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+
+# Convenience functions
 non_central_beta_pdf(0.5, 2, 3, 1)
 non_central_beta_lpdf(0.5, 2, 3, 1)
 non_central_beta_cdf(0.5, 2, 3, 1)

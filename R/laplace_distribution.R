@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/laplace_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Laplace distribution with location = 0, scale = 1
+#' dist <- laplace_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' laplace_pdf(0)
 #' laplace_lpdf(0)
 #' laplace_cdf(0)
@@ -16,6 +37,7 @@
 #' laplace_quantile(0.5)
 NULL
 
+#' @rdname laplace_distribution
 #' @export
 laplace_distribution <- function(location = 0, scale = 1) {
   structure(

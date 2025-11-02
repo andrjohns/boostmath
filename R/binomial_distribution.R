@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Binomial dist ribution with n = 10, prob = 0.5
+#' dist <- binomial_distribution(10, 0.5)
+#' # Apply generic functions
+#' cdf(dist, 2)
+#' logcdf(dist, 2)
+#' pdf(dist, 2)
+#' logpdf(dist, 2)
+#' hazard(dist, 2)
+#' chf(dist, 2)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' binomial_pdf(3, 10, 0.5)
 #' binomial_lpdf(3, 10, 0.5)
 #' binomial_cdf(3, 10, 0.5)
@@ -16,6 +37,7 @@
 #' binomial_quantile(0.5, 10, 0.5)
 NULL
 
+#' @rdname binomial_distribution
 #' @export
 binomial_distribution <- function(n, prob) {
   structure(

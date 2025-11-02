@@ -11,6 +11,27 @@
 #' @examples
 #' # Noncentral F distribution with df1 = 5, df2 = 2 and noncentrality
 #' # parameter 1
+#' dist <- non_central_f_distribution(5, 2, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' non_central_f_pdf(1, 5, 2, 1)
 #' non_central_f_lpdf(1, 5, 2, 1)
 #' non_central_f_cdf(1, 5, 2, 1)
@@ -18,6 +39,7 @@
 #' non_central_f_quantile(0.5, 5, 2, 1)
 NULL
 
+#' @rdname non_central_f_distribution
 #' @export
 non_central_f_distribution <- function(df1, df2, lambda) {
   structure(

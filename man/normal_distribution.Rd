@@ -9,6 +9,8 @@
 \alias{normal_quantile}
 \title{Normal Distribution Functions}
 \usage{
+normal_distribution(mean = 0, sd = 1)
+
 normal_pdf(x, mean = 0, sd = 1)
 
 normal_lpdf(x, mean = 0, sd = 1)
@@ -20,11 +22,11 @@ normal_lcdf(x, mean = 0, sd = 1)
 normal_quantile(p, mean = 0, sd = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{mean}{mean parameter (default is 0)}
 
 \item{sd}{standard deviation parameter (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Normal distribution with mean = 0, sd = 1
+dist <- normal_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 normal_pdf(0)
 normal_lpdf(0)
 normal_cdf(0)

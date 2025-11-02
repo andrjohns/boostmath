@@ -8,6 +8,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/poisson_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Poisson distribution with lambda = 1
+#' dist <- poisson_distribution(1)
+#' # Apply generic functions
+#' cdf(dist, 5)
+#' logcdf(dist, 5)
+#' pdf(dist, 5)
+#' logpdf(dist, 5)
+#' hazard(dist, 5)
+#' chf(dist, 5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' poisson_pdf(0, 1)
 #' poisson_lpdf(0, 1)
 #' poisson_cdf(0, 1)
@@ -15,6 +36,7 @@
 #' poisson_quantile(0.5, 1)
 NULL
 
+#' @rdname poisson_distribution
 #' @export
 poisson_distribution <- function(lambda = 1) {
   structure(

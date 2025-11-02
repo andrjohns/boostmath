@@ -9,6 +9,8 @@
 \alias{weibull_quantile}
 \title{Weibull Distribution Functions}
 \usage{
+weibull_distribution(shape, scale = 1)
+
 weibull_pdf(x, shape, scale = 1)
 
 weibull_lpdf(x, shape, scale = 1)
@@ -20,11 +22,11 @@ weibull_lcdf(x, shape, scale = 1)
 weibull_quantile(p, shape, scale = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{shape}{shape parameter}
 
 \item{scale}{scale parameter (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Weibull distribution with shape = 1, scale = 1
+dist <- weibull_distribution(1, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 weibull_pdf(1, shape = 1, scale = 1)
 weibull_lpdf(1, shape = 1, scale = 1)
 weibull_cdf(1, shape = 1, scale = 1)

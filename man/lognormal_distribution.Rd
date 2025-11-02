@@ -9,6 +9,8 @@
 \alias{lognormal_quantile}
 \title{Log Normal Distribution Functions}
 \usage{
+lognormal_distribution(location = 0, scale = 1)
+
 lognormal_pdf(x, location = 0, scale = 1)
 
 lognormal_lpdf(x, location = 0, scale = 1)
@@ -20,11 +22,11 @@ lognormal_lcdf(x, location = 0, scale = 1)
 lognormal_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{location}{location parameter (default is 0)}
 
 \item{scale}{scale parameter (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Log Normal distribution with location = 0, scale = 1
+dist <- lognormal_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 lognormal_pdf(0)
 lognormal_lpdf(0)
 lognormal_cdf(0)

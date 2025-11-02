@@ -9,6 +9,8 @@
 \alias{poisson_quantile}
 \title{Poisson Distribution Functions}
 \usage{
+poisson_distribution(lambda = 1)
+
 poisson_pdf(x, lambda = 1)
 
 poisson_lpdf(x, lambda = 1)
@@ -20,9 +22,9 @@ poisson_lcdf(x, lambda = 1)
 poisson_quantile(p, lambda = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{lambda}{rate parameter (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -34,6 +36,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Poisson distribution with lambda = 1
+dist <- poisson_distribution(1)
+# Apply generic functions
+cdf(dist, 5)
+logcdf(dist, 5)
+pdf(dist, 5)
+logpdf(dist, 5)
+hazard(dist, 5)
+chf(dist, 5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 poisson_pdf(0, 1)
 poisson_lpdf(0, 1)
 poisson_cdf(0, 1)

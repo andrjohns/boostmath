@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gaussian_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Inverse Gaussian distribution with mu = 3, lambda = 4
+#' dist <- inverse_gaussian_distribution(3, 4)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' inverse_gaussian_pdf(2, 3, 4)
 #' inverse_gaussian_lpdf(2, 3, 4)
 #' inverse_gaussian_cdf(2, 3, 4)
@@ -16,6 +37,7 @@
 #' inverse_gaussian_quantile(0.5, 3, 4)
 NULL
 
+#' @rdname inverse_gaussian_distribution
 #' @export
 inverse_gaussian_distribution <- function(mu = 1, lambda = 1) {
   structure(

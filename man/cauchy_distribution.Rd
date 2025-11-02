@@ -9,6 +9,8 @@
 \alias{cauchy_quantile}
 \title{Cauchy Distribution Functions}
 \usage{
+cauchy_distribution(location = 0, scale = 1)
+
 cauchy_pdf(x, location = 0, scale = 1)
 
 cauchy_lpdf(x, location = 0, scale = 1)
@@ -20,11 +22,11 @@ cauchy_lcdf(x, location = 0, scale = 1)
 cauchy_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{location}{location parameter (default is 0)}
 
 \item{scale}{scale parameter (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,21 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Cauchy distribution with location = 0, scale = 1
+dist <- cauchy_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+support(dist)
+
+# Convenience functions
 cauchy_pdf(0)
 cauchy_lpdf(0)
 cauchy_cdf(0)

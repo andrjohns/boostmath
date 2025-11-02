@@ -9,6 +9,21 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/saspoint5_dist.html) for more details on the mathematical background.
 #' @examples
 #' # SaS Point5 distribution with location 0 and scale 1
+#' dist <- saspoint5_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' support(dist)
+#'
+#' # Convenience functions
 #' saspoint5_pdf(3)
 #' saspoint5_lpdf(3)
 #' saspoint5_cdf(3)
@@ -16,6 +31,7 @@
 #' saspoint5_quantile(0.5)
 NULL
 
+#' @rdname saspoint5_distribution
 #' @export
 saspoint5_distribution <- function(location = 0, scale = 1) {
   structure(

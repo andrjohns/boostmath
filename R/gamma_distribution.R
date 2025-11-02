@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/gamma_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Gamma distribution with shape = 3, scale = 4
+#' dist <- gamma_distribution(3, 4)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' gamma_pdf(2, 3, 4)
 #' gamma_lpdf(2, 3, 4)
 #' gamma_cdf(2, 3, 4)
@@ -16,6 +37,7 @@
 #' gamma_quantile(0.5, 3, 4)
 NULL
 
+#' @rdname gamma_distribution
 #' @export
 gamma_distribution <- function(shape, scale = 1) {
   structure(

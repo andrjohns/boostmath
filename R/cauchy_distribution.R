@@ -9,6 +9,21 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/cauchy_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Cauchy distribution with location = 0, scale = 1
+#' dist <- cauchy_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' support(dist)
+#'
+#' # Convenience functions
 #' cauchy_pdf(0)
 #' cauchy_lpdf(0)
 #' cauchy_cdf(0)
@@ -16,6 +31,7 @@
 #' cauchy_quantile(0.5)
 NULL
 
+#' @rdname cauchy_distribution
 #' @export
 cauchy_distribution <- function(location = 0, scale = 1) {
   structure(

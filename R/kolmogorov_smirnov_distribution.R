@@ -8,6 +8,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/kolmogorov_smirnov_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Kolmogorov-Smirnov distribution with sample size n = 10
+#' dist <- kolmogorov_smirnov_distribution(10)
+#' # Apply generic functions
+#' cdf(dist, 2)
+#' logcdf(dist, 2)
+#' pdf(dist, 2)
+#' logpdf(dist, 2)
+#' hazard(dist, 2)
+#' chf(dist, 2)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' kolmogorov_smirnov_pdf(0.5, 10)
 #' kolmogorov_smirnov_lpdf(0.5, 10)
 #' kolmogorov_smirnov_cdf(0.5, 10)
@@ -15,6 +36,7 @@
 #' kolmogorov_smirnov_quantile(0.5, 10)
 NULL
 
+#' @rdname kolmogorov_smirnov_distribution
 #' @export
 kolmogorov_smirnov_distribution <- function(n) {
   structure(

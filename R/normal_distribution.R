@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/normal_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Normal distribution with mean = 0, sd = 1
+#' dist <- normal_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' normal_pdf(0)
 #' normal_lpdf(0)
 #' normal_cdf(0)
@@ -16,6 +37,7 @@
 #' normal_quantile(0.5)
 NULL
 
+#' @rdname normal_distribution
 #' @export
 normal_distribution <- function(mean = 0, sd = 1) {
   structure(

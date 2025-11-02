@@ -9,6 +9,8 @@
 \alias{chi_squared_quantile}
 \title{Chi-Squared Distribution Functions}
 \usage{
+chi_squared_distribution(df)
+
 chi_squared_pdf(x, df)
 
 chi_squared_lpdf(x, df)
@@ -20,9 +22,9 @@ chi_squared_lcdf(x, df)
 chi_squared_quantile(p, df)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{df}{degrees of freedom (df > 0)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -34,6 +36,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Chi-Squared distribution with 3 degrees of freedom
+dist <- chi_squared_distribution(3)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 chi_squared_pdf(2, 3)
 chi_squared_lpdf(2, 3)
 chi_squared_cdf(2, 3)

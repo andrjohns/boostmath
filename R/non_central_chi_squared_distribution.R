@@ -8,17 +8,37 @@
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_chi_squared_dist.html) for more details on the mathematical background.
 #' @examples
-#' \dontrun{
 #' # Noncentral Chi-Squared distribution with 3 degrees of freedom and noncentrality
 #' # parameter 1
+#' dist <- non_central_chi_squared_distribution(3, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' non_central_chi_squared_pdf(2, 3, 1)
 #' non_central_chi_squared_lpdf(2, 3, 1)
 #' non_central_chi_squared_cdf(2, 3, 1)
 #' non_central_chi_squared_lcdf(2, 3, 1)
 #' non_central_chi_squared_quantile(0.5, 3, 1)
-#' }
 NULL
 
+#' @rdname non_central_chi_squared_distribution
 #' @export
 non_central_chi_squared_distribution <- function(df, lambda) {
   structure(

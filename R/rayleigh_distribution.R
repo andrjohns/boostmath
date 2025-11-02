@@ -8,6 +8,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/rayleigh.html) for more details on the mathematical background.
 #' @examples
 #' # Rayleigh distribution with sigma = 1
+#' dist <- rayleigh_distribution(1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' rayleigh_pdf(1)
 #' rayleigh_lpdf(1)
 #' rayleigh_cdf(1)
@@ -15,6 +36,7 @@
 #' rayleigh_quantile(0.5)
 NULL
 
+#' @rdname rayleigh_distribution
 #' @export
 rayleigh_distribution <- function(sigma = 1) {
   structure(

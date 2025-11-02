@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/beta_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Beta distribution with shape parameters alpha = 2, beta = 5
+#' dist <- beta_distribution(2, 5)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' beta_pdf(0.5, 2, 5)
 #' beta_lpdf(0.5, 2, 5)
 #' beta_cdf(0.5, 2, 5)
@@ -16,6 +37,7 @@
 #' beta_quantile(0.5, 2, 5)
 NULL
 
+#' @rdname beta_distribution
 #' @export
 beta_distribution <- function(alpha, beta) {
   structure(

@@ -9,6 +9,8 @@
 \alias{kolmogorov_smirnov_quantile}
 \title{Kolmogorov-Smirnov Distribution Functions}
 \usage{
+kolmogorov_smirnov_distribution(n)
+
 kolmogorov_smirnov_pdf(x, n)
 
 kolmogorov_smirnov_lpdf(x, n)
@@ -20,9 +22,9 @@ kolmogorov_smirnov_lcdf(x, n)
 kolmogorov_smirnov_quantile(p, n)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{n}{sample size (n > 0)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -34,6 +36,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Kolmogorov-Smirnov distribution with sample size n = 10
+dist <- kolmogorov_smirnov_distribution(10)
+# Apply generic functions
+cdf(dist, 2)
+logcdf(dist, 2)
+pdf(dist, 2)
+logpdf(dist, 2)
+hazard(dist, 2)
+chf(dist, 2)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 kolmogorov_smirnov_pdf(0.5, 10)
 kolmogorov_smirnov_lpdf(0.5, 10)
 kolmogorov_smirnov_cdf(0.5, 10)

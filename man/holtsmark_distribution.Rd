@@ -9,6 +9,8 @@
 \alias{holtsmark_quantile}
 \title{Holtsmark Distribution Functions}
 \usage{
+holtsmark_distribution(location = 0, scale = 1)
+
 holtsmark_pdf(x, location = 0, scale = 1)
 
 holtsmark_lpdf(x, location = 0, scale = 1)
@@ -20,11 +22,11 @@ holtsmark_lcdf(x, location = 0, scale = 1)
 holtsmark_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{location}{location parameter (default is 0)}
 
 \item{scale}{scale parameter (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,24 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Holtsmark distribution with location 0 and scale 1
+dist <- holtsmark_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+
+# Convenience functions
 holtsmark_pdf(3)
 holtsmark_lpdf(3)
 holtsmark_cdf(3)

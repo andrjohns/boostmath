@@ -9,6 +9,8 @@
 \alias{rayleigh_quantile}
 \title{Rayleigh Distribution Functions}
 \usage{
+rayleigh_distribution(sigma = 1)
+
 rayleigh_pdf(x, sigma = 1)
 
 rayleigh_lpdf(x, sigma = 1)
@@ -20,9 +22,9 @@ rayleigh_lcdf(x, sigma = 1)
 rayleigh_quantile(p, sigma = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{sigma}{scale parameter (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -34,6 +36,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Rayleigh distribution with sigma = 1
+dist <- rayleigh_distribution(1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 rayleigh_pdf(1)
 rayleigh_lpdf(1)
 rayleigh_cdf(1)

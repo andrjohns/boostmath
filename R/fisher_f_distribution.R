@@ -8,14 +8,36 @@
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html) for more details on the mathematical background.
 #' @examples
-#' # Fisher F distribution with df1 = 5, df2 = 2
-#' fisher_f_pdf(1, 5, 2)
-#' fisher_f_lpdf(1, 5, 2)
-#' fisher_f_cdf(1, 5, 2)
-#' fisher_f_lcdf(1, 5, 2)
-#' fisher_f_quantile(0.5, 5, 2)
+#' # Fisher F distribution with df1 = 5, df2 = 10
+#' dist <- fisher_f_distribution(5, 10)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
+#' fisher_f_pdf(1, 5, 10)
+#' fisher_f_lpdf(1, 5, 10)
+#' fisher_f_cdf(1, 5, 10)
+#' fisher_f_lcdf(1, 5, 10)
+#' fisher_f_quantile(0.5, 5, 10)
 NULL
 
+#' @rdname fisher_f_distribution
 #' @export
 fisher_f_distribution <- function(df1, df2) {
   structure(

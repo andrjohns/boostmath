@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hyperexponential_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Hyperexponential distribution with probabilities = c(0.5, 0.5) and rates = c(1, 2)
+#' dist <- hyperexponential_distribution(c(0.5, 0.5), c(1, 2))
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' hyperexponential_pdf(2, c(0.5, 0.5), c(1, 2))
 #' hyperexponential_lpdf(2, c(0.5, 0.5), c(1, 2))
 #' hyperexponential_cdf(2, c(0.5, 0.5), c(1, 2))
@@ -16,6 +37,7 @@
 #' hyperexponential_quantile(0.5, c(0.5, 0.5), c(1, 2))
 NULL
 
+#' @rdname hyperexponential_distribution
 #' @export
 hyperexponential_distribution <- function(probabilities, rates) {
   structure(

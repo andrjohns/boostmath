@@ -10,6 +10,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hypergeometric_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Hypergeometric distribution with r = 5, n = 10, N = 20
+#' dist <- hypergeometric_distribution(5, 10, 20)
+#' # Apply generic functions
+#' cdf(dist, 4)
+#' logcdf(dist, 4)
+#' pdf(dist, 4)
+#' logpdf(dist, 4)
+#' hazard(dist, 4)
+#' chf(dist, 4)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' hypergeometric_pdf(3, 5, 10, 20)
 #' hypergeometric_lpdf(3, 5, 10, 20)
 #' hypergeometric_cdf(3, 5, 10, 20)
@@ -17,6 +38,7 @@
 #' hypergeometric_quantile(0.5, 5, 10, 20)
 NULL
 
+#' @rdname hypergeometric_distribution
 #' @export
 hypergeometric_distribution <- function(r, n, N) {
   structure(
