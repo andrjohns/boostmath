@@ -75,6 +75,7 @@ beta_cdf(0.5, 2, 5)
 beta_lcdf(0.5, 2, 5)
 beta_quantile(0.5, 2, 5)
 
+\dontrun{
 # Find alpha given mean and variance
 beta_find_alpha(mean = 0.3, variance = 0.02)
 # Find alpha given beta, x, and probability
@@ -83,6 +84,7 @@ beta_find_alpha(beta = 5, x = 0.4, p = 0.6)
 beta_find_beta(mean = 0.3, variance = 0.02)
 # Find beta given alpha, x, and probability
 beta_find_beta(alpha = 2, x = 0.4, p = 0.6)
+}
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/beta_dist.html}{Boost Documentation} for more details on the mathematical background.
