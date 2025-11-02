@@ -44,7 +44,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 arcsine_pdf(0.5)
 arcsine_lpdf(0.5)
@@ -76,7 +76,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 bernoulli_pdf(1, 0.5)
 bernoulli_lpdf(1, 0.5)
@@ -108,7 +108,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 beta_pdf(0.5, 2, 5)
 beta_lpdf(0.5, 2, 5)
@@ -140,7 +140,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 binomial_pdf(3, 10, 0.5)
 binomial_lpdf(3, 10, 0.5)
@@ -166,7 +166,7 @@ mode(dist)
 range(dist)
 quantile(dist, 0.2)
 support(dist)
-#'
+
 # Convenience functions
 cauchy_pdf(0)
 cauchy_lpdf(0)
@@ -198,7 +198,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 chi_squared_pdf(2, 3)
 chi_squared_lpdf(2, 3)
@@ -230,7 +230,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 exponential_pdf(1, 2)
 exponential_lpdf(1, 2)
@@ -262,7 +262,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 extreme_value_pdf(0)
 extreme_value_lpdf(0)
@@ -294,7 +294,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 fisher_f_pdf(1, 5, 10)
 fisher_f_lpdf(1, 5, 10)
@@ -326,7 +326,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 gamma_pdf(2, 3, 4)
 gamma_lpdf(2, 3, 4)
@@ -359,7 +359,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 geometric_pdf(3, 0.5)
 geometric_lpdf(3, 0.5)
@@ -389,7 +389,7 @@ quantile(dist, 0.2)
 standard_deviation(dist)
 support(dist)
 variance(dist)
-#'
+
 # Convenience functions
 holtsmark_pdf(3)
 holtsmark_lpdf(3)
@@ -422,7 +422,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 hyperexponential_pdf(2, c(0.5, 0.5), c(1, 2))
 hyperexponential_lpdf(2, c(0.5, 0.5), c(1, 2))
@@ -454,7 +454,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 hypergeometric_pdf(3, 5, 10, 20)
 hypergeometric_lpdf(3, 5, 10, 20)
@@ -486,7 +486,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 inverse_chi_squared_pdf(2, 10, 1)
 inverse_chi_squared_lpdf(2, 10, 1)
@@ -518,7 +518,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 inverse_gamma_pdf(2, 5, 4)
 inverse_gamma_lpdf(2, 5, 4)
@@ -550,7 +550,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 inverse_gaussian_pdf(2, 3, 4)
 inverse_gaussian_lpdf(2, 3, 4)
@@ -582,7 +582,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 kolmogorov_smirnov_pdf(0.5, 10)
 kolmogorov_smirnov_lpdf(0.5, 10)
@@ -608,7 +608,7 @@ mode(dist)
 range(dist)
 quantile(dist, 0.2)
 support(dist)
-#'
+
 # Convenience functions
 landau_pdf(3)
 landau_lpdf(3)
@@ -640,7 +640,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 laplace_pdf(0)
 laplace_lpdf(0)
@@ -672,7 +672,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 logistic_pdf(0)
 logistic_lpdf(0)
@@ -704,7 +704,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 lognormal_pdf(0)
 lognormal_lpdf(0)
@@ -733,7 +733,7 @@ quantile(dist, 0.2)
 standard_deviation(dist)
 support(dist)
 variance(dist)
-#'
+
 # Convenience functions
 mapairy_pdf(3)
 mapairy_lpdf(3)
@@ -765,7 +765,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 negative_binomial_pdf(3, 5, 0.5)
 negative_binomial_lpdf(3, 5, 0.5)
@@ -795,7 +795,7 @@ quantile(dist, 0.2)
 standard_deviation(dist)
 support(dist)
 variance(dist)
-#'
+
 # Convenience functions
 non_central_beta_pdf(0.5, 2, 3, 1)
 non_central_beta_lpdf(0.5, 2, 3, 1)
@@ -828,7 +828,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 non_central_chi_squared_pdf(2, 3, 1)
 non_central_chi_squared_lpdf(2, 3, 1)
@@ -861,7 +861,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 non_central_f_pdf(1, 5, 2, 1)
 non_central_f_lpdf(1, 5, 2, 1)
@@ -893,7 +893,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 non_central_t_pdf(0, 5, 1)
 non_central_t_lpdf(0, 5, 1)
@@ -925,7 +925,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 normal_pdf(0)
 normal_lpdf(0)
@@ -957,7 +957,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 pareto_pdf(1)
 pareto_lpdf(1)
@@ -989,7 +989,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 poisson_pdf(0, 1)
 poisson_lpdf(0, 1)
@@ -1021,7 +1021,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 rayleigh_pdf(1)
 rayleigh_lpdf(1)
@@ -1047,7 +1047,7 @@ mode(dist)
 range(dist)
 quantile(dist, 0.2)
 support(dist)
-#'
+
 # Convenience functions
 saspoint5_pdf(3)
 saspoint5_lpdf(3)
@@ -1079,7 +1079,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 skew_normal_pdf(0)
 skew_normal_lpdf(0)
@@ -1111,7 +1111,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 students_t_pdf(0, 5)
 students_t_lpdf(0, 5)
@@ -1143,7 +1143,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 triangular_pdf(1)
 triangular_lpdf(1)
@@ -1175,7 +1175,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 uniform_pdf(0.5)
 uniform_lpdf(0.5)
@@ -1207,7 +1207,7 @@ variance(dist)
 skewness(dist)
 kurtosis(dist)
 kurtosis_excess(dist)
-#'
+
 # Convenience functions
 weibull_pdf(1, shape = 1, scale = 1)
 weibull_lpdf(1, shape = 1, scale = 1)
