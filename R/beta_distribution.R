@@ -5,6 +5,8 @@
 #' @param alpha shape parameter (alpha > 0)
 #' @param beta shape parameter (beta > 0)
 #' @param p probability (0 <= p <= 1)
+#' @param mean Mean of the Beta distribution
+#' @param variance Variance of the Beta distribution
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/beta_dist.html) for more details on the mathematical background.
 #' @examples
@@ -35,6 +37,15 @@
 #' beta_cdf(0.5, 2, 5)
 #' beta_lcdf(0.5, 2, 5)
 #' beta_quantile(0.5, 2, 5)
+#'
+#' # Find alpha given mean and variance
+#' beta_find_alpha(mean = 0.3, variance = 0.02)
+#' # Find alpha given beta, x, and probability
+#' beta_find_alpha(beta = 5, x = 0.4, p = 0.6)
+#' # Find beta given mean and variance
+#' beta_find_beta(mean = 0.3, variance = 0.02)
+#' # Find beta given alpha, x, and probability
+#' beta_find_beta(alpha = 2, x = 0.4, p = 0.6)
 NULL
 
 #' @rdname beta_distribution
@@ -78,4 +89,34 @@ beta_lcdf <- function(x, alpha, beta) {
 #' @export
 beta_quantile <- function(p, alpha, beta) {
   quantile(beta_distribution(alpha, beta), p)
+}
+
+#' @rdname beta_distribution
+#' @export
+beta_find_alpha <- function(mean = NULL, variance = NULL, beta = NULL, x = NULL, p = NULL) {
+  if (!is.null(mean) && !is.null(variance)) {
+    if (!is.null(beta) || !is.null(x) || !is.null(p)) {
+      stop("Provide either mean and variance, or beta, x, and probability.")
+    }
+    return(.Call(`beta_find_alpha_meanvar_`, mean, variance))
+  } else if (!is.null(beta) && !is.null(x) && !is.null(p)) {
+    return(.Call(`beta_find_alpha_betax_`, beta, x, p))
+  } else {
+    stop("Invalid arguments. Provide either (mean, variance) or (beta, x, probability).")
+  }
+}
+
+#' @rdname beta_distribution
+#' @export
+beta_find_beta <- function(mean = NULL, variance = NULL, alpha = NULL, x = NULL, p = NULL) {
+  if (!is.null(mean) && !is.null(variance)) {
+    if (!is.null(alpha) || !is.null(x) || !is.null(p)) {
+      stop("Provide either mean and variance, or alpha, x, and probability.")
+    }
+    return(.Call(`beta_find_beta_meanvar_`, mean, variance))
+  } else if (!is.null(alpha) && !is.null(x) && !is.null(p)) {
+    return(.Call(`beta_find_beta_betax_`, alpha, x, p))
+  } else {
+    stop("Invalid arguments. Provide either (mean, variance) or (alpha, x, probability).")
+  }
 }

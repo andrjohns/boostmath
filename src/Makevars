@@ -11,6 +11,7 @@ BOOST_SOURCES = \
 	quadrature_and_differentiation.cpp \
 	rootfinding_and_minimisation.cpp \
 	special_functions.cpp \
+	distribution_member_functions.cpp \
 	statistical_distributions.cpp \
 	statistics.cpp \
 	vector_functionals.cpp \

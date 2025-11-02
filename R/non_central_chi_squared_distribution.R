@@ -5,6 +5,7 @@
 #' @param df degrees of freedom (df > 0)
 #' @param lambda noncentrality parameter (lambda >= 0)
 #' @param p probability (0 <= p <= 1)
+#' @param alpha The acceptable probability of a Type I error (false positive).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_chi_squared_dist.html) for more details on the mathematical background.
 #' @examples
@@ -37,6 +38,11 @@
 #' non_central_chi_squared_cdf(2, 3, 1)
 #' non_central_chi_squared_lcdf(2, 3, 1)
 #' non_central_chi_squared_quantile(0.5, 3, 1)
+#'
+#' # Find degrees of freedom needed for CDF at 2.0 with noncentrality parameter 1.0 = 0.05
+#' non_central_chi_squared_find_degrees_of_freedom(1.0, 2.0, 0.05)
+#' # Find noncentrality parameter needed for CDF at 2.0 with 3 degrees of freedom = 0.05
+#' non_central_chi_squared_find_non_centrality(3, 2.0, 0.05)
 #' }
 NULL
 
@@ -81,4 +87,16 @@ non_central_chi_squared_lcdf <- function(x, df, lambda) {
 #' @export
 non_central_chi_squared_quantile <- function(p, df, lambda) {
   quantile(non_central_chi_squared_distribution(df, lambda), p)
+}
+
+#' @rdname non_central_chi_squared_distribution
+#' @export
+non_central_chi_squared_find_degrees_of_freedom <- function(lambda, x, alpha) {
+  .Call(`non_central_chi_squared_find_degrees_of_freedom_`, lambda, x, alpha)
+}
+
+#' @rdname non_central_chi_squared_distribution
+#' @export
+non_central_chi_squared_find_non_centrality <- function(df, x, alpha) {
+  .Call(`non_central_chi_squared_find_non_centrality_`, df, x, alpha)
 }

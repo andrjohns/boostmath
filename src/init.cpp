@@ -279,6 +279,27 @@ extern "C" {
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(uniform)
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(weibull)
 
+  SEXP beta_find_alpha_meanvar_(SEXP x_, SEXP y_);
+  SEXP beta_find_alpha_betax_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP beta_find_beta_meanvar_(SEXP x_, SEXP y_);
+  SEXP beta_find_beta_betax_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP binomial_find_lower_bound_on_p_(SEXP trials_, SEXP successes_, SEXP probability_, SEXP method_);
+  SEXP binomial_find_upper_bound_on_p_(SEXP trials_, SEXP successes_, SEXP probability_, SEXP method_);
+  SEXP binomial_find_minimum_number_of_trials_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP binomial_find_maximum_number_of_trials_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP chi_squared_find_degrees_of_freedom_(SEXP x_, SEXP y_, SEXP z_, SEXP w_, SEXP v_);
+  SEXP geometric_find_lower_bound_on_p_(SEXP x_, SEXP y_);
+  SEXP geometric_find_upper_bound_on_p_(SEXP x_, SEXP y_);
+  SEXP geometric_find_minimum_number_of_trials_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP geometric_find_maximum_number_of_trials_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP negative_binomial_find_lower_bound_on_p_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP negative_binomial_find_upper_bound_on_p_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP negative_binomial_find_minimum_number_of_trials_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP negative_binomial_find_maximum_number_of_trials_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP non_central_chi_squared_find_degrees_of_freedom_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP non_central_chi_squared_find_non_centrality_(SEXP x_, SEXP y_, SEXP z_);
+  SEXP students_t_find_degrees_of_freedom_(SEXP x_, SEXP y_, SEXP z_, SEXP w_, SEXP v_);
+
   // vector_functionals/norms.cpp
   SEXP l0_pseudo_norm_(SEXP x_);
   SEXP hamming_distance_(SEXP x_, SEXP y_);
@@ -731,6 +752,27 @@ extern "C" {
     TERNARY_DISTRIBUTION_BOOST_CALLDEFS(triangular)
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(uniform)
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(weibull)
+
+    {"beta_find_alpha_meanvar_", (DL_FUNC) &beta_find_alpha_meanvar_, 2},
+    {"beta_find_alpha_betax_", (DL_FUNC) &beta_find_alpha_betax_, 3},
+    {"beta_find_beta_meanvar_", (DL_FUNC) &beta_find_beta_meanvar_, 2},
+    {"beta_find_beta_betax_", (DL_FUNC) &beta_find_beta_betax_, 3},
+    {"binomial_find_lower_bound_on_p_", (DL_FUNC) &binomial_find_lower_bound_on_p_, 4},
+    {"binomial_find_upper_bound_on_p_", (DL_FUNC) &binomial_find_upper_bound_on_p_, 4},
+    {"binomial_find_minimum_number_of_trials_", (DL_FUNC) &binomial_find_minimum_number_of_trials_, 3},
+    {"binomial_find_maximum_number_of_trials_", (DL_FUNC) &binomial_find_maximum_number_of_trials_, 3},
+    {"chi_squared_find_degrees_of_freedom_", (DL_FUNC) &chi_squared_find_degrees_of_freedom_, 5},
+    {"geometric_find_lower_bound_on_p_", (DL_FUNC) &geometric_find_lower_bound_on_p_, 2},
+    {"geometric_find_upper_bound_on_p_", (DL_FUNC) &geometric_find_upper_bound_on_p_, 2},
+    {"geometric_find_minimum_number_of_trials_", (DL_FUNC) &geometric_find_minimum_number_of_trials_, 3},
+    {"geometric_find_maximum_number_of_trials_", (DL_FUNC) &geometric_find_maximum_number_of_trials_, 3},
+    {"negative_binomial_find_lower_bound_on_p_", (DL_FUNC) &negative_binomial_find_lower_bound_on_p_, 3},
+    {"negative_binomial_find_upper_bound_on_p_", (DL_FUNC) &negative_binomial_find_upper_bound_on_p_, 3},
+    {"negative_binomial_find_minimum_number_of_trials_", (DL_FUNC) &negative_binomial_find_minimum_number_of_trials_, 3},
+    {"negative_binomial_find_maximum_number_of_trials_", (DL_FUNC) &negative_binomial_find_maximum_number_of_trials_, 3},
+    {"non_central_chi_squared_find_degrees_of_freedom_", (DL_FUNC) &non_central_chi_squared_find_degrees_of_freedom_, 3},
+    {"non_central_chi_squared_find_non_centrality_", (DL_FUNC) &non_central_chi_squared_find_non_centrality_, 3},
+    {"students_t_find_degrees_of_freedom_", (DL_FUNC) &students_t_find_degrees_of_freedom_, 5},
 
     // vector_functions/norms.cpp
     {"l0_pseudo_norm_", (DL_FUNC) &l0_pseudo_norm_, 1},

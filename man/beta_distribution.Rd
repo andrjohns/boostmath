@@ -7,6 +7,8 @@
 \alias{beta_cdf}
 \alias{beta_lcdf}
 \alias{beta_quantile}
+\alias{beta_find_alpha}
+\alias{beta_find_beta}
 \title{Beta Distribution Functions}
 \usage{
 beta_distribution(alpha, beta)
@@ -20,6 +22,10 @@ beta_cdf(x, alpha, beta)
 beta_lcdf(x, alpha, beta)
 
 beta_quantile(p, alpha, beta)
+
+beta_find_alpha(mean = NULL, variance = NULL, beta = NULL, x = NULL, p = NULL)
+
+beta_find_beta(mean = NULL, variance = NULL, alpha = NULL, x = NULL, p = NULL)
 }
 \arguments{
 \item{alpha}{shape parameter (alpha > 0)}
@@ -29,6 +35,10 @@ beta_quantile(p, alpha, beta)
 \item{x}{quantile (0 <= x <= 1)}
 
 \item{p}{probability (0 <= p <= 1)}
+
+\item{mean}{Mean of the Beta distribution}
+
+\item{variance}{Variance of the Beta distribution}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -64,6 +74,15 @@ beta_lpdf(0.5, 2, 5)
 beta_cdf(0.5, 2, 5)
 beta_lcdf(0.5, 2, 5)
 beta_quantile(0.5, 2, 5)
+
+# Find alpha given mean and variance
+beta_find_alpha(mean = 0.3, variance = 0.02)
+# Find alpha given beta, x, and probability
+beta_find_alpha(beta = 5, x = 0.4, p = 0.6)
+# Find beta given mean and variance
+beta_find_beta(mean = 0.3, variance = 0.02)
+# Find beta given alpha, x, and probability
+beta_find_beta(alpha = 2, x = 0.4, p = 0.6)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/beta_dist.html}{Boost Documentation} for more details on the mathematical background.

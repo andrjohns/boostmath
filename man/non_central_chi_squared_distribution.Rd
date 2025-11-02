@@ -7,6 +7,8 @@
 \alias{non_central_chi_squared_cdf}
 \alias{non_central_chi_squared_lcdf}
 \alias{non_central_chi_squared_quantile}
+\alias{non_central_chi_squared_find_degrees_of_freedom}
+\alias{non_central_chi_squared_find_non_centrality}
 \title{Noncentral Chi-Squared Distribution Functions}
 \usage{
 non_central_chi_squared_distribution(df, lambda)
@@ -20,6 +22,10 @@ non_central_chi_squared_cdf(x, df, lambda)
 non_central_chi_squared_lcdf(x, df, lambda)
 
 non_central_chi_squared_quantile(p, df, lambda)
+
+non_central_chi_squared_find_degrees_of_freedom(lambda, x, alpha)
+
+non_central_chi_squared_find_non_centrality(df, x, alpha)
 }
 \arguments{
 \item{df}{degrees of freedom (df > 0)}
@@ -29,6 +35,8 @@ non_central_chi_squared_quantile(p, df, lambda)
 \item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
+
+\item{alpha}{The acceptable probability of a Type I error (false positive).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -66,6 +74,11 @@ non_central_chi_squared_lpdf(2, 3, 1)
 non_central_chi_squared_cdf(2, 3, 1)
 non_central_chi_squared_lcdf(2, 3, 1)
 non_central_chi_squared_quantile(0.5, 3, 1)
+
+# Find degrees of freedom needed for CDF at 2.0 with noncentrality parameter 1.0 = 0.05
+non_central_chi_squared_find_degrees_of_freedom(1.0, 2.0, 0.05)
+# Find noncentrality parameter needed for CDF at 2.0 with 3 degrees of freedom = 0.05
+non_central_chi_squared_find_non_centrality(3, 2.0, 0.05)
 }
 }
 \seealso{

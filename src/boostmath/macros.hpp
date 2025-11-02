@@ -244,6 +244,67 @@
     END_CPP11 \
   }
 
+#define BINARY_DISTRIBUTION_MEMBER_FUNCTION_SUFFIX(dist, member_func, suffix, arg1_type, arg2_type) \
+  extern "C" SEXP dist##_##member_func##_##suffix(SEXP x_, SEXP y_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    return boostmath::as_sexp(boost::math::dist##_distribution<>::member_func(x, y)); \
+    END_CPP11 \
+  }
+
+#define BINARY_DISTRIBUTION_MEMBER_FUNCTION(dist, member_func, arg1_type, arg2_type) \
+  extern "C" SEXP dist##_##member_func##_(SEXP x_, SEXP y_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    return boostmath::as_sexp(boost::math::dist##_distribution<>::member_func(x, y)); \
+    END_CPP11 \
+  }
+
+#define TERNARY_DISTRIBUTION_MEMBER_FUNCTION_SUFFIX(dist, member_func, suffix, arg1_type, arg2_type, arg3_type) \
+  extern "C" SEXP dist##_##member_func##_##suffix(SEXP x_, SEXP y_, SEXP z_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
+    return boostmath::as_sexp(boost::math::dist##_distribution<>::member_func(x, y, z)); \
+    END_CPP11 \
+  }
+
+#define TERNARY_DISTRIBUTION_MEMBER_FUNCTION(dist, member_func, arg1_type, arg2_type, arg3_type) \
+  extern "C" SEXP dist##_##member_func##_(SEXP x_, SEXP y_, SEXP z_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
+    return boostmath::as_sexp(boost::math::dist##_distribution<>::member_func(x, y, z)); \
+    END_CPP11 \
+  }
+
+#define QUARTERNARY_DISTRIBUTION_MEMBER_FUNCTION_SUFFIX(dist, member_func, suffix, arg1_type, arg2_type, arg3_type, arg4_type) \
+  extern "C" SEXP dist##_##member_func##_##suffix(SEXP x_, SEXP y_, SEXP z_, SEXP w_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
+    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
+    return boostmath::as_sexp(boost::math::dist##_distribution<>::member_func(x, y, z, w)); \
+    END_CPP11 \
+  }
+
+#define PENTA_DISTRIBUTION_MEMBER_FUNCTION(dist, member_func, arg1_type, arg2_type, arg3_type, arg4_type, arg5_type) \
+  extern "C" SEXP dist##_##member_func##_(SEXP x_, SEXP y_, SEXP z_, SEXP w_, SEXP v_) { \
+    BEGIN_CPP11 \
+    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
+    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
+    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
+    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
+    const arg5_type v = boostmath::as_cpp<arg5_type>(v_); \
+    return boostmath::as_sexp(boost::math::dist##_distribution<>::member_func(x, y, z, w, v)); \
+    END_CPP11 \
+  }
+
 #define DISTRIBUTION_FUNCTIONS(dist) \
   UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, cdf, double) \
   UNARY_DISTRIBUTION_BOOST_FUNCTION(dist, logcdf, double) \
@@ -263,68 +324,17 @@
   NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, kurtosis) \
   NOARG_DISTRIBUTION_BOOST_FUNCTION(dist, kurtosis_excess)
 
-#define UNARY_DISTRIBUTION_BOOST_NEW(dist, arg1_type) \
+#define UNARY_DISTRIBUTION_BOOST(dist, arg1_type) \
   UNARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type) \
   DISTRIBUTION_FUNCTIONS(dist)
 
-#define BINARY_DISTRIBUTION_BOOST_NEW(dist, arg1_type, arg2_type) \
+#define BINARY_DISTRIBUTION_BOOST(dist, arg1_type, arg2_type) \
   BINARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type, arg2_type) \
   DISTRIBUTION_FUNCTIONS(dist)
 
-#define TERNARY_DISTRIBUTION_BOOST_NEW(dist, arg1_type, arg2_type, arg3_type) \
+#define TERNARY_DISTRIBUTION_BOOST(dist, arg1_type, arg2_type, arg3_type) \
   TERNARY_DISTRIBUTION_BOOST_INIT(dist, arg1_type, arg2_type, arg3_type) \
   DISTRIBUTION_FUNCTIONS(dist)
-
-#define BINARY_DISTRIBUTION_BOOST_IMPL(func, dist, arg1_type, arg2_type) \
-  extern "C" SEXP dist##_##func##_(SEXP x_, SEXP y_) { \
-    BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    return boostmath::as_sexp(boost::math::func(boost::math::dist##_distribution<>(y), x)); \
-    END_CPP11 \
-  }
-
-#define BINARY_DISTRIBUTION_BOOST(dist, arg1_type, arg2_type) \
-  BINARY_DISTRIBUTION_BOOST_IMPL(pdf, dist, arg1_type, arg2_type) \
-  BINARY_DISTRIBUTION_BOOST_IMPL(logpdf, dist, arg1_type, arg2_type) \
-  BINARY_DISTRIBUTION_BOOST_IMPL(cdf, dist, arg1_type, arg2_type) \
-  BINARY_DISTRIBUTION_BOOST_IMPL(logcdf, dist, arg1_type, arg2_type) \
-  BINARY_DISTRIBUTION_BOOST_IMPL(quantile, dist, double, arg2_type)
-
-#define TERNARY_DISTRIBUTION_BOOST_IMPL(func, dist, arg1_type, arg2_type, arg3_type) \
-  extern "C" SEXP dist##_##func##_(SEXP x_, SEXP y_, SEXP z_) { \
-    BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    return boostmath::as_sexp(boost::math::func(boost::math::dist##_distribution<>(y, z), x)); \
-    END_CPP11 \
-  }
-
-#define TERNARY_DISTRIBUTION_BOOST(dist, arg1_type, arg2_type, arg3_type) \
-  TERNARY_DISTRIBUTION_BOOST_IMPL(pdf, dist, arg1_type, arg2_type, arg3_type) \
-  TERNARY_DISTRIBUTION_BOOST_IMPL(logpdf, dist, arg1_type, arg2_type, arg3_type) \
-  TERNARY_DISTRIBUTION_BOOST_IMPL(cdf, dist, arg1_type, arg2_type, arg3_type) \
-  TERNARY_DISTRIBUTION_BOOST_IMPL(logcdf, dist, arg1_type, arg2_type, arg3_type) \
-  TERNARY_DISTRIBUTION_BOOST_IMPL(quantile, dist, double, arg2_type, arg3_type)
-
-#define QUARTERNARY_DISTRIBUTION_BOOST_IMPL(func, dist, arg1_type, arg2_type, arg3_type, arg4_type) \
-  extern "C" SEXP dist##_##func##_(SEXP x_, SEXP y_, SEXP z_, SEXP w_) { \
-    BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    return boostmath::as_sexp(boost::math::func(boost::math::dist##_distribution<>(y, z, w), x)); \
-    END_CPP11 \
-  }
-
-#define QUARTERNARY_DISTRIBUTION_BOOST(dist, arg1_type, arg2_type, arg3_type, arg4_type) \
-  QUARTERNARY_DISTRIBUTION_BOOST_IMPL(pdf, dist, arg1_type, arg2_type, arg3_type, arg4_type) \
-  QUARTERNARY_DISTRIBUTION_BOOST_IMPL(logpdf, dist, arg1_type, arg2_type, arg3_type, arg4_type) \
-  QUARTERNARY_DISTRIBUTION_BOOST_IMPL(cdf, dist, arg1_type, arg2_type, arg3_type, arg4_type) \
-  QUARTERNARY_DISTRIBUTION_BOOST_IMPL(logcdf, dist, arg1_type, arg2_type, arg3_type, arg4_type) \
-  QUARTERNARY_DISTRIBUTION_BOOST_IMPL(quantile, dist, double, arg2_type, arg3_type, arg4_type)
 
 #define POLYNOMIAL_UNARY_INIT_BOOST(name, template_type, arg_type) \
   extern "C" SEXP name##_init_(SEXP x_) { \

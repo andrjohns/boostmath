@@ -7,6 +7,7 @@
 \alias{students_t_cdf}
 \alias{students_t_lcdf}
 \alias{students_t_quantile}
+\alias{students_t_find_degrees_of_freedom}
 \title{Student's T Distribution Functions}
 \usage{
 students_t_distribution(df = 1)
@@ -20,6 +21,14 @@ students_t_cdf(x, df = 1)
 students_t_lcdf(x, df = 1)
 
 students_t_quantile(p, df = 1)
+
+students_t_find_degrees_of_freedom(
+  difference_from_mean,
+  alpha,
+  beta,
+  sd,
+  hint = 100
+)
 }
 \arguments{
 \item{df}{degrees of freedom (default is 1)}
@@ -27,6 +36,16 @@ students_t_quantile(p, df = 1)
 \item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
+
+\item{difference_from_mean}{The difference from the assumed nominal mean that is to be detected.}
+
+\item{alpha}{The acceptable probability of a Type I error (false positive).}
+
+\item{beta}{The acceptable probability of a Type II error (false negative).}
+
+\item{sd}{The assumed standard deviation.}
+
+\item{hint}{An initial guess for the degrees of freedom to start the search from (current sample size is a good start).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -62,6 +81,10 @@ students_t_lpdf(0, 5)
 students_t_cdf(0, 5)
 students_t_lcdf(0, 5)
 students_t_quantile(0.5, 5)
+
+# Find degrees of freedom needed to detect a difference from mean of 2.0
+# with alpha = 0.05 and beta = 0.2 when the standard deviation is 3.0
+students_t_find_degrees_of_freedom(2.0, 0.05, 0.2, 3.0)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/students_t_dist.html}{Boost Documentation} for more details on the mathematical background.

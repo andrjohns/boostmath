@@ -7,6 +7,10 @@
 \alias{negative_binomial_cdf}
 \alias{negative_binomial_lcdf}
 \alias{negative_binomial_quantile}
+\alias{negative_binomial_find_lower_bound_on_p}
+\alias{negative_binomial_find_upper_bound_on_p}
+\alias{negative_binomial_find_minimum_number_of_trials}
+\alias{negative_binomial_find_maximum_number_of_trials}
 \title{Negative Binomial Distribution Functions}
 \usage{
 negative_binomial_distribution(successes, success_fraction)
@@ -20,6 +24,22 @@ negative_binomial_cdf(x, successes, success_fraction)
 negative_binomial_lcdf(x, successes, success_fraction)
 
 negative_binomial_quantile(p, successes, success_fraction)
+
+negative_binomial_find_lower_bound_on_p(trials, successes, alpha)
+
+negative_binomial_find_upper_bound_on_p(trials, successes, alpha)
+
+negative_binomial_find_minimum_number_of_trials(
+  failures,
+  success_fraction,
+  alpha
+)
+
+negative_binomial_find_maximum_number_of_trials(
+  failures,
+  success_fraction,
+  alpha
+)
 }
 \arguments{
 \item{successes}{number of successes (successes >= 0)}
@@ -29,6 +49,12 @@ negative_binomial_quantile(p, successes, success_fraction)
 \item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
+
+\item{trials}{number of trials}
+
+\item{alpha}{significance level (0 < alpha < 1)}
+
+\item{failures}{number of failures (failures >= 0)}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -64,6 +90,15 @@ negative_binomial_lpdf(3, 5, 0.5)
 negative_binomial_cdf(3, 5, 0.5)
 negative_binomial_lcdf(3, 5, 0.5)
 negative_binomial_quantile(0.5, 5, 0.5)
+
+# Find lower bound on p given 10 trials and 5 successes with 95\% confidence
+negative_binomial_find_lower_bound_on_p(10, 5, 0.05)
+# Find upper bound on p given 10 trials and 5 successes with 95\% confidence
+negative_binomial_find_upper_bound_on_p(10, 5, 0.05)
+# Find minimum number of trials to observe 3 failures with success fraction 0.5 at 95\% confidence
+negative_binomial_find_minimum_number_of_trials(3, 0.5, 0.05)
+# Find maximum number of trials to observe 3 failures with success fraction 0.5 at 95\% confidence
+negative_binomial_find_maximum_number_of_trials(3, 0.5, 0.05)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/negative_binomial_dist.html}{Boost Documentation} for more details on the mathematical background.

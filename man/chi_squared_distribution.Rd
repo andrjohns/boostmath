@@ -7,6 +7,7 @@
 \alias{chi_squared_cdf}
 \alias{chi_squared_lcdf}
 \alias{chi_squared_quantile}
+\alias{chi_squared_find_degrees_of_freedom}
 \title{Chi-Squared Distribution Functions}
 \usage{
 chi_squared_distribution(df)
@@ -20,6 +21,14 @@ chi_squared_cdf(x, df)
 chi_squared_lcdf(x, df)
 
 chi_squared_quantile(p, df)
+
+chi_squared_find_degrees_of_freedom(
+  difference_from_variance,
+  alpha,
+  beta,
+  variance,
+  hint = 100
+)
 }
 \arguments{
 \item{df}{degrees of freedom (df > 0)}
@@ -27,6 +36,16 @@ chi_squared_quantile(p, df)
 \item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
+
+\item{difference_from_variance}{The difference from the assumed nominal variance that is to be detected: Note that the sign of this value is critical (see the documentation for more details).}
+
+\item{alpha}{The acceptable probability of a Type I error (false positive).}
+
+\item{beta}{The acceptable probability of a Type II error (false negative).}
+
+\item{variance}{The assumed nominal variance.}
+
+\item{hint}{An initial guess for the degrees of freedom to start the search from (current sample size is a good start).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -62,6 +81,10 @@ chi_squared_lpdf(2, 3)
 chi_squared_cdf(2, 3)
 chi_squared_lcdf(2, 3)
 chi_squared_quantile(0.5, 3)
+
+# Find degrees of freedom needed to detect a difference from variance of 2.0
+# with alpha = 0.05 and beta = 0.2 when the nominal variance is 5.0
+chi_squared_find_degrees_of_freedom(2.0, 0.05, 0.2, 5.0)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.
