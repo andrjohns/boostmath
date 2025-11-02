@@ -9,15 +9,15 @@
 \alias{exponential_quantile}
 \title{Exponential Distribution Functions}
 \usage{
-exponential_pdf(x, lambda)
+exponential_pdf(x, lambda = 1)
 
-exponential_lpdf(x, lambda)
+exponential_lpdf(x, lambda = 1)
 
-exponential_cdf(x, lambda)
+exponential_cdf(x, lambda = 1)
 
-exponential_lcdf(x, lambda)
+exponential_lcdf(x, lambda = 1)
 
-exponential_quantile(p, lambda)
+exponential_quantile(p, lambda = 1)
 }
 \arguments{
 \item{x}{quantile}

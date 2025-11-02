@@ -9,15 +9,15 @@
 \alias{gamma_quantile}
 \title{Gamma Distribution Functions}
 \usage{
-gamma_pdf(x, shape, scale)
+gamma_pdf(x, shape, scale = 1)
 
-gamma_lpdf(x, shape, scale)
+gamma_lpdf(x, shape, scale = 1)
 
-gamma_cdf(x, shape, scale)
+gamma_cdf(x, shape, scale = 1)
 
-gamma_lcdf(x, shape, scale)
+gamma_lcdf(x, shape, scale = 1)
 
-gamma_quantile(p, shape, scale)
+gamma_quantile(p, shape, scale = 1)
 }
 \arguments{
 \item{x}{quantile}
