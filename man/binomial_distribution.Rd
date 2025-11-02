@@ -81,6 +81,7 @@ binomial_cdf(3, 10, 0.5)
 binomial_lcdf(3, 10, 0.5)
 binomial_quantile(0.5, 10, 0.5)
 
+\dontrun{
 # Find lower bound on p given k = 3 successes in n = 10 trials with 95\% confidence
 binomial_find_lower_bound_on_p(10, 3, 0.05)
 # Find upper bound on p given k = 3 successes in n = 10 trials with 95\% confidence
@@ -89,6 +90,7 @@ binomial_find_upper_bound_on_p(10, 3, 0.05)
 binomial_find_minimum_number_of_trials(3, 0.5, 0.05)
 # Find maximum number of trials n to observe k = 3 successes with p = 0.5 at 95\% confidence
 binomial_find_maximum_number_of_trials(3, 0.5, 0.05)
+}
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html}{Boost Documentation} for more details on the mathematical background.
