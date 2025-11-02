@@ -82,7 +82,31 @@ complex_step_derivative(exp, 1.7)
 
 ## Distribution Functions
 
-The PDF, CDF, log-PDF, log-CDF, and quantile functions for statistical distributions are also exposed:
+`boostmath` implements Boost's approach of creating a distribution 'object' which the various distribution functions (e.g., `pdf`, `quantile`) can be applied:
+
+```{r}
+# Normal distribution with mean = 0, sd = 1
+dist <- normal_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+```
+Alternatively, the PDF, CDF, log-PDF, log-CDF, and quantile functions for statistical distributions can just be called directly:
 
 ```{r}
 beta_pdf(0.1, 1.2, 2.1)

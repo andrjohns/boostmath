@@ -840,9 +840,9 @@ non_central_chi_squared_quantile(0.5, 3, 1)
 ### [Noncentral F Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_f_dist.html)
 
 ```{r}
-# Noncentral F distribution with df1 = 5, df2 = 2 and noncentrality
+# Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality
 # parameter 1
-dist <- non_central_f_distribution(5, 2, 1)
+dist <- non_central_f_distribution(10, 10, 1)
 # Apply generic functions
 cdf(dist, 0.5)
 logcdf(dist, 0.5)

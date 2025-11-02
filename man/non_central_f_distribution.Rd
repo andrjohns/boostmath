@@ -39,9 +39,9 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Fisher F distribution.
 }
 \examples{
-# Noncentral F distribution with df1 = 5, df2 = 2 and noncentrality
+# Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality
 # parameter 1
-dist <- non_central_f_distribution(5, 2, 1)
+dist <- non_central_f_distribution(10, 10, 1)
 # Apply generic functions
 cdf(dist, 0.5)
 logcdf(dist, 0.5)

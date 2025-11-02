@@ -9,9 +9,9 @@
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html) for more details on the mathematical background.
 #' @examples
-#' # Noncentral F distribution with df1 = 5, df2 = 2 and noncentrality
+#' # Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality
 #' # parameter 1
-#' dist <- non_central_f_distribution(5, 2, 1)
+#' dist <- non_central_f_distribution(10, 10, 1)
 #' # Apply generic functions
 #' cdf(dist, 0.5)
 #' logcdf(dist, 0.5)
