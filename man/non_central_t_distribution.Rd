@@ -9,6 +9,8 @@
 \alias{non_central_t_quantile}
 \title{Noncentral T Distribution Functions}
 \usage{
+non_central_t_distribution(df, delta)
+
 non_central_t_pdf(x, df, delta)
 
 non_central_t_lpdf(x, df, delta)
@@ -20,11 +22,11 @@ non_central_t_lcdf(x, df, delta)
 non_central_t_quantile(p, df, delta)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{df}{degrees of freedom (df > 0)}
 
 \item{delta}{noncentrality parameter (delta >= 0)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -35,12 +37,33 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Noncentral T distribution.
 }
 \examples{
-# Noncentral T distribution with 3 degrees of freedom and noncentrality parameter 1
-non_central_t_pdf(0, 3, 1)
-non_central_t_lpdf(0, 3, 1)
-non_central_t_cdf(0, 3, 1)
-non_central_t_lcdf(0, 3, 1)
-non_central_t_quantile(0.5, 3, 1)
+# Noncentral T distribution with 5 degrees of freedom and noncentrality parameter 1
+dist <- non_central_t_distribution(5, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+non_central_t_pdf(0, 5, 1)
+non_central_t_lpdf(0, 5, 1)
+non_central_t_cdf(0, 5, 1)
+non_central_t_lcdf(0, 5, 1)
+non_central_t_quantile(0.5, 5, 1)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_t_dist.html}{Boost Documentation} for more details on the mathematical background.

@@ -9,6 +9,8 @@
 \alias{non_central_f_quantile}
 \title{Noncentral F Distribution Functions}
 \usage{
+non_central_f_distribution(df1, df2, lambda)
+
 non_central_f_pdf(x, df1, df2, lambda)
 
 non_central_f_lpdf(x, df1, df2, lambda)
@@ -20,13 +22,13 @@ non_central_f_lcdf(x, df1, df2, lambda)
 non_central_f_quantile(p, df1, df2, lambda)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{df1}{degrees of freedom for the numerator (df1 > 0)}
 
 \item{df2}{degrees of freedom for the denominator (df2 > 0)}
 
 \item{lambda}{noncentrality parameter (lambda >= 0)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -37,8 +39,29 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Fisher F distribution.
 }
 \examples{
-# Noncentral F distribution with df1 = 5, df2 = 2 and noncentrality
+# Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality
 # parameter 1
+dist <- non_central_f_distribution(10, 10, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 non_central_f_pdf(1, 5, 2, 1)
 non_central_f_lpdf(1, 5, 2, 1)
 non_central_f_cdf(1, 5, 2, 1)

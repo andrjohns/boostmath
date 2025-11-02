@@ -9,6 +9,21 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/saspoint5_dist.html) for more details on the mathematical background.
 #' @examples
 #' # SaS Point5 distribution with location 0 and scale 1
+#' dist <- saspoint5_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' support(dist)
+#'
+#' # Convenience functions
 #' saspoint5_pdf(3)
 #' saspoint5_lpdf(3)
 #' saspoint5_cdf(3)
@@ -18,30 +33,43 @@ NULL
 
 #' @rdname saspoint5_distribution
 #' @export
+saspoint5_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`saspoint5_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("saspoint5_distribution", "boost_distribution")
+  )
+}
+
+#' @rdname saspoint5_distribution
+#' @export
 saspoint5_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_pdf_`, x, location, scale)
+  pdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_logpdf_`, x, location, scale)
+  logpdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_cdf_`, x, location, scale)
+  cdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`saspoint5_logcdf_`, x, location, scale)
+  logcdf(saspoint5_distribution(location, scale), x)
 }
 
 #' @rdname saspoint5_distribution
 #' @export
 saspoint5_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`saspoint5_quantile_`, p, location, scale)
+  quantile(saspoint5_distribution(location, scale), p)
 }

@@ -9,24 +9,26 @@
 \alias{triangular_quantile}
 \title{Triangular Distribution Functions}
 \usage{
-triangular_pdf(x, lower = 0, mode = 1, upper = 2)
+triangular_distribution(lower = -1, mode = 0, upper = 1)
 
-triangular_lpdf(x, lower = 0, mode = 1, upper = 2)
+triangular_pdf(x, lower = -1, mode = 0, upper = 1)
 
-triangular_cdf(x, lower = 0, mode = 1, upper = 2)
+triangular_lpdf(x, lower = -1, mode = 0, upper = 1)
 
-triangular_lcdf(x, lower = 0, mode = 1, upper = 2)
+triangular_cdf(x, lower = -1, mode = 0, upper = 1)
 
-triangular_quantile(p, lower = 0, mode = 1, upper = 2)
+triangular_lcdf(x, lower = -1, mode = 0, upper = 1)
+
+triangular_quantile(p, lower = -1, mode = 0, upper = 1)
 }
 \arguments{
+\item{lower}{lower limit of the distribution (default is -1)}
+
+\item{mode}{mode of the distribution (default is 0)}
+
+\item{upper}{upper limit of the distribution (default is 1)}
+
 \item{x}{quantile}
-
-\item{lower}{lower limit of the distribution (default is 0)}
-
-\item{mode}{mode of the distribution (default is 1)}
-
-\item{upper}{upper limit of the distribution (default is 2)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -37,7 +39,28 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Triangular distribution.
 }
 \examples{
-# Triangular distribution with lower = 0, mode = 1, upper = 2
+# Triangular distribution with lower = -1, mode = 0, upper = 1
+dist <- triangular_distribution(-1, 0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 triangular_pdf(1)
 triangular_lpdf(1)
 triangular_cdf(1)

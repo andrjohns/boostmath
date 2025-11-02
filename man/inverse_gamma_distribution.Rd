@@ -9,22 +9,24 @@
 \alias{inverse_gamma_quantile}
 \title{Inverse Gamma Distribution Functions}
 \usage{
-inverse_gamma_pdf(x, shape, scale)
+inverse_gamma_distribution(shape, scale = 1)
 
-inverse_gamma_lpdf(x, shape, scale)
+inverse_gamma_pdf(x, shape, scale = 1)
 
-inverse_gamma_cdf(x, shape, scale)
+inverse_gamma_lpdf(x, shape, scale = 1)
 
-inverse_gamma_lcdf(x, shape, scale)
+inverse_gamma_cdf(x, shape, scale = 1)
 
-inverse_gamma_quantile(p, shape, scale)
+inverse_gamma_lcdf(x, shape, scale = 1)
+
+inverse_gamma_quantile(p, shape, scale = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{shape}{shape parameter (shape > 0)}
 
-\item{scale}{scale parameter (scale > 0)}
+\item{scale}{scale parameter (scale > 0; default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -35,12 +37,33 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Inverse Gamma distribution.
 }
 \examples{
-# Inverse Gamma distribution with shape = 3, scale = 4
-inverse_gamma_pdf(2, 3, 4)
-inverse_gamma_lpdf(2, 3, 4)
-inverse_gamma_cdf(2, 3, 4)
-inverse_gamma_lcdf(2, 3, 4)
-inverse_gamma_quantile(0.5, 3, 4)
+# Inverse Gamma distribution with shape = 5, scale = 4
+dist <- inverse_gamma_distribution(5, 4)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+inverse_gamma_pdf(2, 5, 4)
+inverse_gamma_lpdf(2, 5, 4)
+inverse_gamma_cdf(2, 5, 4)
+inverse_gamma_lcdf(2, 5, 4)
+inverse_gamma_quantile(0.5, 5, 4)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gamma_dist.html}{Boost Documentation} for more details on the mathematical background.

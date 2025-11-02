@@ -9,6 +9,8 @@
 \alias{uniform_quantile}
 \title{Uniform Distribution Functions}
 \usage{
+uniform_distribution(lower = 0, upper = 1)
+
 uniform_pdf(x, lower = 0, upper = 1)
 
 uniform_lpdf(x, lower = 0, upper = 1)
@@ -20,11 +22,11 @@ uniform_lcdf(x, lower = 0, upper = 1)
 uniform_quantile(p, lower = 0, upper = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{lower}{lower bound of the distribution (default is 0)}
 
 \item{upper}{upper bound of the distribution (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Uniform distribution with lower = 0, upper = 1
+dist <- uniform_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 uniform_pdf(0.5)
 uniform_lpdf(0.5)
 uniform_cdf(0.5)

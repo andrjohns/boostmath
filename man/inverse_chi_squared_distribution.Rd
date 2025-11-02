@@ -9,22 +9,24 @@
 \alias{inverse_chi_squared_quantile}
 \title{Inverse Chi-Squared Distribution Functions}
 \usage{
-inverse_chi_squared_pdf(x, df, scale = 1)
+inverse_chi_squared_distribution(df = 1, scale = 1/df)
 
-inverse_chi_squared_lpdf(x, df, scale = 1)
+inverse_chi_squared_pdf(x, df = 1, scale = 1/df)
 
-inverse_chi_squared_cdf(x, df, scale = 1)
+inverse_chi_squared_lpdf(x, df = 1, scale = 1/df)
 
-inverse_chi_squared_lcdf(x, df, scale = 1)
+inverse_chi_squared_cdf(x, df = 1, scale = 1/df)
 
-inverse_chi_squared_quantile(p, df, scale = 1)
+inverse_chi_squared_lcdf(x, df = 1, scale = 1/df)
+
+inverse_chi_squared_quantile(p, df = 1, scale = 1/df)
 }
 \arguments{
+\item{df}{degrees of freedom (df > 0; default is 1)}
+
+\item{scale}{scale parameter (default is 1/df)}
+
 \item{x}{quantile}
-
-\item{df}{degrees of freedom (df > 0)}
-
-\item{scale}{scale parameter (default is 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -35,12 +37,33 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Inverse Chi-Squared distribution.
 }
 \examples{
-# Inverse Chi-Squared distribution with 3 degrees of freedom, scale = 1
-inverse_chi_squared_pdf(2, 3, 1)
-inverse_chi_squared_lpdf(2, 3, 1)
-inverse_chi_squared_cdf(2, 3, 1)
-inverse_chi_squared_lcdf(2, 3, 1)
-inverse_chi_squared_quantile(0.5, 3, 1)
+# Inverse Chi-Squared distribution with 10 degrees of freedom, scale = 1
+dist <- inverse_chi_squared_distribution(10, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+inverse_chi_squared_pdf(2, 10, 1)
+inverse_chi_squared_lpdf(2, 10, 1)
+inverse_chi_squared_cdf(2, 10, 1)
+inverse_chi_squared_lcdf(2, 10, 1)
+inverse_chi_squared_quantile(0.5, 10, 1)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.

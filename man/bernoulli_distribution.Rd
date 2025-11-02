@@ -9,6 +9,8 @@
 \alias{bernoulli_quantile}
 \title{Bernoulli Distribution Functions}
 \usage{
+bernoulli_distribution(p_success)
+
 bernoulli_pdf(x, p_success)
 
 bernoulli_lpdf(x, p_success)
@@ -20,9 +22,9 @@ bernoulli_lcdf(x, p_success)
 bernoulli_quantile(p, p_success)
 }
 \arguments{
-\item{x}{quantile (0 or 1)}
-
 \item{p_success}{probability of success (0 <= p_success <= 1)}
+
+\item{x}{quantile (0 or 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -33,6 +35,28 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Bernoulli distribution.
 }
 \examples{
+# Bernoulli distribution with p_success = 0.5
+dist <- bernoulli_distribution(0.5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 bernoulli_pdf(1, 0.5)
 bernoulli_lpdf(1, 0.5)
 bernoulli_cdf(1, 0.5)

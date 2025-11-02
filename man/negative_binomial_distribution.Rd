@@ -9,6 +9,8 @@
 \alias{negative_binomial_quantile}
 \title{Negative Binomial Distribution Functions}
 \usage{
+negative_binomial_distribution(successes, success_fraction)
+
 negative_binomial_pdf(x, successes, success_fraction)
 
 negative_binomial_lpdf(x, successes, success_fraction)
@@ -20,11 +22,11 @@ negative_binomial_lcdf(x, successes, success_fraction)
 negative_binomial_quantile(p, successes, success_fraction)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{successes}{number of successes (successes >= 0)}
 
 \item{success_fraction}{probability of success on each trial (0 <= success_fraction <= 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -35,6 +37,28 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Negative Binomial distribution.
 }
 \examples{
+# Negative Binomial distribution with successes = 5, success_fraction = 0.5
+dist <- negative_binomial_distribution(5, 0.5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 negative_binomial_pdf(3, 5, 0.5)
 negative_binomial_lpdf(3, 5, 0.5)
 negative_binomial_cdf(3, 5, 0.5)

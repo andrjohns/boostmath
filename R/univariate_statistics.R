@@ -3,6 +3,7 @@
 #' @description Functions to compute various univariate statistics.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html) for more details on the mathematical background.
 #' @param x A numeric vector.
+#' @param ... Additional arguments (not used).
 #' @return A numeric value or vector with the computed statistic.
 #' @examples
 #' # Mean
@@ -32,7 +33,7 @@
 #' # Sample Gini Coefficient
 #' sample_gini_coefficient(c(1, 2, 3, 4, 5))
 #' # Mode
-#' mode_boost(c(1, 2, 2, 3, 4))
+#' mode(c(1, 2, 2, 3, 4))
 NULL
 
 #' @rdname univariate_statistics
@@ -42,8 +43,8 @@ mean_boost <- function(x) {
 }
 
 #' @rdname univariate_statistics
-#' @export
-variance <- function(x) {
+#' @exportS3Method
+variance.default <- function(x, ...) {
   .Call(`variance_`, x)
 }
 
@@ -60,14 +61,14 @@ mean_and_sample_variance <- function(x) {
 }
 
 #' @rdname univariate_statistics
-#' @export
-skewness <- function(x) {
+#' @exportS3Method
+skewness.default <- function(x, ...) {
   .Call(`skewness_`, x)
 }
 
 #' @rdname univariate_statistics
-#' @export
-kurtosis <- function(x) {
+#' @exportS3Method
+kurtosis.default <- function(x, ...) {
   .Call(`kurtosis_`, x)
 }
 
@@ -115,6 +116,6 @@ sample_gini_coefficient <- function(x) {
 
 #' @rdname univariate_statistics
 #' @export
-mode_boost <- function(x) {
+mode.default <- function(x, ...) {
   .Call(`mode_`, x)
 }

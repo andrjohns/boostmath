@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/beta_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Beta distribution with shape parameters alpha = 2, beta = 5
+#' dist <- beta_distribution(2, 5)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' beta_pdf(0.5, 2, 5)
 #' beta_lpdf(0.5, 2, 5)
 #' beta_cdf(0.5, 2, 5)
@@ -16,33 +37,45 @@
 #' beta_quantile(0.5, 2, 5)
 NULL
 
+#' @rdname beta_distribution
+#' @export
+beta_distribution <- function(alpha, beta) {
+  structure(
+    list(
+      extptr = .Call(`beta_init_`, alpha, beta),
+      alpha = alpha,
+      beta = beta
+    ),
+    class = c("beta_distribution", "boost_distribution")
+  )
+}
 
 #' @rdname beta_distribution
 #' @export
 beta_pdf <- function(x, alpha, beta) {
-  .Call(`beta_pdf_`, x, alpha, beta)
+  pdf(beta_distribution(alpha, beta), x)
 }
 
 #' @rdname beta_distribution
 #' @export
 beta_lpdf <- function(x, alpha, beta) {
-  .Call(`beta_logpdf_`, x, alpha, beta)
+  logpdf(beta_distribution(alpha, beta), x)
 }
 
 #' @rdname beta_distribution
 #' @export
 beta_cdf <- function(x, alpha, beta) {
-  .Call(`beta_cdf_`, x, alpha, beta)
+  cdf(beta_distribution(alpha, beta), x)
 }
 
 #' @rdname beta_distribution
 #' @export
 beta_lcdf <- function(x, alpha, beta) {
-  .Call(`beta_logcdf_`, x, alpha, beta)
+  logcdf(beta_distribution(alpha, beta), x)
 }
 
 #' @rdname beta_distribution
 #' @export
 beta_quantile <- function(p, alpha, beta) {
-  .Call(`beta_quantile_`, p, alpha, beta)
+  quantile(beta_distribution(alpha, beta), p)
 }

@@ -9,6 +9,21 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/cauchy_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Cauchy distribution with location = 0, scale = 1
+#' dist <- cauchy_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' support(dist)
+#'
+#' # Convenience functions
 #' cauchy_pdf(0)
 #' cauchy_lpdf(0)
 #' cauchy_cdf(0)
@@ -18,30 +33,43 @@ NULL
 
 #' @rdname cauchy_distribution
 #' @export
+cauchy_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`cauchy_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("cauchy_distribution", "boost_distribution")
+  )
+}
+
+#' @rdname cauchy_distribution
+#' @export
 cauchy_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`cauchy_pdf_`, x, location, scale)
+  pdf(cauchy_distribution(location, scale), x)
 }
 
 #' @rdname cauchy_distribution
 #' @export
 cauchy_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`cauchy_logpdf_`, x, location, scale)
+  logpdf(cauchy_distribution(location, scale), x)
 }
 
 #' @rdname cauchy_distribution
 #' @export
 cauchy_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`cauchy_cdf_`, x, location, scale)
+  cdf(cauchy_distribution(location, scale), x)
 }
 
 #' @rdname cauchy_distribution
 #' @export
 cauchy_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`cauchy_logcdf_`, x, location, scale)
+  logcdf(cauchy_distribution(location, scale), x)
 }
 
 #' @rdname cauchy_distribution
 #' @export
 cauchy_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`cauchy_quantile_`, p, location, scale)
+  quantile(cauchy_distribution(location, scale), p)
 }

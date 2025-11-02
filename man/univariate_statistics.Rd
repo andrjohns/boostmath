@@ -3,11 +3,11 @@
 \name{univariate_statistics}
 \alias{univariate_statistics}
 \alias{mean_boost}
-\alias{variance}
+\alias{variance.default}
 \alias{sample_variance}
 \alias{mean_and_sample_variance}
-\alias{skewness}
-\alias{kurtosis}
+\alias{skewness.default}
+\alias{kurtosis.default}
 \alias{excess_kurtosis}
 \alias{first_four_moments}
 \alias{median_boost}
@@ -15,20 +15,20 @@
 \alias{interquartile_range}
 \alias{gini_coefficient}
 \alias{sample_gini_coefficient}
-\alias{mode_boost}
+\alias{mode.default}
 \title{Univariate Statistics Functions}
 \usage{
 mean_boost(x)
 
-variance(x)
+\method{variance}{default}(x, ...)
 
 sample_variance(x)
 
 mean_and_sample_variance(x)
 
-skewness(x)
+\method{skewness}{default}(x, ...)
 
-kurtosis(x)
+\method{kurtosis}{default}(x, ...)
 
 excess_kurtosis(x)
 
@@ -44,10 +44,12 @@ gini_coefficient(x)
 
 sample_gini_coefficient(x)
 
-mode_boost(x)
+\method{mode}{default}(x, ...)
 }
 \arguments{
 \item{x}{A numeric vector.}
+
+\item{...}{Additional arguments (not used).}
 }
 \value{
 A numeric value or vector with the computed statistic.
@@ -83,7 +85,7 @@ gini_coefficient(c(1, 2, 3, 4, 5))
 # Sample Gini Coefficient
 sample_gini_coefficient(c(1, 2, 3, 4, 5))
 # Mode
-mode_boost(c(1, 2, 2, 3, 4))
+mode(c(1, 2, 2, 3, 4))
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html}{Boost Documentation} for more details on the mathematical background.

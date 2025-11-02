@@ -25,6 +25,27 @@ The [Statistical Distributions](https://www.boost.org/doc/libs/latest/libs/math/
 ### [Arcsine Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/arcine_dist.html)
 
 ```{r}
+# Arcsine distribution with default parameters
+dist <- arcsine_distribution()
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 arcsine_pdf(0.5)
 arcsine_lpdf(0.5)
 arcsine_cdf(0.5)
@@ -35,6 +56,28 @@ arcsine_quantile(0.5)
 ### [Bernoulli Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/bernoulli_dist.html)
 
 ```{r}
+# Bernoulli distribution with p_success = 0.5
+dist <- bernoulli_distribution(0.5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 bernoulli_pdf(1, 0.5)
 bernoulli_lpdf(1, 0.5)
 bernoulli_cdf(1, 0.5)
@@ -46,6 +89,27 @@ bernoulli_quantile(0.5, 0.5)
 
 ```{r}
 # Beta distribution with shape parameters alpha = 2, beta = 5
+dist <- beta_distribution(2, 5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 beta_pdf(0.5, 2, 5)
 beta_lpdf(0.5, 2, 5)
 beta_cdf(0.5, 2, 5)
@@ -57,6 +121,27 @@ beta_quantile(0.5, 2, 5)
 
 ```{r}
 # Binomial dist ribution with n = 10, prob = 0.5
+dist <- binomial_distribution(10, 0.5)
+# Apply generic functions
+cdf(dist, 2)
+logcdf(dist, 2)
+pdf(dist, 2)
+logpdf(dist, 2)
+hazard(dist, 2)
+chf(dist, 2)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 binomial_pdf(3, 10, 0.5)
 binomial_lpdf(3, 10, 0.5)
 binomial_cdf(3, 10, 0.5)
@@ -68,6 +153,21 @@ binomial_quantile(0.5, 10, 0.5)
 
 ```{r}
 # Cauchy distribution with location = 0, scale = 1
+dist <- cauchy_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+support(dist)
+
+# Convenience functions
 cauchy_pdf(0)
 cauchy_lpdf(0)
 cauchy_cdf(0)
@@ -79,6 +179,27 @@ cauchy_quantile(0.5)
 
 ```{r}
 # Chi-Squared distribution with 3 degrees of freedom
+dist <- chi_squared_distribution(3)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 chi_squared_pdf(2, 3)
 chi_squared_lpdf(2, 3)
 chi_squared_cdf(2, 3)
@@ -90,6 +211,27 @@ chi_squared_quantile(0.5, 3)
 
 ```{r}
 # Exponential distribution with rate parameter lambda = 2
+dist <- exponential_distribution(2)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 exponential_pdf(1, 2)
 exponential_lpdf(1, 2)
 exponential_cdf(1, 2)
@@ -101,6 +243,27 @@ exponential_quantile(0.5, 2)
 
 ```{r}
 # Extreme Value distribution with location = 0, scale = 1
+dist <- extreme_value_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 extreme_value_pdf(0)
 extreme_value_lpdf(0)
 extreme_value_cdf(0)
@@ -111,18 +274,60 @@ extreme_value_quantile(0.5)
 ### [F Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html)
 
 ```{r}
-# Fisher F distribution with df1 = 5, df2 = 2
-fisher_f_pdf(1, 5, 2)
-fisher_f_lpdf(1, 5, 2)
-fisher_f_cdf(1, 5, 2)
-fisher_f_lcdf(1, 5, 2)
-fisher_f_quantile(0.5, 5, 2)
+# Fisher F distribution with df1 = 5, df2 = 10
+dist <- fisher_f_distribution(5, 10)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+fisher_f_pdf(1, 5, 10)
+fisher_f_lpdf(1, 5, 10)
+fisher_f_cdf(1, 5, 10)
+fisher_f_lcdf(1, 5, 10)
+fisher_f_quantile(0.5, 5, 10)
 ```
 
 ### [Gamma Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/gamma_dist.html)
 
 ```{r}
 # Gamma distribution with shape = 3, scale = 4
+dist <- gamma_distribution(3, 4)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 gamma_pdf(2, 3, 4)
 gamma_lpdf(2, 3, 4)
 gamma_cdf(2, 3, 4)
@@ -135,6 +340,27 @@ gamma_quantile(0.5, 3, 4)
 
 ```{r}
 # Geometric distribution with probability of success prob = 0.5
+dist <- geometric_distribution(0.5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 geometric_pdf(3, 0.5)
 geometric_lpdf(3, 0.5)
 geometric_cdf(3, 0.5)
@@ -147,6 +373,24 @@ geometric_quantile(0.5, 0.5)
 
 ```{r}
 # Holtsmark distribution with location 0 and scale 1
+dist <- holtsmark_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+
+# Convenience functions
 holtsmark_pdf(3)
 holtsmark_lpdf(3)
 holtsmark_cdf(3)
@@ -159,6 +403,27 @@ holtsmark_quantile(0.5)
 
 ```{r}
 # Hyperexponential distribution with probabilities = c(0.5, 0.5) and rates = c(1, 2)
+dist <- hyperexponential_distribution(c(0.5, 0.5), c(1, 2))
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 hyperexponential_pdf(2, c(0.5, 0.5), c(1, 2))
 hyperexponential_lpdf(2, c(0.5, 0.5), c(1, 2))
 hyperexponential_cdf(2, c(0.5, 0.5), c(1, 2))
@@ -170,6 +435,27 @@ hyperexponential_quantile(0.5, c(0.5, 0.5), c(1, 2))
 
 ```{r}
 # Hypergeometric distribution with r = 5, n = 10, N = 20
+dist <- hypergeometric_distribution(5, 10, 20)
+# Apply generic functions
+cdf(dist, 4)
+logcdf(dist, 4)
+pdf(dist, 4)
+logpdf(dist, 4)
+hazard(dist, 4)
+chf(dist, 4)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 hypergeometric_pdf(3, 5, 10, 20)
 hypergeometric_lpdf(3, 5, 10, 20)
 hypergeometric_cdf(3, 5, 10, 20)
@@ -180,29 +466,92 @@ hypergeometric_quantile(0.5, 5, 10, 20)
 ### [Inverse Chi-Squared Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_chi_squared_dist.html)
 
 ```{r}
-# Inverse Chi-Squared distribution with 3 degrees of freedom, scale = 1
-inverse_chi_squared_pdf(2, 3, 1)
-inverse_chi_squared_lpdf(2, 3, 1)
-inverse_chi_squared_cdf(2, 3, 1)
-inverse_chi_squared_lcdf(2, 3, 1)
-inverse_chi_squared_quantile(0.5, 3, 1)
+# Inverse Chi-Squared distribution with 10 degrees of freedom, scale = 1
+dist <- inverse_chi_squared_distribution(10, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+inverse_chi_squared_pdf(2, 10, 1)
+inverse_chi_squared_lpdf(2, 10, 1)
+inverse_chi_squared_cdf(2, 10, 1)
+inverse_chi_squared_lcdf(2, 10, 1)
+inverse_chi_squared_quantile(0.5, 10, 1)
 ```
 
 ### [Inverse Gamma Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gamma_dist.html)
 
 ```{r}
-# Inverse Gamma distribution with shape = 3, scale = 4
-inverse_gamma_pdf(2, 3, 4)
-inverse_gamma_lpdf(2, 3, 4)
-inverse_gamma_cdf(2, 3, 4)
-inverse_gamma_lcdf(2, 3, 4)
-inverse_gamma_quantile(0.5, 3, 4)
+# Inverse Gamma distribution with shape = 5, scale = 4
+dist <- inverse_gamma_distribution(5, 4)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+inverse_gamma_pdf(2, 5, 4)
+inverse_gamma_lpdf(2, 5, 4)
+inverse_gamma_cdf(2, 5, 4)
+inverse_gamma_lcdf(2, 5, 4)
+inverse_gamma_quantile(0.5, 5, 4)
 ```
 
 ### [Inverse Gaussian Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gaussian_dist.html)
 
 ```{r}
 # Inverse Gaussian distribution with mu = 3, lambda = 4
+dist <- inverse_gaussian_distribution(3, 4)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 inverse_gaussian_pdf(2, 3, 4)
 inverse_gaussian_lpdf(2, 3, 4)
 inverse_gaussian_cdf(2, 3, 4)
@@ -214,6 +563,27 @@ inverse_gaussian_quantile(0.5, 3, 4)
 
 ```{r}
 # Kolmogorov-Smirnov distribution with sample size n = 10
+dist <- kolmogorov_smirnov_distribution(10)
+# Apply generic functions
+cdf(dist, 2)
+logcdf(dist, 2)
+pdf(dist, 2)
+logpdf(dist, 2)
+hazard(dist, 2)
+chf(dist, 2)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 kolmogorov_smirnov_pdf(0.5, 10)
 kolmogorov_smirnov_lpdf(0.5, 10)
 kolmogorov_smirnov_cdf(0.5, 10)
@@ -225,6 +595,21 @@ kolmogorov_smirnov_quantile(0.5, 10)
 
 ```{r}
 # Landau distribution with location 0 and scale 1
+dist <- landau_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+support(dist)
+
+# Convenience functions
 landau_pdf(3)
 landau_lpdf(3)
 landau_cdf(3)
@@ -236,6 +621,27 @@ landau_quantile(0.5)
 
 ```{r}
 # Laplace distribution with location = 0, scale = 1
+dist <- laplace_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 laplace_pdf(0)
 laplace_lpdf(0)
 laplace_cdf(0)
@@ -247,6 +653,27 @@ laplace_quantile(0.5)
 
 ```{r}
 # Logistic distribution with location = 0, scale = 1
+dist <- logistic_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 logistic_pdf(0)
 logistic_lpdf(0)
 logistic_cdf(0)
@@ -258,6 +685,27 @@ logistic_quantile(0.5)
 
 ```{r}
 # Log Normal distribution with location = 0, scale = 1
+dist <- lognormal_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 lognormal_pdf(0)
 lognormal_lpdf(0)
 lognormal_cdf(0)
@@ -269,6 +717,24 @@ lognormal_quantile(0.5)
 
 ```{r}
 # Map-Airy distribution with location 0 and scale 1
+dist <- mapairy_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+
+# Convenience functions
 mapairy_pdf(3)
 mapairy_lpdf(3)
 mapairy_cdf(3)
@@ -279,6 +745,28 @@ mapairy_quantile(0.5)
 ### [Negative Binomial Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/negative_binomial_dist.html)
 
 ```{r}
+# Negative Binomial distribution with successes = 5, success_fraction = 0.5
+dist <- negative_binomial_distribution(5, 0.5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 negative_binomial_pdf(3, 5, 0.5)
 negative_binomial_lpdf(3, 5, 0.5)
 negative_binomial_cdf(3, 5, 0.5)
@@ -291,6 +779,24 @@ negative_binomial_quantile(0.5, 5, 0.5)
 ```{r}
 # Noncentral Beta distribution with shape parameters alpha = 2, beta = 3
 # and noncentrality parameter lambda = 1
+dist <- non_central_beta_distribution(2, 3, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+
+# Convenience functions
 non_central_beta_pdf(0.5, 2, 3, 1)
 non_central_beta_lpdf(0.5, 2, 3, 1)
 non_central_beta_cdf(0.5, 2, 3, 1)
@@ -303,6 +809,27 @@ non_central_beta_quantile(0.5, 2, 3, 1)
 ```{r}
 # Noncentral Chi-Squared distribution with 3 degrees of freedom and noncentrality
 # parameter 1
+dist <- non_central_chi_squared_distribution(3, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 non_central_chi_squared_pdf(2, 3, 1)
 non_central_chi_squared_lpdf(2, 3, 1)
 non_central_chi_squared_cdf(2, 3, 1)
@@ -313,8 +840,29 @@ non_central_chi_squared_quantile(0.5, 3, 1)
 ### [Noncentral F Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_f_dist.html)
 
 ```{r}
-# Noncentral F distribution with df1 = 5, df2 = 2 and noncentrality
+# Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality
 # parameter 1
+dist <- non_central_f_distribution(10, 10, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 non_central_f_pdf(1, 5, 2, 1)
 non_central_f_lpdf(1, 5, 2, 1)
 non_central_f_cdf(1, 5, 2, 1)
@@ -325,18 +873,60 @@ non_central_f_quantile(0.5, 5, 2, 1)
 ### [Noncentral T Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_t_dist.html)
 
 ```{r}
-# Noncentral T distribution with 3 degrees of freedom and noncentrality parameter 1
-non_central_t_pdf(0, 3, 1)
-non_central_t_lpdf(0, 3, 1)
-non_central_t_cdf(0, 3, 1)
-non_central_t_lcdf(0, 3, 1)
-non_central_t_quantile(0.5, 3, 1)
+# Noncentral T distribution with 5 degrees of freedom and noncentrality parameter 1
+dist <- non_central_t_distribution(5, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+non_central_t_pdf(0, 5, 1)
+non_central_t_lpdf(0, 5, 1)
+non_central_t_cdf(0, 5, 1)
+non_central_t_lcdf(0, 5, 1)
+non_central_t_quantile(0.5, 5, 1)
 ```
 
 ### [Normal Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/normal_dist.html)
 
 ```{r}
 # Normal distribution with mean = 0, sd = 1
+dist <- normal_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 normal_pdf(0)
 normal_lpdf(0)
 normal_cdf(0)
@@ -347,7 +937,28 @@ normal_quantile(0.5)
 ### [Pareto Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/pareto.html)
 
 ```{r}
-# Pareto distribution with shape = 1, scale = 1
+# Pareto distribution with scale = 10, shape = 5
+dist <- pareto_distribution(10, 5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 pareto_pdf(1)
 pareto_lpdf(1)
 pareto_cdf(1)
@@ -359,6 +970,27 @@ pareto_quantile(0.5)
 
 ```{r}
 # Poisson distribution with lambda = 1
+dist <- poisson_distribution(1)
+# Apply generic functions
+cdf(dist, 5)
+logcdf(dist, 5)
+pdf(dist, 5)
+logpdf(dist, 5)
+hazard(dist, 5)
+chf(dist, 5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 poisson_pdf(0, 1)
 poisson_lpdf(0, 1)
 poisson_cdf(0, 1)
@@ -369,7 +1001,28 @@ poisson_quantile(0.5, 1)
 ### [Rayleigh Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/rayleigh.html)
 
 ```{r}
-# Rayleigh distribution with scale = 1
+# Rayleigh distribution with sigma = 1
+dist <- rayleigh_distribution(1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 rayleigh_pdf(1)
 rayleigh_lpdf(1)
 rayleigh_cdf(1)
@@ -381,6 +1034,21 @@ rayleigh_quantile(0.5)
 
 ```{r}
 # SaS Point5 distribution with location 0 and scale 1
+dist <- saspoint5_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+support(dist)
+
+# Convenience functions
 saspoint5_pdf(3)
 saspoint5_lpdf(3)
 saspoint5_cdf(3)
@@ -392,6 +1060,27 @@ saspoint5_quantile(0.5)
 
 ```{r}
 # Skew Normal distribution with location = 0, scale = 1, shape = 0
+dist <- skew_normal_distribution(0, 1, 0)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 skew_normal_pdf(0)
 skew_normal_lpdf(0)
 skew_normal_cdf(0)
@@ -402,18 +1091,60 @@ skew_normal_quantile(0.5)
 ### [Student's T Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/students_t_dist.html)
 
 ```{r}
-# Student's t distribution with 3 degrees of freedom
-students_t_pdf(0, 3)
-students_t_lpdf(0, 3)
-students_t_cdf(0, 3)
-students_t_lcdf(0, 3)
-students_t_quantile(0.5, 3)
+# Student's t distribution with 5 degrees of freedom
+dist <- students_t_distribution(5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+students_t_pdf(0, 5)
+students_t_lpdf(0, 5)
+students_t_cdf(0, 5)
+students_t_lcdf(0, 5)
+students_t_quantile(0.5, 5)
 ```
 
 ### [Triangular Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/triangular_dist.html)
 
 ```{r}
-# Triangular distribution with lower = 0, mode = 1, upper = 2
+# Triangular distribution with lower = -1, mode = 0, upper = 1
+dist <- triangular_distribution(-1, 0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 triangular_pdf(1)
 triangular_lpdf(1)
 triangular_cdf(1)
@@ -425,6 +1156,27 @@ triangular_quantile(0.5)
 
 ```{r}
 # Uniform distribution with lower = 0, upper = 1
+dist <- uniform_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 uniform_pdf(0.5)
 uniform_lpdf(0.5)
 uniform_cdf(0.5)
@@ -436,9 +1188,30 @@ uniform_quantile(0.5)
 
 ```{r}
 # Weibull distribution with shape = 1, scale = 1
-weibull_pdf(1)
-weibull_lpdf(1)
-weibull_cdf(1)
-weibull_lcdf(1)
-weibull_quantile(0.5)
+dist <- weibull_distribution(1, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
+weibull_pdf(1, shape = 1, scale = 1)
+weibull_lpdf(1, shape = 1, scale = 1)
+weibull_cdf(1, shape = 1, scale = 1)
+weibull_lcdf(1, shape = 1, scale = 1)
+weibull_quantile(0.5, shape = 1, scale = 1)
 ```

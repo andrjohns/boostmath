@@ -9,6 +9,8 @@
 \alias{arcsine_quantile}
 \title{Arcsine Distribution Functions}
 \usage{
+arcsine_distribution(x_min = 0, x_max = 1)
+
 arcsine_pdf(x, x_min = 0, x_max = 1)
 
 arcsine_lpdf(x, x_min = 0, x_max = 1)
@@ -20,11 +22,11 @@ arcsine_lcdf(x, x_min = 0, x_max = 1)
 arcsine_quantile(p, x_min = 0, x_max = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{x_min}{minimum value of the distribution (default is 0)}
 
 \item{x_max}{maximum value of the distribution (default is 1)}
+
+\item{x}{quantile}
 
 \item{p}{probability}
 }
@@ -35,6 +37,27 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the arcsine distribution.
 }
 \examples{
+# Arcsine distribution with default parameters
+dist <- arcsine_distribution()
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 arcsine_pdf(0.5)
 arcsine_lpdf(0.5)
 arcsine_cdf(0.5)

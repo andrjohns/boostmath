@@ -9,6 +9,8 @@
 \alias{binomial_quantile}
 \title{Binomial Distribution Functions}
 \usage{
+binomial_distribution(n, prob)
+
 binomial_pdf(k, n, prob)
 
 binomial_lpdf(k, n, prob)
@@ -20,11 +22,11 @@ binomial_lcdf(k, n, prob)
 binomial_quantile(p, n, prob)
 }
 \arguments{
-\item{k}{number of successes (0 <= k <= n)}
-
 \item{n}{number of trials (n >= 0)}
 
 \item{prob}{probability of success on each trial (0 <= prob <= 1)}
+
+\item{k}{number of successes (0 <= k <= n)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Binomial dist ribution with n = 10, prob = 0.5
+dist <- binomial_distribution(10, 0.5)
+# Apply generic functions
+cdf(dist, 2)
+logcdf(dist, 2)
+pdf(dist, 2)
+logpdf(dist, 2)
+hazard(dist, 2)
+chf(dist, 2)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 binomial_pdf(3, 10, 0.5)
 binomial_lpdf(3, 10, 0.5)
 binomial_cdf(3, 10, 0.5)

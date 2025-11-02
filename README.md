@@ -39,6 +39,14 @@ Functions can be used directly after loading the package:
 
 ``` r
 library(boostmath)
+#> 
+#> Attaching package: 'boostmath'
+#> The following object is masked from 'package:grDevices':
+#> 
+#>     pdf
+#> The following object is masked from 'package:base':
+#> 
+#>     mode
 
 hypergeometric_pFq(c(1, 2.5), c(0.5, 2), 1)
 #> [1] 6.675991
@@ -87,8 +95,52 @@ complex_step_derivative(exp, 1.7)
 
 ## Distribution Functions
 
-The PDF, CDF, log-PDF, log-CDF, and quantile functions for statistical
-distributions are also exposed:
+`boostmath` implements Boost’s approach of creating a distribution
+‘object’ which the various distribution functions (e.g., `pdf`,
+`quantile`) can be applied:
+
+``` r
+# Normal distribution with mean = 0, sd = 1
+dist <- normal_distribution(0, 1)
+# Apply generic functions
+cdf(dist, 0.5)
+#> [1] 0.6914625
+logcdf(dist, 0.5)
+#> [1] -0.3689464
+pdf(dist, 0.5)
+#> [1] 0.3520653
+logpdf(dist, 0.5)
+#> [1] -1.043939
+hazard(dist, 0.5)
+#> [1] 1.141078
+chf(dist, 0.5)
+#> [1] 1.175912
+mean(dist)
+#> [1] 0
+median(dist)
+#> [1] 0
+mode(dist)
+#> [1] 0
+range(dist)
+#> [1] -Inf  Inf
+quantile(dist, 0.2)
+#> [1] -0.8416212
+standard_deviation(dist)
+#> [1] 1
+support(dist)
+#> [1] -Inf  Inf
+variance(dist)
+#> [1] 1
+skewness(dist)
+#> [1] 0
+kurtosis(dist)
+#> [1] 3
+kurtosis_excess(dist)
+#> [1] 0
+```
+
+Alternatively, the PDF, CDF, log-PDF, log-CDF, and quantile functions
+for statistical distributions can just be called directly:
 
 ``` r
 beta_pdf(0.1, 1.2, 2.1)

@@ -9,22 +9,24 @@
 \alias{gamma_quantile}
 \title{Gamma Distribution Functions}
 \usage{
-gamma_pdf(x, shape, scale)
+gamma_distribution(shape, scale = 1)
 
-gamma_lpdf(x, shape, scale)
+gamma_pdf(x, shape, scale = 1)
 
-gamma_cdf(x, shape, scale)
+gamma_lpdf(x, shape, scale = 1)
 
-gamma_lcdf(x, shape, scale)
+gamma_cdf(x, shape, scale = 1)
 
-gamma_quantile(p, shape, scale)
+gamma_lcdf(x, shape, scale = 1)
+
+gamma_quantile(p, shape, scale = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{shape}{shape parameter (shape > 0)}
 
 \item{scale}{scale parameter (scale > 0)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Gamma distribution with shape = 3, scale = 4
+dist <- gamma_distribution(3, 4)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 gamma_pdf(2, 3, 4)
 gamma_lpdf(2, 3, 4)
 gamma_cdf(2, 3, 4)

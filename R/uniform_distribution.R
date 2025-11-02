@@ -9,6 +9,27 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/uniform_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Uniform distribution with lower = 0, upper = 1
+#' dist <- uniform_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' mean(dist)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' standard_deviation(dist)
+#' support(dist)
+#' variance(dist)
+#' skewness(dist)
+#' kurtosis(dist)
+#' kurtosis_excess(dist)
+#'
+#' # Convenience functions
 #' uniform_pdf(0.5)
 #' uniform_lpdf(0.5)
 #' uniform_cdf(0.5)
@@ -18,30 +39,43 @@ NULL
 
 #' @rdname uniform_distribution
 #' @export
+uniform_distribution <- function(lower = 0, upper = 1) {
+  structure(
+    list(
+      extptr = .Call(`uniform_init_`, lower, upper),
+      lower = lower,
+      upper = upper
+    ),
+    class = c("uniform_distribution", "boost_distribution")
+  )
+}
+
+#' @rdname uniform_distribution
+#' @export
 uniform_pdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_pdf_`, x, lower, upper)
+  pdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_lpdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_logpdf_`, x, lower, upper)
+  logpdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_cdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_cdf_`, x, lower, upper)
+  cdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_lcdf <- function(x, lower = 0, upper = 1) {
-  .Call(`uniform_logcdf_`, x, lower, upper)
+  logcdf(uniform_distribution(lower, upper), x)
 }
 
 #' @rdname uniform_distribution
 #' @export
 uniform_quantile <- function(p, lower = 0, upper = 1) {
-  .Call(`uniform_quantile_`, p, lower, upper)
+  quantile(uniform_distribution(lower, upper), p)
 }

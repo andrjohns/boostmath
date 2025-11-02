@@ -9,6 +9,21 @@
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/landau_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Landau distribution with location 0 and scale 1
+#' dist <- landau_distribution(0, 1)
+#' # Apply generic functions
+#' cdf(dist, 0.5)
+#' logcdf(dist, 0.5)
+#' pdf(dist, 0.5)
+#' logpdf(dist, 0.5)
+#' hazard(dist, 0.5)
+#' chf(dist, 0.5)
+#' median(dist)
+#' mode(dist)
+#' range(dist)
+#' quantile(dist, 0.2)
+#' support(dist)
+#'
+#' # Convenience functions
 #' landau_pdf(3)
 #' landau_lpdf(3)
 #' landau_cdf(3)
@@ -18,30 +33,43 @@ NULL
 
 #' @rdname landau_distribution
 #' @export
+landau_distribution <- function(location = 0, scale = 1) {
+  structure(
+    list(
+      extptr = .Call(`landau_init_`, location, scale),
+      location = location,
+      scale = scale
+    ),
+    class = c("landau_distribution", "boost_distribution")
+  )
+}
+
+#' @rdname landau_distribution
+#' @export
 landau_pdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_pdf_`, x, location, scale)
+  pdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_lpdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_logpdf_`, x, location, scale)
+  logpdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_cdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_cdf_`, x, location, scale)
+  cdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_lcdf <- function(x, location = 0, scale = 1) {
-  .Call(`landau_logcdf_`, x, location, scale)
+  logcdf(landau_distribution(location, scale), x)
 }
 
 #' @rdname landau_distribution
 #' @export
 landau_quantile <- function(p, location = 0, scale = 1) {
-  .Call(`landau_quantile_`, p, location, scale)
+  quantile(landau_distribution(location, scale), p)
 }

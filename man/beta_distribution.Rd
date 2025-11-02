@@ -9,6 +9,8 @@
 \alias{beta_quantile}
 \title{Beta Distribution Functions}
 \usage{
+beta_distribution(alpha, beta)
+
 beta_pdf(x, alpha, beta)
 
 beta_lpdf(x, alpha, beta)
@@ -20,11 +22,11 @@ beta_lcdf(x, alpha, beta)
 beta_quantile(p, alpha, beta)
 }
 \arguments{
-\item{x}{quantile (0 <= x <= 1)}
-
 \item{alpha}{shape parameter (alpha > 0)}
 
 \item{beta}{shape parameter (beta > 0)}
+
+\item{x}{quantile (0 <= x <= 1)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Beta distribution with shape parameters alpha = 2, beta = 5
+dist <- beta_distribution(2, 5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 beta_pdf(0.5, 2, 5)
 beta_lpdf(0.5, 2, 5)
 beta_cdf(0.5, 2, 5)

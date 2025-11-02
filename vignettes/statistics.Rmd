@@ -52,7 +52,7 @@ gini_coefficient(c(1, 2, 3, 4, 5))
 # Sample Gini Coefficient
 sample_gini_coefficient(c(1, 2, 3, 4, 5))
 # Mode
-mode_boost(c(1, 2, 2, 3, 4))
+mode(c(1, 2, 2, 3, 4))
 ```
 
 ### [Bivariate Statistics](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bivariate_statistics.html)

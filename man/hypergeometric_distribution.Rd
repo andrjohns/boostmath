@@ -9,6 +9,8 @@
 \alias{hypergeometric_quantile}
 \title{Hypergeometric Distribution Functions}
 \usage{
+hypergeometric_distribution(r, n, N)
+
 hypergeometric_pdf(x, r, n, N)
 
 hypergeometric_lpdf(x, r, n, N)
@@ -20,13 +22,13 @@ hypergeometric_lcdf(x, r, n, N)
 hypergeometric_quantile(p, r, n, N)
 }
 \arguments{
-\item{x}{quantile (non-negative integer)}
-
 \item{r}{number of successes in the population (r >= 0)}
 
 \item{n}{number of draws (n >= 0)}
 
 \item{N}{population size (N >= r)}
+
+\item{x}{quantile (non-negative integer)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -38,6 +40,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Hypergeometric distribution with r = 5, n = 10, N = 20
+dist <- hypergeometric_distribution(5, 10, 20)
+# Apply generic functions
+cdf(dist, 4)
+logcdf(dist, 4)
+pdf(dist, 4)
+logpdf(dist, 4)
+hazard(dist, 4)
+chf(dist, 4)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 hypergeometric_pdf(3, 5, 10, 20)
 hypergeometric_lpdf(3, 5, 10, 20)
 hypergeometric_cdf(3, 5, 10, 20)

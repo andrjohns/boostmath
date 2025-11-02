@@ -9,20 +9,22 @@
 \alias{exponential_quantile}
 \title{Exponential Distribution Functions}
 \usage{
-exponential_pdf(x, lambda)
+exponential_distribution(lambda = 1)
 
-exponential_lpdf(x, lambda)
+exponential_pdf(x, lambda = 1)
 
-exponential_cdf(x, lambda)
+exponential_lpdf(x, lambda = 1)
 
-exponential_lcdf(x, lambda)
+exponential_cdf(x, lambda = 1)
 
-exponential_quantile(p, lambda)
+exponential_lcdf(x, lambda = 1)
+
+exponential_quantile(p, lambda = 1)
 }
 \arguments{
-\item{x}{quantile}
-
 \item{lambda}{rate parameter (lambda > 0)}
+
+\item{x}{quantile}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -34,6 +36,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Exponential distribution with rate parameter lambda = 2
+dist <- exponential_distribution(2)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 exponential_pdf(1, 2)
 exponential_lpdf(1, 2)
 exponential_cdf(1, 2)

@@ -9,22 +9,24 @@
 \alias{inverse_gaussian_quantile}
 \title{Inverse Gaussian Distribution Functions}
 \usage{
-inverse_gaussian_pdf(x, mu, lambda)
+inverse_gaussian_distribution(mu = 1, lambda = 1)
 
-inverse_gaussian_lpdf(x, mu, lambda)
+inverse_gaussian_pdf(x, mu = 1, lambda = 1)
 
-inverse_gaussian_cdf(x, mu, lambda)
+inverse_gaussian_lpdf(x, mu = 1, lambda = 1)
 
-inverse_gaussian_lcdf(x, mu, lambda)
+inverse_gaussian_cdf(x, mu = 1, lambda = 1)
 
-inverse_gaussian_quantile(p, mu, lambda)
+inverse_gaussian_lcdf(x, mu = 1, lambda = 1)
+
+inverse_gaussian_quantile(p, mu = 1, lambda = 1)
 }
 \arguments{
+\item{mu}{mean parameter (mu > 0; default is 1)}
+
+\item{lambda}{scale parameter (lambda > 0; default is 1)}
+
 \item{x}{quantile}
-
-\item{mu}{mean parameter (mu > 0)}
-
-\item{lambda}{scale (precision) parameter (lambda > 0)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -36,6 +38,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Inverse Gaussian distribution with mu = 3, lambda = 4
+dist <- inverse_gaussian_distribution(3, 4)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 inverse_gaussian_pdf(2, 3, 4)
 inverse_gaussian_lpdf(2, 3, 4)
 inverse_gaussian_cdf(2, 3, 4)

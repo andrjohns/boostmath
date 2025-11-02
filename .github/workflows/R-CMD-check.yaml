@@ -24,7 +24,7 @@ jobs:
           - {os: macos-latest,   r: 'release'}
           - {os: macos-latest,   r: 'oldrel'}
 
-          - {os: windows-11-arm, r: '4.5.1'}
+          - {os: windows-11-arm, r: '4.5.2'}
           - {os: windows-latest, r: 'devel'}
           - {os: windows-latest, r: 'release'}
           - {os: windows-latest, r: 'oldrel'}
@@ -60,7 +60,6 @@ jobs:
       - name: Install R & RTools (ARM64)
         if: matrix.config.os == 'windows-11-arm'
         run: |
-          $url = "https://www.r-project.org/nosvn/winutf8/aarch64/R-4-signed/R-${{ matrix.config.r }}-aarch64.exe"
           Invoke-WebRequest `
               -Uri https://www.r-project.org/nosvn/winutf8/aarch64/R-4-signed/R-${{ matrix.config.r }}-aarch64.exe `
               -OutFile ../R-${{ matrix.config.r }}-aarch64.exe

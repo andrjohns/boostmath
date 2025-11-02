@@ -9,6 +9,8 @@
 \alias{geometric_quantile}
 \title{Geometric Distribution Functions}
 \usage{
+geometric_distribution(prob)
+
 geometric_pdf(x, prob)
 
 geometric_lpdf(x, prob)
@@ -20,9 +22,9 @@ geometric_lcdf(x, prob)
 geometric_quantile(p, prob)
 }
 \arguments{
-\item{x}{quantile (non-negative integer)}
-
 \item{prob}{probability of success (0 < prob < 1)}
+
+\item{x}{quantile (non-negative integer)}
 
 \item{p}{probability (0 <= p <= 1)}
 }
@@ -34,6 +36,27 @@ Functions to compute the probability density function, cumulative distribution f
 }
 \examples{
 # Geometric distribution with probability of success prob = 0.5
+dist <- geometric_distribution(0.5)
+# Apply generic functions
+cdf(dist, 0.5)
+logcdf(dist, 0.5)
+pdf(dist, 0.5)
+logpdf(dist, 0.5)
+hazard(dist, 0.5)
+chf(dist, 0.5)
+mean(dist)
+median(dist)
+mode(dist)
+range(dist)
+quantile(dist, 0.2)
+standard_deviation(dist)
+support(dist)
+variance(dist)
+skewness(dist)
+kurtosis(dist)
+kurtosis_excess(dist)
+
+# Convenience functions
 geometric_pdf(3, 0.5)
 geometric_lpdf(3, 0.5)
 geometric_cdf(3, 0.5)
