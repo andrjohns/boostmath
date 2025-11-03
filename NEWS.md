@@ -1,3 +1,7 @@
+# boostmath 1.3.0
+  * Added support for all Boost distribution functions (e.g., `pdf`, `kurtosis`, `variance`, etc.)
+  * Exposed additional distribution utility functions (e.g., `binomial_find_lower_bound_on_p`, `chi_squared_find_degrees_of_freedom`)
+
 # boostmath 1.2.0
   * Added `filters`
   * Interpolators now use `$interpolate()` instead of `$spline()`
