@@ -1,0 +1,23 @@
+# Authors and Citation
+
+## Authors
+
+- **Andrew R. Johnson**. Author, maintainer.
+  [](https://orcid.org/0000-0001-7000-8065)
+
+## Citation
+
+Source:
+[`DESCRIPTION`](https://github.com/andrjohns/boostmath/blob/main/DESCRIPTION)
+
+Johnson AR (2025). *boostmath: 'R' Bindings for the 'Boost' Math
+Functions*. R package version 1.3.0,
+<https://github.com/andrjohns/boostmath>.
+
+    @Manual{,
+      title = {boostmath: 'R' Bindings for the 'Boost' Math Functions},
+      author = {Andrew R. Johnson},
+      year = {2025},
+      note = {R package version 1.3.0},
+      url = {https://github.com/andrjohns/boostmath},
+    }
