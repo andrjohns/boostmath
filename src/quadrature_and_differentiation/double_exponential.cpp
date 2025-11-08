@@ -15,12 +15,12 @@ extern "C" {
     char buf[8192] = "";
     try {
       cpp11::function f(f_);
-      double a = cpp11::as_cpp<double>(a_);
-      double b = cpp11::as_cpp<double>(b_);
-      double tol = cpp11::as_cpp<double>(tol_);
-      size_t max_refinements = cpp11::as_cpp<size_t>(max_refinements_);
+      const double a = cpp11::as_cpp<double>(a_);
+      const double b = cpp11::as_cpp<double>(b_);
+      const double tol = cpp11::as_cpp<double>(tol_);
+      const size_t max_refinements = cpp11::as_cpp<size_t>(max_refinements_);
 
-      auto func = [&f](double x) { return cpp11::as_cpp<double>(f(x)); };
+      const auto func = [&f](const double x) { return cpp11::as_cpp<double>(f(x)); };
 
       boost::math::quadrature::tanh_sinh<double> integrator(max_refinements);
       result = integrator.integrate(func, a, b, tol);
@@ -46,10 +46,10 @@ extern "C" {
     char buf[8192] = "";
     try {
       cpp11::function f(f_);
-      double tol = cpp11::as_cpp<double>(tol_);
-      size_t max_refinements = cpp11::as_cpp<size_t>(max_refinements_);
+      const double tol = cpp11::as_cpp<double>(tol_);
+      const size_t max_refinements = cpp11::as_cpp<size_t>(max_refinements_);
 
-      auto func = [&f](double x) { return cpp11::as_cpp<double>(f(x)); };
+      const auto func = [&f](const double x) { return cpp11::as_cpp<double>(f(x)); };
 
       boost::math::quadrature::sinh_sinh<double> integrator(max_refinements);
       result = integrator.integrate(func, tol);
@@ -74,13 +74,13 @@ extern "C" {
     SEXP err = R_NilValue;
     char buf[8192] = "";
     try {
-      cpp11::function f(f_);
-      double a = cpp11::as_cpp<double>(a_);
-      double b = cpp11::as_cpp<double>(b_);
-      double tol = cpp11::as_cpp<double>(tol_);
-      size_t max_refinements = cpp11::as_cpp<size_t>(max_refinements_);
+      const cpp11::function f(f_);
+      const double a = cpp11::as_cpp<double>(a_);
+      const double b = cpp11::as_cpp<double>(b_);
+      const double tol = cpp11::as_cpp<double>(tol_);
+      const size_t max_refinements = cpp11::as_cpp<size_t>(max_refinements_);
 
-      auto func = [&f](double x) { return cpp11::as_cpp<double>(f(x)); };
+      const auto func = [&f](const double x) { return cpp11::as_cpp<double>(f(x)); };
 
       boost::math::quadrature::exp_sinh<double> integrator(max_refinements);
       result = integrator.integrate(func, a, b, tol);

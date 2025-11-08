@@ -38,57 +38,57 @@ QUARTERNARY_BOOST_FUNCTION(jacobi_double_prime, uint64_t, double, double, double
 extern "C" {
   SEXP chebyshev_clenshaw_recurrence_(SEXP c_, SEXP x_) {
     BEGIN_CPP11
-    std::vector<double> c = cpp11::as_cpp<std::vector<double>>(c_);
-    double x = cpp11::as_cpp<double>(x_);
-    double result = boost::math::chebyshev_clenshaw_recurrence(c.data(), c.size(), x);
-    return cpp11::as_sexp(result);
+    const std::vector<double> c = cpp11::as_cpp<std::vector<double>>(c_);
+    const double x = cpp11::as_cpp<double>(x_);
+    const double result = boost::math::chebyshev_clenshaw_recurrence(c.data(), c.size(), x);
+    return cpp11::as_sexp(std::move(result));
     END_CPP11
   }
 
   SEXP chebyshev_clenshaw_recurrence_ab_(SEXP c_, SEXP a_, SEXP b_, SEXP x_) {
     BEGIN_CPP11
-    std::vector<double> c = cpp11::as_cpp<std::vector<double>>(c_);
-    double a = cpp11::as_cpp<double>(a_);
-    double b = cpp11::as_cpp<double>(b_);
-    double x = cpp11::as_cpp<double>(x_);
-    double result = boost::math::chebyshev_clenshaw_recurrence(c.data(), c.size(), a, b, x);
-    return cpp11::as_sexp(result);
+    const std::vector<double> c = cpp11::as_cpp<std::vector<double>>(c_);
+    const double a = cpp11::as_cpp<double>(a_);
+    const double b = cpp11::as_cpp<double>(b_);
+    const double x = cpp11::as_cpp<double>(x_);
+    const double result = boost::math::chebyshev_clenshaw_recurrence(c.data(), c.size(), a, b, x);
+    return cpp11::as_sexp(std::move(result));
     END_CPP11
   }
 
   SEXP jacobi_derivative_(SEXP n_, SEXP alpha_, SEXP beta_, SEXP x_, SEXP k_) {
     BEGIN_CPP11
-    uint64_t n = cpp11::as_cpp<uint64_t>(n_);
-    double alpha = cpp11::as_cpp<double>(alpha_);
-    double beta = cpp11::as_cpp<double>(beta_);
-    double x = cpp11::as_cpp<double>(x_);
-    uint64_t k = cpp11::as_cpp<uint64_t>(k_);
-    double result = boost::math::jacobi_derivative(n, alpha, beta, x, k);
-    return cpp11::as_sexp(result);
+    const uint64_t n = cpp11::as_cpp<uint64_t>(n_);
+    const double alpha = cpp11::as_cpp<double>(alpha_);
+    const double beta = cpp11::as_cpp<double>(beta_);
+    const double x = cpp11::as_cpp<double>(x_);
+    const uint64_t k = cpp11::as_cpp<uint64_t>(k_);
+    const double result = boost::math::jacobi_derivative(n, alpha, beta, x, k);
+    return cpp11::as_sexp(std::move(result));
     END_CPP11
   }
 
   SEXP legendre_next_m_(SEXP l_, SEXP m_, SEXP x_, SEXP Pl_, SEXP Plm1_) {
     BEGIN_CPP11
-    int l = cpp11::as_cpp<int>(l_);
-    uint64_t m = cpp11::as_cpp<uint64_t>(m_);
-    double x = cpp11::as_cpp<double>(x_);
-    double Pl = cpp11::as_cpp<double>(Pl_);
-    double Plm1 = cpp11::as_cpp<double>(Plm1_);
-    double result = boost::math::legendre_next(l, m, x, Pl, Plm1);
-    return cpp11::as_sexp(result);
+    const int l = cpp11::as_cpp<int>(l_);
+    const uint64_t m = cpp11::as_cpp<uint64_t>(m_);
+    const double x = cpp11::as_cpp<double>(x_);
+    const double Pl = cpp11::as_cpp<double>(Pl_);
+    const double Plm1 = cpp11::as_cpp<double>(Plm1_);
+    const double result = boost::math::legendre_next(l, m, x, Pl, Plm1);
+    return cpp11::as_sexp(std::move(result));
     END_CPP11
   }
 
   SEXP laguerre_next_m_(SEXP n_, SEXP m_, SEXP x_, SEXP Ln_, SEXP Lnm1_) {
     BEGIN_CPP11
-    uint64_t n = cpp11::as_cpp<uint64_t>(n_);
-    uint64_t m = cpp11::as_cpp<uint64_t>(m_);
-    double x = cpp11::as_cpp<double>(x_);
-    double Ln = cpp11::as_cpp<double>(Ln_);
-    double Lnm1 = cpp11::as_cpp<double>(Lnm1_);
-    double result = boost::math::laguerre_next(n, m, x, Ln, Lnm1);
-    return cpp11::as_sexp(result);
+    const uint64_t n = cpp11::as_cpp<uint64_t>(n_);
+    const uint64_t m = cpp11::as_cpp<uint64_t>(m_);
+    const double x = cpp11::as_cpp<double>(x_);
+    const double Ln = cpp11::as_cpp<double>(Ln_);
+    const double Lnm1 = cpp11::as_cpp<double>(Lnm1_);
+    const double result = boost::math::laguerre_next(n, m, x, Ln, Lnm1);
+    return cpp11::as_sexp(std::move(result));
     END_CPP11
   }
 }

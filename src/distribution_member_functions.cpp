@@ -18,8 +18,8 @@ extern "C" {
       boostmath::as_cpp<std::string>(method_) == "clopper_pearson_exact"
         ? boost::math::binomial_distribution<>::clopper_pearson_exact_interval
         : boost::math::binomial_distribution<>::jeffreys_prior_interval;
-    double result = boost::math::binomial_distribution<>::find_lower_bound_on_p(trials, successes, probability, method);
-    return boostmath::as_sexp(result);
+    const double result = boost::math::binomial_distribution<>::find_lower_bound_on_p(trials, successes, probability, method);
+    return boostmath::as_sexp(std::move(result));
     END_CPP11
   }
   SEXP binomial_find_upper_bound_on_p_(SEXP trials_, SEXP successes_, SEXP probability_, SEXP method_) {
@@ -31,8 +31,8 @@ extern "C" {
       boostmath::as_cpp<std::string>(method_) == "clopper_pearson_exact"
         ? boost::math::binomial_distribution<>::clopper_pearson_exact_interval
         : boost::math::binomial_distribution<>::jeffreys_prior_interval;
-    double result = boost::math::binomial_distribution<>::find_upper_bound_on_p(trials, successes, probability, method);
-    return boostmath::as_sexp(result);
+    const double result = boost::math::binomial_distribution<>::find_upper_bound_on_p(trials, successes, probability, method);
+    return boostmath::as_sexp(std::move(result));
     END_CPP11
   }
 }

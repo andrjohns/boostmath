@@ -14,19 +14,17 @@ TERNARY_BOOST_FUNCTION(hypergeometric_1F1, double, double, double);
 TERNARY_BOOST_FUNCTION(hypergeometric_1F1_regularized, double, double, double);
 TERNARY_BOOST_FUNCTION(hypergeometric_pFq, std::vector<double>, std::vector<double>, double);
 
-extern "C" {
-  SEXP log_hypergeometric_1F1_(SEXP a_, SEXP b_, SEXP z_) {
-    BEGIN_CPP11
-    double a = cpp11::as_cpp<double>(a_);
-    double b = cpp11::as_cpp<double>(b_);
-    double z = cpp11::as_cpp<double>(z_);
-    int value_sign;
-    double value = boost::math::log_hypergeometric_1F1(a, b, z, &value_sign);
-    cpp11::writable::doubles result;
-    result.push_back(value);
-    result.attr("sign") = value_sign;
+extern "C" SEXP log_hypergeometric_1F1_(SEXP a_, SEXP b_, SEXP z_) {
+  BEGIN_CPP11
+  const double a = cpp11::as_cpp<double>(a_);
+  const double b = cpp11::as_cpp<double>(b_);
+  const double z = cpp11::as_cpp<double>(z_);
+  int value_sign;
+  const double value = boost::math::log_hypergeometric_1F1(a, b, z, &value_sign);
+  cpp11::writable::doubles result;
+  result.push_back(std::move(value));
+  result.attr("sign") = std::move(value_sign);
 
-    return cpp11::as_sexp(result);
-    END_CPP11
-  }
+  return cpp11::as_sexp(result);
+  END_CPP11
 }

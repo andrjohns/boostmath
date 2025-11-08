@@ -37,7 +37,7 @@ namespace boostmath {
   template <typename T, std::enable_if_t<std::is_same<T, std::complex<double>>::value>* = nullptr>
   inline std::complex<double> as_cpp(SEXP x) {
     Rcomplex r_complex = COMPLEX_ELT(x, 0);
-    return std::complex<double>(r_complex.r, r_complex.i);
+    return {r_complex.r, r_complex.i};
   }
 
   template <typename T, std::enable_if_t<is_arithmetic_container<T>::value>* = nullptr>
@@ -85,10 +85,6 @@ namespace boostmath {
       SET_VECTOR_ELT(data, i, as_sexp(x[i]));
     }
     return data;
-  }
-
-  inline SEXP as_sexp(void) {
-    return R_NilValue;
   }
 
   template <typename T, std::enable_if_t<is_cpp11<T>::value>* = nullptr>
