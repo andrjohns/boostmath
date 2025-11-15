@@ -18,7 +18,8 @@ BOOST_SOURCES = \
 	cyl_hankel_1.cpp \
 	cyl_hankel_2.cpp \
 	sph_hankel_1.cpp \
-	sph_hankel_2.cpp
+	sph_hankel_2.cpp \
+	fp_utilities.cpp
 
 BOOST_OBJECTS = $(BOOST_SOURCES:.cpp=.o)
 

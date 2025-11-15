@@ -475,6 +475,20 @@ extern "C" {
   SEXP daubechies_scaling_filter_(SEXP order_);
   SEXP daubechies_wavelet_filter_(SEXP order_);
 
+  // fp_utilities.cpp
+  SEXP float_next_(SEXP x_);
+  SEXP float_prior_(SEXP x_);
+  SEXP float_distance_(SEXP x_, SEXP y_);
+  SEXP float_advance_(SEXP x_, SEXP n_);
+  SEXP ulp_(SEXP x_);
+  SEXP relative_difference_(SEXP x_, SEXP y_);
+  SEXP epsilon_difference_(SEXP x_, SEXP y_);
+
+  // condition_numbers.cpp
+  SEXP summation_condition_number_(SEXP x_, SEXP kahan_);
+  SEXP summation_condition_number_op_(SEXP ptr_, SEXP kahan_, SEXP op_, SEXP x_);
+  SEXP evaluation_condition_number_(SEXP f_, SEXP x_);
+
   static const R_CallMethodDef CallEntries[] = {
     // gamma_functions.cpp
     {"tgamma_",     (DL_FUNC) &tgamma_,     1},
@@ -949,6 +963,20 @@ extern "C" {
     // filters
     {"daubechies_scaling_filter_", (DL_FUNC) &daubechies_scaling_filter_,  1},
     {"daubechies_wavelet_filter_", (DL_FUNC) &daubechies_wavelet_filter_,  1},
+
+    // fp_utilities.cpp
+    {"float_next_", (DL_FUNC) &float_next_, 1},
+    {"float_prior_", (DL_FUNC) &float_prior_, 1},
+    {"float_distance_", (DL_FUNC) &float_distance_, 2},
+    {"float_advance_", (DL_FUNC) &float_advance_, 2},
+    {"ulp_", (DL_FUNC) &ulp_, 1},
+    {"relative_difference_", (DL_FUNC) &relative_difference_, 2},
+    {"epsilon_difference_", (DL_FUNC) &epsilon_difference_, 2},
+
+    // condition_numbers.cpp
+    {"summation_condition_number_", (DL_FUNC) &summation_condition_number_, 2},
+    {"summation_condition_number_op_", (DL_FUNC) &summation_condition_number_op_, 4},
+    {"evaluation_condition_number_", (DL_FUNC) &evaluation_condition_number_, 2},
 
     {NULL, NULL, 0}
   };
