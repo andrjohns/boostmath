@@ -128,6 +128,9 @@
   [`chi_squared_quantile()`](https://andrjohns.github.io/boostmath/reference/chi_squared_distribution.md)
   [`chi_squared_find_degrees_of_freedom()`](https://andrjohns.github.io/boostmath/reference/chi_squared_distribution.md)
   : Chi-Squared Distribution Functions
+- [`summation_condition_number()`](https://andrjohns.github.io/boostmath/reference/condition_numbers.md)
+  [`evaluation_condition_number()`](https://andrjohns.github.io/boostmath/reference/condition_numbers.md)
+  : Condition Numbers
 - [`constants()`](https://andrjohns.github.io/boostmath/reference/constants.md)
   : Boost Math Constants
 - [`cubic_hermite()`](https://andrjohns.github.io/boostmath/reference/cubic_hermite.md)
@@ -188,6 +191,14 @@
   [`fisher_f_lcdf()`](https://andrjohns.github.io/boostmath/reference/fisher_f_distribution.md)
   [`fisher_f_quantile()`](https://andrjohns.github.io/boostmath/reference/fisher_f_distribution.md)
   : Fisher F Distribution Functions
+- [`float_next()`](https://andrjohns.github.io/boostmath/reference/fp_utilities.md)
+  [`float_prior()`](https://andrjohns.github.io/boostmath/reference/fp_utilities.md)
+  [`float_distance()`](https://andrjohns.github.io/boostmath/reference/fp_utilities.md)
+  [`float_advance()`](https://andrjohns.github.io/boostmath/reference/fp_utilities.md)
+  [`ulp()`](https://andrjohns.github.io/boostmath/reference/fp_utilities.md)
+  [`relative_difference()`](https://andrjohns.github.io/boostmath/reference/fp_utilities.md)
+  [`epsilon_difference()`](https://andrjohns.github.io/boostmath/reference/fp_utilities.md)
+  : Floating Point Utilities
 - [`gamma_distribution()`](https://andrjohns.github.io/boostmath/reference/gamma_distribution.md)
   [`gamma_pdf()`](https://andrjohns.github.io/boostmath/reference/gamma_distribution.md)
   [`gamma_lpdf()`](https://andrjohns.github.io/boostmath/reference/gamma_distribution.md)

@@ -4,6 +4,7 @@
 <url><loc>https://andrjohns.github.io/boostmath/LICENSE.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/articles/constants.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/articles/filters.html</loc></url>
+<url><loc>https://andrjohns.github.io/boostmath/articles/fp_utilities.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/articles/index.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/articles/interpolation.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/articles/quadrature-differentiation.html</loc></url>
@@ -39,6 +40,7 @@
 <url><loc>https://andrjohns.github.io/boostmath/reference/chatterjee_correlation.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/chebyshev_polynomials.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/chi_squared_distribution.html</loc></url>
+<url><loc>https://andrjohns.github.io/boostmath/reference/condition_numbers.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/constants.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/cubic_hermite.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/double_exponential_quadrature.html</loc></url>
@@ -50,6 +52,7 @@
 <url><loc>https://andrjohns.github.io/boostmath/reference/factorials_and_binomial_coefficients.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/filters.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/fisher_f_distribution.html</loc></url>
+<url><loc>https://andrjohns.github.io/boostmath/reference/fp_utilities.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/gamma_distribution.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/gamma_functions.html</loc></url>
 <url><loc>https://andrjohns.github.io/boostmath/reference/gegenbauer_polynomials.html</loc></url>

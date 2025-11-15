@@ -1,0 +1,58 @@
+# Boost Math - Floating Point Utilities
+
+## Floating Point Utilities
+
+The [Floating Point
+Utilities](https://www.boost.org/doc/libs/latest/libs/math/doc/html/utils.html)
+section of the Boost Math library cover a broad range of areas
+
+### [Floating-Point Representation Distance (ULP), and Finding Adjacent Floating-Point Values](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/next_float.html)
+
+``` r
+#  The next representable value which is greater than x
+print(float_next(1.0), digits = 20)
+#> [1] 1.000000000000000222
+#  The next representable value which is smaller than x
+print(float_prior(1.0), digits = 20)
+#> [1] 0.99999999999999988898
+# The number of distinct representations between a and b
+print(float_distance(1.0, 2.0), digits = 20)
+#> [1] 4503599627370496
+# A floating-point number r such that float_distance(val, r) == distance.
+print(float_advance(1.0, 10), digits = 20)
+#> [1] 1.0000000000000022204
+# One unit in the last place of x
+print(ulp(1.0), digits = 20)
+#> [1] 2.2204460492503130808e-16
+```
+
+### [Floating-point Comparison](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/float_comparison.html)
+
+``` r
+# The relative distance/error E between two values as defined by: fabs((a - b) / min(a, b))
+print(relative_difference(1.1, 1.1000009), digits = 20)
+#> [1] 8.1818181805395140825e-07
+# A convenience function that returns relative_difference(a, b) / eps where eps is the machine epsilon for the result type
+print(epsilon_difference(1.1, 1.1000009), digits = 20)
+#> [1] 3684763330.909090519
+```
+
+### [Condition Numbers](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cond.html)
+
+``` r
+# Create a summation condition number object
+scn <- summation_condition_number(kahan = TRUE)
+scn <- scn + 1.0
+scn <- scn + 2.0
+print(scn$sum())
+#> [1] 3
+print(scn$condition_number())
+#> [1] 1
+print(scn$l1_norm())
+#> [1] 3
+
+# Compute evaluation condition number for a function
+f <- function(x) { x^2 + 3*x + 2 }
+print(evaluation_condition_number(f, 1.0))
+#> [1] 0.8333333
+```

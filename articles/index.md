@@ -6,6 +6,8 @@
   Constants](https://andrjohns.github.io/boostmath/articles/constants.md):
 - [Boost Math -
   Filters](https://andrjohns.github.io/boostmath/articles/filters.md):
+- [Boost Math - Floating Point
+  Utilities](https://andrjohns.github.io/boostmath/articles/fp_utilities.md):
 - [Boost Math -
   Interpolation](https://andrjohns.github.io/boostmath/articles/interpolation.md):
 - [Boost Math - Quadrature and
