@@ -68,8 +68,11 @@ epsilon_difference <- function(x, y) {
 #' @examples
 #' # Create a summation condition number object
 #' scn <- summation_condition_number(kahan = TRUE)
-#' scn <- scn + 1.0
-#' scn <- scn + 2.0
+#' # Add some values
+#' scn$add(1.0)
+#' scn$add(2.0)
+#' scn$add(3.0)
+#' # Compute sum, condition number, and L1 norm
 #' print(scn$sum())
 #' print(scn$condition_number())
 #' print(scn$l1_norm())
@@ -92,24 +95,6 @@ summation_condition_number <- function(x = 0, kahan = TRUE) {
     ),
     class = "summation_condition_number"
   )
-}
-
-#' @exportS3Method "+" summation_condition_number
-`+.summation_condition_number` <- function(e1, e2) {
-  if (!inherits(e2, "numeric")) {
-    stop("Can only add numeric values to summation_condition_number objects.", call. = FALSE)
-  }
-  e1$add(e2)
-  e1
-}
-
-#' @exportS3Method "-" summation_condition_number
-`-.summation_condition_number` <- function(e1, e2) {
-  if (!inherits(e2, "numeric")) {
-    stop("Can only subtract numeric values from summation_condition_number objects.", call. = FALSE)
-  }
-  e1$subtract(e2)
-  e1
 }
 
 #' @rdname condition_numbers

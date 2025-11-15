@@ -26,8 +26,11 @@ Functions to compute condition numbers for summation operations.
 \examples{
 # Create a summation condition number object
 scn <- summation_condition_number(kahan = TRUE)
-scn <- scn + 1.0
-scn <- scn + 2.0
+# Add some values
+scn$add(1.0)
+scn$add(2.0)
+scn$add(3.0)
+# Compute sum, condition number, and L1 norm
 print(scn$sum())
 print(scn$condition_number())
 print(scn$l1_norm())
