@@ -36,14 +36,17 @@ condition number of the function evaluation at `x`.
 ``` r
 # Create a summation condition number object
 scn <- summation_condition_number(kahan = TRUE)
-scn <- scn + 1.0
-scn <- scn + 2.0
+# Add some values
+scn$add(1.0)
+scn$add(2.0)
+scn$add(3.0)
+# Compute sum, condition number, and L1 norm
 print(scn$sum())
-#> [1] 3
+#> [1] 6
 print(scn$condition_number())
 #> [1] 1
 print(scn$l1_norm())
-#> [1] 3
+#> [1] 6
 # Compute evaluation condition number for a function
 f <- function(x) { x^2 + 3*x + 2 }
 print(evaluation_condition_number(f, 1.0))

@@ -124,14 +124,17 @@ Numbers</a><a class="anchor" aria-label="anchor" href="#condition-numbers"></a>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a summation condition number object</span></span>
 <span><span class="va">scn</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/condition_numbers.html">summation_condition_number</a></span><span class="op">(</span>kahan <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">scn</span> <span class="op">&lt;-</span> <span class="va">scn</span> <span class="op">+</span> <span class="fl">1.0</span></span>
-<span><span class="va">scn</span> <span class="op">&lt;-</span> <span class="va">scn</span> <span class="op">+</span> <span class="fl">2.0</span></span>
+<span><span class="co"># Add some values</span></span>
+<span><span class="va">scn</span><span class="op">$</span><span class="fu">add</span><span class="op">(</span><span class="fl">1.0</span><span class="op">)</span></span>
+<span><span class="va">scn</span><span class="op">$</span><span class="fu">add</span><span class="op">(</span><span class="fl">2.0</span><span class="op">)</span></span>
+<span><span class="va">scn</span><span class="op">$</span><span class="fu">add</span><span class="op">(</span><span class="fl">3.0</span><span class="op">)</span></span>
+<span><span class="co"># Compute sum, condition number, and L1 norm</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">scn</span><span class="op">$</span><span class="fu">sum</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 3</span></span>
+<span><span class="co">#&gt; [1] 6</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">scn</span><span class="op">$</span><span class="fu">condition_number</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">scn</span><span class="op">$</span><span class="fu">l1_norm</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 3</span></span>
+<span><span class="co">#&gt; [1] 6</span></span>
 <span></span>
 <span><span class="co"># Compute evaluation condition number for a function</span></span>
 <span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span><span class="op">*</span><span class="va">x</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">}</span></span>
