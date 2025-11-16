@@ -1,6 +1,7 @@
 #include <cpp11.hpp>
 #include <cpp11/declarations.hpp>
 #include <boost/math/distributions.hpp>
+#include <boost/math/distributions/empirical_cumulative_distribution_function.hpp>
 #include "boostmath/macros.hpp"
 
 BINARY_DISTRIBUTION_BOOST(arcsine, double, double)
@@ -40,3 +41,24 @@ UNARY_DISTRIBUTION_BOOST(students_t, double)
 TERNARY_DISTRIBUTION_BOOST(triangular, double, double, double)
 BINARY_DISTRIBUTION_BOOST(uniform, double, double)
 BINARY_DISTRIBUTION_BOOST(weibull, double, double)
+
+extern "C" {
+  SEXP ecdf_create_(SEXP data_, SEXP sorted_) {
+    BEGIN_CPP11
+    using ecdf_t = boost::math::empirical_cumulative_distribution_function<std::vector<double>>;
+    std::vector<double> data = boostmath::as_cpp<std::vector<double>>(data_);
+    const bool sorted = boostmath::as_cpp<bool>(sorted_);
+    cpp11::external_pointer<ecdf_t> ecdf_ptr(new ecdf_t(std::move(data), sorted));
+    return ecdf_ptr;
+    END_CPP11
+  }
+
+  SEXP ecdf_val_(SEXP ecdf_ptr_, SEXP x_) {
+    BEGIN_CPP11
+    using ecdf_t = boost::math::empirical_cumulative_distribution_function<std::vector<double>>;
+    const cpp11::external_pointer<ecdf_t> ecdf_ptr(ecdf_ptr_);
+    const double x = boostmath::as_cpp<double>(x_);
+    return boostmath::as_sexp(ecdf_ptr->operator()(x));
+    END_CPP11
+  }
+}

@@ -279,6 +279,9 @@ extern "C" {
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(uniform)
   BINARY_DISTRIBUTION_BOOST_DECLARATIONS(weibull)
 
+  SEXP ecdf_create_(SEXP data_, SEXP sorted_);
+  SEXP ecdf_val_(SEXP ecdf_ptr_, SEXP x_);
+
   SEXP beta_find_alpha_meanvar_(SEXP x_, SEXP y_);
   SEXP beta_find_alpha_betax_(SEXP x_, SEXP y_, SEXP z_);
   SEXP beta_find_beta_meanvar_(SEXP x_, SEXP y_);
@@ -766,6 +769,8 @@ extern "C" {
     TERNARY_DISTRIBUTION_BOOST_CALLDEFS(triangular)
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(uniform)
     BINARY_DISTRIBUTION_BOOST_CALLDEFS(weibull)
+    {"ecdf_create_", (DL_FUNC) &ecdf_create_, 2},
+    {"ecdf_val_", (DL_FUNC) &ecdf_val_, 2},
 
     {"beta_find_alpha_meanvar_", (DL_FUNC) &beta_find_alpha_meanvar_, 2},
     {"beta_find_alpha_betax_", (DL_FUNC) &beta_find_alpha_betax_, 3},
