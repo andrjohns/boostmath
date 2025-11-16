@@ -151,6 +151,8 @@
   [`jacobi_zeta()`](https://andrjohns.github.io/boostmath/reference/elliptic_integrals.md)
   [`heuman_lambda()`](https://andrjohns.github.io/boostmath/reference/elliptic_integrals.md)
   : Elliptic Integrals
+- [`empirical_cumulative_distribution_function()`](https://andrjohns.github.io/boostmath/reference/empirical_cumulative_distribution_function.md)
+  : Empirical Cumulative Distribution Function (ECDF)
 - [`erf()`](https://andrjohns.github.io/boostmath/reference/error_functions.md)
   [`erfc()`](https://andrjohns.github.io/boostmath/reference/error_functions.md)
   [`erf_inv()`](https://andrjohns.github.io/boostmath/reference/error_functions.md)
