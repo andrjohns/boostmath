@@ -20,5 +20,5 @@ Create an empirical cumulative distribution function (ECDF) from a given vector.
 \examples{
 data <- c(1.2, 2.3, 3.1, 4.5, 5.0)
 ecdf_obj <- empirical_cumulative_distribution_function(data)
-ecdf_obj$value(3.0)  # Evaluate ECDF at x = 3.0
+ecdf_obj$ecdf(3.0)  # Evaluate ECDF at x = 3.0
 }

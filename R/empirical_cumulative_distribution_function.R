@@ -9,13 +9,13 @@
 #' @examples
 #' data <- c(1.2, 2.3, 3.1, 4.5, 5.0)
 #' ecdf_obj <- empirical_cumulative_distribution_function(data)
-#' ecdf_obj$value(3.0)  # Evaluate ECDF at x = 3.0
+#' ecdf_obj$ecdf(3.0)  # Evaluate ECDF at x = 3.0
 #' @export
 empirical_cumulative_distribution_function <- function(data, sorted = FALSE) {
   ecdf_ptr <- .Call(`ecdf_create_`, data, sorted)
   structure(
     list(
-      value = function(x) { .Call(`ecdf_val_`, ecdf_ptr, x) }
+      ecdf = function(x) { .Call(`ecdf_val_`, ecdf_ptr, x) }
     ),
     class = "empirical_cumulative_distribution_function"
   )
