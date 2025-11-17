@@ -12,7 +12,7 @@ empirical_cumulative_distribution_function(data, sorted = FALSE)
 \item{sorted}{A logical indicating whether the data is already sorted. Default is FALSE.}
 }
 \value{
-An object representing the ECDF, with member function \code{value(x)} to evaluate the ECDF at point(s) \code{x}.
+An object representing the ECDF, with member function \verb{$ecdf(x)} to evaluate the ECDF at point(s) \code{x}.
 }
 \description{
 Create an empirical cumulative distribution function (ECDF) from a given vector.

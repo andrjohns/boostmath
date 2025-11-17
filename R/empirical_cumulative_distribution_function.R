@@ -5,7 +5,7 @@
 #' @param data A numeric vector of data points.
 #' @param sorted A logical indicating whether the data is already sorted. Default is FALSE.
 #'
-#' @return An object representing the ECDF, with member function `value(x)` to evaluate the ECDF at point(s) `x`.
+#' @return An object representing the ECDF, with member function `$ecdf(x)` to evaluate the ECDF at point(s) `x`.
 #' @examples
 #' data <- c(1.2, 2.3, 3.1, 4.5, 5.0)
 #' ecdf_obj <- empirical_cumulative_distribution_function(data)
