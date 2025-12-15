@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/factorials.hpp>
 #include <boost/math/special_functions/binomial.hpp>
 #include "../boostmath/macros.hpp"

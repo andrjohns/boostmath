@@ -30,6 +30,7 @@ extern "C" SEXP constants_() {
   constants.push_back({"four_thirds_pi"_nm = boost::math::constants::four_thirds_pi<double>()});
   constants.push_back({"one_div_two_pi"_nm = boost::math::constants::one_div_two_pi<double>()});
   constants.push_back({"one_div_root_two_pi"_nm = boost::math::constants::one_div_root_two_pi<double>()});
+  constants.push_back({"log_pi"_nm = boost::math::constants::log_pi<double>()});
   constants.push_back({"root_pi"_nm = boost::math::constants::root_pi<double>()});
   constants.push_back({"root_half_pi"_nm = boost::math::constants::root_half_pi<double>()});
   constants.push_back({"root_two_pi"_nm = boost::math::constants::root_two_pi<double>()});

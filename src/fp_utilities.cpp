@@ -1,10 +1,7 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/next.hpp>
 #include <boost/math/special_functions/ulp.hpp>
 #include <boost/math/special_functions/relative_difference.hpp>
 #include <boost/math/tools/condition_numbers.hpp>
-#include "boostmath/sexp.hpp"
 #include "boostmath/macros.hpp"
 
 UNARY_BOOST_FUNCTION(float_next, double)

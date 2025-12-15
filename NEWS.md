@@ -1,3 +1,8 @@
+# boostmath 1.4.0
+  * Added `logit` and `logistic_sigmoid` functions
+  * Added `log_pi` constant
+  * Ooura fourier integrals now supported on platforms without long double support
+
 # boostmath 1.3.0
   * Added support for all Boost distribution functions (e.g., `pdf`, `kurtosis`, `variance`, etc.)
   * Exposed additional distribution utility functions (e.g., `binomial_find_lower_bound_on_p`, `chi_squared_find_degrees_of_freedom`)

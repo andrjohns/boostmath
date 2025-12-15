@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/bernoulli.hpp>
 #include <boost/math/special_functions/prime.hpp>
 #include <boost/math/special_functions/fibonacci.hpp>

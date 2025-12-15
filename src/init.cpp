@@ -94,6 +94,10 @@ extern "C" {
   SEXP jacobi_prime_(SEXP n_, SEXP alpha_, SEXP beta_, SEXP x_);
   SEXP jacobi_double_prime_(SEXP n_, SEXP alpha_, SEXP beta_, SEXP x_);
 
+  // logistic_functions.cpp
+  SEXP logit_(SEXP x_);
+  SEXP logistic_sigmoid_(SEXP x_);
+
   // bessel_functions.cpp
   SEXP cyl_bessel_j_(SEXP v_, SEXP x_);
   SEXP cyl_neumann_(SEXP v_ , SEXP x_);
@@ -583,6 +587,10 @@ extern "C" {
     {"jacobi_derivative_", (DL_FUNC) &jacobi_derivative_, 5},
     {"jacobi_prime_", (DL_FUNC) &jacobi_prime_, 4},
     {"jacobi_double_prime_", (DL_FUNC) &jacobi_double_prime_, 4},
+
+    // logistic_functions.cpp
+    {"logit_", (DL_FUNC) &logit_, 1},
+    {"logistic_sigmoid_", (DL_FUNC) &logistic_sigmoid_, 1},
 
     // bessel_functions.cpp
     {"cyl_bessel_j_", (DL_FUNC) &cyl_bessel_j_, 2},

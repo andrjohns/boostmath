@@ -1,6 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
-#include "boostmath/macros.hpp"
 #include <boost/math/interpolators/barycentric_rational.hpp>
 #include <boost/math/interpolators/bezier_polynomial.hpp>
 #include <boost/math/interpolators/bilinear_uniform.hpp>
@@ -13,6 +10,7 @@
 #include <boost/math/interpolators/pchip.hpp>
 #include <boost/math/interpolators/quintic_hermite.hpp>
 #include <boost/math/interpolators/whittaker_shannon.hpp>
+#include "boostmath/macros.hpp"
 
 POLYNOMIAL_TERNARY_INIT_BOOST(barycentric_rational, double, std::vector<double>, std::vector<double>, std::size_t)
 POLYNOMIAL_UNARY_EVAL_BOOST(barycentric_rational, double, double)

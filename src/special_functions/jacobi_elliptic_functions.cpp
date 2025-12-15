@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/jacobi_elliptic.hpp>
 #include "../boostmath/macros.hpp"
 
