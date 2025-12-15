@@ -4,8 +4,6 @@
 #define BOOST_MATH_NO_CXX17_HDR_EXECUTION
 #endif
 
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/statistics/anderson_darling.hpp>
 #include <boost/math/statistics/bivariate_statistics.hpp>
 #include <boost/math/statistics/chatterjee_correlation.hpp>

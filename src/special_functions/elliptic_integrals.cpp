@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/ellint_rf.hpp>
 #include <boost/math/special_functions/ellint_rd.hpp>
 #include <boost/math/special_functions/ellint_rj.hpp>

@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/sin_pi.hpp>
 #include <boost/math/special_functions/cos_pi.hpp>
 #include <boost/math/special_functions/log1p.hpp>

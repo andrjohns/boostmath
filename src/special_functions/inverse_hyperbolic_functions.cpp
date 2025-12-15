@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/acosh.hpp>
 #include <boost/math/special_functions/asinh.hpp>
 #include <boost/math/special_functions/atanh.hpp>

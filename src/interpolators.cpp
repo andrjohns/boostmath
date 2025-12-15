@@ -1,8 +1,4 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
-#include "boostmath/macros.hpp"
 #include <boost/math/interpolators/barycentric_rational.hpp>
-#include <boost/math/interpolators/bezier_polynomial.hpp>
 #include <boost/math/interpolators/bilinear_uniform.hpp>
 #include <boost/math/interpolators/cardinal_cubic_b_spline.hpp>
 #include <boost/math/interpolators/cardinal_quadratic_b_spline.hpp>
@@ -13,15 +9,11 @@
 #include <boost/math/interpolators/pchip.hpp>
 #include <boost/math/interpolators/quintic_hermite.hpp>
 #include <boost/math/interpolators/whittaker_shannon.hpp>
+#include "boostmath/macros.hpp"
 
 POLYNOMIAL_TERNARY_INIT_BOOST(barycentric_rational, double, std::vector<double>, std::vector<double>, std::size_t)
 POLYNOMIAL_UNARY_EVAL_BOOST(barycentric_rational, double, double)
 POLYNOMIAL_UNARY_CALL_BOOST(barycentric_rational, prime, double, double)
-
-POLYNOMIAL_UNARY_INIT_BOOST(bezier_polynomial, std::vector<std::array<double COMMA 3>>, std::vector<std::array<double COMMA 3>>)
-POLYNOMIAL_UNARY_EVAL_BOOST(bezier_polynomial, std::vector<std::array<double COMMA 3>>, double)
-POLYNOMIAL_UNARY_CALL_BOOST(bezier_polynomial, prime, std::vector<std::array<double COMMA 3>>, double)
-POLYNOMIAL_BINARY_CALL_VOID_BOOST(bezier_polynomial, edit_control_point, std::vector<std::array<double COMMA 3>>, std::array<double COMMA 3>, std::size_t)
 
 POLYNOMIAL_HEPTA_INIT_BOOST(bilinear_uniform, std::vector<double>, std::vector<double>, size_t, size_t, double, double, double, double)
 POLYNOMIAL_BINARY_EVAL_BOOST(bilinear_uniform, std::vector<double>, double, double)
@@ -83,4 +75,3 @@ POLYNOMIAL_NOARG_CALL_BOOST(cardinal_quintic_hermite, domain, std::vector<double
 POLYNOMIAL_TERNARY_INIT_BOOST(whittaker_shannon, std::vector<double>, std::vector<double>, double, double)
 POLYNOMIAL_UNARY_EVAL_BOOST(whittaker_shannon, std::vector<double>, double)
 POLYNOMIAL_UNARY_CALL_BOOST(whittaker_shannon, prime, std::vector<double>, double)
-

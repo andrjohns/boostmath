@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/distributions.hpp>
 #include "boostmath/macros.hpp"
 

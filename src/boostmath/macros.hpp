@@ -1,6 +1,7 @@
 #ifndef BOOSTMATH_MACROS_HPP
 #define BOOSTMATH_MACROS_HPP
 
+#include <cpp11/declarations.hpp>
 #include "sexp.hpp"
 
 #define NOARG_BOOST_MEMBER(name) \

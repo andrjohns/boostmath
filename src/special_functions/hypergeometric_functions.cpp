@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/hypergeometric_1F0.hpp>
 #include <boost/math/special_functions/hypergeometric_0F1.hpp>
 #include <boost/math/special_functions/hypergeometric_2F0.hpp>
@@ -20,9 +18,8 @@ extern "C" SEXP log_hypergeometric_1F1_(SEXP a_, SEXP b_, SEXP z_) {
   const double b = cpp11::as_cpp<double>(b_);
   const double z = cpp11::as_cpp<double>(z_);
   int value_sign;
-  const double value = boost::math::log_hypergeometric_1F1(a, b, z, &value_sign);
   cpp11::writable::doubles result;
-  result.push_back(std::move(value));
+  result.push_back(std::move(boost::math::log_hypergeometric_1F1(a, b, z, &value_sign)));
   result.attr("sign") = std::move(value_sign);
 
   return cpp11::as_sexp(result);

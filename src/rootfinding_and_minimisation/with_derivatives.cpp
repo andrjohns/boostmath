@@ -1,4 +1,3 @@
-#include <cpp11.hpp>
 #include <cpp11/declarations.hpp>
 #include <boost/math/tools/roots.hpp>
 #include "../boostmath/sexp.hpp"

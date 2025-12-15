@@ -12,6 +12,7 @@
 #include "special_functions/jacobi_elliptic_functions.cpp"
 #include "special_functions/jacobi_theta_functions.cpp"
 #include "special_functions/lambert_w_function.cpp"
+#include "special_functions/logistic_functions.cpp"
 #include "special_functions/number_series.cpp"
 #include "special_functions/owens_t_function.cpp"
 #include "special_functions/polynomials.cpp"

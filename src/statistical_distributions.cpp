@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/distributions.hpp>
 #include <boost/math/distributions/empirical_cumulative_distribution_function.hpp>
 #include "boostmath/macros.hpp"

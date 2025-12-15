@@ -1,5 +1,3 @@
-#include <cpp11.hpp>
-#include <cpp11/declarations.hpp>
 #include <boost/math/special_functions/bessel.hpp>
 #include <boost/math/special_functions/bessel_prime.hpp>
 #include "../boostmath/macros.hpp"
