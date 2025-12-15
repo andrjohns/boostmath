@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">boostmath</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,9 +139,15 @@ Integrals</a><a class="anchor" aria-label="anchor" href="#fourier-integrals"></a
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fourier sine integral of sin(x) with omega = 1</span></span>
-<span><span class="co"># ooura_fourier_sin(function(x) { 1 / x }, omega = 1)</span></span>
+<span><span class="fu"><a href="../reference/ooura_fourier_integrals.html">ooura_fourier_sin</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="fl">1</span> <span class="op">/</span> <span class="va">x</span> <span class="op">}</span>, omega <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1.570796</span></span>
+<span><span class="co">#&gt; attr(,"relative_error")</span></span>
+<span><span class="co">#&gt; [1] 1.265522e-11</span></span>
 <span><span class="co"># Fourier cosine integral of cos(x) with omega = 1</span></span>
-<span><span class="co"># ooura_fourier_cos(function(x) { 1/ (x * x + 1) }, omega = 1)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ooura_fourier_integrals.html">ooura_fourier_cos</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="fl">1</span><span class="op">/</span> <span class="op">(</span><span class="va">x</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span> <span class="op">}</span>, omega <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.5778637</span></span>
+<span><span class="co">#&gt; attr(,"relative_error")</span></span>
+<span><span class="co">#&gt; [1] 6.417739e-09</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="numerical-differentiation">

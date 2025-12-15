@@ -266,6 +266,17 @@ jacobi_derivative(2, 1, 2, 0.5, 3)
 #> [1] 0
 ```
 
+### [Logistic Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/logistic.html)
+
+``` r
+# Logistic Sigmoid Function
+logistic_sigmoid(0.5)
+#> [1] 0.6224593
+# Logit Function
+logit(0.7)
+#> [1] 0.8472979
+```
+
 ### [Bessel Functions](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bessel.html)
 
 ``` r

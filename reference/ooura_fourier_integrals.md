@@ -48,10 +48,14 @@ of the approximation.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
 # Fourier sine integral of sin(x) with omega = 1
 ooura_fourier_sin(function(x) { 1 / x }, omega = 1)
+#> [1] 1.570796
+#> attr(,"relative_error")
+#> [1] 1.265522e-11
 # Fourier cosine integral of cos(x) with omega = 1
 ooura_fourier_cos(function(x) { 1/ (x * x + 1) }, omega = 1)
-} # }
+#> [1] 0.5778637
+#> attr(,"relative_error")
+#> [1] 6.417739e-09
 ```

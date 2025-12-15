@@ -1,5 +1,12 @@
 # Changelog
 
+## boostmath 1.4.0
+
+- Added `logit` and `logistic_sigmoid` functions
+- Added `log_pi` constant
+- Ooura fourier integrals now supported on platforms without long double
+  support
+
 ## boostmath 1.3.0
 
 CRAN release: 2025-11-03

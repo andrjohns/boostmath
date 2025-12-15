@@ -54,9 +54,15 @@ exp_sinh(function(x) { exp(-3 * x) }, a = 0, b = Inf)
 
 ``` r
 # Fourier sine integral of sin(x) with omega = 1
-# ooura_fourier_sin(function(x) { 1 / x }, omega = 1)
+ooura_fourier_sin(function(x) { 1 / x }, omega = 1)
+#> [1] 1.570796
+#> attr(,"relative_error")
+#> [1] 1.265522e-11
 # Fourier cosine integral of cos(x) with omega = 1
-# ooura_fourier_cos(function(x) { 1/ (x * x + 1) }, omega = 1)
+ooura_fourier_cos(function(x) { 1/ (x * x + 1) }, omega = 1)
+#> [1] 0.5778637
+#> attr(,"relative_error")
+#> [1] 6.417739e-09
 ```
 
 ### [Numerical Differentiation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/diff.html)

@@ -400,6 +400,9 @@
   [`logistic_lcdf()`](https://andrjohns.github.io/boostmath/reference/logistic_distribution.md)
   [`logistic_quantile()`](https://andrjohns.github.io/boostmath/reference/logistic_distribution.md)
   : Logistic Distribution Functions
+- [`logistic_sigmoid()`](https://andrjohns.github.io/boostmath/reference/logistic_functions.md)
+  [`logit()`](https://andrjohns.github.io/boostmath/reference/logistic_functions.md)
+  : Logistic Functions
 - [`lognormal_distribution()`](https://andrjohns.github.io/boostmath/reference/lognormal_distribution.md)
   [`lognormal_pdf()`](https://andrjohns.github.io/boostmath/reference/lognormal_distribution.md)
   [`lognormal_lpdf()`](https://andrjohns.github.io/boostmath/reference/lognormal_distribution.md)

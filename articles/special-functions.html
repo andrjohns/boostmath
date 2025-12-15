@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">boostmath</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -352,11 +352,24 @@ Functions</a><a class="anchor" aria-label="anchor" href="#error-functions"></a>
 <span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
 </div>
 <div class="section level3">
+<h3 id="logistic-functions">
+<a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/logistic.html" class="external-link">Logistic
+Functions</a><a class="anchor" aria-label="anchor" href="#logistic-functions"></a>
+</h3>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Logistic Sigmoid Function</span></span>
+<span><span class="fu"><a href="../reference/logistic_functions.html">logistic_sigmoid</a></span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.6224593</span></span>
+<span><span class="co"># Logit Function</span></span>
+<span><span class="fu"><a href="../reference/logistic_functions.html">logit</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.8472979</span></span></code></pre></div>
+</div>
+<div class="section level3">
 <h3 id="bessel-functions">
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bessel.html" class="external-link">Bessel
 Functions</a><a class="anchor" aria-label="anchor" href="#bessel-functions"></a>
 </h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Bessel function of the first kind J_0(1)</span></span>
 <span><span class="fu"><a href="../reference/bessel_functions.html">cyl_bessel_j</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.7651977</span></span>
@@ -411,7 +424,7 @@ Functions</a><a class="anchor" aria-label="anchor" href="#bessel-functions"></a>
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hankel.html" class="external-link">Hankel
 Functions</a><a class="anchor" aria-label="anchor" href="#hankel-functions"></a>
 </h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/hankel_functions.html">cyl_hankel_1</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.03060402-5.441371i</span></span>
 <span><span class="fu"><a href="../reference/hankel_functions.html">cyl_hankel_2</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">0.5</span><span class="op">)</span></span>
@@ -426,7 +439,7 @@ Functions</a><a class="anchor" aria-label="anchor" href="#hankel-functions"></a>
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/airy.html" class="external-link">Airy
 Functions</a><a class="anchor" aria-label="anchor" href="#airy-functions"></a>
 </h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/airy_functions.html">airy_ai</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.03492413</span></span>
 <span><span class="fu"><a href="../reference/airy_functions.html">airy_bi</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
@@ -449,7 +462,7 @@ Functions</a><a class="anchor" aria-label="anchor" href="#airy-functions"></a>
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ellint.html" class="external-link">Elliptic
 Integrals</a><a class="anchor" aria-label="anchor" href="#elliptic-integrals"></a>
 </h3>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Carlson's elliptic integral Rf with parameters x = 1, y = 2, z = 3</span></span>
 <span><span class="fu"><a href="../reference/elliptic_integrals.html">ellint_rf</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.7269459</span></span>
@@ -501,7 +514,7 @@ Integrals</a><a class="anchor" aria-label="anchor" href="#elliptic-integrals"></
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/jacobi.html" class="external-link">Jacobi
 Elliptic Functions</a><a class="anchor" aria-label="anchor" href="#jacobi-elliptic-functions"></a>
 </h3>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Jacobi Elliptic Functions</span></span>
 <span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
 <span><span class="va">u</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
@@ -545,7 +558,7 @@ Elliptic Functions</a><a class="anchor" aria-label="anchor" href="#jacobi-ellipt
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/jacobi_theta.html" class="external-link">Jacobi
 Theta Functions</a><a class="anchor" aria-label="anchor" href="#jacobi-theta-functions"></a>
 </h3>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Jacobi Theta Functions</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
 <span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fl">0.9</span></span>
@@ -580,7 +593,7 @@ Theta Functions</a><a class="anchor" aria-label="anchor" href="#jacobi-theta-fun
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/lambert_w.html" class="external-link">Lambert
 W Function</a><a class="anchor" aria-label="anchor" href="#lambert-w-function"></a>
 </h3>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Lambert W Function (Principal Branch)</span></span>
 <span><span class="fu"><a href="../reference/lambert_w_function.html">lambert_w0</a></span><span class="op">(</span><span class="fl">0.3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.2367553</span></span>
@@ -599,7 +612,7 @@ W Function</a><a class="anchor" aria-label="anchor" href="#lambert-w-function"><
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/zetas.html" class="external-link">Zeta
 Functions</a><a class="anchor" aria-label="anchor" href="#zeta-functions"></a>
 </h3>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Riemann Zeta Function</span></span>
 <span><span class="fu"><a href="../reference/zeta.html">zeta</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>  <span class="co"># Should return pi^2 / 6</span></span>
 <span><span class="co">#&gt; [1] 1.644934</span></span></code></pre></div>
@@ -609,7 +622,7 @@ Functions</a><a class="anchor" aria-label="anchor" href="#zeta-functions"></a>
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/expint.html" class="external-link">Exponential
 Integrals</a><a class="anchor" aria-label="anchor" href="#exponential-integrals"></a>
 </h3>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Exponential integral En with n = 1 and z = 2</span></span>
 <span><span class="fu"><a href="../reference/exponential_integrals.html">expint_en</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.04890051</span></span>
@@ -622,7 +635,7 @@ Integrals</a><a class="anchor" aria-label="anchor" href="#exponential-integrals"
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hypergeometric.html" class="external-link">Hypergeometric
 Functions</a><a class="anchor" aria-label="anchor" href="#hypergeometric-functions"></a>
 </h3>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Hypergeometric Function 1F0</span></span>
 <span><span class="fu"><a href="../reference/hypergeometric_functions.html">hypergeometric_1F0</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">0.2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1.5625</span></span>
@@ -652,7 +665,7 @@ Functions</a><a class="anchor" aria-label="anchor" href="#hypergeometric-functio
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/powers.html" class="external-link">Basic
 Functions</a><a class="anchor" aria-label="anchor" href="#basic-functions"></a>
 </h3>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># sin(pi * 0.5)</span></span>
 <span><span class="fu"><a href="../reference/basic_functions.html">sin_pi</a></span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>
@@ -683,7 +696,7 @@ Functions</a><a class="anchor" aria-label="anchor" href="#basic-functions"></a>
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sinc.html" class="external-link">Sinus
 Cardinal and Hyperbolic Sinus Cardinal Functions</a><a class="anchor" aria-label="anchor" href="#sinus-cardinal-and-hyperbolic-sinus-cardinal-functions"></a>
 </h3>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Sinus cardinal function</span></span>
 <span><span class="fu"><a href="../reference/sinus_cardinal_hyperbolic_functions.html">sinc_pi</a></span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.9588511</span></span>
@@ -696,7 +709,7 @@ Cardinal and Hyperbolic Sinus Cardinal Functions</a><a class="anchor" aria-label
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/inv_hyper.html" class="external-link">Inverse
 Hyperbolic Functions</a><a class="anchor" aria-label="anchor" href="#inverse-hyperbolic-functions"></a>
 </h3>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Inverse Hyperbolic Cosine</span></span>
 <span><span class="fu"><a href="../reference/inverse_hyperbolic_functions.html">acosh_boost</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1.316958</span></span>
@@ -712,7 +725,7 @@ Hyperbolic Functions</a><a class="anchor" aria-label="anchor" href="#inverse-hyp
 <a href="https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/owens_t.html" class="external-link">Owen’s
 T Function</a><a class="anchor" aria-label="anchor" href="#owens-t-function"></a>
 </h3>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Owens T Function</span></span>
 <span><span class="fu"><a href="../reference/owens_t.html">owens_t</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 0.04306469</span></span></code></pre></div>
