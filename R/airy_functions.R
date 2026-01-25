@@ -1,8 +1,38 @@
 #' @title Airy Functions
-#' @description Functions to compute the Airy functions Ai and Bi, their derivatives, and their zeros.
+#' @description
+#' Functions to compute the Airy functions Ai and Bi, their derivatives, and their zeros.
+#'
+#' The Airy functions are the two linearly independent solutions to the differential equation:
+#'
+#' \deqn{y'' - xy = 0}
+#'
+#' **Airy Ai Function:**
+#' The first solution to the Airy differential equation. For negative x values, Ai(x) exhibits
+#' oscillatory behavior. For positive x values, Ai(x) monotonically decreases toward zero.
+#'
+#' **Airy Bi Function:**
+#' The second solution to the Airy differential equation. For negative x values, Bi(x) exhibits
+#' cyclic oscillation. For positive x values, Bi(x) tends toward infinity.
+#'
+#' **Airy Ai' Function:**
+#' The derivative of the first solution to the Airy differential equation. For negative x values,
+#' Ai'(x) displays cyclic oscillation. For positive x values, Ai'(x) approaches zero asymptotically.
+#'
+#' **Airy Bi' Function:**
+#' The derivative of the second solution to the Airy differential equation. For negative x values,
+#' Bi'(x) oscillates cyclically. For positive x values, Bi'(x) increases toward infinity.
+#'
+#' **Zeros of Airy Functions:**
+#' The zeros are the values where Ai(x) = 0 or Bi(x) = 0. The zeros are indexed starting from 1.
+#' The first few zeros are approximately:
+#' * Ai: -2.33811, -4.08795, -5.52056, ...
+#' * Bi: -1.17371, -3.27109, -4.83074, ...
+#'
+#' All functions are implemented using relationships to Bessel functions for numerical accuracy.
+#'
 #' @name airy_functions
 #' @param x Input numeric value
-#' @param m The index of the zero to find (1-based).
+#' @param m The index of the zero to find (1-based indexing, so m=1 returns the first zero).
 #' @param start_index The starting index for the zeros (1-based).
 #' @param number_of_zeros The number of zeros to find.
 #' @return Single numeric value for the Airy functions and their derivatives, or a vector of length `number_of_zeros` for the multiple zero functions.

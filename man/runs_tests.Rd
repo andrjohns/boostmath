@@ -11,22 +11,50 @@ runs_above_and_below_threshold(v, threshold)
 runs_above_and_below_median(v)
 }
 \arguments{
-\item{v}{A numeric vector.}
+\item{v}{A numeric vector containing the sequence to test.}
 
-\item{threshold}{A single numeric value.}
+\item{threshold}{A single numeric value to serve as the threshold for the test (for \code{runs_above_and_below_threshold}).}
 }
 \value{
-A two-element numeric vector containing the t-statistic and the p-value.
+A two-element numeric vector:
+\itemize{
+\item The first element is the \strong{t-statistic}.
+\item The second element is the \strong{p-value} (two-sided).
+}
 }
 \description{
-Functions for Runs Tests.
+The runs test is a statistical test that checks a randomness hypothesis for a two-valued data sequence.
+It can be used to test the hypothesis that the elements of the sequence are mutually independent.
+
+\strong{Runs Above and Below Median:}
+Determines if a sequence is random by observing the number of consecutive values which exceed (or are below) the median of the sequence.
+Values equal to the median are ignored.
+The expected number of runs and variance are calculated according to NIST standards to derive a test statistic and p-value.
+This function calculates the median internally.
+
+\strong{Runs Above and Below Threshold:}
+similar to the median test, but uses a user-specified \code{threshold} instead of the calculated median.
+This is more efficient if the median is already known or if a different threshold is required.
+}
+\details{
+The test statistic is approximated as a standard normal distribution to extract the p-value.
+If the p-value is small (e.g., < 0.05), the null hypothesis of randomness is rejected.
 }
 \examples{
-# Runs Above and Below Threshold
-runs_above_and_below_threshold(c(1, 2, 3, 4, 5), threshold = 3)
-# Runs Above and Below Median
-runs_above_and_below_median(c(1, 2, 3, 4, 5))
+# Runs Above and Below Threshold with a known threshold
+v <- c(1, 2, 3, 4, 5, 1, 2, 3, 4, 5)
+runs_above_and_below_threshold(v, threshold = 3)
+
+# Runs Above and Below Median (calculates median = 3 internally)
+runs_above_and_below_median(v)
+
+# Example of a non-random sequence (fewer runs than expected)
+v_non_random <- c(rep(1, 5), rep(10, 5))
+runs_above_and_below_median(v_non_random)
+}
+\references{
+NIST/SEMATECH e-Handbook of Statistical Methods, "Runs Test for Detecting Non-randomness", \url{https://www.itl.nist.gov/div898/handbook/eda/section3/eda35d.htm}
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/runs_test.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/runs_test.html}{Boost Documentation}
 }

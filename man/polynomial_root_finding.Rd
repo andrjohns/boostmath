@@ -20,36 +20,50 @@ cubic_root_condition_number(a, b, c, d, root)
 quartic_roots(a, b, c, d, e)
 }
 \arguments{
-\item{a}{Coefficient of the polynomial term (e.g., for quadratic ax^2 + bx + c, a is the coefficient of x^2).}
+\item{a}{Coefficient of the highest degree term.}
 
-\item{b}{Coefficient of the linear term (e.g., for quadratic ax^2 + bx + c, b is the coefficient of x).}
+\item{b}{Coefficient of the second highest degree term.}
 
-\item{c}{Constant term (e.g., for quadratic ax^2 + bx + c, c is the constant).}
+\item{c}{Coefficient of the third highest degree term (or constant for quadratic).}
 
-\item{d}{Coefficient of the cubic term (for cubic ax^3 + bx^2 + cx + d, d is the constant).}
+\item{d}{Coefficient of the fourth highest degree term (or constant for cubic).}
 
 \item{root}{The root to evaluate the residual or condition number at.}
 
-\item{e}{Coefficient of the quartic term (for quartic ax^4 + bx^3 + cx^2 + dx + e, e is the constant).}
+\item{e}{Constant term for quartic.}
 }
 \value{
-A numeric vector of the polynomial roots, residual, or condition number.
+A numeric vector containing the real roots of the polynomial.
 }
 \description{
-Functions for finding roots of polynomials of various degrees.
+Functions for finding roots of polynomials of degree 2, 3, and 4 (quadratic, cubic, quartic).
+
+\strong{Quadratic Roots:}
+Solves \eqn{ax^2 + bx + c = 0}.
+Returns real roots. If roots are complex, behavior depends on implementation (typically NaN for this real-valued interface).
+
+\strong{Cubic Roots:}
+Solves \eqn{ax^3 + bx^2 + cx + d = 0}.
+Returns real roots.
+
+\strong{Quartic Roots:}
+Solves \eqn{ax^4 + bx^3 + cx^2 + dx + e = 0}.
+Returns real roots.
 }
 \details{
-This package provides functions to find roots of quadratic, cubic, and quartic polynomials. The functions return the roots as numeric vectors.
+These functions use analytic formulas where possible and numerically stable implementations to avoid catastrophic cancellation.
 }
 \examples{
-# Example of finding quadratic roots
+# Quadratic: x^2 - 3x + 2 = 0 -> Roots: 1, 2
 quadratic_roots(1, -3, 2)
-# Example of finding cubic roots
+
+# Cubic: x^3 - 6x^2 + 11x - 6 = 0 -> Roots: 1, 2, 3
 cubic_roots(1, -6, 11, -6)
-# Example of finding quartic roots
+
+# Quartic: x^4 - 10x^3 + 35x^2 - 50x + 24 = 0 -> Roots: 1, 2, 3, 4
 quartic_roots(1, -10, 35, -50, 24)
-# Example of finding cubic root residual
+
+# Residual and Condition Number
 cubic_root_residual(1, -6, 11, -6, 1)
-# Example of finding cubic root condition number
 cubic_root_condition_number(1, -6, 11, -6, 1)
 }

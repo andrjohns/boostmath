@@ -11,7 +11,7 @@ expint_en(n, z)
 expint_ei(z)
 }
 \arguments{
-\item{n}{Order of the integral (for En)}
+\item{n}{Order of the integral (for En), must be a non-negative integer}
 
 \item{z}{Argument of the integral (for En and Ei)}
 }
@@ -20,6 +20,31 @@ A single numeric value with the computed exponential integral.
 }
 \description{
 Functions to compute various exponential integrals, including En and Ei.
+
+Exponential integrals are fundamental special functions in mathematical analysis
+appearing in many applications including radiative transfer, antenna theory,
+and solutions to differential equations.
+
+\strong{Exponential Integral En:}
+
+Defined by the integral:
+\deqn{E_n(z) = \int_1^\infty \frac{e^{-zt}}{t^n} dt}
+
+The function uses different computational strategies: continued fraction expansion
+for large z, and infinite series for small z. Special case E1 (when n=1) employs
+rational approximations for enhanced accuracy.
+
+\strong{Exponential Integral Ei:}
+
+Defined by the integral:
+\deqn{Ei(z) = -\int_{-z}^\infty \frac{e^{-t}}{t} dt}
+
+For z < 0, the function uses rational approximations via the zeta function.
+For z > 0, it employs infinite series for arbitrary precision or optimized
+rational approximations for standard precision types.
+
+Both functions are implemented using high-accuracy algorithms with sub-epsilon
+precision over most of their range.
 }
 \examples{
 # Exponential integral En with n = 1 and z = 2
@@ -28,5 +53,5 @@ expint_en(1, 2)
 expint_ei(2)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/expint.html}{Boost Documentation} for
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/expint.html}{Boost Documentation} for more details on the mathematical background.
 }

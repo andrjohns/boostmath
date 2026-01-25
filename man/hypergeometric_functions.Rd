@@ -26,21 +26,79 @@ log_hypergeometric_1F1(a, b, z)
 hypergeometric_pFq(a, b, z)
 }
 \arguments{
-\item{a}{Parameter of the hypergeometric function}
+\item{a}{Parameter of the hypergeometric function (numerator parameter)}
 
 \item{z}{Argument of the hypergeometric function}
 
-\item{b}{Second parameter of the hypergeometric function}
+\item{b}{Denominator parameter of the hypergeometric function}
 
-\item{a1}{First parameter of the hypergeometric function}
+\item{a1}{First numerator parameter (for 2F0)}
 
-\item{a2}{Second parameter of the hypergeometric function}
+\item{a2}{Second numerator parameter (for 2F0)}
 }
 \value{
 A single numeric value with the computed hypergeometric function.
 }
 \description{
-Functions to compute various hypergeometric functions.
+Functions to compute various hypergeometric functions, which are solutions to hypergeometric
+differential equations and generalize many special functions.
+
+Hypergeometric functions are defined by series expansions where (a)_n denotes the rising
+factorial (Pochhammer symbol). They appear in solutions to many differential equations
+and unify numerous special functions.
+
+\strong{Specific Hypergeometric Functions:}
+\itemize{
+\item \strong{0F1(b, z):}
+\itemize{
+\item \code{hypergeometric_0F1(b, z)}: Zero numerator parameters, one denominator parameter
+\item Implemented via defining series when convergent, continued fractions for divergent cases,
+or Bessel function relations
+\item Domain error when b is an integer ≤ 0
+}
+\item \strong{1F0(a, z):}
+\itemize{
+\item \code{hypergeometric_1F0(a, z)}: One numerator parameter, zero denominator parameters
+}
+\item \strong{2F0(a1, a2, z):}
+\itemize{
+\item \code{hypergeometric_2F0(a1, a2, z)}: Two numerator parameters, zero denominator parameters
+}
+\item \strong{1F1(a, b, z):} Confluent hypergeometric function (Kummer's function)
+\itemize{
+\item \code{hypergeometric_1F1(a, b, z)}: Standard form, solves Kummer's equation
+\item Equivalent to Mathematica's Hypergeometric1F1[a, b, z] and Maple's KummerM(a, b, z)
+\item For |z| < 1, has a convergent hypergeometric series expansion
+}
+\item \strong{Regularized 1F1:}
+\itemize{
+\item \code{hypergeometric_1F1_regularized(a, b, z)}: Normalized version that avoids
+spurious overflow/underflow
+}
+\item \strong{Logarithmic 1F1:}
+\itemize{
+\item \code{log_hypergeometric_1F1(a, b, z)}: Returns log of 1F1 for numerical stability
+}
+}
+
+\strong{Generalized Hypergeometric Function pFq:}
+\itemize{
+\item \code{hypergeometric_pFq(a, b, z)}: General form with p numerator parameters and
+q denominator parameters
+\itemize{
+\item a: vector of upper (numerator) parameters
+\item b: vector of lower (denominator) parameters
+\item Uses direct summation of the series with optimizations
+\item Example: pFq with a = (2,3,4) and b = (5,6,7,8) computes 3F4
+}
+}
+
+\strong{Implementation:}
+
+The 1F1 function uses multiple computational methods including direct series,
+Kummer's relation, asymptotic expansions, Tricomi's approximation, Luke's rational
+approximation, and recurrence relations, selected based on parameter ranges for
+optimal accuracy and efficiency.
 }
 \examples{
 # Hypergeometric Function 1F0
@@ -49,14 +107,14 @@ hypergeometric_1F0(2, 0.2)
 hypergeometric_0F1(1, 0.8)
 # Hypergeometric Function 2F0
 hypergeometric_2F0(0.1, -1, 0.1)
-# Hypergeometric Function 1F1
+# Hypergeometric Function 1F1 (Kummer's function)
 hypergeometric_1F1(2, 3, 1)
-# Regularised Hypergeometric Function 1F1
+# Regularized Hypergeometric Function 1F1
 hypergeometric_1F1_regularized(2, 3, 1)
 # Logarithm of the Hypergeometric Function 1F1
 log_hypergeometric_1F1(2, 3, 1)
-# Hypergeometric Function pFq
-hypergeometric_pFq(c(2, 3), c(4, 5), 6)
+# Generalized Hypergeometric Function pFq (3F4 example)
+hypergeometric_pFq(c(2, 3, 4), c(5, 6, 7, 8), 0.5)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/hypergeometric.html}{Boost Documentation} for more details on the mathematical background.

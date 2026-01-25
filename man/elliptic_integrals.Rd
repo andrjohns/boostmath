@@ -38,30 +38,94 @@ jacobi_zeta(k, phi)
 heuman_lambda(k, phi)
 }
 \arguments{
-\item{x}{First parameter of the integral}
+\item{x}{First parameter of Carlson's integral (must be non-negative)}
 
-\item{y}{Second parameter of the integral}
+\item{y}{Second parameter of Carlson's integral}
 
-\item{z}{Third parameter of the integral}
+\item{z}{Third parameter of Carlson's integral}
 
-\item{p}{Fourth parameter of the integral (for Rj)}
+\item{p}{Fourth parameter of the integral (for Rj, must be non-zero)}
 
-\item{k}{Elliptic modulus (for incomplete elliptic integrals)}
+\item{k}{Elliptic modulus for Legendre-form integrals}
 
-\item{phi}{Amplitude (for incomplete elliptic integrals)}
+\item{phi}{Amplitude (angle) for incomplete elliptic integrals}
 
-\item{n}{Characteristic (for incomplete elliptic integrals of the third kind)}
+\item{n}{Characteristic for elliptic integrals of the third kind}
 }
 \value{
 A single numeric value with the computed elliptic integral.
 }
 \description{
-Functions to compute various elliptic integrals, including Carlson's elliptic integrals and incomplete elliptic integrals.
+Functions to compute various elliptic integrals, including Carlson's elliptic integrals
+and Legendre-form incomplete elliptic integrals.
+
+Elliptic integrals are integrals of the form where the integrand is a rational function
+of elementary functions and a square root of a cubic or quartic polynomial. They appear
+in many physical problems including pendulum motion, arc length of ellipses, and
+electromagnetic field calculations.
+
+\strong{Carlson's Elliptic Integrals:}
+
+Carlson's forms provide unified computational methods with satisfactory precision,
+superior to traditional Gauss and Landen transformations. Implementation uses the
+duplication theorem to iteratively bring parameters together.
+\itemize{
+\item \code{ellint_rf(x, y, z)}: Carlson's elliptic integral RF (first kind).
+Requires all arguments non-negative with at most one equal to zero.
+\item \code{ellint_rd(x, y, z)}: Carlson's elliptic integral RD.
+Requires x, y non-negative with at most one zero, and z ≥ 0.
+\item \code{ellint_rj(x, y, z, p)}: Carlson's elliptic integral RJ (third kind).
+Requires x, y, z non-negative with at most one zero, and p ≠ 0.
+For p < 0, returns Cauchy principal value.
+\item \code{ellint_rc(x, y)}: Carlson's elliptic integral RC (degenerate form).
+Requires x > 0 and y ≠ 0. Equivalent to RF(x, y, y).
+For y < 0, returns Cauchy principal value.
+\item \code{ellint_rg(x, y, z)}: Carlson's elliptic integral RG (second kind).
+Requires x and y to be non-negative.
+}
+
+\strong{Legendre-Form Elliptic Integrals:}
+\itemize{
+\item \strong{First Kind F(φ, k) and K(k):}
+\deqn{F(\phi, k) = \int_0^\phi \frac{d\theta}{\sqrt{1 - k^2\sin^2\theta}}}
+\itemize{
+\item \code{ellint_1(k, phi)}: Incomplete form. Requires k²sin²(φ) < 1
+\item \code{ellint_1(k)}: Complete form K(k) = F(π/2, k). Requires |k| < 1
+}
+\item \strong{Second Kind E(φ, k) and E(k):}
+\itemize{
+\item \code{ellint_2(k, phi)}: Incomplete form. Requires k²sin²(φ) < 1
+\item \code{ellint_2(k)}: Complete form E(k) = E(π/2, k). Requires |k| < 1
+}
+\item \strong{Third Kind Π(n, φ, k) and Π(n, k):}
+\itemize{
+\item \code{ellint_3(k, n, phi)}: Incomplete form.
+Requires k²sin²(φ) < 1 and n < 1/sin²(φ)
+\item \code{ellint_3(k, n)}: Complete form Π(n, k) = Π(n, π/2, k).
+Requires |k| < 1 and n < 1
+\item Special cases: Π(0, φ, k) = F(φ, k)
+}
+\item \strong{Elliptic Integral D(φ, k) and D(k):}
+Legendre's fourth integral combining the other three.
+\itemize{
+\item \code{ellint_d(k, phi)}: Incomplete form
+\item \code{ellint_d(k)}: Complete form
+}
+}
+
+\strong{Related Functions:}
+\itemize{
+\item \code{jacobi_zeta(k, phi)}: Jacobi zeta function
+\item \code{heuman_lambda(k, phi)}: Heuman's lambda function
+}
+
+All Legendre-form functions are implemented in terms of Carlson's integrals
+for computational efficiency and numerical stability.
 }
 \examples{
 # Carlson's elliptic integral Rf with parameters x = 1, y = 2, z = 3
 ellint_rf(1, 2, 3)
-#' # Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
+# Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
 ellint_rd(1, 2, 3)
 # Carlson's elliptic integral Rj with parameters x = 1, y = 2, z = 3, p = 4
 ellint_rj(1, 2, 3, 4)

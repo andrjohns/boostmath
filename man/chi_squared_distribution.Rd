@@ -31,11 +31,11 @@ chi_squared_find_degrees_of_freedom(
 )
 }
 \arguments{
-\item{df}{degrees of freedom (df > 0)}
+\item{df}{Degrees of freedom (df > 0).}
 
-\item{x}{quantile}
+\item{x}{Quantile value (x ≥ 0).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 
 \item{difference_from_variance}{The difference from the assumed nominal variance that is to be detected: Note that the sign of this value is critical (see the documentation for more details).}
 
@@ -51,7 +51,26 @@ chi_squared_find_degrees_of_freedom(
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Chi-Squared distribution.
+Functions to compute the probability density function, cumulative distribution
+function, quantile function, and sample-size estimation for the Chi-Squared distribution.
+
+With degrees of freedom \deqn{\nu > 0}, the PDF is
+
+\deqn{f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
+
+and the CDF is given by the regularized incomplete gamma function
+\deqn{P(\nu/2, x/2)}.
+
+\strong{Accuracy and Implementation Notes:}
+The CDF and quantiles are implemented via incomplete gamma functions. Specifically,
+the PDF uses \verb{gamma_p_derivative(\\nu/2, x/2)/2}, the CDF uses \code{gamma_p}, the
+complement uses \code{gamma_q}, and quantiles use \code{gamma_p_inv}/\code{gamma_q_inv}. Accuracy
+therefore follows that of the incomplete gamma functions.
+
+\strong{Sample Size Estimation:}
+\code{chi_squared_find_degrees_of_freedom} estimates the sample size required to detect
+a difference from a nominal variance. The sign of \code{difference_from_variance} determines
+whether the test is for higher or lower variance.
 }
 \examples{
 # Chi-Squared distribution with 3 degrees of freedom

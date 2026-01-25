@@ -1,13 +1,51 @@
 #' @title Legendre Polynomials and Related Functions
 #' @name legendre_polynomials
-#' @description Functions to compute Legendre polynomials of the first and second kind, their derivatives, zeros, and related functions.
+#' @description
+#' Functions to compute Legendre polynomials of the first and second kind, their derivatives,
+#' zeros, and related functions.
+#'
+#' Legendre polynomials are orthogonal polynomials that are solutions to Legendre's
+#' differential equation. They appear in physics (multipole expansions, solutions to
+#' Laplace's equation in spherical coordinates) and numerical analysis (Gaussian quadrature).
+#'
+#' **Legendre Polynomials of the First Kind P_n(x):**
+#'
+#' Standard solutions to the Legendre differential equation.
+#' * Domain: -1 ≤ x ≤ 1 (domain error outside this range)
+#' * Reflection formula: P_{-l-1}(x) = P_l(x)
+#' * `legendre_p(n, x)`: Evaluates P_n(x)
+#' * `legendre_p_prime(n, x)`: Derivative of P_n(x)
+#' * `legendre_p_zeros(n)`: Returns zeros in increasing order. For odd n, first zero is 0.
+#'   Computed using Newton's method with Tricomi's initial estimates (O(n²) complexity)
+#'
+#' **Associated Legendre Polynomials P_n^m(x):**
+#'
+#' * `legendre_p_m(n, m, x)`: Evaluates P_n^m(x)
+#' * Includes Condon-Shortley phase term (-1)^m matching Abramowitz & Stegun definition
+#' * Negative values of n and m handled through identity relations
+#'
+#' **Legendre Polynomials of the Second Kind Q_n(x):**
+#'
+#' Second solution to the Legendre differential equation.
+#' * `legendre_q(n, x)`: Evaluates Q_n(x)
+#' * Domain: -1 ≤ x ≤ 1 (domain error otherwise)
+#'
+#' **Recurrence Relations:**
+#'
+#' Efficient computation using three-term recurrence at fixed x with increasing degree:
+#' * `legendre_next(n, x, Pl, Plm1)`: Computes P_{n+1}(x) from P_n and P_{n-1}
+#' * `legendre_next_m(n, m, x, Pl, Plm1)`: Computes P_{n+1}^m(x) from previous values
+#'
+#' Recurrence relations guarantee low absolute error but cannot guarantee low relative
+#' error near polynomial roots.
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/legendre.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
-#' @param m Order of the polynomial (for Legendre polynomials of the first kind)
-#' @param x Argument of the polynomial
-#' @param Pl Value of the Legendre polynomial \eqn{(P_l(x))}
-#' @param Plm1 Value of the Legendre polynomial \eqn{(P_{l-1}(x))}
-#' @return A single numeric value with the computed Legendre polynomial, its derivative, zeros, or related functions.
+#' @param m Order of the polynomial (for associated Legendre polynomials)
+#' @param x Argument of the polynomial (must be in \eqn{[-1, 1]})
+#' @param Pl Value of the Legendre polynomial P_l(x)
+#' @param Plm1 Value of the Legendre polynomial P_{l-1}(x)
+#' @return A single numeric value with the computed Legendre polynomial, its derivative, or zeros (as a vector).
 #' @examples
 #' # Legendre polynomial of the first kind P_2(0.5)
 #' legendre_p(2, 0.5)
@@ -15,13 +53,13 @@
 #' legendre_p_prime(2, 0.5)
 #' # Zeros of the Legendre polynomial of the first kind P_2
 #' legendre_p_zeros(2)
-#' # Legendre polynomial of the first kind with order 1 P_2^1(0.5)
+#' # Associated Legendre polynomial P_2^1(0.5)
 #' legendre_p_m(2, 1, 0.5)
 #' # Legendre polynomial of the second kind Q_2(0.5)
 #' legendre_q(2, 0.5)
 #' # Next Legendre polynomial of the first kind P_3(0.5) using P_2(0.5) and P_1(0.5)
 #' legendre_next(2, 0.5, legendre_p(2, 0.5), legendre_p(1, 0.5))
-#' # Next Legendre polynomial of the first kind with order 1 P_3^1(0.5) using P_2^1(0.5) and P_1^1(0.5)
+#' # Next associated Legendre polynomial P_3^1(0.5) using P_2^1(0.5) and P_1^1(0.5)
 #' legendre_next_m(2, 1, 0.5, legendre_p_m(2, 1, 0.5), legendre_p_m(1, 1, 0.5))
 NULL
 
@@ -69,22 +107,51 @@ legendre_next_m <- function(n, m, x, Pl, Plm1) {
 
 #' @title Laguerre Polynomials and Related Functions
 #' @name laguerre_polynomials
-#' @description Functions to compute Laguerre polynomials of the first kind.
+#' @description
+#' Functions to compute Laguerre polynomials and associated Laguerre polynomials.
+#'
+#' Laguerre polynomials are orthogonal polynomials that appear in the solution of the
+#' quantum harmonic oscillator, hydrogen atom wavefunctions, and various problems in
+#' mathematical physics and probability theory.
+#'
+#' **Standard Laguerre Polynomials L_n(x):**
+#'
+#' * `laguerre(n, x)`: Evaluates the Laguerre polynomial of degree n at point x
+#' * Solutions to Laguerre's differential equation
+#' * Orthogonal with respect to the weight function e^{-x} on [0, ∞)
+#'
+#' **Associated Laguerre Polynomials L_n^m(x):**
+#'
+#' * `laguerre_m(n, m, x)`: Evaluates the associated Laguerre polynomial of degree n
+#'   and order m at point x
+#' * Generalizations of the standard Laguerre polynomials
+#'
+#' **Recurrence Relations:**
+#'
+#' Three-term recurrence relations enable efficient sequential computation:
+#' * `laguerre_next(n, x, Ln, Lnm1)`: Computes L_{n+1}(x) from L_n and L_{n-1}
+#' * `laguerre_next_m(n, m, x, Ln, Lnm1)`: Computes L_{n+1}^m(x) from previous values
+#'
+#' **Implementation Notes:**
+#'
+#' Functions use stable three-term recurrence relations that guarantee low absolute
+#' error but cannot guarantee low relative error near polynomial roots.
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/laguerre.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
-#' @param m Order of the polynomial (for Laguerre polynomials of the first kind)
+#' @param m Order of the polynomial (for associated Laguerre polynomials)
 #' @param x Argument of the polynomial
-#' @param Ln Value of the Laguerre polynomial \eqn{(L_n(x))}
-#' @param Lnm1 Value of the Laguerre polynomial \eqn{(L_{n-1}(x))}
-#' @return A single numeric value with the computed Laguerre polynomial, its derivative, or related functions.
+#' @param Ln Value of the Laguerre polynomial L_n(x)
+#' @param Lnm1 Value of the Laguerre polynomial L_{n-1}(x)
+#' @return A single numeric value with the computed Laguerre polynomial.
 #' @examples
-#' # Laguerre polynomial of the first kind L_2(0.5)
+#' # Laguerre polynomial L_2(0.5)
 #' laguerre(2, 0.5)
-#' # Laguerre polynomial of the first kind with order 1 L_2^1(0.5)
+#' # Associated Laguerre polynomial L_2^1(0.5)
 #' laguerre_m(2, 1, 0.5)
-#' # Next Laguerre polynomial of the first kind L_3(0.5) using L_2(0.5) and L_1(0.5)
+#' # Next Laguerre polynomial L_3(0.5) using L_2(0.5) and L_1(0.5)
 #' laguerre_next(2, 0.5, laguerre(2, 0.5), laguerre(1, 0.5))
-#' # Next Laguerre polynomial of the first kind with order 1 L_3^1(0.5) using L_2^1(0.5) and L_1^1(0.5)
+#' # Next associated Laguerre polynomial L_3^1(0.5) using L_2^1(0.5) and L_1^1(0.5)
 #' laguerre_next_m(2, 1, 0.5, laguerre_m(2, 1, 0.5), laguerre_m(1, 1, 0.5))
 NULL
 
@@ -114,13 +181,36 @@ laguerre_next_m <- function(n, m, x, Ln, Lnm1) {
 
 #' @title Hermite Polynomials and Related Functions
 #' @name hermite_polynomials
-#' @description Functions to compute Hermite polynomials.
+#' @description
+#' Functions to compute Hermite polynomials using three-term recurrence relations.
+#'
+#' Hermite polynomials are orthogonal polynomials that appear in probability theory
+#' (as derivatives of the Gaussian function), quantum mechanics (quantum harmonic
+#' oscillator), and numerical analysis.
+#'
+#' **Hermite Polynomials H_n(x):**
+#'
+#' * `hermite(n, x)`: Evaluates the Hermite polynomial of degree n at point x
+#' * Orthogonal with respect to the weight function \deqn{e^{-x²}} on (-∞, ∞)
+#' * Appear as eigenfunctions of the quantum harmonic oscillator
+#'
+#' **Recurrence Relation:**
+#'
+#' * `hermite_next(n, x, Hn, Hnm1)`: Computes \deqn{H_{n+1}(x)} from H_n and \deqn{H_{n-1}}
+#' * Uses stable three-term recurrence for sequential computation
+#'
+#' **Implementation Notes:**
+#'
+#' * Guarantees low absolute error but not low relative error near polynomial roots
+#' * Values greater than ~120 for n are unlikely to produce sensible results
+#' * Relative errors may grow arbitrarily large when the function is very close to a root
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/hermite.html) for more details on the mathematical background.
-#' @param n Degree of the polynomial
+#' @param n Degree of the polynomial (practical limit ~120)
 #' @param x Argument of the polynomial
-#' @param Hn Value of the Hermite polynomial \eqn{(H_n(x))}
-#' @param Hnm1 Value of the Hermite polynomial \eqn{(H_{n-1}(x))}
-#' @return A single numeric value with the computed Hermite polynomial or its next value.
+#' @param Hn Value of the Hermite polynomial H_n(x)
+#' @param Hnm1 Value of the Hermite polynomial \deqn{H_{n-1}(x)}
+#' @return A single numeric value with the computed Hermite polynomial.
 #' @examples
 #' # Hermite polynomial H_2(0.5)
 #' hermite(2, 0.5)
@@ -142,16 +232,53 @@ hermite_next <- function(n, x, Hn, Hnm1) {
 
 #' @title Chebyshev Polynomials and Related Functions
 #' @name chebyshev_polynomials
-#' @description Functions to compute Chebyshev polynomials of the first and second kind.
+#' @description
+#' Functions to compute Chebyshev polynomials of the first and second kind, and
+#' efficiently evaluate Chebyshev series using Clenshaw's recurrence algorithm.
+#'
+#' Chebyshev polynomials are orthogonal polynomials used extensively in approximation
+#' theory, numerical analysis, and spectral methods. They minimize the Runge phenomenon
+#' in polynomial interpolation.
+#'
+#' **Chebyshev Polynomials of the First Kind T_n(x):**
+#'
+#' * `chebyshev_t(n, x)`: Evaluates T_n(x)
+#' * Recurrence relation: \deqn{T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)} for n > 0
+#' * Initial conditions: T_0(x) = 1, T_1(x) = x
+#' * `chebyshev_t_prime(n, x)`: Derivative of T_n(x)
+#' * Stable evaluation for x ∈ \eqn{[-1, 1]} (mixed forward-backward stable)
+#'
+#' **Chebyshev Polynomials of the Second Kind U_n(x):**
+#'
+#' * `chebyshev_u(n, x)`: Evaluates U_n(x)
+#' * Related to T_n by differentiation
+#'
+#' **Recurrence Relation:**
+#'
+#' * `chebyshev_next(x, Tn, Tn_1)`: Computes \deqn{T_{n+1}(x)} from T_n and \deqn{T_{n-1}}
+#'
+#' **Clenshaw's Recurrence Algorithm:**
+#'
+#' Efficient O(n) evaluation of Chebyshev series (alternative to O(n²) direct computation):
+#' * `chebyshev_clenshaw_recurrence(c, x)`: Evaluates Chebyshev series with
+#'   coefficients c at point x on standard interval \eqn{[-1, 1]}
+#' * `chebyshev_clenshaw_recurrence_ab(c, a, b, x)`: Evaluates Chebyshev series
+#'   on arbitrary interval \eqn{[a, b]} using Reinsch's modification
+#'
+#' **Stability:**
+#'
+#' Evaluation by three-term recurrence is known to be mixed forward-backward stable
+#' for x ∈ \eqn{[-1, 1]}. Stability outside this interval is not established.
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/chebyshev.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
-#' @param x Argument of the polynomial
-#' @param Tn Value of the Chebyshev polynomial \eqn{(T_n(x))}
-#' @param Tn_1 Value of the Chebyshev polynomial \eqn{(T_{n-1}(x))}
-#' @param c Coefficients of the Chebyshev polynomial
-#' @param a Lower bound of the interval
-#' @param b Upper bound of the interval
-#' @return A single numeric value with the computed Chebyshev polynomial, its derivative, or related functions.
+#' @param x Argument of the polynomial (typically in \eqn{[-1, 1]} for stability)
+#' @param Tn Value of the Chebyshev polynomial T_n(x)
+#' @param Tn_1 Value of the Chebyshev polynomial T_{n-1}(x)
+#' @param c Vector of coefficients for the Chebyshev series
+#' @param a Lower bound of the interval (for interval transformation)
+#' @param b Upper bound of the interval (for interval transformation)
+#' @return A single numeric value with the computed Chebyshev polynomial or series evaluation.
 #' @examples
 #' # Chebyshev polynomial of the first kind T_2(0.5)
 #' chebyshev_t(2, 0.5)
@@ -161,10 +288,9 @@ hermite_next <- function(n, x, Hn, Hnm1) {
 #' chebyshev_t_prime(2, 0.5)
 #' # Next Chebyshev polynomial of the first kind T_3(0.5) using T_2(0.5) and T_1(0.5)
 #' chebyshev_next(0.5, chebyshev_t(2, 0.5), chebyshev_t(1, 0.5))
-#' # Chebyshev polynomial of the first kind using Clenshaw's recurrence with coefficients
-#' # c = c(1, 0, -1) at x = 0.5
+#' # Evaluate Chebyshev series with Clenshaw's algorithm
 #' chebyshev_clenshaw_recurrence(c(1, 0, -1), 0.5)
-#' # Chebyshev polynomial of the first kind using Clenshaw's recurrence with interval [0, 1]
+#' # Evaluate Chebyshev series on interval [0, 1]
 #' chebyshev_clenshaw_recurrence_ab(c(1, 0, -1), 0, 1, 0.5)
 NULL
 

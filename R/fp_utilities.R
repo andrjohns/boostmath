@@ -1,9 +1,25 @@
 #' @title Floating Point Utilities
 #' @name fp_utilities
-#' @description Utilities for floating point number manipulation and analysis.
+#' @description
+#' Utilities for floating-point number manipulation and analysis, including adjacent
+#' representable values, ULP distances, and condition numbers.
+#'
+#' **Floating-Point Navigation:**
+#' * `float_next(x)` / `float_prior(x)` move to the next greater/smaller representable value.
+#' * `float_distance(x, y)` returns the representation distance in ULPs.
+#' * `float_advance(x, n)` advances by $n$ ULPs.
+#' * `ulp(x)` returns the size of one unit in the last place at `x`.
+#'
+#' **Comparisons:**
+#' * `relative_difference(x, y)` and `epsilon_difference(x, y)` provide scale-aware
+#'   measures of deviation.
+#'
+#' **Condition Numbers:**
+#' `summation_condition_number` and `evaluation_condition_number` help quantify numerical
+#' sensitivity to perturbations.
 #' @param x A numeric value.
 #' @param y A numeric value.
-#' @param distance Integer number of ULPS to advance by.
+#' @param distance Integer number of ULPs to advance by.
 #' @return A numeric value after performing the specified floating point operation.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/utils.html) for more details on the mathematical background.
 #' @examples

@@ -10,12 +10,53 @@ zeta(z)
 \item{z}{Real number input}
 }
 \value{
-The value of the Riemann zeta function \eqn{(\zeta(z))}.
+The value of the Riemann zeta function ζ(z).
 }
 \description{
-Computes the Riemann zeta function \eqn{(\zeta(s))} for argument \eqn{(z)}.
+Computes the Riemann zeta function ζ(z), one of the most important functions
+in analytic number theory.
+
+\strong{Mathematical Definition:}
+
+The Riemann zeta function is defined by the series:
+\deqn{\zeta(z) = \sum_{n=1}^\infty \frac{1}{n^z}}
+
+for Re(z) > 1, and by analytic continuation elsewhere.
+
+\strong{Special Values:}
+\itemize{
+\item ζ(2) = π²/6 (Basel problem)
+\item ζ(4) = π⁴/90
+\item ζ(0) = -1/2
+\item ζ(-1) = -1/12
+\item Closed forms exist for all even positive integers and all negative integers
+\item For odd positive integers > 1, values are computed numerically
+}
+
+\strong{Implementation:}
+
+The function uses different computational strategies depending on the argument:
+\itemize{
+\item For 0 < z < 1: Rational approximation form
+\item For 1 < z < 4: Rational approximation around nearby integers
+\item For z > 4: Simple rational approximation series
+\item Reflection formula for negative arguments
+\item Pre-computed cached values for positive odd integers
+\item Specialized rational approximations for standard floating-point precisions
+}
+
+\strong{Applications:}
+
+The Riemann zeta function appears in number theory (distribution of primes),
+physics (quantum field theory, statistical mechanics), and probability theory.
+The famous Riemann Hypothesis concerns the non-trivial zeros of this function.
 }
 \examples{
 # Riemann Zeta Function
-zeta(2)  # Should return pi^2 / 6
+zeta(2)  # Should return pi^2 / 6 ≈ 1.6449340668
+zeta(3)  # Apéry's constant ≈ 1.2020569032
+zeta(4)  # pi^4 / 90 ≈ 1.0823232337
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/zetas/zeta.html}{Boost Documentation} for more details on the mathematical background.
 }

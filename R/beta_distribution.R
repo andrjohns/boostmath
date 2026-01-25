@@ -1,12 +1,34 @@
 #' @title Beta Distribution Functions
 #' @name beta_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Beta distribution.
-#' @param x quantile (0 <= x <= 1)
-#' @param alpha shape parameter (alpha > 0)
-#' @param beta shape parameter (beta > 0)
-#' @param p probability (0 <= p <= 1)
-#' @param mean Mean of the Beta distribution
-#' @param variance Variance of the Beta distribution
+#' @description
+#' Functions to compute the probability density function, cumulative distribution function,
+#' quantile function, and parameter estimators for the Beta distribution.
+#'
+#' The Beta distribution is defined on \eqn{x \in [0, 1]} with shape parameters
+#' \deqn{\alpha > 0} and \deqn{\beta > 0}. The PDF is
+#'
+#' \deqn{f(x; \alpha, \beta) = \frac{x^{\alpha - 1}(1 - x)^{\beta - 1}}{B(\alpha, \beta)}}
+#'
+#' and the CDF is the regularized incomplete beta function \deqn{I_x(\alpha, \beta)}.
+#' The quantile is computed via the inverse incomplete beta function.
+#'
+#' **Accuracy and Implementation Notes:**
+#' The implementation uses the beta and incomplete beta functions (ibeta/ibetac) and
+#' inherits their accuracy characteristics. The PDF is evaluated via
+#' `ibeta_derivative(\alpha, \beta, x)` for numerical stability. The CDF uses
+#' `ibeta`, its complement uses `ibetac`, and quantiles use the corresponding inverse
+#' incomplete beta functions.
+#'
+#' **Parameter Estimation:**
+#' The `beta_find_alpha`/`beta_find_beta` helpers compute shape parameters either from
+#' mean/variance or from a target CDF value at $x$ using inverse incomplete beta functions.
+#'
+#' @param x Quantile value (0 ≤ x ≤ 1).
+#' @param alpha Shape parameter (alpha > 0).
+#' @param beta Shape parameter (beta > 0).
+#' @param p Probability (0 ≤ p ≤ 1).
+#' @param mean Mean of the Beta distribution.
+#' @param variance Variance of the Beta distribution.
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/beta_dist.html) for more details on the mathematical background.
 #' @examples

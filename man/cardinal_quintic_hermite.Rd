@@ -27,7 +27,11 @@ An object of class \code{cardinal_quintic_hermite} with methods:
 }
 }
 \description{
-Constructs a cardinal quintic Hermite interpolator given the vectors of ordinates, first derivatives, and second derivatives.
+The cardinal quintic Hermite interpolator is similar to the quintic Hermite interpolator but optimized for equispaced data.
+
+\strong{Performance:}
+
+This allows for constant-time evaluation.
 }
 \examples{
 y <- c(0, 1, 0)
@@ -41,4 +45,7 @@ interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$double_prime(xi)
 interpolator$domain()
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html}{Boost Documentation}
 }

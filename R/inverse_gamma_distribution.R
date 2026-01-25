@@ -1,10 +1,24 @@
 #' @title Inverse Gamma Distribution Functions
 #' @name inverse_gamma_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Inverse Gamma distribution.
-#' @param x quantile
-#' @param shape shape parameter (shape > 0)
-#' @param scale scale parameter (scale > 0; default is 1)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, and quantile function for the Inverse Gamma distribution.
+#'
+#' With shape \deqn{\alpha} and scale \deqn{\beta}, the PDF is
+#'
+#' \deqn{f(x;\alpha,\beta) = \frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{-\alpha-1} \exp\left(-\frac{\beta}{x}\right)}
+#'
+#' and the CDF is \deqn{F(x)=\Gamma(\alpha,\beta/x)/\Gamma(\alpha)}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' Implemented via incomplete gamma functions (`gamma_p`, `gamma_q`) and their inverses.
+#' `logpdf` is specialized for numerical accuracy. Results are typically accurate to a
+#' few epsilons in double precision.
+#'
+#' @param x Quantile value (x ≥ 0).
+#' @param shape Shape parameter (shape > 0).
+#' @param scale Scale parameter (scale > 0; default is 1).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gamma_dist.html) for more details on the mathematical background.
 #' @examples

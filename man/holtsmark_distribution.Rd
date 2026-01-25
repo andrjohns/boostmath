@@ -22,19 +22,33 @@ holtsmark_lcdf(x, location = 0, scale = 1)
 holtsmark_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{location}{location parameter (default is 0)}
+\item{location}{Location parameter (default is 0).}
 
-\item{scale}{scale parameter (default is 1)}
+\item{scale}{Scale parameter (default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value.}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Holtsmark distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Holtsmark distribution.
+
+The Holtsmark distribution is a stable distribution with stability parameter
+\deqn{\alpha = 3/2} and symmetry parameter \deqn{\beta = 0}, commonly used in astrophysics.
+It is parameterized by location \deqn{\mu} and scale $c$.
+
+A common integral representation of the PDF is
+
+\deqn{f(x) = \frac{1}{\pi}\int_0^\infty \cos\left(t(x-\mu)\right)\,\exp\left(-(c t)^{3/2}\right)\,dt.}
+
+\strong{Accuracy and Implementation Notes:}
+Boost reports errors within about 4 epsilon for PDF/CDF-complement in double precision.
+Some moments (e.g., skewness and kurtosis) are mathematically undefined and will raise
+errors if requested.
 }
 \examples{
 # Holtsmark distribution with location 0 and scale 1

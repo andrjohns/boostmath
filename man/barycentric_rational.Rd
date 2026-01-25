@@ -21,7 +21,17 @@ An object of class \code{barycentric_rational_interpolator} with methods:
 }
 }
 \description{
-Constructs a barycentric rational interpolator given data points.
+Barycentric rational interpolation is a high-accuracy interpolation method for non-uniformly spaced samples.
+
+\strong{Performance and Accuracy:}
+
+It requires O(N) time for construction and O(N) time for each evaluation.
+If the approximation order is d, the error is O(h^(d+1)).
+
+\strong{Caveats:}
+
+This method is robust but can behave unexpectedly if the sample spacing at the endpoints is
+much larger than in the center.
 }
 \examples{
 x <- c(0, 1, 2, 3)
@@ -31,4 +41,7 @@ interpolator <- barycentric_rational(x, y, order)
 xi <- 1.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/barycentric.html}{Boost Documentation}
 }

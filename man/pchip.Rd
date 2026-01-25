@@ -24,7 +24,13 @@ An object of class \code{pchip} with methods:
 }
 }
 \description{
-Constructs a PCHIP interpolator given the vectors of abscissas, ordinates, and derivatives.
+The PCHIP (Piecewise Cubic Hermite Interpolating Polynomial) interpolant takes non-equispaced data
+and interpolates between them via cubic Hermite polynomials whose slopes are chosen to preserve monotonicity.
+
+\strong{Details:}
+
+The interpolant is C1 and evaluation has O(log N) complexity.
+See Fritsch and Carlson for details.
 }
 \examples{
 x <- c(0, 1, 2, 3)
@@ -34,4 +40,7 @@ xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$push_back(4, 1)
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/pchip.html}{Boost Documentation}
 }

@@ -1,19 +1,81 @@
 #' @title Elliptic Integrals
 #' @name elliptic_integrals
-#' @description Functions to compute various elliptic integrals, including Carlson's elliptic integrals and incomplete elliptic integrals.
+#' @description
+#' Functions to compute various elliptic integrals, including Carlson's elliptic integrals
+#' and Legendre-form incomplete elliptic integrals.
+#'
+#' Elliptic integrals are integrals of the form where the integrand is a rational function
+#' of elementary functions and a square root of a cubic or quartic polynomial. They appear
+#' in many physical problems including pendulum motion, arc length of ellipses, and
+#' electromagnetic field calculations.
+#'
+#' **Carlson's Elliptic Integrals:**
+#'
+#' Carlson's forms provide unified computational methods with satisfactory precision,
+#' superior to traditional Gauss and Landen transformations. Implementation uses the
+#' duplication theorem to iteratively bring parameters together.
+#'
+#' * `ellint_rf(x, y, z)`: Carlson's elliptic integral RF (first kind).
+#'   Requires all arguments non-negative with at most one equal to zero.
+#'
+#' * `ellint_rd(x, y, z)`: Carlson's elliptic integral RD.
+#'   Requires x, y non-negative with at most one zero, and z ≥ 0.
+#'
+#' * `ellint_rj(x, y, z, p)`: Carlson's elliptic integral RJ (third kind).
+#'   Requires x, y, z non-negative with at most one zero, and p ≠ 0.
+#'   For p < 0, returns Cauchy principal value.
+#'
+#' * `ellint_rc(x, y)`: Carlson's elliptic integral RC (degenerate form).
+#'   Requires x > 0 and y ≠ 0. Equivalent to RF(x, y, y).
+#'   For y < 0, returns Cauchy principal value.
+#'
+#' * `ellint_rg(x, y, z)`: Carlson's elliptic integral RG (second kind).
+#'   Requires x and y to be non-negative.
+#'
+#' **Legendre-Form Elliptic Integrals:**
+#'
+#' * **First Kind F(φ, k) and K(k):**
+#'   \deqn{F(\phi, k) = \int_0^\phi \frac{d\theta}{\sqrt{1 - k^2\sin^2\theta}}}
+#'   - `ellint_1(k, phi)`: Incomplete form. Requires k²sin²(φ) < 1
+#'   - `ellint_1(k)`: Complete form K(k) = F(π/2, k). Requires |k| < 1
+#'
+#' * **Second Kind E(φ, k) and E(k):**
+#'   - `ellint_2(k, phi)`: Incomplete form. Requires k²sin²(φ) < 1
+#'   - `ellint_2(k)`: Complete form E(k) = E(π/2, k). Requires |k| < 1
+#'
+#' * **Third Kind Π(n, φ, k) and Π(n, k):**
+#'   - `ellint_3(k, n, phi)`: Incomplete form.
+#'     Requires k²sin²(φ) < 1 and n < 1/sin²(φ)
+#'   - `ellint_3(k, n)`: Complete form Π(n, k) = Π(n, π/2, k).
+#'     Requires |k| < 1 and n < 1
+#'   - Special cases: Π(0, φ, k) = F(φ, k)
+#'
+#' * **Elliptic Integral D(φ, k) and D(k):**
+#'   Legendre's fourth integral combining the other three.
+#'   - `ellint_d(k, phi)`: Incomplete form
+#'   - `ellint_d(k)`: Complete form
+#'
+#' **Related Functions:**
+#'
+#' * `jacobi_zeta(k, phi)`: Jacobi zeta function
+#' * `heuman_lambda(k, phi)`: Heuman's lambda function
+#'
+#' All Legendre-form functions are implemented in terms of Carlson's integrals
+#' for computational efficiency and numerical stability.
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ellint.html) for more details on the mathematical background.
-#' @param x First parameter of the integral
-#' @param y Second parameter of the integral
-#' @param z Third parameter of the integral
-#' @param p Fourth parameter of the integral (for Rj)
-#' @param k Elliptic modulus (for incomplete elliptic integrals)
-#' @param n Characteristic (for incomplete elliptic integrals of the third kind)
-#' @param phi Amplitude (for incomplete elliptic integrals)
+#' @param x First parameter of Carlson's integral (must be non-negative)
+#' @param y Second parameter of Carlson's integral
+#' @param z Third parameter of Carlson's integral
+#' @param p Fourth parameter of the integral (for Rj, must be non-zero)
+#' @param k Elliptic modulus for Legendre-form integrals
+#' @param n Characteristic for elliptic integrals of the third kind
+#' @param phi Amplitude (angle) for incomplete elliptic integrals
 #' @return A single numeric value with the computed elliptic integral.
 #' @examples
 #' # Carlson's elliptic integral Rf with parameters x = 1, y = 2, z = 3
 #' ellint_rf(1, 2, 3)
-#' #' # Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
+#' # Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
 #' ellint_rd(1, 2, 3)
 #' # Carlson's elliptic integral Rj with parameters x = 1, y = 2, z = 3, p = 4
 #' ellint_rj(1, 2, 3, 4)

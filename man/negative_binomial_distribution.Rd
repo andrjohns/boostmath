@@ -42,25 +42,36 @@ negative_binomial_find_maximum_number_of_trials(
 )
 }
 \arguments{
-\item{successes}{number of successes (successes >= 0)}
+\item{successes}{Number of successes (successes > 0).}
 
-\item{success_fraction}{probability of success on each trial (0 <= success_fraction <= 1)}
+\item{success_fraction}{Probability of success on each trial (0 ≤ success_fraction ≤ 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value.}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 
-\item{trials}{number of trials}
+\item{trials}{Number of trials.}
 
-\item{alpha}{significance level (0 < alpha < 1)}
+\item{alpha}{Significance level (0 < alpha < 1).}
 
-\item{failures}{number of failures (failures >= 0)}
+\item{failures}{Number of failures (failures ≥ 0).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Negative Binomial distribution.
+Functions to compute the probability mass function (pmf), cumulative distribution
+function, and quantile function for the Negative Binomial distribution.
+
+For $r$ successes with success fraction $p$, the probability of observing $k$ failures
+before the $r$-th success is
+
+\deqn{P(X = k) = \binom{k+r-1}{k} p^r (1-p)^k, \quad k \in \{0,1,2,\dots\}}
+
+\strong{Accuracy and Implementation Notes:}
+Implemented using incomplete beta functions (\code{ibeta}, \code{ibetac}) and their derivatives
+for the PDF. As a discrete distribution, quantiles are rounded outward to ensure
+coverage. Confidence bounds use Clopper–Pearson style intervals.
 }
 \examples{
 # Negative Binomial distribution with successes = 5, success_fraction = 0.5

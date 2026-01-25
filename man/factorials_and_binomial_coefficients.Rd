@@ -26,34 +26,92 @@ falling_factorial(x, i)
 binomial_coefficient(n, k)
 }
 \arguments{
-\item{i}{Non-negative integer input for factorials and double factorials.}
+\item{i}{Non-negative integer input for factorials and double factorials}
 
-\item{x}{Base value for rising and falling factorials.}
+\item{x}{Base value for rising and falling factorials (can be real-valued)}
 
-\item{n}{Total number of elements for binomial coefficients.}
+\item{n}{Total number of elements for binomial coefficients}
 
-\item{k}{Number of elements to choose for binomial coefficients.}
+\item{k}{Number of elements to choose for binomial coefficients (0 ≤ k ≤ n)}
 }
 \value{
 A single numeric value with the computed factorial, double factorial, rising factorial, falling factorial, or binomial coefficient.
 }
 \description{
-Functions to compute factorials, double factorials, rising and falling factorials, and binomial coefficients.
+Functions to compute factorials, double factorials, rising and falling factorials
+(Pochhammer symbols), and binomial coefficients.
+
+These fundamental combinatorial functions appear in counting problems, probability
+distributions, and series expansions of special functions.
+
+\strong{Factorial Functions:}
+\itemize{
+\item \code{factorial_boost(i)}: Computes i! = 1·2·3·...·i
+\itemize{
+\item Standard factorial with overflow checking
+\item Returns error for i > max_factorial()
+}
+\item \code{unchecked_factorial(i)}: Fast table lookup for small factorials
+\itemize{
+\item No overflow checking, assumes i is valid
+\item Use when performance is critical and i is known to be small
+}
+\item \code{max_factorial()}: Returns the largest i for which factorial(i) fits in the
+return type without overflow
+}
+
+\strong{Double Factorial:}
+\itemize{
+\item \code{double_factorial(i)}: Computes i!! = i·(i-2)·(i-4)·...
+\itemize{
+\item For even i: i!! = i·(i-2)·...·4·2
+\item For odd i: i!! = i·(i-2)·...·3·1
+\item Definition: 0!! = 1, (-1)!! = 1
+}
+}
+
+\strong{Rising and Falling Factorials (Pochhammer Symbols):}
+\itemize{
+\item \code{rising_factorial(x, i)}: Computes \deqn{x^{(i)} = x(x+1)(x+2)...(x+i-1)}
+\itemize{
+\item Also called Pochhammer symbol or ascending factorial
+\item Used in hypergeometric functions and series expansions
+\item For integer x, equals (x+i-1)! / (x-1)!
+}
+\item \code{falling_factorial(x, i)}: Computes \deqn{x^\{\[i\]\} = x(x-1)(x-2)...(x-i+1)}
+\itemize{
+\item Also called descending factorial
+\item Counts permutations: number of ways to arrange i items from x items
+\item For integer x, equals x! / (x-i)!
+}
+}
+
+\strong{Binomial Coefficients:}
+\itemize{
+\item \code{binomial_coefficient(n, k)}: Computes C(n,k) = n! / (k!(n-k)!)
+\itemize{
+\item "n choose k": number of ways to choose k items from n items
+\item Symmetric: C(n,k) = C(n,n-k)
+\item Pascal's triangle: C(n,k) = C(n-1,k-1) + C(n-1,k)
+}
+}
+
+All functions use efficient algorithms to avoid overflow and maintain precision.
 }
 \examples{
-# Factorial of 5
+# Factorial of 5: 5! = 120
 factorial_boost(5)
-# Unchecked factorial of 5 (using table lookup)
+# Unchecked factorial of 5 (fast table lookup)
 unchecked_factorial(5)
 # Maximum factorial value that can be computed
 max_factorial()
-# Double factorial of 6
+# Double factorial: 6!! = 6·4·2 = 48
 double_factorial(6)
-# Rising factorial of 3 with exponent 2
+# Rising factorial: 3^(2) = 3·4 = 12
 rising_factorial(3, 2)
-# Falling factorial of 3 with exponent 2
+# Falling factorial: 3^[2] = 3·2 = 6
 falling_factorial(3, 2)
-# Binomial coefficient "5 choose 2"
+# Binomial coefficient: C(5,2) = 10
 binomial_coefficient(5, 2)
 }
 \seealso{

@@ -34,23 +34,38 @@ geometric_find_minimum_number_of_trials(failures, prob, alpha)
 geometric_find_maximum_number_of_trials(failures, prob, alpha)
 }
 \arguments{
-\item{prob}{probability of success (0 < prob < 1)}
+\item{prob}{Probability of success (0 < prob < 1).}
 
-\item{x}{quantile (non-negative integer)}
+\item{x}{Quantile value (non-negative integer).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 
-\item{trials}{number of trials}
+\item{trials}{Number of trials.}
 
 \item{alpha}{Largest acceptable probability that the true value of the success fraction is less than the value returned (by \code{geometric_find_lower_bound_on_p}) or greater than the value returned (by \code{geometric_find_upper_bound_on_p}).}
 
-\item{failures}{number of failures}
+\item{failures}{Number of failures.}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Geometric distribution.
+Functions to compute the probability mass function (pmf), cumulative distribution
+function, quantile function, and confidence bounds for the Geometric distribution.
+
+The geometric distribution models the number of failures $k$ before the first success
+in Bernoulli trials with success probability $p$. The pmf is
+
+\deqn{P(X = k) = (1-p)^k p, \quad k \in \{0,1,2,\dots\}}
+
+\strong{Accuracy and Implementation Notes:}
+Implemented using \code{pow}, \code{exp}, and \code{log1p}. \code{logcdf} is specialized for numerical
+accuracy. This is a discrete distribution; quantiles are rounded outward to ensure
+at least the requested coverage. For extreme $p$ close to 1, accuracy can degrade.
+
+\strong{Confidence Bounds:}
+The bound and trial-estimation functions are implemented as in the negative binomial
+distribution (successes = 1), using Clopper–Pearson style bounds and numeric inversion.
 }
 \examples{
 # Geometric distribution with probability of success prob = 0.5

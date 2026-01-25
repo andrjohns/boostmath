@@ -13,7 +13,7 @@
 \alias{lp_norm}
 \alias{lp_distance}
 \alias{total_variation}
-\title{Vector Functionals}
+\title{Vector Norms and Distances}
 \usage{
 l0_pseudo_norm(x)
 
@@ -48,32 +48,64 @@ total_variation(x)
 A single numeric value with the computed norm or distance.
 }
 \description{
-Functions to compute various vector norms and distances.
+Functions to compute various vector norms, distances, and functional properties.
+These functionals form the basis of many numerical analysis and signal processing algorithms.
+
+\strong{Norms (Magnitude):}
+\itemize{
+\item \code{l1_norm}: Computes the L1 norm (Manhattan norm), sum of absolute values.
+\item \code{l2_norm}: Computes the L2 norm (Euclidean norm), square root of sum of squares.
+\item \code{sup_norm}: Computes the Supremum (L-infinity) norm, the maximum absolute value.
+\item \code{lp_norm}: Computes the Lp norm for an arbitrary integer \code{p}.
+}
+
+\strong{Distances (Difference):}
+\itemize{
+\item \code{l1_distance}: Computes the L1 distance between two vectors.
+\item \code{l2_distance}: Computes the L2 (Euclidean) distance between two vectors.
+\item \code{sup_distance}: Computes the Supremum (L-infinity) distance/Chebyshev distance.
+\item \code{lp_distance}: Computes the Lp distance for an arbitrary integer \code{p}.
+}
+
+\strong{Sparsity & Structure:}
+\itemize{
+\item \code{l0_pseudo_norm}: Counts the number of non-zero elements (Hamming weight).
+\item \code{hamming_distance}: Counts the number of mismatching elements between two vectors.
+\item \code{total_variation}: Computes the total variation (sum of absolute differences between adjacent elements).
+}
+}
+\details{
+\itemize{
+\item \strong{L0 Pseudo-Norm:} Not a true norm (doesn't satisfy homogeneity), but useful for sparsity (e.g., Compressed Sensing).
+\item \strong{L1 Norm:} Often used in sparse signal recovery (LASSO).
+\item \strong{Total Variation:} Useful in signal processing for denoising while preserving edges (Total Variation Denoising).
+}
+
+The implementations are designed to be efficient and work with various numeric types.
 }
 \examples{
-# L0 Pseudo Norm
-l0_pseudo_norm(c(1, 0, 2, 0, 3))
-# Hamming Distance
-hamming_distance(c(1, 0, 1), c(0, 1, 1))
-# L1 Norm
-l1_norm(c(1, -2, 3))
-# L1 Distance
-l1_distance(c(1, -2, 3), c(4, -5, 6))
-# L2 Norm
-l2_norm(c(3, 4))
-# L2 Distance
-l2_distance(c(3, 4), c(0, 0))
-# Supremum Norm
-sup_norm(c(1, -2, 3))
-# Supremum Distance
-sup_distance(c(1, -2, 3), c(4, -5, 6))
-# Lp Norm
-lp_norm(c(1, -2, 3), 3)
-# Lp Distance
-lp_distance(c(1, -2, 3), c(4, -5, 6), 3)
-# Total Variation
-total_variation(c(1, 2, 1, 3))
+v1 <- c(1, -2, 3)
+v2 <- c(4, -5, 6)
+
+# --- Norms ---
+l1_norm(v1)      # |1| + |-2| + |3| = 6
+l2_norm(v1)      # sqrt(1^2 + (-2)^2 + 3^2) = sqrt(14)
+sup_norm(v1)     # max(|1|, |-2|, |3|) = 3
+lp_norm(v1, 3)   # Cube root of sum of cubes
+
+# --- Distances ---
+l1_distance(v1, v2)
+l2_distance(v1, v2)
+hamming_distance(c(1, 0, 1), c(0, 1, 1)) # 2 differences (pos 1 and 2)
+
+# --- Structure ---
+l0_pseudo_norm(c(0, 5, 0, 2)) # Returns 2 (two non-zeros)
+total_variation(c(1, 5, 2))   # |5-1| + |2-5| = 4 + 3 = 7
+}
+\references{
+Higham, N. J. (2002). Accuracy and stability of numerical algorithms. SIAM.
+Mallat, S. (2008). A wavelet tour of signal processing: the sparse way. Academic press.
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/vector_functionals.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/vector_functionals.html}{Boost Documentation}
 }

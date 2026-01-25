@@ -1,10 +1,26 @@
 #' @title Fisher F Distribution Functions
 #' @name fisher_f_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Fisher F distribution.
-#' @param x quantile
-#' @param df1 degrees of freedom for the numerator (df1 > 0)
-#' @param df2 degrees of freedom for the denominator (df2 > 0)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, and quantile function for the Fisher F distribution.
+#'
+#' If \deqn{X_1 \sim \chi^2_{\nu_1}} and \deqn{X_2 \sim \chi^2_{\nu_2}} are independent, then
+#' \deqn{F = (X_1/\nu_1)/(X_2/\nu_2)} has an F distribution. The PDF is
+#'
+#' \deqn{f(x) = \frac{\sqrt{\frac{(\nu_1 x)^{\nu_1} \nu_2^{\nu_2}}{(\nu_1 x + \nu_2)^{\nu_1 + \nu_2}}}}{x\,B(\nu_1/2, \nu_2/2)}}
+#'
+#' and the CDF is expressed via incomplete beta functions.
+#'
+#' **Accuracy and Implementation Notes:**
+#' The CDF and quantiles are implemented in terms of the incomplete beta function and
+#' its inverses. The PDF is evaluated using stable formulations based on
+#' `ibeta_derivative` with branch selection to avoid loss of accuracy when the beta
+#' argument is near 1.
+#'
+#' @param x Quantile value (x ≥ 0).
+#' @param df1 Degrees of freedom for the numerator (df1 > 0).
+#' @param df2 Degrees of freedom for the denominator (df2 > 0).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html) for more details on the mathematical background.
 #' @examples

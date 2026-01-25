@@ -28,7 +28,14 @@ An object of class \code{bilinear_uniform} with methods:
 }
 }
 \description{
-Constructs a bilinear uniform interpolator given a grid of data points.
+The bilinear uniform interpolator takes a grid of data points specified by a linear index
+and interpolates between each segment using a bilinear function.
+
+\strong{Details:}
+
+"Bilinear" means it is the product of two linear functions.
+The interpolant is continuous and its evaluation is constant time.
+The interpolator is point-centered.
 }
 \examples{
 x <- seq(0, 1, length.out = 10)
@@ -36,4 +43,7 @@ interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
 xi <- 0.5
 yi <- 0.5
 interpolator$interpolate(xi, yi)
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bilinear_uniform.html}{Boost Documentation}
 }

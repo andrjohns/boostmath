@@ -37,6 +37,19 @@ A single numeric value with the computed probability density, log-probability de
 }
 \description{
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Skew Normal distribution.
+
+The skew normal distribution is a variant of the most well known Gaussian statistical distribution.
+If the standard (mean = 0, scale = 1) normal distribution probability density function is \eqn{\phi(x)} and the cumulative distribution function is \eqn{\Phi(x)},
+then the PDF of the skew normal distribution with shape parameter \eqn{\alpha} is:
+\deqn{f(x;\alpha) = 2\phi(x)\Phi(\alpha x)}
+
+Given location \eqn{\xi}, scale \eqn{\omega}, and shape \eqn{\alpha}, it can be transformed to:
+\deqn{f(x) = \frac{2}{\omega}\phi\left(\frac{x-\xi}{\omega}\right)\Phi\left(\alpha\frac{x-\xi}{\omega}\right)}
+
+\strong{Accuracy and Implementation Notes:}
+The skew_normal distribution with shape = zero is equivalent to the normal distribution and uses the error function for excellent accuracy.
+The CDF requires Owen's T function, which is evaluated using algoritms by Patefield and Tandy.
+The median and mode are calculated by iterative root finding and may be less accurate than other estimates.
 }
 \examples{
 # Skew Normal distribution with location = 0, scale = 1, shape = 0

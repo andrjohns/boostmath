@@ -24,7 +24,11 @@ An object of class \code{cardinal_cubic_hermite} with methods:
 }
 }
 \description{
-Constructs a cardinal cubic Hermite interpolator given the vectors of abscissas, ordinates, and derivatives.
+The cardinal cubic Hermite interpolator is similar to the cubic Hermite interpolator but optimized for equispaced data.
+
+\strong{Performance:}
+
+This allows for constant-time evaluation.
 }
 \examples{
 y <- c(0, 1, 0)
@@ -34,4 +38,7 @@ xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$domain()
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html}{Boost Documentation}
 }

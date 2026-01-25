@@ -22,17 +22,30 @@ bernoulli_lcdf(x, p_success)
 bernoulli_quantile(p, p_success)
 }
 \arguments{
-\item{p_success}{probability of success (0 <= p_success <= 1)}
+\item{p_success}{Probability of success (0 ≤ p_success ≤ 1).}
 
-\item{x}{quantile (0 or 1)}
+\item{x}{Quantile value (must be 0 or 1).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Bernoulli distribution.
+Functions to compute the probability mass function (pmf), cumulative distribution
+function, and quantile function for the Bernoulli distribution.
+
+The Bernoulli distribution models a single trial with outcomes \deqn{k \in \{0, 1\}} and
+success probability $p$. The pmf is
+
+\deqn{P(X = 0) = 1 - p, \quad P(X = 1) = p}
+
+and the CDF is $F(0)=1-p$, $F(1)=1$.
+
+\strong{Accuracy and Implementation Notes:}
+Implemented with simple arithmetic and is accurate to within a couple of machine epsilons.
+This is a strict discrete distribution (only $k=0$ or $k=1$); for a generalized
+real-valued version, use the binomial distribution with one trial.
 }
 \examples{
 # Bernoulli distribution with p_success = 0.5

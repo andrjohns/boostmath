@@ -24,21 +24,44 @@ ooura_fourier_cos(
 \item{f}{A function to integrate. It should accept a single numeric value and
 return a single numeric value.}
 
-\item{omega}{The frequency parameter for the sine integral.}
+\item{omega}{The frequency parameter \eqn{\omega} for the sine or cosine term.}
 
-\item{relative_error_tolerance}{The relative error tolerance for the approximation.}
+\item{relative_error_tolerance}{The relative error tolerance for the approximation. Default is \code{sqrt(.Machine$double.eps)}.}
 
 \item{levels}{The number of levels of refinement to apply. Default is 8.}
 }
 \value{
-A single numeric value with the computed Fourier sine or cosine integral, with attribute 'relative_error' indicating the relative error of the approximation.
+A single numeric value with the computed Fourier sine or cosine integral.
 }
 \description{
-Computing Fourier sine and cosine integrals using Ooura's method.
+Computes Fourier sine and cosine integrals using Ooura's robust double exponential method (1999).
+These methods are designed to handle oscillatory integrals that are problematic for standard quadrature.
+
+\strong{Ooura Fourier Sine:}
+Computes the integral:
+\deqn{\int_0^\infty f(t) \sin(\omega t) dt}{Integral_0^Inf f(t) sin(omega * t) dt}
+
+\strong{Ooura Fourier Cosine:}
+Computes the integral:
+\deqn{\int_0^\infty f(t) \cos(\omega t) dt}{Integral_0^Inf f(t) cos(omega * t) dt}
+}
+\details{
+The method precomputes nodes and weights for efficiency.
+Convergence depends on the position of the poles of the integrand in the complex plane.
+If poles are too close to the real axis, convergence may be slow.
 }
 \examples{
-# Fourier sine integral of sin(x) with omega = 1
+# Fourier sine integral of 1/x -> integral convergent to pi/2 approx
+# sin(x)/x from 0 to Inf is pi/2. Here we integrate 1/x * sin(1*x).
 ooura_fourier_sin(function(x) { 1 / x }, omega = 1)
-# Fourier cosine integral of cos(x) with omega = 1
+
+# Fourier cosine integral of 1/(x^2 + 1) * cos(x)
+# Expected value is pi/(2*e) approx 0.57786
 ooura_fourier_cos(function(x) { 1/ (x * x + 1) }, omega = 1)
+}
+\references{
+Ooura, Takuya, and Masatake Mori. "A robust double exponential formula for Fourier-type integrals." Journal of computational and applied mathematics 112.1-2 (1999): 229-241.
+}
+\seealso{
+\code{\link{double_exponential_quadrature}}
 }

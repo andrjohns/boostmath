@@ -22,19 +22,36 @@ inverse_gaussian_lcdf(x, mu = 1, lambda = 1)
 inverse_gaussian_quantile(p, mu = 1, lambda = 1)
 }
 \arguments{
-\item{mu}{mean parameter (mu > 0; default is 1)}
+\item{mu}{Mean parameter (mu > 0; default is 1).}
 
-\item{lambda}{scale parameter (lambda > 0; default is 1)}
+\item{lambda}{Scale parameter (lambda > 0; default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value (x ≥ 0).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Inverse Gaussian distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Inverse Gaussian (Inverse Normal) distribution.
+
+With mean \deqn{\mu} and scale \deqn{\lambda}, the PDF is
+
+\deqn{f(x;\mu,\lambda) = \sqrt{\frac{\lambda}{2\pi x^3}}\exp\left(-\frac{\lambda(x-\mu)^2}{2\mu^2 x}\right)}
+
+and the CDF is
+
+\deqn{F(x) = \Phi\left(\sqrt{\frac{\lambda}{x}}\left(\frac{x}{\mu}-1\right)\right) +
+\exp\left(\frac{2\lambda}{\mu}\right)\Phi\left(-\sqrt{\frac{\lambda}{x}}\left(\frac{x}{\mu}+1\right)\right)}
+
+where \deqn{\Phi} is the standard normal CDF.
+
+\strong{Accuracy and Implementation Notes:}
+Implemented using the standard normal distribution and the exponential function.
+\code{logpdf} is specialized for numerical accuracy. Quantiles have no closed form and
+are computed via Newton–Raphson refinement.
 }
 \examples{
 # Inverse Gaussian distribution with mu = 3, lambda = 4

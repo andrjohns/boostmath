@@ -22,19 +22,33 @@ extreme_value_lcdf(x, location = 0, scale = 1)
 extreme_value_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{location}{location parameter (default is 0)}
+\item{location}{Location parameter (default is 0).}
 
-\item{scale}{scale parameter (default is 1)}
+\item{scale}{Scale parameter (default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value.}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Extreme Value distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Extreme Value (Gumbel) distribution.
+
+With location $a$ and scale $b > 0$, the PDF and CDF are
+
+\deqn{f(x) = \frac{1}{b}\exp\left(\frac{a-x}{b}\right)\exp\left(-\exp\left(\frac{a-x}{b}\right)\right)}
+\deqn{F(x) = \exp\left(-\exp\left(\frac{a-x}{b}\right)\right)}
+
+and the quantile is
+
+\deqn{Q(p) = a - b\log\left(-\log(p)\right)}.
+
+\strong{Accuracy and Implementation Notes:}
+Implemented using \code{exp} and \code{log} with specialized \code{logcdf} and \code{logpdf} for improved
+accuracy. Complements use stable \code{expm1}/\code{log1p} forms to reduce cancellation.
 }
 \examples{
 # Extreme Value distribution with location = 0, scale = 1

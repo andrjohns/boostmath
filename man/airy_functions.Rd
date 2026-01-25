@@ -25,7 +25,7 @@ airy_bi_zero(m = NULL, start_index = NULL, number_of_zeros = NULL)
 \arguments{
 \item{x}{Input numeric value}
 
-\item{m}{The index of the zero to find (1-based).}
+\item{m}{The index of the zero to find (1-based indexing, so m=1 returns the first zero).}
 
 \item{start_index}{The starting index for the zeros (1-based).}
 
@@ -36,6 +36,36 @@ Single numeric value for the Airy functions and their derivatives, or a vector o
 }
 \description{
 Functions to compute the Airy functions Ai and Bi, their derivatives, and their zeros.
+
+The Airy functions are the two linearly independent solutions to the differential equation:
+
+\deqn{y'' - xy = 0}
+
+\strong{Airy Ai Function:}
+The first solution to the Airy differential equation. For negative x values, Ai(x) exhibits
+oscillatory behavior. For positive x values, Ai(x) monotonically decreases toward zero.
+
+\strong{Airy Bi Function:}
+The second solution to the Airy differential equation. For negative x values, Bi(x) exhibits
+cyclic oscillation. For positive x values, Bi(x) tends toward infinity.
+
+\strong{Airy Ai' Function:}
+The derivative of the first solution to the Airy differential equation. For negative x values,
+Ai'(x) displays cyclic oscillation. For positive x values, Ai'(x) approaches zero asymptotically.
+
+\strong{Airy Bi' Function:}
+The derivative of the second solution to the Airy differential equation. For negative x values,
+Bi'(x) oscillates cyclically. For positive x values, Bi'(x) increases toward infinity.
+
+\strong{Zeros of Airy Functions:}
+The zeros are the values where Ai(x) = 0 or Bi(x) = 0. The zeros are indexed starting from 1.
+The first few zeros are approximately:
+\itemize{
+\item Ai: -2.33811, -4.08795, -5.52056, ...
+\item Bi: -1.17371, -3.27109, -4.83074, ...
+}
+
+All functions are implemented using relationships to Bessel functions for numerical accuracy.
 }
 \examples{
 airy_ai(2)

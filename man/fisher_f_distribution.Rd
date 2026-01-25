@@ -22,19 +22,33 @@ fisher_f_lcdf(x, df1, df2)
 fisher_f_quantile(p, df1, df2)
 }
 \arguments{
-\item{df1}{degrees of freedom for the numerator (df1 > 0)}
+\item{df1}{Degrees of freedom for the numerator (df1 > 0).}
 
-\item{df2}{degrees of freedom for the denominator (df2 > 0)}
+\item{df2}{Degrees of freedom for the denominator (df2 > 0).}
 
-\item{x}{quantile}
+\item{x}{Quantile value (x ≥ 0).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Fisher F distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Fisher F distribution.
+
+If \deqn{X_1 \sim \chi^2_{\nu_1}} and \deqn{X_2 \sim \chi^2_{\nu_2}} are independent, then
+\deqn{F = (X_1/\nu_1)/(X_2/\nu_2)} has an F distribution. The PDF is
+
+\deqn{f(x) = \frac{\sqrt{\frac{(\nu_1 x)^{\nu_1} \nu_2^{\nu_2}}{(\nu_1 x + \nu_2)^{\nu_1 + \nu_2}}}}{x\,B(\nu_1/2, \nu_2/2)}}
+
+and the CDF is expressed via incomplete beta functions.
+
+\strong{Accuracy and Implementation Notes:}
+The CDF and quantiles are implemented in terms of the incomplete beta function and
+its inverses. The PDF is evaluated using stable formulations based on
+\code{ibeta_derivative} with branch selection to avoid loss of accuracy when the beta
+argument is near 1.
 }
 \examples{
 # Fisher F distribution with df1 = 5, df2 = 10

@@ -1,6 +1,17 @@
 #' @title Weibull Distribution Functions
 #' @name weibull_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Weibull distribution.
+#' @description
+#' Functions to compute the probability density function, cumulative distribution function, and quantile function for the Weibull distribution.
+#'
+#' The Weibull distribution is a continuous distribution often used in the field of failure analysis; in particular it can mimic distributions where the failure rate varies over time.
+#'
+#' It has the probability density function (PDF):
+#' \deqn{f(x; \alpha, \beta) = \frac{\alpha}{\beta} \left(\frac{x}{\beta}\right)^{\alpha-1} e^{-(x/\beta)^\alpha}}
+#' for shape parameter \eqn{\alpha > 0}, scale parameter \eqn{\beta > 0}, and \eqn{x > 0}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' The Weibull distribution is implemented in terms of the standard library \code{log} and \code{exp} functions plus \code{expm1} and \code{log1p} and as such should have very low error rates.
+#'
 #' @param x quantile
 #' @param shape shape parameter
 #' @param scale scale parameter (default is 1)

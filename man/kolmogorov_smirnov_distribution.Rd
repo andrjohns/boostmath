@@ -22,17 +22,31 @@ kolmogorov_smirnov_lcdf(x, n)
 kolmogorov_smirnov_quantile(p, n)
 }
 \arguments{
-\item{n}{sample size (n > 0)}
+\item{n}{Sample size (n > 0).}
 
-\item{x}{quantile}
+\item{x}{Quantile value (x ≥ 0).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Kolmogorov-Smirnov distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Kolmogorov-Smirnov distribution.
+
+Boost implements the limiting (first-order) Kolmogorov distribution. The CDF is
+expressed in terms of the Jacobi theta function:
+
+\deqn{F(x) = \vartheta_4\!\left(0, \frac{2x^2}{\pi}\right)}
+
+for \deqn{x \ge 0}. The PDF is obtained by differentiating the CDF, and quantiles are
+computed via Newton–Raphson iteration.
+
+\strong{Accuracy and Implementation Notes:}
+The CDF uses the Jacobi theta function and inherits its accuracy. The PDF is
+implemented separately. The limiting distribution has nonzero mass above 1 for
+finite $n$ (unlike the exact KS distribution), especially when $n$ is small.
 }
 \examples{
 # Kolmogorov-Smirnov distribution with sample size n = 10

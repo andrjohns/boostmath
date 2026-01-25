@@ -6,7 +6,7 @@
 \alias{one_sample_t_test}
 \alias{two_sample_t_test}
 \alias{paired_samples_t_test}
-\title{T-Tests}
+\title{Student's T-Tests}
 \usage{
 one_sample_t_test_params(
   sample_mean,
@@ -22,34 +22,66 @@ two_sample_t_test(u, v)
 paired_samples_t_test(u, v)
 }
 \arguments{
-\item{sample_mean}{A single value.}
+\item{sample_mean}{Sample mean (for \code{one_sample_t_test_params}).}
 
-\item{sample_variance}{A single value.}
+\item{sample_variance}{Sample variance (for \code{one_sample_t_test_params}).}
 
-\item{num_samples}{A single value.}
+\item{num_samples}{Number of samples (for \code{one_sample_t_test_params}).}
 
-\item{assumed_mean}{A single value.}
+\item{assumed_mean}{The hypothesized population mean to compare against.}
 
-\item{u}{A numeric vector.}
+\item{u}{A numeric vector of data values for the first sample.}
 
-\item{v}{A numeric vector.}
+\item{v}{A numeric vector of data values for the second sample.}
 }
 \value{
-A two-element numeric vector containing the t-statistic and the p-value.
+A two-element numeric vector containing:
+\itemize{
+\item The \strong{t-statistic}.
+\item The \strong{p-value} (two-sided).
+}
 }
 \description{
-Functions for T - Tests.
+Functions for performing various Student's t-tests to compare means of populations.
+
+\strong{One-Sample T-Test:}
+Tests if the population mean differs from a specified \code{assumed_mean}.
+\deqn{t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}}{t = (sample_mean - assumed_mean) / (sample_std_dev / sqrt(n))}
+Available in two forms:
+\itemize{
+\item \code{one_sample_t_test}: Takes a vector of data.
+\item \code{one_sample_t_test_params}: Takes summary statistics (mean, variance, sample size) directly.
+}
+
+\strong{Two-Sample T-Test (\code{two_sample_t_test}):}
+Tests if the means of two independent samples differ.
+Automatically handles unequal variances (Welch's t-test) or equal variances based on the data.
+
+\strong{Paired Samples T-Test (\code{paired_samples_t_test}):}
+Tests if the means of two dependent (paired) samples differ.
+Equivalent to a one-sample t-test on the differences between pairs.
 }
 \examples{
-# One Sample T-Test Parameters
-one_sample_t_test_params(sample_mean = 2, sample_variance = 1, num_samples = 30, assumed_mean = 0)
-# One Sample T-Test
-one_sample_t_test(c(5, 6, 7), assumed_mean = 4)
-# Two Sample T-Test
-two_sample_t_test(c(5, 6, 7), c(4, 5, 6))
-# Paired Samples T-Test
-paired_samples_t_test(c(5, 6, 7), c(4, 5, 6))
+# --- One Sample T-Test ---
+# Using raw data:
+data <- c(5, 6, 7, 5, 6)
+one_sample_t_test(data, assumed_mean = 4)
+
+# Using summary statistics:
+# Mean = 5.8, Variance = 0.7, N = 5
+one_sample_t_test_params(sample_mean = 5.8, sample_variance = 0.7, num_samples = 5, assumed_mean = 4)
+
+# --- Two Sample T-Test ---
+sample1 <- c(5, 6, 7, 5, 6)
+sample2 <- c(4, 5, 6, 4, 5)
+two_sample_t_test(sample1, sample2)
+
+# --- Paired Samples T-Test ---
+# Pre-test vs Post-test
+pre <- c(5, 6, 7, 5, 6)
+post <- c(6, 7, 8, 6, 7)
+paired_samples_t_test(pre, post)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/t_test.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/t_test.html}{Boost Documentation}
 }

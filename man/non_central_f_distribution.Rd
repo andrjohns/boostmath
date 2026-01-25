@@ -36,7 +36,15 @@ non_central_f_quantile(p, df1, df2, lambda)
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Fisher F distribution.
+Functions to compute the probability density function, cumulative distribution function, and quantile function for the Noncentral F distribution.
+
+The noncentral F distribution is a generalization of the Fisher F Distribution. It is defined as the ratio
+\deqn{F = \frac{X/\nu_1}{Y/\nu_2}}
+where \eqn{X} is a noncentral \eqn{\chi^2} random variable with \eqn{\nu_1} degrees of freedom and non-centrality parameter \eqn{\lambda}, and \eqn{Y} is a central \eqn{\chi^2} random variable with \eqn{\nu_2} degrees of freedom.
+
+\strong{Accuracy and Implementation Notes:}
+This distribution is implemented in terms of the Noncentral Beta Distribution.
+Refer to the Noncentral Beta Distribution documentation for details on accuracy and implementation method.
 }
 \examples{
 # Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality

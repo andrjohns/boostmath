@@ -27,7 +27,7 @@ gauss_kronrod(
 
 \item{b}{The upper limit of integration.}
 
-\item{tol}{The tolerance for the approximation. Default is \code{sqrt(.Machine$double.eps)}.}
+\item{tol}{The tolerance for the approximation. For trapezoidal, default is \code{sqrt(.Machine$double.eps)}. For Gauss-Kronrod, default is \code{sqrt(.Machine$double.eps)}.}
 
 \item{max_refinements}{The maximum number of refinements to apply. Default is 12.}
 
@@ -39,13 +39,36 @@ gauss_kronrod(
 A single numeric value with the computed integral.
 }
 \description{
-Functions for numerical integration using various methods such as trapezoidal rule, Gauss-Legendre quadrature, and Gauss-Kronrod quadrature.
+Functions for numerical integration using Trapezoidal, Gauss-Legendre, and Gauss-Kronrod methods.
+
+\strong{Trapezoidal Quadrature:}
+Calculates the integral of a function \eqn{f} using the trapezoidal rule.
+If the integrand is periodic and integrated over a full period, the trapezoidal rule converges faster than any power of the step size \eqn{h} (exponential convergence).
+For non-periodic twice continuously differentiable functions, the error is \eqn{O(h^2)}.
+Checks for convergence by halving the interval until the tolerance is met or \code{max_refinements} is reached.
+Useful for periodic functions, bump functions, and bell-shaped integrals over infinite intervals.
+
+\strong{Gauss-Legendre Quadrature:}
+Performs "one-shot" non-adaptive integration on \eqn{(a, b)} using a fixed number of points.
+Very efficient for smooth "bell-like" functions and functions with rapidly convergent power series.
+Does not provide an error estimate.
+
+\strong{Gauss-Kronrod Quadrature:}
+An adaptive extension of Gaussian quadrature.
+Adds \eqn{n+1} nodes (Kronrod points) to an \eqn{n}-point Gaussian quadrature to provide an \emph{a posteriori} error estimate ($O(h^{3n+1})$ vs $O(h^{2n-1})$).
+Preserves exponential convergence for smooth functions.
+Best suited for smooth functions with no end-point singularities.
 }
 \examples{
-# Trapezoidal rule integration of sin(x) from 0 to pi
+# Trapezoidal rule integration of sin(x) from 0 to pi (Periodic over 0 to 2*pi)
 trapezoidal(sin, 0, pi)
+
 # Gauss-Legendre integration of exp(x) from 0 to 1
 gauss_legendre(exp, 0, 1, points = 7)
+
 # Adaptive Gauss-Kronrod integration of log(x) from 1 to 2
 gauss_kronrod(log, 1, 2, points = 15, max_depth = 10)
+}
+\seealso{
+\code{\link{numerical_differentiation}}, \code{\link{double_exponential_quadrature}}
 }

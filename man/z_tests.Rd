@@ -19,32 +19,69 @@ one_sample_z_test(u, assumed_mean)
 two_sample_z_test(u, v)
 }
 \arguments{
-\item{sample_mean}{A single value.}
+\item{sample_mean}{Numeric. The mean of the sample.}
 
-\item{sample_variance}{A single value.}
+\item{sample_variance}{Numeric. The variance of the sample.}
 
-\item{num_samples}{A single value.}
+\item{num_samples}{Integer. The size of the sample.}
 
-\item{assumed_mean}{A single value.}
+\item{assumed_mean}{Numeric. The null hypothesis mean value to test against.}
 
-\item{u}{A numeric vector.}
+\item{u}{A numeric vector containing the first sample.}
 
-\item{v}{A numeric vector.}
+\item{v}{A numeric vector containing the second sample (for two-sample test).}
 }
 \value{
-A two-element numeric vector containing the t-statistic and the p-value.
+A numeric vector containing:
+\enumerate{
+\item \strong{Statistic:} The computed Z-statistic.
+\item \strong{P-Value:} The two-sided p-value associated with the Z-statistic.
+}
 }
 \description{
-Functions for Z - Tests.
+Statistical hypothesis tests for population means using the Normal (Z) distribution.
+
+Z-tests are typically used when:
+\enumerate{
+\item The population variance is known.
+\item The sample size is large (N > 30), allowing the sample variance to approximate the population variance (via Central Limit Theorem).
+}
+
+\strong{One-Sample Tests:}
+\itemize{
+\item \code{one_sample_z_test}: Performs a Z-test on a data vector \code{u} against an \code{assumed_mean}.
+\item \code{one_sample_z_test_params}: Performs a Z-test given summary statistics (mean, variance, N).
+}
+
+\strong{Two-Sample Tests:}
+\itemize{
+\item \code{two_sample_z_test}: Performs a Z-test comparing the means of two data vectors \code{u} and \code{v}.
+}
+}
+\details{
+\itemize{
+\item \strong{Statistic:} The Z-statistic is calculated as \deqn{Z = \frac{\bar{x} - \mu}{\sigma / \sqrt{n}}}.
+\item \strong{Assumptions:} The underlying distribution is Normal, or the sample size is large enough for the CLT to apply.
+}
 }
 \examples{
-# One Sample T-Test Parameters
-one_sample_z_test_params(sample_mean = 2, sample_variance = 1, num_samples = 30, assumed_mean = 0)
-# One Sample T-Test
-one_sample_z_test(c(5, 6, 7), assumed_mean = 4)
-# Two Sample T-Test
-two_sample_z_test(c(5, 6, 7), c(4, 5, 6))
+# --- One-Sample Z-Test ---
+data1 <- c(5, 6, 7, 5, 6, 8)
+# Test if population mean is 4
+one_sample_z_test(data1, assumed_mean = 4)
+
+# Using Summary Statistics
+# Mean = 2, Variance = 1, N = 30, Null Mean = 0
+one_sample_z_test_params(sample_mean = 2,
+                         sample_variance = 1,
+                         num_samples = 30,
+                         assumed_mean = 0)
+
+# --- Two-Sample Z-Test ---
+data2 <- c(4, 5, 6, 4, 5, 7)
+# Test if data1 and data2 have different means
+two_sample_z_test(data1, data2)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/z_test.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/z_test.html}{Boost Documentation}
 }

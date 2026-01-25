@@ -26,7 +26,14 @@ An object of class \code{quintic_hermite} with methods:
 }
 }
 \description{
-Constructs a quintic Hermite interpolator given the vectors of abscissas, ordinates, first derivatives, and second derivatives.
+The quintic Hermite interpolator takes a list of possibly non-uniformly spaced abscissas, ordinates,
+and their velocities and accelerations.
+
+\strong{Applications:}
+
+It constructs a quintic interpolating polynomial between segments.
+This is useful for taking solution skeletons from ODE steppers and turning them into a continuous function.
+The interpolant is C2 and its evaluation has O(log N) complexity.
 }
 \examples{
 x <- c(0, 1, 2)
@@ -40,4 +47,7 @@ interpolator$prime(xi)
 interpolator$double_prime(xi)
 interpolator$push_back(3, 0, 1, 0)
 interpolator$domain()
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html}{Boost Documentation}
 }

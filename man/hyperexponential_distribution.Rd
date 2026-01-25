@@ -22,19 +22,32 @@ hyperexponential_lcdf(x, probabilities, rates)
 hyperexponential_quantile(p, probabilities, rates)
 }
 \arguments{
-\item{probabilities}{vector of probabilities (sum must be 1)}
+\item{probabilities}{Vector of non-negative probabilities (will be normalized to sum to 1).}
 
-\item{rates}{vector of rates (all rates must be > 0)}
+\item{rates}{Vector of positive rates (all rates must be > 0).}
 
-\item{x}{quantile}
+\item{x}{Quantile value (x ≥ 0).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Hyperexponential distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Hyperexponential distribution.
+
+A $k$-phase hyperexponential distribution is a mixture of $k$ exponential
+distributions with phase probabilities \deqn{\alpha_i} and rates \deqn{\lambda_i}.
+The PDF and CDF are
+
+\deqn{f(x) = \sum_{i=1}^k \alpha_i \lambda_i e^{-\lambda_i x}}
+\deqn{F(x) = 1 - \sum_{i=1}^k \alpha_i e^{-\lambda_i x}, \quad x \ge 0}.
+
+\strong{Accuracy and Implementation Notes:}
+Implemented in terms of the exponential distribution, and should be accurate to
+within a few machine epsilons. Quantiles have no closed form and are computed
+numerically.
 }
 \examples{
 # Hyperexponential distribution with probabilities = c(0.5, 0.5) and rates = c(1, 2)

@@ -18,7 +18,14 @@ An object of class \code{bezier_polynomial} with methods:
 }
 }
 \description{
-Constructs a Bezier polynomial interpolator given control points.
+Bézier polynomials are smooth curves which approximate a set of control points.
+They are commonly used in computer-aided geometric design.
+
+\strong{Properties:}
+
+The curve is approximating, meaning it does not necessarily pass through the control points.
+Passing n control points creates a polynomial of degree n-1.
+Evaluation is O(N^2) via de Casteljau's algorithm.
 }
 \examples{
 control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
@@ -29,4 +36,7 @@ interpolator$prime(xi)
 new_control_point <- c(1.5, 1, 0)
 interpolator$edit_control_point(new_control_point, 2)
 
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bezier_polynomial.html}{Boost Documentation}
 }

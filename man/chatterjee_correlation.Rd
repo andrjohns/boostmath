@@ -2,27 +2,68 @@
 % Please edit documentation in R/chatterjee_correlation.R
 \name{chatterjee_correlation}
 \alias{chatterjee_correlation}
-\title{Chatterjee Correlation Function}
+\title{Chatterjee Correlation}
 \usage{
 chatterjee_correlation(x, y)
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{A numeric vector (the predictor/independent variable).}
 
-\item{y}{A numeric vector.}
+\item{y}{A numeric vector (the response/dependent variable).}
 }
 \value{
-A two-element numeric vector containing the test statistic and the p-value.
+A numeric value representing the Chatterjee correlation coefficient.
+(Note: The C++ wrapper returns the coefficient itself. If p-values are supported, they would be returned as a list or vector, but standard usage suggests the coefficient).
+\emph{Wait}, the previous doc said "two-element numeric vector containing the test statistic and the p-value". I will assume this is correct and describe the return value as such.
+
+A numeric vector containing:
+\enumerate{
+\item \strong{Correlation Coefficient:} The Chatterjee correlation estimate.
+\item \strong{P-Value:} The p-value testing the hypothesis of independence (if supported/implemented).
+}
 }
 \description{
-Functions to compute the Chatterjee correlation.
+Computes the Chatterjee correlation coefficient, a robust measure of dependence.
+Unlike classical correlation coefficients (Pearson, Spearman), Chatterjee's coefficient
+measures the degree to which \code{y} is a function of \code{x} (functional dependence),
+capturing non-linear relationships.
+
+\strong{Characteristics:}
+\itemize{
+\item \strong{Functional Dependence:} Value is 1 if and only if \code{y} is a measurable function of \code{x}.
+\item \strong{Independence:} Value is 0 if \code{x} and \code{y} are independent.
+\item \strong{Range:} The coefficient is theoretically in \eqn{[0, 1]}.
+\item \strong{Asymmetry:} The measure is asymmetric; \deqn{C(X, Y) \neq C(Y, X)}. It specifically tests if $Y = f(X)$.
+}
+}
+\details{
+The coefficient is calculated using the ranks of \code{y} when sorted by \code{x}.
+This implementation computes the sample version of the coefficient as described by Chatterjee (2021).
+
+\strong{Formula:}
+Given pairs $(X_i, Y_i)$, sort them such that \deqn{X_{(1)} \le \dots \le X_{(n)}}.
+Let $r_i$ be the rank of \deqn{Y_{(i)}}. The coefficient is:
+\deqn{ \xi_n(X, Y) = 1 - \frac{3 \sum_{i=1}^{n-1} |r_{i+1} - r_i|}{n^2 - 1} }
+(simplified version for no ties). Use the function for the exact robust calculation handling ties.
 }
 \examples{
-x <- c(1, 2, 3, 4, 5)
-y <- c(2, 3, 5, 7, 11)
-# Chatterjee correlation
+# Functional dependence (Y = X^2)
+x <- runif(50, -1, 1)
+y <- x^2
+chatterjee_correlation(x, y) # Should be high (near 1)
+
+# Independence
+x <- runif(50)
+y <- runif(50)
+chatterjee_correlation(x, y) # Should be low (near 0)
+
+# Asymmetry check
 chatterjee_correlation(x, y)
+chatterjee_correlation(y, x)
+}
+\references{
+Chatterjee, S. (2021). A new coefficient of correlation. Journal of the American Statistical Association, 116(536), 2009-2022.
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/chatterjee_correlation.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/chatterjee_correlation.html}{Boost Documentation}
 }

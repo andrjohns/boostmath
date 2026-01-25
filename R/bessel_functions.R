@@ -1,8 +1,52 @@
 #' @title Bessel Functions, Their Derivatives, and Zeros
 #' @name bessel_functions
-#' @description Functions to compute Bessel functions of the first and second kind, their modified versions, spherical Bessel functions, and their derivatives and zeros.
+#' @description
+#' Functions to compute Bessel functions of the first and second kind, their modified versions,
+#' spherical Bessel functions, and their derivatives and zeros.
+#'
+#' Bessel functions are solutions to Bessel's ordinary differential equation and appear in many
+#' problems with cylindrical or spherical symmetry, such as wave propagation, heat conduction,
+#' and quantum mechanics.
+#'
+#' **Cylindrical Bessel Functions (J_v and Y_v):**
+#'
+#' Solutions to Bessel's differential equation. The order v can be any real number.
+#' * **J_v(x)** - Bessel function of the first kind: Exhibits cyclic oscillation. Domain error
+#'   occurs when x < 0 and v is non-integer, or when x = 0 and v ≠ 0.
+#' * **Y_v(x)** - Bessel function of the second kind (Neumann function): Shows cyclic behavior
+#'   for large x but approaches negative infinity for small x. Domain error for x ≤ 0.
+#' * Reflection formulas: \deqn{J_{-n}(x) = (-1)^n J_n(x), Y_{-n}(x) = (-1)^n Y_n(x)}
+#'
+#' **Modified Bessel Functions (I_v and K_v):**
+#'
+#' Solutions to the modified Bessel equation (Bessel equation with purely imaginary argument),
+#' producing real-valued results. Also known as hyperbolic Bessel functions.
+#' * **I_v(x)** - Modified Bessel function of the first kind: Exhibits exponential growth.
+#'   Requires x ≥ 0 or (x < 0 and v is integer). Undefined when x = 0 and v ≠ 0.
+#' * **K_v(x)** - Modified Bessel function of the second kind: Demonstrates exponential decay.
+#'   Requires x > 0.
+#'
+#' **Spherical Bessel Functions (j_v and y_v):**
+#'
+#' Radial solutions to the Helmholtz equation in spherical coordinates.
+#' * **j_v(x)** - Spherical Bessel function of the first kind: Related to J_v by
+#'   \deqn{j_v(x) = sqrt(π/(2x)) J_{v+1/2}(x). For v=0: j_0(x) = sin(x)/x}.
+#' * **y_v(x)** - Spherical Bessel function of the second kind: Related to Y_v similarly.
+#'   Shows cyclic patterns for large x but approaches negative infinity as x → 0.
+#' * Domain error when x < 0.
+#'
+#' **Derivatives:**
+#'
+#' The _prime functions compute the derivatives with respect to x of the corresponding
+#' Bessel functions.
+#'
+#' **Zeros:**
+#'
+#' The zero functions find the zeros of J_v and Y_v (where the function equals zero),
+#' indexed starting from 1.
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bessel.html) for more details on the mathematical background.
-#' @param v Order of the Bessel function
+#' @param v Order of the Bessel function (can be any real number)
 #' @param x Argument of the Bessel function
 #' @param m The index of the zero to find (1-based).
 #' @param start_index The starting index for the zeros (1-based).

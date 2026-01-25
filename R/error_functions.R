@@ -1,9 +1,41 @@
 #' @title Error Functions and Inverses
 #' @name error_functions
-#' @description Functions to compute the error function, complementary error function, and their inverses.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_erf.html) for more details
+#' @description
+#' Functions to compute the error function, complementary error function, and their inverses.
+#'
+#' Error functions appear frequently in probability, statistics, and partial differential
+#' equations, particularly in the study of normal distributions and diffusion processes.
+#'
+#' **Error Function:**
+#'
+#' The error function is defined by the integral:
+#' \deqn{erf(z) = \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2} dt}
+#'
+#' The error function is an odd function (erf(-z) = -erf(z)). Implementation uses
+#' rational approximations optimized for absolute error, particularly for |z| ≤ 0.5.
+#'
+#' **Complementary Error Function:**
+#'
+#' The complementary error function is defined as:
+#' \deqn{erfc(z) = 1 - erf(z) = \frac{2}{\sqrt{\pi}} \int_z^\infty e^{-t^2} dt}
+#'
+#' Key reflection formulas:
+#' * erfc(-z) = 2 - erfc(z) (preferred when -z < -0.5)
+#' * erfc(-z) = 1 + erf(z) (preferred when -0.5 ≤ -z < 0)
+#'
+#' For large z, uses exponential scaling to maintain numerical stability.
+#'
+#' **Inverse Functions:**
+#'
+#' * `erf_inv(p)`: Returns x such that p = erf(x), where -1 ≤ p ≤ 1
+#' * `erfc_inv(p)`: Returns x such that p = erfc(x), where 0 ≤ p ≤ 2
+#'
+#' Inverse functions use rational approximations with different formulas for different
+#' ranges of p, achieving accuracy to less than ~2 epsilon for standard precision types.
+#'
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_erf.html) for more details on the mathematical background.
 #' @param x Input numeric value
-#' @param p Probability value (0 <= p <= 1)
+#' @param p Probability value for the inverse functions
 #' @return A single numeric value with the computed error function, complementary error function, or their inverses.
 #' @examples
 #' # Error function

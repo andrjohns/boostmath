@@ -30,13 +30,32 @@ epsilon_difference(x, y)
 
 \item{y}{A numeric value.}
 
-\item{distance}{Integer number of ULPS to advance by.}
+\item{distance}{Integer number of ULPs to advance by.}
 }
 \value{
 A numeric value after performing the specified floating point operation.
 }
 \description{
-Utilities for floating point number manipulation and analysis.
+Utilities for floating-point number manipulation and analysis, including adjacent
+representable values, ULP distances, and condition numbers.
+
+\strong{Floating-Point Navigation:}
+\itemize{
+\item \code{float_next(x)} / \code{float_prior(x)} move to the next greater/smaller representable value.
+\item \code{float_distance(x, y)} returns the representation distance in ULPs.
+\item \code{float_advance(x, n)} advances by $n$ ULPs.
+\item \code{ulp(x)} returns the size of one unit in the last place at \code{x}.
+}
+
+\strong{Comparisons:}
+\itemize{
+\item \code{relative_difference(x, y)} and \code{epsilon_difference(x, y)} provide scale-aware
+measures of deviation.
+}
+
+\strong{Condition Numbers:}
+\code{summation_condition_number} and \code{evaluation_condition_number} help quantify numerical
+sensitivity to perturbations.
 }
 \examples{
 print(float_next(1.0), digits = 20)

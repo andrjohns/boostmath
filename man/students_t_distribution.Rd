@@ -52,6 +52,19 @@ A single numeric value with the computed probability density, log-probability de
 }
 \description{
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Student's t distribution.
+
+Student's t-distribution is defined as the distribution of the random variable \eqn{t} which is (very loosely) the "best" that we can do while not knowing the true standard deviation of the sample.
+
+Given \eqn{N} independent measurements, let
+\deqn{t = \frac{\mu - M}{s / \sqrt{N}}}
+where \eqn{M} is the population mean, \eqn{\mu} is the sample mean, and \eqn{s} is the sample variance.
+
+It has the PDF:
+\deqn{f(x;\nu) = \frac{\Gamma((\nu+1)/2)}{\sqrt{\nu\pi}\Gamma(\nu/2)} \left(1+\frac{x^2}{\nu}\right)^{-(\nu+1)/2}}
+where \eqn{\nu} is the degrees of freedom.
+
+\strong{Accuracy and Implementation Notes:}
+The Student's t distribution is implemented in terms of the incomplete beta function and its inverses.
 }
 \examples{
 # Student's t distribution with 5 degrees of freedom

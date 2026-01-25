@@ -19,10 +19,27 @@ correlation_coefficient(x, y)
 \item{y}{A numeric vector.}
 }
 \value{
-A numeric value or vector with the computed statistic.
+A numeric value (or tuple for \code{means_and_covariance}) with the computed statistic.
 }
 \description{
-Functions to compute various bivariate statistics.
+Functions to compute bivariate statistics including covariance and the Pearson
+correlation coefficient.
+
+\strong{Covariance:}
+The population covariance is
+
+\deqn{\operatorname{cov}(x, y) = \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}
+
+\strong{Correlation Coefficient:}
+The Pearson correlation coefficient is
+
+\deqn{\rho_{x,y} = \frac{\operatorname{cov}(x, y)}{\sigma_x \sigma_y}}
+
+\strong{Accuracy and Implementation Notes:}
+The implementation follows numerically stable single-pass algorithms (Bennett et al.)
+with parallel variants (Schubert et al.). Inputs are real-valued only; if integer types
+are supplied, results are returned as double precision. If either input is constant,
+the correlation coefficient is indeterminate and returns NaN.
 }
 \examples{
 # Covariance

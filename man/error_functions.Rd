@@ -19,13 +19,46 @@ erfc_inv(p)
 \arguments{
 \item{x}{Input numeric value}
 
-\item{p}{Probability value (0 <= p <= 1)}
+\item{p}{Probability value for the inverse functions}
 }
 \value{
 A single numeric value with the computed error function, complementary error function, or their inverses.
 }
 \description{
 Functions to compute the error function, complementary error function, and their inverses.
+
+Error functions appear frequently in probability, statistics, and partial differential
+equations, particularly in the study of normal distributions and diffusion processes.
+
+\strong{Error Function:}
+
+The error function is defined by the integral:
+\deqn{erf(z) = \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2} dt}
+
+The error function is an odd function (erf(-z) = -erf(z)). Implementation uses
+rational approximations optimized for absolute error, particularly for |z| ≤ 0.5.
+
+\strong{Complementary Error Function:}
+
+The complementary error function is defined as:
+\deqn{erfc(z) = 1 - erf(z) = \frac{2}{\sqrt{\pi}} \int_z^\infty e^{-t^2} dt}
+
+Key reflection formulas:
+\itemize{
+\item erfc(-z) = 2 - erfc(z) (preferred when -z < -0.5)
+\item erfc(-z) = 1 + erf(z) (preferred when -0.5 ≤ -z < 0)
+}
+
+For large z, uses exponential scaling to maintain numerical stability.
+
+\strong{Inverse Functions:}
+\itemize{
+\item \code{erf_inv(p)}: Returns x such that p = erf(x), where -1 ≤ p ≤ 1
+\item \code{erfc_inv(p)}: Returns x such that p = erfc(x), where 0 ≤ p ≤ 2
+}
+
+Inverse functions use rational approximations with different formulas for different
+ranges of p, achieving accuracy to less than ~2 epsilon for standard precision types.
 }
 \examples{
 # Error function
@@ -38,5 +71,5 @@ erf_inv(0.5)
 erfc_inv(0.5)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_erf.html}{Boost Documentation} for more details
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_erf.html}{Boost Documentation} for more details on the mathematical background.
 }

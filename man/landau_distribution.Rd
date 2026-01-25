@@ -22,19 +22,32 @@ landau_lcdf(x, location = 0, scale = 1)
 landau_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{location}{location parameter (default is 0)}
+\item{location}{Location parameter (default is 0).}
 
-\item{scale}{scale parameter (default is 1)}
+\item{scale}{Scale parameter (default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value.}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Landau distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Landau distribution.
+
+The Landau distribution is a stable distribution with \deqn{\alpha=1} and \deqn{\beta=1}.
+A standard integral representation of its PDF is
+
+\deqn{f(x) = \frac{1}{\pi}\int_0^\infty \exp\left(-t\log t - x t\right)\sin(\pi t)\,dt.}
+
+The location parameter \deqn{\mu} and scale parameter $c$ shift and scale the distribution,
+with a bias term \deqn{b = -\frac{2}{\pi}\log c} applied in the Boost parameterization.
+
+\strong{Accuracy and Implementation Notes:}
+Boost reports errors within about 4 epsilon except for the rapidly decaying left tail.
+Some moments (mean, variance, skewness, kurtosis) are undefined and will raise errors.
 }
 \examples{
 # Landau distribution with location 0 and scale 1

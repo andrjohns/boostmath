@@ -9,7 +9,7 @@
 \alias{halley_iterate}
 \alias{schroder_iterate}
 \alias{brent_find_minima}
-\title{Root-Finding and Minimisation Functions}
+\title{Root-Finding and Minimisation}
 \usage{
 bisect(
   f,
@@ -72,45 +72,84 @@ brent_find_minima(
 )
 }
 \arguments{
-\item{f}{A function to find the root of or to minimise. It should take and return a single numeric value for root-finding, or a numeric vector for minimisation.}
+\item{f}{A function to find the root of or to minimise.
+\itemize{
+\item For \strong{no-derivative} methods: A function returning a single numeric value.
+\item For \strong{Newton-Raphson}: A function returning a vector \verb{c(f(x), f'(x))}.
+\item For \strong{Halley/Schroder}: A function returning a vector \verb{c(f(x), f'(x), f''(x))}.
+\item For \strong{Minimization}: A function returning a single numeric value.
+}}
 
-\item{lower}{The lower bound of the interval to search for the root or minimum.}
+\item{lower}{The lower bound of the interval to search.}
 
-\item{upper}{The upper bound of the interval to search for the root or minimum.}
+\item{upper}{The upper bound of the interval to search.}
 
-\item{digits}{The number of significant digits to which the root or minimum should be found. Defaults to double precision.}
+\item{digits}{The number of significant digits to which the root or minimum should be found. Default is double precision.}
 
-\item{max_iter}{The maximum number of iterations to perform. Defaults to the maximum integer value.}
+\item{max_iter}{The maximum number of iterations to perform.}
 
-\item{guess}{A numeric value that is a guess for the root or minimum.}
+\item{guess}{A numeric value that is a guess for the root.}
 
-\item{factor}{Size of steps to take when searching for the root.}
+\item{factor}{Size of steps to take when searching for the root (for \code{bracket_and_solve_root}).}
 
-\item{rising}{If TRUE, the function is assumed to be rising, otherwise it is assumed to be falling.}
+\item{rising}{If TRUE, the function is assumed to be rising (for \code{bracket_and_solve_root}).}
 }
 \value{
 A list containing the root or minimum value, the value of the function at that point, and the number of iterations performed.
 }
 \description{
-Functions for root-finding and minimisation using various algorithms.
+Functions for finding roots of equations and minimizing functions using various numerical methods.
+
+\strong{Root Finding Without Derivatives:}
+These methods require a bracket (an interval \eqn{[a, b]} where the function has opposite signs) or a guess.
+\itemize{
+\item \strong{Bisection (\code{bisect}):} A robust method that repeatedly subdivides the interval. Guaranteed to converge but slowly (linear convergence).
+\item \strong{TOMS 748 (\code{toms748_solve}):} An asymptotically efficient algorithm (Alefeld, Potra, and Shi) that combines interpolation and bisection. It has higher-order convergence and is often optimal for smooth functions.
+\item \strong{Bracket and Solve (\code{bracket_and_solve_root}):} A convenience wrapper that attempts to find a bracket around a guess and then solves using TOMS 748.
 }
-\details{
-This package provides a set of functions for finding roots of equations and minimising functions using different numerical methods. The methods include bisection, bracket and solve, TOMS
-748, Newton-Raphson, Halley's method, Schroder's method, and Brent's method. It also includes functions for finding roots of polynomials (quadratic, cubic, quartic) and computing minima.
+
+\strong{Root Finding With Derivatives:}
+These methods require the user to provide derivatives of the function.
+\itemize{
+\item \strong{Newton-Raphson (\code{newton_raphson_iterate}):} Second-order convergence. Requires \eqn{f(x)} and \eqn{f'(x)}.
+\item \strong{Halley's Method (\code{halley_iterate}):} Third-order convergence. Requires \eqn{f(x)}, \eqn{f'(x)}, and \eqn{f''(x)}.
+\item \strong{Schroder's Method (\code{schroder_iterate}):} Third-order convergence. Similar to Halley's method but more robust ensuring quadratic convergence for multiple roots.
+}
+
+\strong{Minimization:}
+\itemize{
+\item \strong{Brent's Method (\code{brent_find_minima}):} Finds the minimum of a function in a given interval. It is a hybrid method using a combination of the golden section search and quadratic interpolation.
+}
 }
 \examples{
-f <- function(x) x^2 - 2
-bisect(f, lower = 0, upper = 2)
-bracket_and_solve_root(f, guess = 1, factor = 0.1, rising = TRUE)
-toms748_solve(f, lower = 0, upper = 2)
-f <- function(x) c(x^2 - 2, 2 * x)
-newton_raphson_iterate(f, guess = 1, lower = 0, upper = 2)
-f <- function(x) c(x^2 - 2, 2 * x, 2)
-halley_iterate(f, guess = 1, lower = 0, upper = 2)
-schroder_iterate(f, guess = 1, lower = 0, upper = 2)
-f <- function(x) (x - 2)^2 + 1
-brent_find_minima(f, lower = 0, upper = 4)
+# --- Root Finding Without Derivatives ---
+# Bisection for x^2 - 2 = 0
+f_bi <- function(x) x^2 - 2
+bisect(f_bi, lower = 0, upper = 2)
+
+# TOMS 748 for x^2 - 2 = 0
+toms748_solve(f_bi, lower = 0, upper = 2)
+
+# Bracket and Solve
+bracket_and_solve_root(f_bi, guess = 1, factor = 2, rising = TRUE)
+
+# --- Root Finding With Derivatives ---
+# Newton-Raphson: Need f(x) and f'(x)
+# x^2 - 2 = 0  => f(x) = x^2 - 2, f'(x) = 2x
+f_newton <- function(x) c(x^2 - 2, 2 * x)
+newton_raphson_iterate(f_newton, guess = 1, lower = 0, upper = 2)
+
+# Halley/Schroder: Need f(x), f'(x), f''(x)
+# x^2 - 2 = 0  => f''(x) = 2
+f_halley <- function(x) c(x^2 - 2, 2 * x, 2)
+halley_iterate(f_halley, guess = 1, lower = 0, upper = 2)
+schroder_iterate(f_halley, guess = 1, lower = 0, upper = 2)
+
+# --- Minimization ---
+# Find minimum of (x-2)^2 + 1
+f_min <- function(x) (x - 2)^2 + 1
+brent_find_minima(f_min, lower = 0, upper = 4)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/root_finding.html}{Boost Documentation} for more details on the mathematical background.
+\code{\link{polynomial_root_finding}}
 }

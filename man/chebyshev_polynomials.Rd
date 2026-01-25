@@ -23,25 +23,65 @@ chebyshev_clenshaw_recurrence(c, x)
 chebyshev_clenshaw_recurrence_ab(c, a, b, x)
 }
 \arguments{
-\item{x}{Argument of the polynomial}
+\item{x}{Argument of the polynomial (typically in \eqn{[-1, 1]} for stability)}
 
-\item{Tn}{Value of the Chebyshev polynomial \eqn{(T_n(x))}}
+\item{Tn}{Value of the Chebyshev polynomial T_n(x)}
 
-\item{Tn_1}{Value of the Chebyshev polynomial \eqn{(T_{n-1}(x))}}
+\item{Tn_1}{Value of the Chebyshev polynomial T_{n-1}(x)}
 
 \item{n}{Degree of the polynomial}
 
-\item{c}{Coefficients of the Chebyshev polynomial}
+\item{c}{Vector of coefficients for the Chebyshev series}
 
-\item{a}{Lower bound of the interval}
+\item{a}{Lower bound of the interval (for interval transformation)}
 
-\item{b}{Upper bound of the interval}
+\item{b}{Upper bound of the interval (for interval transformation)}
 }
 \value{
-A single numeric value with the computed Chebyshev polynomial, its derivative, or related functions.
+A single numeric value with the computed Chebyshev polynomial or series evaluation.
 }
 \description{
-Functions to compute Chebyshev polynomials of the first and second kind.
+Functions to compute Chebyshev polynomials of the first and second kind, and
+efficiently evaluate Chebyshev series using Clenshaw's recurrence algorithm.
+
+Chebyshev polynomials are orthogonal polynomials used extensively in approximation
+theory, numerical analysis, and spectral methods. They minimize the Runge phenomenon
+in polynomial interpolation.
+
+\strong{Chebyshev Polynomials of the First Kind T_n(x):}
+\itemize{
+\item \code{chebyshev_t(n, x)}: Evaluates T_n(x)
+\item Recurrence relation: \deqn{T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)} for n > 0
+\item Initial conditions: T_0(x) = 1, T_1(x) = x
+\item \code{chebyshev_t_prime(n, x)}: Derivative of T_n(x)
+\item Stable evaluation for x ∈ \eqn{[-1, 1]} (mixed forward-backward stable)
+}
+
+\strong{Chebyshev Polynomials of the Second Kind U_n(x):}
+\itemize{
+\item \code{chebyshev_u(n, x)}: Evaluates U_n(x)
+\item Related to T_n by differentiation
+}
+
+\strong{Recurrence Relation:}
+\itemize{
+\item \code{chebyshev_next(x, Tn, Tn_1)}: Computes \deqn{T_{n+1}(x)} from T_n and \deqn{T_{n-1}}
+}
+
+\strong{Clenshaw's Recurrence Algorithm:}
+
+Efficient O(n) evaluation of Chebyshev series (alternative to O(n²) direct computation):
+\itemize{
+\item \code{chebyshev_clenshaw_recurrence(c, x)}: Evaluates Chebyshev series with
+coefficients c at point x on standard interval \eqn{[-1, 1]}
+\item \code{chebyshev_clenshaw_recurrence_ab(c, a, b, x)}: Evaluates Chebyshev series
+on arbitrary interval \eqn{[a, b]} using Reinsch's modification
+}
+
+\strong{Stability:}
+
+Evaluation by three-term recurrence is known to be mixed forward-backward stable
+for x ∈ \eqn{[-1, 1]}. Stability outside this interval is not established.
 }
 \examples{
 # Chebyshev polynomial of the first kind T_2(0.5)
@@ -52,10 +92,9 @@ chebyshev_u(2, 0.5)
 chebyshev_t_prime(2, 0.5)
 # Next Chebyshev polynomial of the first kind T_3(0.5) using T_2(0.5) and T_1(0.5)
 chebyshev_next(0.5, chebyshev_t(2, 0.5), chebyshev_t(1, 0.5))
-# Chebyshev polynomial of the first kind using Clenshaw's recurrence with coefficients
-# c = c(1, 0, -1) at x = 0.5
+# Evaluate Chebyshev series with Clenshaw's algorithm
 chebyshev_clenshaw_recurrence(c(1, 0, -1), 0.5)
-# Chebyshev polynomial of the first kind using Clenshaw's recurrence with interval [0, 1]
+# Evaluate Chebyshev series on interval [0, 1]
 chebyshev_clenshaw_recurrence_ab(c(1, 0, -1), 0, 1, 0.5)
 }
 \seealso{

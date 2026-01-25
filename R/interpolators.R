@@ -1,6 +1,19 @@
-#' Cardinal Cubic B-Spline Interpolator
+#' @title Cardinal Cubic B-Spline Interpolator
+#' @description
+#' The cardinal cubic B-spline interpolator allows for fast and accurate interpolation of a function
+#' which is known at equally spaced points.
 #'
-#' Constructs a cardinal cubic B-spline interpolator given data points.
+#' **Mathematical Properties:**
+#'
+#' It uses compactly supported basis functions constructed via iterative convolution, ensuring numerical stability.
+#' The interpolant is O(h^4) accurate for values and O(h^3) accurate for derivatives,
+#' where h is the step size.
+#'
+#' **Conditions:**
+#'
+#' Ideally, the function being interpolated should be four-times continuously differentiable.
+#' If the derivatives at the endpoints are not provided, they are estimated using one-sided
+#' finite-difference formulas.
 #'
 #' @param y Numeric vector of data points to interpolate.
 #' @param t0 Numeric scalar representing the starting point of the data.
@@ -12,6 +25,7 @@
 #'   - `interpolate(x)`: Evaluate the spline at point `x`.
 #'   - `prime(x)`: Evaluate the first derivative of the spline at point `x`.
 #'   - `double_prime(x)`: Evaluate the second derivative of the spline at point `x`.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_cubic_b.html)
 #' @examples
 #' y <- c(1, 2, 0, 2, 1)
 #' t0 <- 0
@@ -40,9 +54,19 @@ cardinal_cubic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, r
   )
 }
 
-#' Barycentric Rational Interpolation
+#' @title Barycentric Rational Interpolation
+#' @description
+#' Barycentric rational interpolation is a high-accuracy interpolation method for non-uniformly spaced samples.
 #'
-#' Constructs a barycentric rational interpolator given data points.
+#' **Performance and Accuracy:**
+#'
+#' It requires O(N) time for construction and O(N) time for each evaluation.
+#' If the approximation order is d, the error is O(h^(d+1)).
+#'
+#' **Caveats:**
+#'
+#' This method is robust but can behave unexpectedly if the sample spacing at the endpoints is
+#' much larger than in the center.
 #'
 #' @param x Numeric vector of data points (abscissas).
 #' @param y Numeric vector of data values (ordinates).
@@ -51,6 +75,7 @@ cardinal_cubic_b_spline <- function(y, t0, h, left_endpoint_derivative = NULL, r
 #' @return An object of class `barycentric_rational_interpolator` with methods:
 #'   - `interpolate(xi)`: Evaluate the interpolator at point `xi`.
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/barycentric.html)
 #' @examples
 #' x <- c(0, 1, 2, 3)
 #' y <- c(1, 2, 0, 2)
@@ -71,10 +96,16 @@ barycentric_rational <- function(x, y, order = 3) {
     class = "barycentric_rational"
   )
 }
-
-#' Bezier Polynomial Interpolator
+#' @title Bezier Polynomial Interpolator
+#' @description
+#' Bézier polynomials are smooth curves which approximate a set of control points.
+#' They are commonly used in computer-aided geometric design.
 #'
-#' Constructs a Bezier polynomial interpolator given control points.
+#' **Properties:**
+#'
+#' The curve is approximating, meaning it does not necessarily pass through the control points.
+#' Passing n control points creates a polynomial of degree n-1.
+#' Evaluation is O(N^2) via de Casteljau's algorithm.
 #'
 #' @param control_points List of control points, where each element is a numeric vector of length 3.
 #'
@@ -82,6 +113,7 @@ barycentric_rational <- function(x, y, order = 3) {
 #'   - `interpolate(xi)`: Evaluate the interpolator at point `xi`.
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `edit_control_point(new_control_point, index)`: Insert a new control point at the specified index.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bezier_polynomial.html)
 #' @examples
 #' control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
 #' interpolator <- bezier_polynomial(control_points)
@@ -108,9 +140,16 @@ bezier_polynomial <- function(control_points) {
   )
 }
 
-#' Bilinear Uniform Interpolator
+#' @title Bilinear Uniform Interpolator
+#' @description
+#' The bilinear uniform interpolator takes a grid of data points specified by a linear index
+#' and interpolates between each segment using a bilinear function.
 #'
-#' Constructs a bilinear uniform interpolator given a grid of data points.
+#' **Details:**
+#'
+#' "Bilinear" means it is the product of two linear functions.
+#' The interpolant is continuous and its evaluation is constant time.
+#' The interpolator is point-centered.
 #'
 #' @param x Numeric vector of all grid elements
 #' @param rows Integer representing the number of rows in the grid
@@ -122,6 +161,7 @@ bezier_polynomial <- function(control_points) {
 #'
 #' @return An object of class `bilinear_uniform` with methods:
 #'   - `interpolate(xi, yi)`: Evaluate the interpolator at point `(xi, yi)`.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bilinear_uniform.html)
 #' @examples
 #' x <- seq(0, 1, length.out = 10)
 #' interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
@@ -139,9 +179,17 @@ bilinear_uniform <- function(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0) {
   )
 }
 
-#' Cardinal Quadratic B-Spline Interpolator
+#' @title Cardinal Quadratic B-Spline Interpolator
+#' @description
+#' The cardinal quadratic B-spline interpolator is very nearly the same as the cubic B-spline interpolator,
+#' but uses quadratic basis functions.
 #'
-#' Constructs a cardinal quadratic B-spline interpolator given control points.
+#' **Use Cases:**
+#'
+#' Basis functions are constructed by convolving a box function with itself twice.
+#' Since the basis functions are less smooth than the cubic B-spline, this is primarily useful for
+#' approximating functions of reduced smoothness.
+#' It is appropriate for functions which are two or three times continuously differentiable.
 #'
 #' @param y Numeric vector of data points to interpolate.
 #' @param t0 Numeric scalar representing the starting point of the data.
@@ -152,6 +200,7 @@ bilinear_uniform <- function(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0) {
 #' @return An object of class `cardinal_quadratic_b_spline` with methods:
 #'   - `interpolate(xi)`: Evaluate the interpolator at point `xi`.
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quadratic_b.html)
 #' @examples
 #' y <- c(0, 1, 0, 1)
 #' t0 <- 0
@@ -178,9 +227,15 @@ cardinal_quadratic_b_spline <- function(y, t0, h, left_endpoint_derivative = NUL
   )
 }
 
-#' Cardinal Quintic B-Spline Interpolator
+#' @title Cardinal Quintic B-Spline Interpolator
+#' @description
+#' The cardinal quintic B-spline interpolator is similar to the cubic B-spline but uses
+#' basis functions constructed by convolving a box function with itself five times.
 #'
-#' Constructs a cardinal quintic B-spline interpolator given control points.
+#' **Properties:**
+#'
+#' The basis functions are more smooth (C4) than the cubic B-spline (C2), making this useful
+#' for computing second derivatives. The second derivative of the quintic B-spline is a cubic spline.
 #'
 #' @param y Numeric vector of data points to interpolate.
 #' @param t0 Numeric scalar representing the starting point of the data.
@@ -192,6 +247,7 @@ cardinal_quadratic_b_spline <- function(y, t0, h, left_endpoint_derivative = NUL
 #'   - `interpolate(xi)`: Evaluate the interpolator at point `xi`.
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `double_prime(xi)`: Evaluate the second derivative of the interpolator at point `xi`.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quintic_b.html)
 #' @examples
 #' y <- seq(0, 1, length.out = 20)
 #' t0 <- 0
@@ -220,9 +276,15 @@ cardinal_quintic_b_spline <- function(y, t0, h, left_endpoint_derivatives = NULL
   )
 }
 
-#' Catmull-Rom Interpolation
+#' @title Catmull-Rom Interpolation
+#' @description
+#' Catmull-Rom splines are a family of interpolating curves which are commonly used in computer graphics and animation.
 #'
-#' Constructs a Catmull-Rom spline interpolator given control points.
+#' **Properties:**
+#'
+#' They enjoy affine invariance, local support, C2-smoothness, and interpolation of control points.
+#' The curve is internally closed, however the user specifies if it should be treated as open or closed via the parameters.
+#' Evaluation is O(log N).
 #'
 #' @param control_points List of control points, where each element is a numeric vector of length 3.
 #' @param closed Logical indicating whether the spline is closed (i.e., the first and last control points are connected), defaults to false
@@ -233,6 +295,7 @@ cardinal_quintic_b_spline <- function(y, t0, h, left_endpoint_derivatives = NULL
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `max_parameter()`: Get the maximum parameter value of the spline.
 #'   - `parameter_at_point(i)`: Get the parameter value at index `i`.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/catmull_rom.html)
 #' @examples
 #' control_points <- list(c(0, 0, 0), c(1, 1, 0), c(2, 0, 0), c(3, 1, 0))
 #' interpolator <- catmull_rom(control_points)
@@ -255,9 +318,15 @@ catmull_rom <- function(control_points, closed = FALSE, alpha = 0.5) {
   )
 }
 
-#' Cubic Hermite Interpolator
+#' @title Cubic Hermite Interpolator
+#' @description
+#' The cubic Hermite interpolant takes non-equispaced data and interpolates between them via
+#' cubic Hermite polynomials whose slopes must be provided.
 #'
-#' Constructs a cubic Hermite interpolator given the vectors of abscissas, ordinates, and derivatives.
+#' **Applications:**
+#'
+#' The interpolant is C1 and evaluation has O(log N) complexity.
+#' This interpolator is useful for solution skeletons of ODE steppers.
 #'
 #' @param x Numeric vector of abscissas (x-coordinates).
 #' @param y Numeric vector of ordinates (y-coordinates).
@@ -268,6 +337,7 @@ catmull_rom <- function(control_points, closed = FALSE, alpha = 0.5) {
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `push_back(x, y, dydx)`: Add a new control point to the interpolator.
 #'   - `domain()`: Get the domain of the interpolator.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html)
 #' @examples
 #' x <- c(0, 1, 2)
 #' y <- c(0, 1, 0)
@@ -292,9 +362,13 @@ cubic_hermite <- function(x, y, dydx) {
   )
 }
 
-#' Cardinal Cubic Hermite Interpolator
+#' @title Cardinal Cubic Hermite Interpolator
+#' @description
+#' The cardinal cubic Hermite interpolator is similar to the cubic Hermite interpolator but optimized for equispaced data.
 #'
-#' Constructs a cardinal cubic Hermite interpolator given the vectors of abscissas, ordinates, and derivatives.
+#' **Performance:**
+#'
+#' This allows for constant-time evaluation.
 #'
 #' @param y Numeric vector of ordinates (y-coordinates).
 #' @param dydx Numeric vector of derivatives (slopes) at each point.
@@ -305,6 +379,7 @@ cubic_hermite <- function(x, y, dydx) {
 #'   - `interpolate(xi)`: Evaluate the interpolator at point `xi`.
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `domain()`: Get the domain of the interpolator.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html)
 #' @examples
 #' y <- c(0, 1, 0)
 #' dydx <- c(1, 0, -1)
@@ -325,10 +400,17 @@ cardinal_cubic_hermite <- function(y, dydx, x0, dx) {
     class = "cardinal_cubic_hermite"
   )
 }
-
-#' Modified Akima Interpolator
+#' @title Modified Akima Interpolator
+#' @description
+#' The modified Akima interpolant takes non-equispaced data and interpolates between them via
+#' cubic Hermite polynomials whose slopes are chosen significantly.
 #'
-#' Constructs a Modified Akima interpolator given the vectors of abscissas, ordinates, and derivatives.
+#' **Properties:**
+#'
+#' The slopes are chosen by a modification of a geometric construction proposed by Akima.
+#' The interpolant is C1 and evaluation has O(log N) complexity.
+#' It oscillates less than the cubic spline but has less smoothness.
+#' The modification is given by Cosmin Ionita and agrees with Matlab's version.
 #'
 #' @param x Numeric vector of abscissas (x-coordinates).
 #' @param y Numeric vector of ordinates (y-coordinates).
@@ -366,9 +448,15 @@ makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivat
   )
 }
 
-#' PCHIP Interpolator
+#' @title PCHIP Interpolator
+#' @description
+#' The PCHIP (Piecewise Cubic Hermite Interpolating Polynomial) interpolant takes non-equispaced data
+#' and interpolates between them via cubic Hermite polynomials whose slopes are chosen to preserve monotonicity.
 #'
-#' Constructs a PCHIP interpolator given the vectors of abscissas, ordinates, and derivatives.
+#' **Details:**
+#'
+#' The interpolant is C1 and evaluation has O(log N) complexity.
+#' See Fritsch and Carlson for details.
 #'
 #' @param x Numeric vector of abscissas (x-coordinates).
 #' @param y Numeric vector of ordinates (y-coordinates).
@@ -379,6 +467,7 @@ makima <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivat
 #'   - `interpolate(xi)`: Evaluate the interpolator at point `xi`.
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `push_back(x, y)`: Add a new control point
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/pchip.html)
 #' @examples
 #' x <- c(0, 1, 2, 3)
 #' y <- c(0, 1, 0, 1)
@@ -406,9 +495,16 @@ pchip <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivati
   )
 }
 
-#' Quintic Hermite Interpolator
+#' @title Quintic Hermite Interpolator
+#' @description
+#' The quintic Hermite interpolator takes a list of possibly non-uniformly spaced abscissas, ordinates,
+#' and their velocities and accelerations.
 #'
-#' Constructs a quintic Hermite interpolator given the vectors of abscissas, ordinates, first derivatives, and second derivatives.
+#' **Applications:**
+#'
+#' It constructs a quintic interpolating polynomial between segments.
+#' This is useful for taking solution skeletons from ODE steppers and turning them into a continuous function.
+#' The interpolant is C2 and its evaluation has O(log N) complexity.
 #'
 #' @param x Numeric vector of abscissas (x-coordinates).
 #' @param y Numeric vector of ordinates (y-coordinates).
@@ -421,6 +517,7 @@ pchip <- function(x, y, left_endpoint_derivative = NULL, right_endpoint_derivati
 #'   - `double_prime(xi)`: Evaluate the second derivative of the interpolator at point `xi`.
 #'   - `push_back(x, y, dydx, d2ydx2)`: Add a new control point to the interpolator.
 #'   - `domain()`: Get the domain of the interpolator.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html)
 #' @examples
 #' x <- c(0, 1, 2)
 #' y <- c(0, 1, 0)
@@ -447,10 +544,13 @@ quintic_hermite <- function(x, y, dydx, d2ydx2) {
     class = "quintic_hermite"
   )
 }
-
-#' Cardinal Quintic Hermite Interpolator
+#' @title Cardinal Quintic Hermite Interpolator
+#' @description
+#' The cardinal quintic Hermite interpolator is similar to the quintic Hermite interpolator but optimized for equispaced data.
 #'
-#' Constructs a cardinal quintic Hermite interpolator given the vectors of ordinates, first derivatives, and second derivatives.
+#' **Performance:**
+#'
+#' This allows for constant-time evaluation.
 #'
 #' @param y Numeric vector of ordinates (y-coordinates).
 #' @param dydx Numeric vector of first derivatives (slopes) at each point.
@@ -463,6 +563,7 @@ quintic_hermite <- function(x, y, dydx, d2ydx2) {
 #'   - `prime(xi)`: Evaluate the derivative of the interpolator at point `xi`.
 #'   - `double_prime(xi)`: Evaluate the second derivative of the interpolator at point `xi`.
 #'   - `domain()`: Get the domain of the interpolator.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html)
 #' @examples
 #' y <- c(0, 1, 0)
 #' dydx <- c(1, 0, -1)

@@ -22,19 +22,32 @@ inverse_chi_squared_lcdf(x, df = 1, scale = 1/df)
 inverse_chi_squared_quantile(p, df = 1, scale = 1/df)
 }
 \arguments{
-\item{df}{degrees of freedom (df > 0; default is 1)}
+\item{df}{Degrees of freedom (df > 0; default is 1).}
 
-\item{scale}{scale parameter (default is 1/df)}
+\item{scale}{Scale parameter (default is 1/df).}
 
-\item{x}{quantile}
+\item{x}{Quantile value (x ≥ 0).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Inverse Chi-Squared distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Inverse Chi-Squared distribution.
+
+For degrees of freedom \deqn{\nu} and scale \deqn{\xi}, the PDF is
+
+\deqn{f(x;\nu,\xi) = \frac{(\nu\xi/2)^{\nu/2}}{\Gamma(\nu/2)} x^{-1-\nu/2} \exp\left(-\frac{\nu\xi}{2x}\right)}
+
+and the CDF is \deqn{F(x)=\Gamma(\nu/2,\nu\xi/2x)/\Gamma(\nu/2)}. The unscaled case
+corresponds to \deqn{\xi = 1/\nu}.
+
+\strong{Accuracy and Implementation Notes:}
+Implemented via incomplete gamma functions (\code{gamma_p}, \code{gamma_q}) and their inverses.
+Results are typically accurate to a few epsilons in double precision. Moments such as
+mean/variance/skewness are only defined for sufficiently large \deqn{\nu}.
 }
 \examples{
 # Inverse Chi-Squared distribution with 10 degrees of freedom, scale = 1

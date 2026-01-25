@@ -1,9 +1,25 @@
 #' @title Exponential Distribution Functions
 #' @name exponential_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Exponential distribution.
-#' @param x quantile
-#' @param lambda rate parameter (lambda > 0)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, and quantile function for the Exponential distribution.
+#'
+#' With rate parameter \deqn{\lambda > 0}, the PDF and CDF are
+#'
+#' \deqn{f(x) = \lambda e^{-\lambda x}, \quad x \ge 0}
+#' \deqn{F(x) = 1 - e^{-\lambda x}}
+#'
+#' and the quantile is
+#'
+#' \deqn{Q(p) = -\frac{\log(1-p)}{\lambda}}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' The implementation uses `exp`, `log`, `expm1`, and `log1p`. Both `logcdf` and `logpdf`
+#' are specialized for improved numerical accuracy, and complements use stable forms.
+#'
+#' @param x Quantile value (x ≥ 0).
+#' @param lambda Rate parameter (lambda > 0).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/exp_dist.html) for more details on the mathematical background.
 #' @examples

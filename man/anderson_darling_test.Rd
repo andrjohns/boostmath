@@ -8,21 +8,41 @@
 anderson_darling_normality_statistic(x, mu = 0, sd = 1)
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{A numeric vector of sample data (must be sorted in ascending order).}
 
-\item{mu}{A single numeric value.}
+\item{mu}{The mean of the normal distribution to test against. Default is 0.}
 
-\item{sd}{A single numeric value.}
+\item{sd}{The standard deviation of the normal distribution to test against. Default is 1.}
 }
 \value{
-A numeric value or vector with the computed statistic.
+The Anderson-Darling A² test statistic.
 }
 \description{
-Functions to perform the Anderson-Darling test for normality.
+Performs the Anderson-Darling test for normality by computing the A² test statistic.
+
+The Anderson-Darling test evaluates whether a sample comes from a normal distribution
+by computing an integral over the empirical cumulative distribution function (ECDF)
+and comparing it against the normal distribution's CDF.
+
+\strong{Interpretation:}
+\itemize{
+\item When A²/n approaches zero as sample size increases, the normality hypothesis is supported
+\item When A²/n converges to a positive finite value, the normality hypothesis lacks support
+}
+
+\strong{Important:} The input data vector \code{x} must be sorted in ascending order. Unsorted
+data will trigger an error.
+
+\strong{Parameter Modes:}
+\itemize{
+\item If \code{mu} and \code{sd} are provided, the test compares against N(mu, sd²)
+\item If \code{mu} and \code{sd} are not provided (default), they are estimated from the data
+}
 }
 \examples{
-# Anderson-Darling test for normality
-anderson_darling_normality_statistic(c(1, 2, 3, 4, 5), 0, 1)
+# Anderson-Darling test for normality with sorted data
+x <- sort(rnorm(100))
+anderson_darling_normality_statistic(x, 0, 1)
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/anderson_darling.html}{Boost Documentation} for more details on the mathematical background.

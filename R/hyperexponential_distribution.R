@@ -1,10 +1,25 @@
 #' @title Hyperexponential Distribution Functions
 #' @name hyperexponential_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Hyperexponential distribution.
-#' @param x quantile
-#' @param probabilities vector of probabilities (sum must be 1)
-#' @param rates vector of rates (all rates must be > 0)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, and quantile function for the Hyperexponential distribution.
+#'
+#' A $k$-phase hyperexponential distribution is a mixture of $k$ exponential
+#' distributions with phase probabilities \deqn{\alpha_i} and rates \deqn{\lambda_i}.
+#' The PDF and CDF are
+#'
+#' \deqn{f(x) = \sum_{i=1}^k \alpha_i \lambda_i e^{-\lambda_i x}}
+#' \deqn{F(x) = 1 - \sum_{i=1}^k \alpha_i e^{-\lambda_i x}, \quad x \ge 0}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' Implemented in terms of the exponential distribution, and should be accurate to
+#' within a few machine epsilons. Quantiles have no closed form and are computed
+#' numerically.
+#'
+#' @param x Quantile value (x ≥ 0).
+#' @param probabilities Vector of non-negative probabilities (will be normalized to sum to 1).
+#' @param rates Vector of positive rates (all rates must be > 0).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hyperexponential_dist.html) for more details on the mathematical background.
 #' @examples

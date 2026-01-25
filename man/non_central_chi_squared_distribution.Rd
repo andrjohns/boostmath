@@ -43,6 +43,25 @@ A single numeric value with the computed probability density, log-probability de
 }
 \description{
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Noncentral Chi-Squared distribution.
+
+The noncentral chi-squared distribution is a generalization of the Chi-Squared Distribution.
+If \eqn{X_i} are \eqn{\nu} independent, normally distributed random variables with means \eqn{\mu_i} and variances \eqn{\sigma_i^2}, then the random variable
+\deqn{\sum_{i=1}^\nu \frac{X_i^2}{\sigma_i^2}}
+is distributed according to the noncentral chi-squared distribution.
+
+The noncentral chi-squared distribution has two parameters: \eqn{\nu} which specifies the number of degrees of freedom (i.e. the number of \eqn{X_i}), and \eqn{\lambda} which is related to the mean of the random variables \eqn{X_i} by:
+\deqn{\lambda = \sum_{i=1}^\nu \frac{\mu_i^2}{\sigma_i^2}}
+(Note that some references define \eqn{\lambda} as one half of the above sum).
+
+This leads to a PDF of:
+\deqn{f(x;\nu,\lambda) = \sum_{k=0}^\infty \frac{e^{-\lambda/2}(\lambda/2)^k}{k!} f(x; \nu+2k)}
+where \eqn{f(x;\nu)} is the central chi-squared distribution PDF.
+
+\strong{Accuracy and Implementation Notes:}
+The CDF and its complement are evaluated using Temme's relation to determine the crossover point (approx when \eqn{F(\nu,\lambda;\nu+\lambda) \approx 0.5}).
+For small \eqn{\lambda}, Ding's method (series representation) is used.
+For large \eqn{\lambda (> 200)}, Krishnamoorthy's method is used, starting the summation at the \eqn{\lambda}-th term.
+Computed values are comparable to the R Math library, with failures mostly in corner cases with very small probabilities.
 }
 \examples{
 \dontrun{

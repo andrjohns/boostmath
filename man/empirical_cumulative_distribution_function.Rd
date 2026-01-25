@@ -12,10 +12,21 @@ empirical_cumulative_distribution_function(data, sorted = FALSE)
 \item{sorted}{A logical indicating whether the data is already sorted. Default is FALSE.}
 }
 \value{
-An object representing the ECDF, with member function \verb{$ecdf(x)} to evaluate the ECDF at point(s) \code{x}.
+An object representing the ECDF, with member function \verb{$ecdf(x)} to evaluate
+the ECDF at point(s) \code{x}.
 }
 \description{
 Create an empirical cumulative distribution function (ECDF) from a given vector.
+}
+\details{
+The ECDF is a step function constructed from observed data that converges to the
+true CDF as sample size grows. It is commonly used in goodness-of-fit workflows that
+compare the empirical CDF to a hypothesized distribution.
+
+\strong{Implementation Notes:}
+Data must be sorted; by default the constructor sorts at \deqn{O(n \log n)} cost. If the
+data is already sorted, set \code{sorted = TRUE} to avoid the sort. Evaluation uses
+binary search (\code{upper_bound}) and runs in \deqn{O(\log n)} time.
 }
 \examples{
 data <- c(1.2, 2.3, 3.1, 4.5, 5.0)

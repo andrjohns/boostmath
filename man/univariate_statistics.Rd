@@ -16,7 +16,7 @@
 \alias{gini_coefficient}
 \alias{sample_gini_coefficient}
 \alias{mode.default}
-\title{Univariate Statistics Functions}
+\title{Univariate Statistics}
 \usage{
 mean_boost(x)
 
@@ -47,39 +47,71 @@ sample_gini_coefficient(x)
 \method{mode}{default}(x, ...)
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{A numeric vector containing the dataset.}
 
-\item{...}{Additional arguments (not used).}
+\item{...}{Additional arguments (for S3 compatibility, e.g., with defaults).}
 }
 \value{
-A numeric value or vector with the computed statistic.
+A numeric value (or vector for moments/mode) with the computed statistic.
 }
 \description{
-Functions to compute various univariate statistics.
+Functions to compute robust univariate statistics from a dataset.
+
+\strong{Central Tendency:}
+\itemize{
+\item \code{mean_boost}: Computes the arithmetic mean using Higham's numerically stable algorithm.
+\item \code{median_boost}: Computes the median (robust to outliers).
+\item \code{mode}: Computes the mode(s) of the dataset.
+}
+
+\strong{Dispersion (Spread):}
+\itemize{
+\item \code{variance}: Computes the population variance using Higham's algorithm.
+\item \code{sample_variance}: Computes the sample variance (unbiased estimator).
+\item \code{mean_and_sample_variance}: Efficiently computes both mean and sample variance in one pass.
+\item \code{median_absolute_deviation}: Computes the Median Absolute Deviation (MAD), a robust measure of variability.
+\item \code{interquartile_range}: Computes the Interquartile Range (IQR = Q3 - Q1), robust to outliers.
+}
+
+\strong{Shape:}
+\itemize{
+\item \code{skewness}: Measures the asymmetry of the distribution (Pebay's algorithm).
+\item \code{kurtosis}: Measures the "tailedness" of the distribution (Pebay's algorithm).
+\item \code{excess_kurtosis}: Kurtosis minus 3 (Normal distribution has 0 excess kurtosis).
+\item \code{first_four_moments}: Computes Mean, Variance, Skewness, and Kurtosis in a single pass.
+}
+
+\strong{Inequality:}
+\itemize{
+\item \code{gini_coefficient}: Computes the Gini coefficient (population). range \\eqn{[0, 1 - 1/n]}.
+\item \code{sample_gini_coefficient}: Computes the sample Gini coefficient. range \\eqn{[0, 1]}.
+}
+}
+\details{
+These functions are designed to be numerically stable and efficient.
+Most implementations follow algorithms described by Higham (Accuracy and Stability of Numerical Algorithms) or Pebay (Sandia Labs) for one-pass parallel computation.
 }
 \examples{
-# Mean
-mean_boost(c(1, 2, 3, 4, 5))
-# Variance
-variance(c(1, 2, 3, 4, 5))
-# Sample Variance
-sample_variance(c(1, 2, 3, 4, 5))
-# Mean and Sample Variance
-mean_and_sample_variance(c(1, 2, 3, 4, 5))
-# Skewness
-skewness(c(1, 2, 3, 4, 5))
-# Kurtosis
-kurtosis(c(1, 2, 3, 4, 5))
-# Excess Kurtosis
-excess_kurtosis(c(1, 2, 3, 4, 5))
-# First Four Moments
-first_four_moments(c(1, 2, 3, 4, 5))
-# Median
-median_boost(c(1, 2, 3, 4, 5))
-# Median Absolute Deviation
-median_absolute_deviation(c(1, 2, 3, 4, 5))
-# Interquartile Range
-interquartile_range(c(1, 2, 3, 4, 5))
+data <- c(1, 2, 3, 4, 100) # Dataset with an outlier
+
+# --- Central Tendency ---
+mean_boost(data)
+median_boost(data) # Less affected by 100
+mode(c(1, 2, 2, 3))
+
+# --- Dispersion ---
+variance(data)
+sample_variance(data)
+median_absolute_deviation(data) # Robust
+interquartile_range(data)       # Robust
+
+# --- Shape ---
+skewness(data)
+excess_kurtosis(data)
+first_four_moments(data)
+
+# --- Inequality ---
+gini_coefficient(c(1, 0, 0, 0)) # High inequality
 # Gini Coefficient
 gini_coefficient(c(1, 2, 3, 4, 5))
 # Sample Gini Coefficient
@@ -87,6 +119,10 @@ sample_gini_coefficient(c(1, 2, 3, 4, 5))
 # Mode
 mode(c(1, 2, 2, 3, 4))
 }
+\references{
+Higham, N. J. (2002). Accuracy and stability of numerical algorithms. SIAM.
+Pebay, P. P. (2008). Formulas for Robust, One-Pass Parallel Computation of Covariances and Arbitrary-Order Statistical Moments. Sandia Report.
+}
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html}{Boost Documentation}
 }

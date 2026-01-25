@@ -47,7 +47,7 @@ sph_bessel_prime(v, x)
 sph_neumann_prime(v, x)
 }
 \arguments{
-\item{v}{Order of the Bessel function}
+\item{v}{Order of the Bessel function (can be any real number)}
 
 \item{x}{Argument of the Bessel function}
 
@@ -61,7 +61,55 @@ sph_neumann_prime(v, x)
 Single numeric value for the Bessel functions and their derivatives, or a vector of length \code{number_of_zeros} for the multiple zero functions.
 }
 \description{
-Functions to compute Bessel functions of the first and second kind, their modified versions, spherical Bessel functions, and their derivatives and zeros.
+Functions to compute Bessel functions of the first and second kind, their modified versions,
+spherical Bessel functions, and their derivatives and zeros.
+
+Bessel functions are solutions to Bessel's ordinary differential equation and appear in many
+problems with cylindrical or spherical symmetry, such as wave propagation, heat conduction,
+and quantum mechanics.
+
+\strong{Cylindrical Bessel Functions (J_v and Y_v):}
+
+Solutions to Bessel's differential equation. The order v can be any real number.
+\itemize{
+\item \strong{J_v(x)} - Bessel function of the first kind: Exhibits cyclic oscillation. Domain error
+occurs when x < 0 and v is non-integer, or when x = 0 and v ≠ 0.
+\item \strong{Y_v(x)} - Bessel function of the second kind (Neumann function): Shows cyclic behavior
+for large x but approaches negative infinity for small x. Domain error for x ≤ 0.
+\item Reflection formulas: \deqn{J_{-n}(x) = (-1)^n J_n(x), Y_{-n}(x) = (-1)^n Y_n(x)}
+}
+
+\strong{Modified Bessel Functions (I_v and K_v):}
+
+Solutions to the modified Bessel equation (Bessel equation with purely imaginary argument),
+producing real-valued results. Also known as hyperbolic Bessel functions.
+\itemize{
+\item \strong{I_v(x)} - Modified Bessel function of the first kind: Exhibits exponential growth.
+Requires x ≥ 0 or (x < 0 and v is integer). Undefined when x = 0 and v ≠ 0.
+\item \strong{K_v(x)} - Modified Bessel function of the second kind: Demonstrates exponential decay.
+Requires x > 0.
+}
+
+\strong{Spherical Bessel Functions (j_v and y_v):}
+
+Radial solutions to the Helmholtz equation in spherical coordinates.
+\itemize{
+\item \strong{j_v(x)} - Spherical Bessel function of the first kind: Related to J_v by
+\deqn{j_v(x) = sqrt(π/(2x)) J_{v+1/2}(x). For v=0: j_0(x) = sin(x)/x}.
+\item \strong{y_v(x)} - Spherical Bessel function of the second kind: Related to Y_v similarly.
+Shows cyclic patterns for large x but approaches negative infinity as x → 0.
+\item Domain error when x < 0.
+}
+
+\strong{Derivatives:}
+
+The _prime functions compute the derivatives with respect to x of the corresponding
+Bessel functions.
+
+\strong{Zeros:}
+
+The zero functions find the zeros of J_v and Y_v (where the function equals zero),
+indexed starting from 1.
 }
 \examples{
 # Bessel function of the first kind J_0(1)
