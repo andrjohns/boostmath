@@ -15,10 +15,12 @@ anderson_darling_normality_statistic(x, mu = 0, sd = 1)
 \item{sd}{The standard deviation of the normal distribution to test against. Default is 1.}
 }
 \value{
-The Anderson-Darling A² test statistic.
+The Anderson-Darling \eqn{A^2} test statistic.
 }
 \description{
-Performs the Anderson-Darling test for normality by computing the A² test statistic.
+Performs the Anderson-Darling test for normality by computing the \eqn{A^2} test statistic:
+
+\deqn{A^2 = n\int_{-\infty}^{\infty}\frac{(F_n(x)-F(x))^2F'(x)}{F(x)(1-F(x))}dx}
 
 The Anderson-Darling test evaluates whether a sample comes from a normal distribution
 by computing an integral over the empirical cumulative distribution function (ECDF)
@@ -26,18 +28,12 @@ and comparing it against the normal distribution's CDF.
 
 \strong{Interpretation:}
 \itemize{
-\item When A²/n approaches zero as sample size increases, the normality hypothesis is supported
-\item When A²/n converges to a positive finite value, the normality hypothesis lacks support
+\item When \eqn{A^2/n} approaches zero as sample size increases, the normality hypothesis is supported
+\item When \eqn{A^2/n} converges to a positive finite value, the normality hypothesis lacks support
 }
 
 \strong{Important:} The input data vector \code{x} must be sorted in ascending order. Unsorted
 data will trigger an error.
-
-\strong{Parameter Modes:}
-\itemize{
-\item If \code{mu} and \code{sd} are provided, the test compares against N(mu, sd²)
-\item If \code{mu} and \code{sd} are not provided (default), they are estimated from the data
-}
 }
 \examples{
 # Anderson-Darling test for normality with sorted data

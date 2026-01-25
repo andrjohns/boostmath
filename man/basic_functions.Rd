@@ -46,61 +46,33 @@ numerical stability for special cases.
 These functions provide numerically stable alternatives to standard operations,
 particularly useful when working with values near zero or when high precision is required.
 
-\strong{Trigonometric Functions with π:}
+\strong{Trigonometric Functions with \eqn{\pi}:}
 \itemize{
-\item \code{sin_pi(x)}: Computes sin(π·x) with exact results for integer and half-integer values
-\item \code{cos_pi(x)}: Computes cos(π·x) with exact results for integer and half-integer values
-\item Avoid loss of precision from representing π in floating-point
+\item \code{sin_pi(x)}: Computes \eqn{\sin(\pi x)}
+\item \code{cos_pi(x)}: Computes \eqn{\cos(\pi x)}
 }
 
 \strong{Logarithmic and Exponential Functions:}
 \itemize{
-\item \code{log1p_boost(x)}: Computes log(1 + x) accurately for small |x|
-\itemize{
-\item Avoids catastrophic cancellation when x ≈ 0
-\item More accurate than log(1 + x) for |x| < 0.5
-}
-\item \code{expm1_boost(x)}: Computes exp(x) - 1 accurately for small |x|
-\itemize{
-\item Avoids precision loss when exp(x) ≈ 1
-\item Essential for accurate computation near x = 0
-}
+\item \code{log1p_boost(x)}: Computes \eqn{\log(1 + x)} accurately for small \eqn{|x|}
+\item \code{expm1_boost(x)}: Computes \eqn{\exp(x) - 1} accurately for small \eqn{|x|}
 }
 
 \strong{Root Functions:}
 \itemize{
-\item \code{cbrt(x)}: Computes the cube root of x (\deqn{x^{1/3}})
-\itemize{
-\item Handles negative values correctly (preserves sign)
-}
-\item \code{sqrt1pm1(x)}: Computes sqrt(1 + x) - 1 accurately for small |x|
-\itemize{
-\item Avoids precision loss for x near 0
-\item More accurate than sqrt(1 + x) - 1 for small |x|
-}
-\item \code{rsqrt(x)}: Computes the reciprocal square root 1/sqrt(x)
-\itemize{
-\item May use hardware-optimized implementations
-}
+\item \code{cbrt(x)}: Computes the cube root of \eqn{x} (\eqn{x^{1/3}})
+\item \code{sqrt1pm1(x)}: Computes \eqn{\sqrt{1 + x} - 1} accurately for small \eqn{|x|}
+\item \code{rsqrt(x)}: Computes the reciprocal square root \eqn{1/\sqrt{x}}
 }
 
 \strong{Power Functions:}
 \itemize{
-\item \code{powm1(x, y)}: Computes x^y - 1 accurately
-\itemize{
-\item Avoids precision loss when x^y ≈ 1
-\item Useful for computing relative changes
-}
+\item \code{powm1(x, y)}: Computes \eqn{x^y - 1} accurately
 }
 
 \strong{Geometric Functions:}
 \itemize{
-\item \code{hypot(x, y)}: Computes sqrt(x² + y²) without overflow/underflow
-\itemize{
-\item Avoids intermediate overflow when x or y are large
-\item Avoids underflow when x and y are both small
-\item Essential for computing Euclidean distance accurately
-}
+\item \code{hypot(x, y)}: Computes \eqn{\sqrt{x^2 + y^2}} without overflow/underflow
 }
 }
 \examples{

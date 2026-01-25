@@ -4,17 +4,11 @@
 #' Functions to compute the probability mass function (pmf), cumulative distribution
 #' function, and quantile function for the Bernoulli distribution.
 #'
-#' The Bernoulli distribution models a single trial with outcomes \deqn{k \in \{0, 1\}} and
-#' success probability $p$. The pmf is
+#' The Bernoulli distribution models a single trial with outcomes \eqn{k \in \{0, 1\}} and
+#' success probability \eqn{p}:
 #'
 #' \deqn{P(X = 0) = 1 - p, \quad P(X = 1) = p}
-#'
-#' and the CDF is $F(0)=1-p$, $F(1)=1$.
-#'
-#' **Accuracy and Implementation Notes:**
-#' Implemented with simple arithmetic and is accurate to within a couple of machine epsilons.
-#' This is a strict discrete distribution (only $k=0$ or $k=1$); for a generalized
-#' real-valued version, use the binomial distribution with one trial.
+#' \deqn{F(0)=1-p, \quad F(1)=1}
 #'
 #' @param x Quantile value (must be 0 or 1).
 #' @param p_success Probability of success (0 ≤ p_success ≤ 1).

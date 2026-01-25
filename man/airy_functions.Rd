@@ -35,34 +35,34 @@ airy_bi_zero(m = NULL, start_index = NULL, number_of_zeros = NULL)
 Single numeric value for the Airy functions and their derivatives, or a vector of length \code{number_of_zeros} for the multiple zero functions.
 }
 \description{
-Functions to compute the Airy functions Ai and Bi, their derivatives, and their zeros.
+Functions to compute the Airy functions \eqn{Ai} and \eqn{Bi}, their derivatives, and their zeros.
 
 The Airy functions are the two linearly independent solutions to the differential equation:
 
 \deqn{y'' - xy = 0}
 
-\strong{Airy Ai Function:}
-The first solution to the Airy differential equation. For negative x values, Ai(x) exhibits
-oscillatory behavior. For positive x values, Ai(x) monotonically decreases toward zero.
+\strong{Airy \eqn{Ai} Function:}
+The first solution to the Airy differential equation. For negative \eqn{x} values, \eqn{Ai(x)} exhibits
+oscillatory behavior. For positive \eqn{x} values, \eqn{Ai(x)} monotonically decreases toward zero.
 
-\strong{Airy Bi Function:}
-The second solution to the Airy differential equation. For negative x values, Bi(x) exhibits
-cyclic oscillation. For positive x values, Bi(x) tends toward infinity.
+\strong{Airy \eqn{Bi} Function:}
+The second solution to the Airy differential equation. For negative \eqn{x} values, \eqn{Bi(x)} exhibits
+cyclic oscillation. For positive \eqn{x} values, \eqn{Bi(x)} tends toward infinity.
 
-\strong{Airy Ai' Function:}
-The derivative of the first solution to the Airy differential equation. For negative x values,
-Ai'(x) displays cyclic oscillation. For positive x values, Ai'(x) approaches zero asymptotically.
+\strong{Airy \eqn{Ai'} Function:}
+The derivative of the first solution to the Airy differential equation. For negative \eqn{x} values,
+\eqn{Ai'(x)} displays cyclic oscillation. For positive \eqn{x} values, \eqn{Ai'(x)} approaches zero asymptotically.
 
-\strong{Airy Bi' Function:}
-The derivative of the second solution to the Airy differential equation. For negative x values,
-Bi'(x) oscillates cyclically. For positive x values, Bi'(x) increases toward infinity.
+\strong{Airy \eqn{Bi'} Function:}
+The derivative of the second solution to the Airy differential equation. For negative \eqn{x} values,
+\eqn{Bi'(x)} oscillates cyclically. For positive \eqn{x} values, \eqn{Bi'(x)} increases toward infinity.
 
 \strong{Zeros of Airy Functions:}
-The zeros are the values where Ai(x) = 0 or Bi(x) = 0. The zeros are indexed starting from 1.
+The zeros are the values where \eqn{Ai(x) = 0} or \eqn{Bi(x) = 0}. The zeros are indexed starting from 1.
 The first few zeros are approximately:
 \itemize{
-\item Ai: -2.33811, -4.08795, -5.52056, ...
-\item Bi: -1.17371, -3.27109, -4.83074, ...
+\item \eqn{Ai}: -2.33811, -4.08795, -5.52056, ...
+\item \eqn{Bi}: -1.17371, -3.27109, -4.83074, ...
 }
 
 All functions are implemented using relationships to Bessel functions for numerical accuracy.

@@ -7,46 +7,29 @@
 #' These functions provide numerically stable alternatives to standard operations,
 #' particularly useful when working with values near zero or when high precision is required.
 #'
-#' **Trigonometric Functions with π:**
+#' **Trigonometric Functions with \eqn{\pi}:**
 #'
-#' * `sin_pi(x)`: Computes sin(π·x) with exact results for integer and half-integer values
-#' * `cos_pi(x)`: Computes cos(π·x) with exact results for integer and half-integer values
-#' * Avoid loss of precision from representing π in floating-point
+#' * `sin_pi(x)`: Computes \eqn{\sin(\pi x)}
+#' * `cos_pi(x)`: Computes \eqn{\cos(\pi x)}
 #'
 #' **Logarithmic and Exponential Functions:**
 #'
-#' * `log1p_boost(x)`: Computes log(1 + x) accurately for small |x|
-#'   - Avoids catastrophic cancellation when x ≈ 0
-#'   - More accurate than log(1 + x) for |x| < 0.5
-#'
-#' * `expm1_boost(x)`: Computes exp(x) - 1 accurately for small |x|
-#'   - Avoids precision loss when exp(x) ≈ 1
-#'   - Essential for accurate computation near x = 0
+#' * `log1p_boost(x)`: Computes \eqn{\log(1 + x)} accurately for small \eqn{|x|}
+#' * `expm1_boost(x)`: Computes \eqn{\exp(x) - 1} accurately for small \eqn{|x|}
 #'
 #' **Root Functions:**
 #'
-#' * `cbrt(x)`: Computes the cube root of x (\deqn{x^{1/3}})
-#'   - Handles negative values correctly (preserves sign)
-#'
-#' * `sqrt1pm1(x)`: Computes sqrt(1 + x) - 1 accurately for small |x|
-#'   - Avoids precision loss for x near 0
-#'   - More accurate than sqrt(1 + x) - 1 for small |x|
-#'
-#' * `rsqrt(x)`: Computes the reciprocal square root 1/sqrt(x)
-#'   - May use hardware-optimized implementations
+#' * `cbrt(x)`: Computes the cube root of \eqn{x} (\eqn{x^{1/3}})
+#' * `sqrt1pm1(x)`: Computes \eqn{\sqrt{1 + x} - 1} accurately for small \eqn{|x|}
+#' * `rsqrt(x)`: Computes the reciprocal square root \eqn{1/\sqrt{x}}
 #'
 #' **Power Functions:**
 #'
-#' * `powm1(x, y)`: Computes x^y - 1 accurately
-#'   - Avoids precision loss when x^y ≈ 1
-#'   - Useful for computing relative changes
+#' * `powm1(x, y)`: Computes \eqn{x^y - 1} accurately
 #'
 #' **Geometric Functions:**
 #'
-#' * `hypot(x, y)`: Computes sqrt(x² + y²) without overflow/underflow
-#'   - Avoids intermediate overflow when x or y are large
-#'   - Avoids underflow when x and y are both small
-#'   - Essential for computing Euclidean distance accurately
+#' * `hypot(x, y)`: Computes \eqn{\sqrt{x^2 + y^2}} without overflow/underflow
 #'
 #' @param x Input numeric value
 #' @param y Second input numeric value (for power and hypotenuse functions)

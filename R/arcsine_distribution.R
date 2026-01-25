@@ -2,30 +2,28 @@
 #' @name arcsine_distribution
 #' @description
 #' Functions to compute the probability density function, cumulative distribution function,
-#' and quantile function for the arcsine distribution on the interval \deqn{[x_{min}, x_{max}]}.
+#' and quantile function for the arcsine distribution on the interval \eqn{[x_{min}, x_{max}]}.
 #'
 #' The arcsine distribution is a U-shaped distribution with infinite density at the
-#' endpoints. For \deqn{x_{min} < x < x_{max}}, the PDF is
+#' endpoints.
+#'
+#' For \eqn{x_{min} < x < x_{max}}:
+#'
+#' The PDF is:
 #'
 #' \deqn{f(x; x_{min}, x_{max}) = \frac{1}{\pi\sqrt{(x - x_{min})(x_{max} - x)}}}
 #'
-#' and the CDF is
+#' The CDF is:
 #'
-#' \deqn{F(x) = \frac{2}{\pi}\arcsin\left(\sqrt{\frac{x - x_{min}}{x_{max} - x_{min}}}\right)}.
+#' \deqn{F(x) = \frac{2}{\pi}\arcsin\left(\sqrt{\frac{x - x_{min}}{x_{max} - x_{min}}}\right)}
 #'
-#' The quantile for $0 < p < 1$ is
+#' The quantile for \eqn{0 < p < 1} is
 #'
-#' \deqn{Q(p) = x_{min} + (x_{max} - x_{min})\sin^2\left(\frac{\pi p}{2}\right)}.
+#' \deqn{Q(p) = x_{min} + (x_{max} - x_{min})\sin^2\left(\frac{\pi p}{2}\right)}
 #'
 #' For the standard distribution on \eqn{[0, 1]}, these reduce to
-#' #' \deqn{f(x) = 1/(\pi\sqrt{x(1-x)})$ and $F(x) = \frac{2}{\pi}\arcsin(\sqrt{x})}.
-#'
-#' **Accuracy and Implementation Notes:**
-#' The implementation relies on square roots and inverse trigonometric functions that
-#' are typically accurate to a few machine epsilons. However, for values of $x$ close to
-#' \deqn{x_{max}}, direct evaluation can suffer loss of significance. For improved accuracy
-#' in the upper tail, use the complementary CDF or complementary quantile when available
-#' (see the Boost documentation on complements).
+#' \deqn{f(x) = 1/(\pi\sqrt{x(1-x)})}
+#' \deqn{F(x) = \frac{2}{\pi}\arcsin(\sqrt{x})}
 #'
 #' @param x Quantile value in \eqn{[x_{min}, x_{max}]}.
 #' @param p Probability in \eqn{[0, 1]}.
