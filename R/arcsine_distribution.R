@@ -1,12 +1,39 @@
 #' @title Arcsine Distribution Functions
 #' @name arcsine_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the arcsine distribution.
-#' @param x quantile
-#' @param p probability
-#' @param x_min minimum value of the distribution (default is 0)
-#' @param x_max maximum value of the distribution (default is 1)
-#' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/arcine_dist.html) for more details on the mathematical background.
+#' @description
+#' Functions to compute the probability density function, cumulative distribution function,
+#' and quantile function for the arcsine distribution on the interval \eqn{[x_{min}, x_{max}]}.
+#'
+#' The arcsine distribution is a U-shaped distribution with infinite density at the
+#' endpoints.
+#'
+#' For \eqn{x_{min} < x < x_{max}}:
+#'
+#' The PDF is:
+#'
+#' \deqn{f(x; x_{min}, x_{max}) = \frac{1}{\pi\sqrt{(x - x_{min})(x_{max} - x)}}}
+#'
+#' The CDF is:
+#'
+#' \deqn{F(x; x_{min}, x_{max}) = \frac{2}{\pi}\arcsin\left(\sqrt{\frac{x - x_{min}}{x_{max} - x_{min}}}\right)}
+#'
+#' The quantile for \eqn{0 < p < 1} is
+#'
+#' \deqn{F^{-1}(p; x_{min}, x_{max}) = x_{min} + (x_{max} - x_{min})\sin^2\left(\frac{\pi p}{2}\right)}
+#'
+#' For the standard distribution on \eqn{[0, 1]}, these reduce to
+#' \deqn{f(x) = 1/(\pi\sqrt{x(1-x)})}
+#' \deqn{F(x) = \frac{2}{\pi}\arcsin(\sqrt{x})}
+#'
+#' @param x Quantile value in \eqn{[x_{min}, x_{max}]}.
+#' @param p Probability in \eqn{[0, 1]}.
+#' @param x_min Minimum value of the distribution (default is 0).
+#' @param x_max Maximum value of the distribution (default is 1).
+#' @return A single numeric value with the computed probability density, log-probability
+#' density, cumulative distribution, log-cumulative distribution, or quantile depending
+#' on the function called.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/arcine_dist.html)
+#' for more details on the mathematical background.
 #' @examples
 #' # Arcsine distribution with default parameters
 #' dist <- arcsine_distribution()

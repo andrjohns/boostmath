@@ -28,23 +28,45 @@ beta_find_alpha(mean = NULL, variance = NULL, beta = NULL, x = NULL, p = NULL)
 beta_find_beta(mean = NULL, variance = NULL, alpha = NULL, x = NULL, p = NULL)
 }
 \arguments{
-\item{alpha}{shape parameter (alpha > 0)}
+\item{alpha}{Shape parameter (alpha > 0).}
 
-\item{beta}{shape parameter (beta > 0)}
+\item{beta}{Shape parameter (beta > 0).}
 
-\item{x}{quantile (0 <= x <= 1)}
+\item{x}{Quantile value (0 ≤ x ≤ 1).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 
-\item{mean}{Mean of the Beta distribution}
+\item{mean}{Mean of the Beta distribution.}
 
-\item{variance}{Variance of the Beta distribution}
+\item{variance}{Variance of the Beta distribution.}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Beta distribution.
+Functions to compute the probability density function, cumulative distribution function,
+quantile function, and parameter estimators for the Beta distribution.
+
+The Beta distribution is defined on \eqn{x \in [0, 1]} with shape parameters
+\eqn{\alpha > 0} and \eqn{\beta > 0}.
+
+The PDF is:
+
+\deqn{f(x;\alpha, \beta) = \frac{x^{\alpha - 1}(1-x)^{\beta - 1}}{B(\alpha, \beta)}}
+
+Where \eqn{B(\alpha, \beta)} is the beta function.
+
+The CDF is:
+
+\deqn{F(x; \alpha, \beta) = I_x(\alpha, \beta)}
+
+Where \eqn{I_x} is the regularized incomplete beta function.
+
+The quantile is:
+
+\deqn{F^{-1}(p; \alpha, \beta) = I_{p}^{-1}(\alpha, \beta)}
+
+Where \eqn{I_{p}^{-1}} is the inverse of the regularized incomplete beta function.
 }
 \examples{
 # Beta distribution with shape parameters alpha = 2, beta = 5

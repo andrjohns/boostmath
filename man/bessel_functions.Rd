@@ -47,7 +47,7 @@ sph_bessel_prime(v, x)
 sph_neumann_prime(v, x)
 }
 \arguments{
-\item{v}{Order of the Bessel function}
+\item{v}{Order of the Bessel function (can be any real number)}
 
 \item{x}{Argument of the Bessel function}
 
@@ -61,7 +61,65 @@ sph_neumann_prime(v, x)
 Single numeric value for the Bessel functions and their derivatives, or a vector of length \code{number_of_zeros} for the multiple zero functions.
 }
 \description{
-Functions to compute Bessel functions of the first and second kind, their modified versions, spherical Bessel functions, and their derivatives and zeros.
+Functions to compute Bessel functions of the first and second kind, their modified versions,
+spherical Bessel functions, and their derivatives and zeros.
+
+Bessel functions are solutions to Bessel's ordinary differential equation and appear in many
+problems with cylindrical or spherical symmetry, such as wave propagation, heat conduction,
+and quantum mechanics.
+
+\strong{Bessel Functions of the First and Second Kinds}
+\itemize{
+\item \code{cyl_bessel_j(v, x)}: Computes the Bessel function of the first kind \eqn{J_v(x)}:
+}
+
+\deqn{J_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(-\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}}
+\itemize{
+\item \code{cyl_neumann(v, x)}: Computes the Bessel function of the second kind \eqn{Y_v(x) = N_V(x)}:
+}
+
+\deqn{Y_v(x) = \frac{J_v(x)\cos(v\pi) - J_{-v}(x)}{\sin(v\pi)}}
+
+\strong{Modified Bessel Functions of the First and Second Kinds}
+\itemize{
+\item \code{cyl_bessel_i(v, x)}: Computes the modified Bessel function of the first kind \eqn{I_v(x)}:
+}
+
+\deqn{I_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}}
+\itemize{
+\item \code{cyl_bessel_k(v, x)}: Computes the modified Bessel function of the second kind \eqn{K_v(x)}:
+}
+
+\deqn{K_v(x) = \frac{\pi}{2} \frac{I_{-v}(x) - I_{v}(x)}{\sin(v\pi)}}
+
+\strong{Spherical Bessel Functions of the First and Second Kinds}
+\itemize{
+\item \code{sph_bessel(v, x)}: Computes the Spherical Bessel function of the first kind \eqn{j_v(x)}:
+}
+
+\deqn{j_v(x) = \sqrt{\frac{\pi}{2x}}J_{v+\frac{1}{2}}(x)}
+\itemize{
+\item \code{sph_neumann(v, x)}: Computes the Spherical Bessel function of the second kind \eqn{y_v(x) = n_v(x)}:
+}
+
+\deqn{y_v(x) = \sqrt{\frac{\pi}{2x}}Y_{v+\frac{1}{2}}(x)}
+
+\strong{Derivatives:}
+
+The _prime functions compute the derivatives with respect to x of the corresponding
+Bessel functions:
+
+\deqn{J'_v(x) = \frac{J_{v-1}(x)-J_{v+1}(x)}{2}}
+\deqn{Y'_v(x) = \frac{Y_{v-1}(x)-Y_{v+1}(x)}{2}}
+\deqn{I'_v(x) = \frac{I_{v-1}(x)-I_{v+1}(x)}{2}}
+\deqn{K'_v(x) = \frac{K_{v-1}(x)-K_{v+1}(x)}{-2}}
+\deqn{j'_v(x) = \left(\frac{v}{x}\right)j_v(x)-j_{v+1}(x)}
+\deqn{y'_v(x) = \left(\frac{v}{x}\right)y_v(x)-y_{v+1}(x)}
+
+\strong{Zeros:}
+
+The zero functions find the zeros of J_v and Y_v (where the function equals zero),
+indexed starting from 1.
 }
 \examples{
 # Bessel function of the first kind J_0(1)

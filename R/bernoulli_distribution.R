@@ -1,9 +1,18 @@
 #' @title Bernoulli Distribution Functions
 #' @name bernoulli_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Bernoulli distribution.
-#' @param x quantile (0 or 1)
-#' @param p_success probability of success (0 <= p_success <= 1)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability mass function (pmf), cumulative distribution
+#' function, and quantile function for the Bernoulli distribution.
+#'
+#' The Bernoulli distribution models a single trial with outcomes \eqn{k \in \{0, 1\}} and
+#' success probability \eqn{p}:
+#'
+#' \deqn{P(X = 0) = 1 - p, \quad P(X = 1) = p}
+#' \deqn{F(0)=1-p, \quad F(1)=1}
+#'
+#' @param x Quantile value (must be 0 or 1).
+#' @param p_success Probability of success (0 ≤ p_success ≤ 1).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/bernoulli_dist.html) for more details on the mathematical background.
 #' @examples

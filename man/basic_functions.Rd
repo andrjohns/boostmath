@@ -40,25 +40,61 @@ rsqrt(x)
 A single numeric value with the computed result of the function.
 }
 \description{
-Functions to compute sine, cosine, logarithm, exponential, cube root, square root, power, hypotenuse, and inverse square root.
+High-precision implementations of basic mathematical functions with enhanced
+numerical stability for special cases.
+
+These functions provide numerically stable alternatives to standard operations,
+particularly useful when working with values near zero or when high precision is required.
+
+\strong{Trigonometric Functions with \eqn{\pi}:}
+\itemize{
+\item \code{sin_pi(x)}: Computes \eqn{\sin(\pi x)}
+\item \code{cos_pi(x)}: Computes \eqn{\cos(\pi x)}
+}
+
+\strong{Logarithmic and Exponential Functions:}
+\itemize{
+\item \code{log1p_boost(x)}: Computes \eqn{\log(1 + x)} accurately for small \eqn{|x|}
+\item \code{expm1_boost(x)}: Computes \eqn{\exp(x) - 1} accurately for small \eqn{|x|}
+}
+
+\strong{Root Functions:}
+\itemize{
+\item \code{cbrt(x)}: Computes the cube root \eqn{x^{1/3}}
+\item \code{sqrt1pm1(x)}: Computes \eqn{\sqrt{1 + x} - 1} accurately for small \eqn{|x|}
+\item \code{rsqrt(x)}: Computes the reciprocal square root \eqn{\tfrac{1}{\sqrt{x}}}
+}
+
+\strong{Power Functions:}
+\itemize{
+\item \code{powm1(x, y)}: Computes \eqn{x^y - 1} accurately
+}
+
+\strong{Geometric Functions:}
+\itemize{
+\item \code{hypot(x, y)}: Computes \eqn{\sqrt{x^2 + y^2}} without overflow/underflow
+}
 }
 \examples{
-# sin(pi * 0.5)
+# sin(π/2) = 1 (exact)
 sin_pi(0.5)
-# cos(pi * 0.5)
+# cos(π/2) = 0 (exact)
 cos_pi(0.5)
-# log(1 + 0.5)
-log1p_boost(0.5)
-# exp(0.5) - 1
-expm1_boost(0.5)
-cbrt(8)
-# sqrt(1 + 0.5) - 1
-sqrt1pm1(0.5)
-# 2^3 - 1
-powm1(2, 3)
-hypot(3, 4)
-rsqrt(4)
+# log(1 + x) for small x
+log1p_boost(0.001)
+# exp(x) - 1 for small x
+expm1_boost(0.001)
+# Cube root
+cbrt(8)  # Returns 2
+# sqrt(1 + x) - 1 for small x
+sqrt1pm1(0.001)
+# x^y - 1 accurately
+powm1(2, 3)  # Returns 7 (2^3 - 1)
+# Euclidean distance
+hypot(3, 4)  # Returns 5
+# Reciprocal square root
+rsqrt(4)  # Returns 0.5
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/powers.html}{Boost Documentation}) for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/powers.html}{Boost Documentation} for more details on the mathematical background.
 }
