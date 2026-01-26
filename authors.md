@@ -10,14 +10,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/andrjohns/boostmath/blob/main/DESCRIPTION)
 
-Johnson AR (2025). *boostmath: 'R' Bindings for the 'Boost' Math
+Johnson AR (2026). *boostmath: 'R' Bindings for the 'Boost' Math
 Functions*. R package version 1.4.0,
 <https://github.com/andrjohns/boostmath>.
 
     @Manual{,
       title = {boostmath: 'R' Bindings for the 'Boost' Math Functions},
       author = {Andrew R. Johnson},
-      year = {2025},
+      year = {2026},
       note = {R package version 1.4.0},
       url = {https://github.com/andrjohns/boostmath},
     }

@@ -1,8 +1,14 @@
 # Bernoulli Distribution Functions
 
-Functions to compute the probability density function, cumulative
+Functions to compute the probability mass function (pmf), cumulative
 distribution function, and quantile function for the Bernoulli
 distribution.
+
+The Bernoulli distribution models a single trial with outcomes \\k \in
+\\0, 1\\\\ and success probability \\p\\:
+
+\$\$P(X = 0) = 1 - p, \quad P(X = 1) = p\$\$ \$\$F(0)=1-p, \quad
+F(1)=1\$\$
 
 ## Usage
 
@@ -24,15 +30,15 @@ bernoulli_quantile(p, p_success)
 
 - p_success:
 
-  probability of success (0 \<= p_success \<= 1)
+  Probability of success (0 ≤ p_success ≤ 1).
 
 - x:
 
-  quantile (0 or 1)
+  Quantile value (must be 0 or 1).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 ≤ p ≤ 1).
 
 ## Value
 

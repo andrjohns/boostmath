@@ -2,7 +2,30 @@
 
 Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the arcsine
-distribution.
+distribution on the interval \\\[x\_{min}, x\_{max}\]\\.
+
+The arcsine distribution is a U-shaped distribution with infinite
+density at the endpoints.
+
+For \\x\_{min} \< x \< x\_{max}\\:
+
+The PDF is:
+
+\$\$f(x; x\_{min}, x\_{max}) = \frac{1}{\pi\sqrt{(x -
+x\_{min})(x\_{max} - x)}}\$\$
+
+The CDF is:
+
+\$\$F(x; x\_{min}, x\_{max}) = \frac{2}{\pi}\arcsin\left(\sqrt{\frac{x -
+x\_{min}}{x\_{max} - x\_{min}}}\right)\$\$
+
+The quantile for \\0 \< p \< 1\\ is
+
+\$\$F^{-1}(p; x\_{min}, x\_{max}) = x\_{min} + (x\_{max} -
+x\_{min})\sin^2\left(\frac{\pi p}{2}\right)\$\$
+
+For the standard distribution on \\\[0, 1\]\\, these reduce to \$\$f(x)
+= 1/(\pi\sqrt{x(1-x)})\$\$ \$\$F(x) = \frac{2}{\pi}\arcsin(\sqrt{x})\$\$
 
 ## Usage
 
@@ -24,19 +47,19 @@ arcsine_quantile(p, x_min = 0, x_max = 1)
 
 - x_min:
 
-  minimum value of the distribution (default is 0)
+  Minimum value of the distribution (default is 0).
 
 - x_max:
 
-  maximum value of the distribution (default is 1)
+  Maximum value of the distribution (default is 1).
 
 - x:
 
-  quantile
+  Quantile value in \\\[x\_{min}, x\_{max}\]\\.
 
 - p:
 
-  probability
+  Probability in \\\[0, 1\]\\.
 
 ## Value
 

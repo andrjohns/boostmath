@@ -1,7 +1,31 @@
 # Beta Distribution Functions
 
 Functions to compute the probability density function, cumulative
-distribution function, and quantile function for the Beta distribution.
+distribution function, quantile function, and parameter estimators for
+the Beta distribution.
+
+The Beta distribution is defined on \\x \in \[0, 1\]\\ with shape
+parameters \\\alpha \> 0\\ and \\\beta \> 0\\.
+
+The PDF is:
+
+\$\$f(x;\alpha, \beta) = \frac{x^{\alpha - 1}(1-x)^{\beta -
+1}}{B(\alpha, \beta)}\$\$
+
+Where \\B(\alpha, \beta)\\ is the beta function.
+
+The CDF is:
+
+\$\$F(x; \alpha, \beta) = I_x(\alpha, \beta)\$\$
+
+Where \\I_x\\ is the regularized incomplete beta function.
+
+The quantile is:
+
+\$\$F^{-1}(p; \alpha, \beta) = I\_{p}^{-1}(\alpha, \beta)\$\$
+
+Where \\I\_{p}^{-1}\\ is the inverse of the regularized incomplete beta
+function.
 
 ## Usage
 
@@ -27,27 +51,27 @@ beta_find_beta(mean = NULL, variance = NULL, alpha = NULL, x = NULL, p = NULL)
 
 - alpha:
 
-  shape parameter (alpha \> 0)
+  Shape parameter (alpha \> 0).
 
 - beta:
 
-  shape parameter (beta \> 0)
+  Shape parameter (beta \> 0).
 
 - x:
 
-  quantile (0 \<= x \<= 1)
+  Quantile value (0 ≤ x ≤ 1).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 ≤ p ≤ 1).
 
 - mean:
 
-  Mean of the Beta distribution
+  Mean of the Beta distribution.
 
 - variance:
 
-  Variance of the Beta distribution
+  Variance of the Beta distribution.
 
 ## Value
 
