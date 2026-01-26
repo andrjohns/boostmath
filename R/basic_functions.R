@@ -19,9 +19,9 @@
 #'
 #' **Root Functions:**
 #'
-#' * `cbrt(x)`: Computes the cube root of \eqn{x} (\eqn{x^{1/3}})
+#' * `cbrt(x)`: Computes the cube root \eqn{x^{1/3}}
 #' * `sqrt1pm1(x)`: Computes \eqn{\sqrt{1 + x} - 1} accurately for small \eqn{|x|}
-#' * `rsqrt(x)`: Computes the reciprocal square root \eqn{1/\sqrt{x}}
+#' * `rsqrt(x)`: Computes the reciprocal square root \eqn{\tfrac{1}{\sqrt{x}}}
 #'
 #' **Power Functions:**
 #'

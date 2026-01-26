@@ -60,9 +60,9 @@ particularly useful when working with values near zero or when high precision is
 
 \strong{Root Functions:}
 \itemize{
-\item \code{cbrt(x)}: Computes the cube root of \eqn{x} (\eqn{x^{1/3}})
+\item \code{cbrt(x)}: Computes the cube root \eqn{x^{1/3}}
 \item \code{sqrt1pm1(x)}: Computes \eqn{\sqrt{1 + x} - 1} accurately for small \eqn{|x|}
-\item \code{rsqrt(x)}: Computes the reciprocal square root \eqn{1/\sqrt{x}}
+\item \code{rsqrt(x)}: Computes the reciprocal square root \eqn{\tfrac{1}{\sqrt{x}}}
 }
 
 \strong{Power Functions:}

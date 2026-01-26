@@ -15,11 +15,11 @@
 #'
 #' The CDF is:
 #'
-#' \deqn{F(x) = \frac{2}{\pi}\arcsin\left(\sqrt{\frac{x - x_{min}}{x_{max} - x_{min}}}\right)}
+#' \deqn{F(x; x_{min}, x_{max}) = \frac{2}{\pi}\arcsin\left(\sqrt{\frac{x - x_{min}}{x_{max} - x_{min}}}\right)}
 #'
 #' The quantile for \eqn{0 < p < 1} is
 #'
-#' \deqn{Q(p) = x_{min} + (x_{max} - x_{min})\sin^2\left(\frac{\pi p}{2}\right)}
+#' \deqn{F^{-1}(p; x_{min}, x_{max}) = x_{min} + (x_{max} - x_{min})\sin^2\left(\frac{\pi p}{2}\right)}
 #'
 #' For the standard distribution on \eqn{[0, 1]}, these reduce to
 #' \deqn{f(x) = 1/(\pi\sqrt{x(1-x)})}

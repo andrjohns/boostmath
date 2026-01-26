@@ -5,23 +5,25 @@
 #' quantile function, and parameter estimators for the Beta distribution.
 #'
 #' The Beta distribution is defined on \eqn{x \in [0, 1]} with shape parameters
-#' \deqn{\alpha > 0} and \deqn{\beta > 0}. The PDF is
+#' \eqn{\alpha > 0} and \eqn{\beta > 0}.
 #'
-#' \deqn{f(x; \alpha, \beta) = \frac{x^{\alpha - 1}(1 - x)^{\beta - 1}}{B(\alpha, \beta)}}
+#' The PDF is:
 #'
-#' and the CDF is the regularized incomplete beta function \deqn{I_x(\alpha, \beta)}.
-#' The quantile is computed via the inverse incomplete beta function.
+#' \deqn{f(x;\alpha, \beta) = \frac{x^{\alpha - 1}(1-x)^{\beta - 1}}{B(\alpha, \beta)}}
 #'
-#' **Accuracy and Implementation Notes:**
-#' The implementation uses the beta and incomplete beta functions (ibeta/ibetac) and
-#' inherits their accuracy characteristics. The PDF is evaluated via
-#' `ibeta_derivative(\alpha, \beta, x)` for numerical stability. The CDF uses
-#' `ibeta`, its complement uses `ibetac`, and quantiles use the corresponding inverse
-#' incomplete beta functions.
+#' Where \eqn{B(\alpha, \beta)} is the beta function.
 #'
-#' **Parameter Estimation:**
-#' The `beta_find_alpha`/`beta_find_beta` helpers compute shape parameters either from
-#' mean/variance or from a target CDF value at $x$ using inverse incomplete beta functions.
+#' The CDF is:
+#'
+#' \deqn{F(x; \alpha, \beta) = I_x(\alpha, \beta)}
+#'
+#' Where \eqn{I_x} is the regularized incomplete beta function.
+#'
+#' The quantile is:
+#'
+#' \deqn{F^{-1}(p; \alpha, \beta) = I_{p}^{-1}(\alpha, \beta)}
+#'
+#' Where \eqn{I_{p}^{-1}} is the inverse of the regularized incomplete beta function.
 #'
 #' @param x Quantile value (0 ≤ x ≤ 1).
 #' @param alpha Shape parameter (alpha > 0).
