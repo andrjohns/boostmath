@@ -36,9 +36,9 @@
 #' @return A single numeric value with the computed result of the function.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/powers.html) for more details on the mathematical background.
 #' @examples
-#' # sin(π/2) = 1 (exact)
+#' # sin(pi/2) = 1 (exact)
 #' sin_pi(0.5)
-#' # cos(π/2) = 0 (exact)
+#' # cos(pi/2) = 0 (exact)
 #' cos_pi(0.5)
 #' # log(1 + x) for small x
 #' log1p_boost(0.001)

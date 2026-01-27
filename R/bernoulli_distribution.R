@@ -11,8 +11,8 @@
 #' \deqn{F(0)=1-p, \quad F(1)=1}
 #'
 #' @param x Quantile value (must be 0 or 1).
-#' @param p_success Probability of success (0 ≤ p_success ≤ 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p_success Probability of success (0 <= p_success <= 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/bernoulli_dist.html) for more details on the mathematical background.
 #' @examples

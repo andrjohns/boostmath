@@ -26,6 +26,22 @@ A single numeric value with the computed error function, complementary error fun
 }
 \description{
 Functions to compute the error function, complementary error function, and their inverses.
+
+\strong{Error Function erf and complement erfc}
+\itemize{
+\item \code{erf(x)}: Error function \eqn{erf(x)}:
+}
+
+\deqn{erf(x) = \frac{2}{\sqrt{\pi}}\int_{0}^xe^{-t^2}dt}
+\itemize{
+\item \code{erfc(x)}: Error function complement \eqn{1 - erf(x)}
+}
+
+\strong{Error Function Inverses}
+\itemize{
+\item \code{erf_inv(p)}: Inverse of the error function \eqn{p = erf(x)}:
+\item \code{erfx_inv(p)}: Inverse of the error function complement \eqn{p = erfc(x)}:
+}
 }
 \examples{
 # Error function

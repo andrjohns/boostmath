@@ -1,6 +1,14 @@
 #' @title Bivariate Statistics Functions
 #' @name bivariate_statistics
 #' @description Functions to compute various bivariate statistics.
+#'
+#' * `covariance(x, y)`: Compute population covariance of `x` & `y`
+#' * `means_and_covariance(x, y)`: Boost estimates the means as part of the covariance estimation,
+#' return them in a single pass
+#' * `correlation_coefficient(x, y)`: Perason correlation coefficient of `x` & `y`
+#'
+#'
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bivariate_statistics.html) for more details on the mathematical background.
 #' @param x A numeric vector.
 #' @param y A numeric vector.

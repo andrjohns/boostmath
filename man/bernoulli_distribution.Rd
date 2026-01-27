@@ -22,11 +22,11 @@ bernoulli_lcdf(x, p_success)
 bernoulli_quantile(p, p_success)
 }
 \arguments{
-\item{p_success}{Probability of success (0 ≤ p_success ≤ 1).}
+\item{p_success}{Probability of success (0 <= p_success <= 1).}
 
 \item{x}{Quantile value (must be 0 or 1).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.

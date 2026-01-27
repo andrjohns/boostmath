@@ -50,7 +50,16 @@ binomial_find_maximum_number_of_trials(k, prob, alpha)
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Binomial distribution.
+Functions to compute the probability density function, cumulative distribution function,
+and quantile function for the Binomial distribution.
+
+The PDF is:
+
+\deqn{f(k; n, p) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}}
+
+The CDF is:
+
+\deqn{1 - I_p(k + 1, n - k)}
 }
 \examples{
 # Binomial distribution with n = 10, prob = 0.5

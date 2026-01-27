@@ -1,6 +1,20 @@
 #' @title Error Functions and Inverses
 #' @name error_functions
 #' @description Functions to compute the error function, complementary error function, and their inverses.
+#'
+#' **Error Function erf and complement erfc**
+#'
+#' * `erf(x)`: Error function \eqn{erf(x)}:
+#'
+#' \deqn{erf(x) = \frac{2}{\sqrt{\pi}}\int_{0}^xe^{-t^2}dt}
+#'
+#' * `erfc(x)`: Error function complement \eqn{1 - erf(x)}
+#'
+#' **Error Function Inverses**
+#'
+#' * `erf_inv(p)`: Inverse of the error function \eqn{p = erf(x)}:
+#' * `erfx_inv(p)`: Inverse of the error function complement \eqn{p = erfc(x)}:
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_erf.html) for more details
 #' @param x Input numeric value
 #' @param p Probability value (0 <= p <= 1)

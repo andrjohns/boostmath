@@ -14,7 +14,7 @@
 #'
 #' \deqn{J_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(-\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}}
 #'
-#' * `cyl_neumann(v, x)`: Computes the Bessel function of the second kind \eqn{Y_v(x) = N_V(x)}:
+#' * `cyl_neumann(v, x)`: Computes the Bessel function of the second kind \eqn{Y_v(x) = N_v(x)}:
 #'
 #' \deqn{Y_v(x) = \frac{J_v(x)\cos(v\pi) - J_{-v}(x)}{\sin(v\pi)}}
 #'

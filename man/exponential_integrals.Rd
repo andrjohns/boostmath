@@ -20,6 +20,20 @@ A single numeric value with the computed exponential integral.
 }
 \description{
 Functions to compute various exponential integrals, including En and Ei.
+
+\strong{Exponential Integral En}
+\itemize{
+\item \code{expint_en(n, z)}: Exponential integral En of z: \eqn{E_n(z)}:
+}
+
+\deqn{E_n(z) = \int_{1}^\infty \frac{e^{-xt}}{t^n}dt}
+
+\strong{Exponential Integral Ei}
+\itemize{
+\item \code{expint_ei(n, z)}: Exponential integral Ei of z: \eqn{E_i(z)}:
+}
+
+\deqn{E_i(z) = \int_{x}^\infty \frac{e^{-t}}{t}dt}s
 }
 \examples{
 # Exponential integral En with n = 1 and z = 2

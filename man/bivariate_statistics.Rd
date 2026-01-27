@@ -23,6 +23,12 @@ A numeric value or vector with the computed statistic.
 }
 \description{
 Functions to compute various bivariate statistics.
+\itemize{
+\item \code{covariance(x, y)}: Compute population covariance of \code{x} & \code{y}
+\item \code{means_and_covariance(x, y)}: Boost estimates the means as part of the covariance estimation,
+return them in a single pass
+\item \code{correlation_coefficient(x, y)}: Perason correlation coefficient of \code{x} & \code{y}
+}
 }
 \examples{
 # Covariance

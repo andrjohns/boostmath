@@ -1,6 +1,18 @@
 #' @title Chi-Squared Distribution Functions
 #' @name chi_squared_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Chi-Squared distribution.
+#' @description Functions to compute the probability density function, cumulative distribution function,
+#' and quantile function for the Chi-Squared distribution.
+#'
+#' the PDF is:
+#'
+#' \deqn{f(x;k) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(\frac{k}{2})}}
+#'
+#' The CDF is:
+#'
+#' \deqn{F(x;k) = P(\frac{k}{2},\frac{x}{2})}
+#'
+#' Where \eqn{P(s,t)} is the regularised gamma function
+#'
 #' @param x quantile
 #' @param df degrees of freedom (df > 0)
 #' @param p probability (0 <= p <= 1)

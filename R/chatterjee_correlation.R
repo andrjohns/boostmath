@@ -1,6 +1,9 @@
 #' @title Chatterjee Correlation Function
 #' @name chatterjee_correlation
-#' @description Functions to compute the Chatterjee correlation.
+#' @description Compute the Chatterjee correlation coefficient, a rank-based coefficient:
+#'
+#' \deqn{\xi_n(X,Y) = 1 - \frac{3\sum_{i=1}^{n-1}|r_{i+1} - r_i|}{n^2 - 1}}
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/chatterjee_correlation.html) for more details on the mathematical background.
 #' @param x A numeric vector.
 #' @param y A numeric vector.

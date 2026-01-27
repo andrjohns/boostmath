@@ -32,7 +32,16 @@ exponential_quantile(p, lambda = 1)
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Exponential distribution.
+Functions to compute the probability density function, cumulative distribution function,
+and quantile function for the Exponential distribution.
+
+The PDF is:
+
+\deqn{f(x;\lambda) = \begin{cases}\lambda e^{-\lambda x} & x \ge 0\\0 & x < 0\end{cases}}
+
+The CDF is:
+
+\deqn{F(x;\lambda) = \begin{cases}1 - e^{-\lambda x} & x \ge 0\\0 & x < 0\end{cases}}
 }
 \examples{
 # Exponential distribution with rate parameter lambda = 2

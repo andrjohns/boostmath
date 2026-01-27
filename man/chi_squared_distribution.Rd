@@ -51,7 +51,18 @@ chi_squared_find_degrees_of_freedom(
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Chi-Squared distribution.
+Functions to compute the probability density function, cumulative distribution function,
+and quantile function for the Chi-Squared distribution.
+
+the PDF is:
+
+\deqn{f(x;k) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(\frac{k}{2})}}
+
+The CDF is:
+
+\deqn{F(x;k) = P(\frac{k}{2},\frac{x}{2})}
+
+Where \eqn{P(s,t)} is the regularised gamma function
 }
 \examples{
 # Chi-Squared distribution with 3 degrees of freedom

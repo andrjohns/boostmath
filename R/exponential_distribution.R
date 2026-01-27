@@ -1,6 +1,16 @@
 #' @title Exponential Distribution Functions
 #' @name exponential_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Exponential distribution.
+#' @description Functions to compute the probability density function, cumulative distribution function,
+#' and quantile function for the Exponential distribution.
+#'
+#' The PDF is:
+#'
+#' \deqn{f(x;\lambda) = \begin{cases}\lambda e^{-\lambda x} & x \ge 0\\0 & x < 0\end{cases}}
+#'
+#' The CDF is:
+#'
+#' \deqn{F(x;\lambda) = \begin{cases}1 - e^{-\lambda x} & x \ge 0\\0 & x < 0\end{cases}}
+#'
 #' @param x quantile
 #' @param lambda rate parameter (lambda > 0)
 #' @param p probability (0 <= p <= 1)

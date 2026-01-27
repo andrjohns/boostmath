@@ -1,6 +1,19 @@
 #' @title Exponential Integrals
 #' @name exponential_integrals
 #' @description Functions to compute various exponential integrals, including En and Ei.
+#'
+#' **Exponential Integral En**
+#'
+#' * `expint_en(n, z)`: Exponential integral En of z: \eqn{E_n(z)}:
+#'
+#' \deqn{E_n(z) = \int_{1}^\infty \frac{e^{-xt}}{t^n}dt}
+#'
+#' **Exponential Integral Ei**
+#'
+#' * `expint_ei(n, z)`: Exponential integral Ei of z: \eqn{E_i(z)}:
+#'
+#' \deqn{E_i(z) = \int_{x}^\infty \frac{e^{-t}}{t}dt}s
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/expint.html) for
 #' @param n Order of the integral (for En)
 #' @param z Argument of the integral (for En and Ei)

@@ -25,10 +25,10 @@
 #'
 #' Where \eqn{I_{p}^{-1}} is the inverse of the regularized incomplete beta function.
 #'
-#' @param x Quantile value (0 ≤ x ≤ 1).
+#' @param x Quantile value (0 <= x <= 1).
 #' @param alpha Shape parameter (alpha > 0).
 #' @param beta Shape parameter (beta > 0).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @param mean Mean of the Beta distribution.
 #' @param variance Variance of the Beta distribution.
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.

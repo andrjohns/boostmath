@@ -76,9 +76,9 @@ particularly useful when working with values near zero or when high precision is
 }
 }
 \examples{
-# sin(π/2) = 1 (exact)
+# sin(pi/2) = 1 (exact)
 sin_pi(0.5)
-# cos(π/2) = 0 (exact)
+# cos(pi/2) = 0 (exact)
 cos_pi(0.5)
 # log(1 + x) for small x
 log1p_boost(0.001)

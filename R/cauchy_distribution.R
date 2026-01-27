@@ -1,6 +1,16 @@
 #' @title Cauchy Distribution Functions
 #' @name cauchy_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Cauchy distribution.
+#' @description Functions to compute the probability density function, cumulative distribution function,
+#' and quantile function for the Cauchy distribution.
+#'
+#' The PDF is:
+#'
+#' \deqn{f(x; x_0, \gamma) = \frac{1}{\pi}\left(\frac{\gamma}{(x-x_0)^2 + \gamma^2}\right)}
+#'
+#' The CDF:
+#'
+#' \deqn{F(x; x_0, \gamma) = \frac{1}{\pi}\text{arctan}\left(\frac{x-x_0}{\gamma}\right)+\frac{1}{2}}
+#'
 #' @param x quantile
 #' @param location location parameter (default is 0)
 #' @param scale scale parameter (default is 1)

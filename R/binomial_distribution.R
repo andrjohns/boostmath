@@ -1,6 +1,16 @@
 #' @title Binomial Distribution Functions
 #' @name binomial_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Binomial distribution.
+#' @description Functions to compute the probability density function, cumulative distribution function,
+#' and quantile function for the Binomial distribution.
+#'
+#' The PDF is:
+#'
+#' \deqn{f(k; n, p) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}}
+#'
+#' The CDF is:
+#'
+#' \deqn{1 - I_p(k + 1, n - k)}
+#'
 #' @param k number of successes (0 <= k <= n)
 #' @param n number of trials (n >= 0)
 #' @param prob probability of success on each trial (0 <= prob <= 1)

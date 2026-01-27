@@ -1,6 +1,66 @@
 #' @title Elliptic Integrals
 #' @name elliptic_integrals
-#' @description Functions to compute various elliptic integrals, including Carlson's elliptic integrals and incomplete elliptic integrals.
+#' @description Functions to compute various elliptic integrals, including Carlson's
+#' elliptic integrals and incomplete elliptic integrals.
+#'
+#' **Elliptic Integrals - Carlson Form**
+#'
+#' * `ellint_rf(x, y, z)`: Carlson's Elliptic Integral \eqn{R_F}
+#'
+#' \deqn{R_F(x, y, z) = \frac{1}{2}\int_{0}^\infty[(t+x)(t+y)(t+z)]^{-\frac{1}{2}}dt}
+#'
+#' * `ellint_rd(x, y, z)`: Carlson's Elliptic Integral \eqn{R_D}
+#'
+#' \deqn{R_D(x, y, z) = \frac{3}{2}\int_{0}^\infty[(t+x)(t+y)]^{-\frac{1}{2}}(t+z)^{-\frac{3}{2}}dt}
+#'
+#' * `ellint_rj(x, y, z, p)`: Carlson's Elliptic Integral \eqn{R_J}
+#'
+#' \deqn{R_J(x, y, z) = \frac{3}{2}\int_{0}^\infty(t+p)^{-1}[(t+x)(t+y)(t+z)]^{-\frac{1}{2}}dt}
+#'
+#' * `ellint_rc(x, y)`: Carlson's Elliptic Integral \eqn{R_C}
+#'
+#' \deqn{R_C(x, y) = \frac{1}{2}\int_{0}^\infty(t+x)^{-\frac{1}{2}}(t+y)^{-1}dt}
+#'
+#' * `ellint_rg(x, y, z)`: Carlson's Elliptic Integral \eqn{R_G}
+#'
+#' \deqn{R_G(x, y, z) = \frac{1}{4\pi}\int_{0}^{2\pi}\int_{0}^{\pi}\sqrt{\left(x\sin^2\theta\cos^2\phi+y\sin^2\theta\sin^2\phi + z\cos^2\theta\right)}\sin\theta d\theta \phi}
+#'
+#' **Elliptic Integrals of the First Kind - Legendre Form**
+#'
+#' * `ellint_1(k, phi)`: Incomplete elliptic integral of the first kind: \eqn{F(\phi, k)}:
+#'
+#' \deqn{F(\phi, k) = \int_0^{\phi}\frac{d\theta}{\sqrt{1-k^2\sin^2\theta}}d\theta}
+#'
+#' **Elliptic Integrals of the Second Kind - Legendre Form**
+#'
+#' * `ellint_2(k, phi)`: Incomplete elliptic integral of the second kind: \eqn{E(\phi, k)}:
+#'
+#' \deqn{E(\phi, k) = \int_0^{\phi}\sqrt{1-k^2\sin^2\theta}d\theta}
+#'
+#' **Elliptic Integrals of the Third Kind - Legendre Form**
+#'
+#' * `ellint_3(k, n, phi)`: Incomplete elliptic integral of the third kind: \eqn{\Pi(n, \phi, k)}:
+#'
+#' \deqn{\Pi(n, \phi, k) = \int_0^{\phi}\frac{d\theta}{\left(1-n\sin^2\theta\right)\sqrt{1-k^2\sin^2\theta}}d\theta}
+#'
+#' **Elliptic Integral D - Legendre Form**
+#'
+#' * `ellint_d(k, phi)`: Incomplete elliptic integral \eqn{D(\phi, k)}:
+#'
+#' \deqn{D(\phi, k) = \frac{(F(\phi, k) - E(\phi, k))}{k^2}}
+#'
+#' **Jacobi Zeta Function**
+#'
+#' * `jacobi_zeta(k, phi)`: Jacobi Zeta function \eqn{Z(\phi, k)}:
+#'
+#' \deqn{Z(\phi, k) = E(\phi, k) - \frac{E(\frac{\pi}{2},k)F(\phi,k)}{F(\frac{\pi}{2}, k)}}
+#'
+#' **Heuman Lambda Function**
+#'
+#' * `heuman_lambda(k, phi)`: Heuman Lambda function \eqn{\Lambda_0(\phi, k)}:
+#'
+#' \deqn{\Lambda_0(\phi, k) = \frac{F(\phi,\sqrt{1-k^2})}{F(\frac{\pi}{2}, \sqrt{1-k^2})} + \frac{2}{\pi}F(\frac{\pi}{2},k)Z(\phi, \sqrt{1-k^2})}
+#'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ellint.html) for more details on the mathematical background.
 #' @param x First parameter of the integral
 #' @param y Second parameter of the integral
