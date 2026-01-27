@@ -9,7 +9,7 @@ cyl_bessel_j(v, x): Computes the Bessel function of the first kind \(J_v(x)\):
 
 
 $$J_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(-\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}$$
-cyl_neumann(v, x): Computes the Bessel function of the second kind \(Y_v(x) = N_V(x)\):
+cyl_neumann(v, x): Computes the Bessel function of the second kind \(Y_v(x) = N_v(x)\):
 
 
 $$Y_v(x) = \frac{J_v(x)\cos(v\pi) - J_{-v}(x)}{\sin(v\pi)}$$
@@ -52,7 +52,7 @@ cyl_bessel_j(v, x): Computes the Bessel function of the first kind \(J_v(x)\):
 
 
 $$J_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(-\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}$$
-cyl_neumann(v, x): Computes the Bessel function of the second kind \(Y_v(x) = N_V(x)\):
+cyl_neumann(v, x): Computes the Bessel function of the second kind \(Y_v(x) = N_v(x)\):
 
 
 $$Y_v(x) = \frac{J_v(x)\cos(v\pi) - J_{-v}(x)}{\sin(v\pi)}$$
@@ -93,7 +93,7 @@ indexed starting from 1."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">boostmath</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,7 +139,7 @@ spherical Bessel functions, and their derivatives and zeros.</p>
 problems with cylindrical or spherical symmetry, such as wave propagation, heat conduction,
 and quantum mechanics.</p>
 <p><strong>Bessel Functions of the First and Second Kinds</strong></p><ul><li><p><code>cyl_bessel_j(v, x)</code>: Computes the Bessel function of the first kind \(J_v(x)\):</p></li>
-</ul><p>$$J_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(-\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}$$</p><ul><li><p><code>cyl_neumann(v, x)</code>: Computes the Bessel function of the second kind \(Y_v(x) = N_V(x)\):</p></li>
+</ul><p>$$J_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(-\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}$$</p><ul><li><p><code>cyl_neumann(v, x)</code>: Computes the Bessel function of the second kind \(Y_v(x) = N_v(x)\):</p></li>
 </ul><p>$$Y_v(x) = \frac{J_v(x)\cos(v\pi) - J_{-v}(x)}{\sin(v\pi)}$$</p>
 <p><strong>Modified Bessel Functions of the First and Second Kinds</strong></p><ul><li><p><code>cyl_bessel_i(v, x)</code>: Computes the modified Bessel function of the first kind \(I_v(x)\):</p></li>
 </ul><p>$$I_v(x) = \left(\frac{1}{2}x\right)^v\sum_{k=0}^\infty{\frac{\left(\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}$$</p><ul><li><p><code>cyl_bessel_k(v, x)</code>: Computes the modified Bessel function of the second kind \(K_v(x)\):</p></li>

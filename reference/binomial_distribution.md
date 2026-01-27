@@ -4,6 +4,14 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Binomial
 distribution.
 
+The PDF is:
+
+\$\$f(k; n, p) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}\$\$
+
+The CDF is:
+
+\$\$1 - I_p(k + 1, n - k)\$\$
+
 ## Usage
 
 ``` r

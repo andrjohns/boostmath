@@ -4,6 +4,16 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Chi-Squared
 distribution.
 
+the PDF is:
+
+\$\$f(x;k) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(\frac{k}{2})}\$\$
+
+The CDF is:
+
+\$\$F(x;k) = P(\frac{k}{2},\frac{x}{2})\$\$
+
+Where \\P(s,t)\\ is the regularised gamma function
+
 ## Usage
 
 ``` r

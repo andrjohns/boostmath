@@ -59,11 +59,11 @@ beta_find_beta(mean = NULL, variance = NULL, alpha = NULL, x = NULL, p = NULL)
 
 - x:
 
-  Quantile value (0 ≤ x ≤ 1).
+  Quantile value (0 \<= x \<= 1).
 
 - p:
 
-  Probability (0 ≤ p ≤ 1).
+  Probability (0 \<= p \<= 1).
 
 - mean:
 

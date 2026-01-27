@@ -18,7 +18,7 @@ mechanics.
 \left(\frac{1}{2}x\right)^v\sum\_{k=0}^\infty{\frac{\left(-\frac{1}{4}x^2\right)^k}{k!\Gamma(v+k+1)}}\$\$
 
 - `cyl_neumann(v, x)`: Computes the Bessel function of the second kind
-  \\Y_v(x) = N_V(x)\\:
+  \\Y_v(x) = N_v(x)\\:
 
 \$\$Y_v(x) = \frac{J_v(x)\cos(v\pi) - J\_{-v}(x)}{\sin(v\pi)}\$\$
 

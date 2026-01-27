@@ -30,7 +30,7 @@ bernoulli_quantile(p, p_success)
 
 - p_success:
 
-  Probability of success (0 ≤ p_success ≤ 1).
+  Probability of success (0 \<= p_success \<= 1).
 
 - x:
 
@@ -38,7 +38,7 @@ bernoulli_quantile(p, p_success)
 
 - p:
 
-  Probability (0 ≤ p ≤ 1).
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

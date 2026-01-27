@@ -2,6 +2,14 @@
 
 Functions to compute various bivariate statistics.
 
+- `covariance(x, y)`: Compute population covariance of `x` & `y`
+
+- `means_and_covariance(x, y)`: Boost estimates the means as part of the
+  covariance estimation, return them in a single pass
+
+- `correlation_coefficient(x, y)`: Perason correlation coefficient of
+  `x` & `y`
+
 ## Usage
 
 ``` r

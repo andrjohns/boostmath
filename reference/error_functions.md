@@ -3,6 +3,21 @@
 Functions to compute the error function, complementary error function,
 and their inverses.
 
+**Error Function erf and complement erfc**
+
+- `erf(x)`: Error function \\erf(x)\\:
+
+\$\$erf(x) = \frac{2}{\sqrt{\pi}}\int\_{0}^xe^{-t^2}dt\$\$
+
+- `erfc(x)`: Error function complement \\1 - erf(x)\\
+
+**Error Function Inverses**
+
+- `erf_inv(p)`: Inverse of the error function \\p = erf(x)\\:
+
+- `erfx_inv(p)`: Inverse of the error function complement \\p =
+  erfc(x)\\:
+
 ## Usage
 
 ``` r

@@ -4,6 +4,16 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Exponential
 distribution.
 
+The PDF is:
+
+\$\$f(x;\lambda) = \begin{cases}\lambda e^{-\lambda x} & x \ge 0\\0 & x
+\< 0\end{cases}\$\$
+
+The CDF is:
+
+\$\$F(x;\lambda) = \begin{cases}1 - e^{-\lambda x} & x \ge 0\\0 & x \<
+0\end{cases}\$\$
+
 ## Usage
 
 ``` r

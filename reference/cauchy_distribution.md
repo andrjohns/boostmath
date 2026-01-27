@@ -4,6 +4,16 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Cauchy
 distribution.
 
+The PDF is:
+
+\$\$f(x; x_0, \gamma) = \frac{1}{\pi}\left(\frac{\gamma}{(x-x_0)^2 +
+\gamma^2}\right)\$\$
+
+The CDF:
+
+\$\$F(x; x_0, \gamma) =
+\frac{1}{\pi}\text{arctan}\left(\frac{x-x_0}{\gamma}\right)+\frac{1}{2}\$\$
+
 ## Usage
 
 ``` r

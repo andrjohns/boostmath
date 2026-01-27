@@ -1,6 +1,10 @@
 # Chatterjee Correlation Function
 
-Functions to compute the Chatterjee correlation.
+Compute the Chatterjee correlation coefficient, a rank-based
+coefficient:
+
+\$\$\xi_n(X,Y) = 1 - \frac{3\sum\_{i=1}^{n-1}\|r\_{i+1} - r_i\|}{n^2 -
+1}\$\$
 
 ## Usage
 

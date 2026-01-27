@@ -2,6 +2,18 @@
 
 Functions to compute various exponential integrals, including En and Ei.
 
+**Exponential Integral En**
+
+- `expint_en(n, z)`: Exponential integral En of z: \\E_n(z)\\:
+
+\$\$E_n(z) = \int\_{1}^\infty \frac{e^{-xt}}{t^n}dt\$\$
+
+**Exponential Integral Ei**
+
+- `expint_ei(n, z)`: Exponential integral Ei of z: \\E_i(z)\\:
+
+\$\$E_i(z) = \int\_{x}^\infty \frac{e^{-t}}{t}dt\$\$s
+
 ## Usage
 
 ``` r

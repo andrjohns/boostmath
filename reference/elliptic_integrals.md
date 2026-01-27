@@ -3,6 +3,79 @@
 Functions to compute various elliptic integrals, including Carlson's
 elliptic integrals and incomplete elliptic integrals.
 
+**Elliptic Integrals - Carlson Form**
+
+- `ellint_rf(x, y, z)`: Carlson's Elliptic Integral \\R_F\\
+
+\$\$R_F(x, y, z) =
+\frac{1}{2}\int\_{0}^\infty\[(t+x)(t+y)(t+z)\]^{-\frac{1}{2}}dt\$\$
+
+- `ellint_rd(x, y, z)`: Carlson's Elliptic Integral \\R_D\\
+
+\$\$R_D(x, y, z) =
+\frac{3}{2}\int\_{0}^\infty\[(t+x)(t+y)\]^{-\frac{1}{2}}(t+z)^{-\frac{3}{2}}dt\$\$
+
+- `ellint_rj(x, y, z, p)`: Carlson's Elliptic Integral \\R_J\\
+
+\$\$R_J(x, y, z) =
+\frac{3}{2}\int\_{0}^\infty(t+p)^{-1}\[(t+x)(t+y)(t+z)\]^{-\frac{1}{2}}dt\$\$
+
+- `ellint_rc(x, y)`: Carlson's Elliptic Integral \\R_C\\
+
+\$\$R_C(x, y) =
+\frac{1}{2}\int\_{0}^\infty(t+x)^{-\frac{1}{2}}(t+y)^{-1}dt\$\$
+
+- `ellint_rg(x, y, z)`: Carlson's Elliptic Integral \\R_G\\
+
+\$\$R_G(x, y, z) =
+\frac{1}{4\pi}\int\_{0}^{2\pi}\int\_{0}^{\pi}\sqrt{\left(x\sin^2\theta\cos^2\phi+y\sin^2\theta\sin^2\phi +
+z\cos^2\theta\right)}\sin\theta d\theta \phi\$\$
+
+**Elliptic Integrals of the First Kind - Legendre Form**
+
+- `ellint_1(k, phi)`: Incomplete elliptic integral of the first kind:
+  \\F(\phi, k)\\:
+
+\$\$F(\phi, k) =
+\int_0^{\phi}\frac{d\theta}{\sqrt{1-k^2\sin^2\theta}}d\theta\$\$
+
+**Elliptic Integrals of the Second Kind - Legendre Form**
+
+- `ellint_2(k, phi)`: Incomplete elliptic integral of the second kind:
+  \\E(\phi, k)\\:
+
+\$\$E(\phi, k) = \int_0^{\phi}\sqrt{1-k^2\sin^2\theta}d\theta\$\$
+
+**Elliptic Integrals of the Third Kind - Legendre Form**
+
+- `ellint_3(k, n, phi)`: Incomplete elliptic integral of the third kind:
+  \\\Pi(n, \phi, k)\\:
+
+\$\$\Pi(n, \phi, k) =
+\int_0^{\phi}\frac{d\theta}{\left(1-n\sin^2\theta\right)\sqrt{1-k^2\sin^2\theta}}d\theta\$\$
+
+**Elliptic Integral D - Legendre Form**
+
+- `ellint_d(k, phi)`: Incomplete elliptic integral \\D(\phi, k)\\:
+
+\$\$D(\phi, k) = \frac{(F(\phi, k) - E(\phi, k))}{k^2}\$\$
+
+**Jacobi Zeta Function**
+
+- `jacobi_zeta(k, phi)`: Jacobi Zeta function \\Z(\phi, k)\\:
+
+\$\$Z(\phi, k) = E(\phi, k) -
+\frac{E(\frac{\pi}{2},k)F(\phi,k)}{F(\frac{\pi}{2}, k)}\$\$
+
+**Heuman Lambda Function**
+
+- `heuman_lambda(k, phi)`: Heuman Lambda function \\\Lambda_0(\phi,
+  k)\\:
+
+\$\$\Lambda_0(\phi, k) = \frac{F(\phi,\sqrt{1-k^2})}{F(\frac{\pi}{2},
+\sqrt{1-k^2})} + \frac{2}{\pi}F(\frac{\pi}{2},k)Z(\phi,
+\sqrt{1-k^2})\$\$
+
 ## Usage
 
 ``` r
