@@ -28,19 +28,62 @@ legendre_next_m(n, m, x, Pl, Plm1)
 \arguments{
 \item{n}{Degree of the polynomial}
 
-\item{x}{Argument of the polynomial}
+\item{x}{Argument of the polynomial (must be in \eqn{[-1, 1]})}
 
-\item{m}{Order of the polynomial (for Legendre polynomials of the first kind)}
+\item{m}{Order of the polynomial (for associated Legendre polynomials)}
 
-\item{Pl}{Value of the Legendre polynomial \eqn{(P_l(x))}}
+\item{Pl}{Value of the Legendre polynomial P_l(x)}
 
-\item{Plm1}{Value of the Legendre polynomial \eqn{(P_{l-1}(x))}}
+\item{Plm1}{Value of the Legendre polynomial P_{l-1}(x)}
 }
 \value{
-A single numeric value with the computed Legendre polynomial, its derivative, zeros, or related functions.
+A single numeric value with the computed Legendre polynomial, its derivative, or zeros (as a vector).
 }
 \description{
-Functions to compute Legendre polynomials of the first and second kind, their derivatives, zeros, and related functions.
+Functions to compute Legendre polynomials of the first and second kind, their derivatives,
+zeros, and related functions.
+
+Legendre polynomials are orthogonal polynomials that are solutions to Legendre's
+differential equation. They appear in physics (multipole expansions, solutions to
+Laplace's equation in spherical coordinates) and numerical analysis (Gaussian quadrature).
+
+\strong{Legendre Polynomials of the First Kind P_n(x):}
+
+Standard solutions to the Legendre differential equation.
+\itemize{
+\item Domain: -1 ≤ x ≤ 1 (domain error outside this range)
+\item Reflection formula: P_{-l-1}(x) = P_l(x)
+\item \code{legendre_p(n, x)}: Evaluates P_n(x)
+\item \code{legendre_p_prime(n, x)}: Derivative of P_n(x)
+\item \code{legendre_p_zeros(n)}: Returns zeros in increasing order. For odd n, first zero is 0.
+Computed using Newton's method with Tricomi's initial estimates (O(n²) complexity)
+}
+
+\strong{Associated Legendre Polynomials P_n^m(x):}
+\itemize{
+\item \code{legendre_p_m(n, m, x)}: Evaluates P_n^m(x)
+\item Includes Condon-Shortley phase term (-1)^m matching Abramowitz & Stegun definition
+\item Negative values of n and m handled through identity relations
+}
+
+\strong{Legendre Polynomials of the Second Kind Q_n(x):}
+
+Second solution to the Legendre differential equation.
+\itemize{
+\item \code{legendre_q(n, x)}: Evaluates Q_n(x)
+\item Domain: -1 ≤ x ≤ 1 (domain error otherwise)
+}
+
+\strong{Recurrence Relations:}
+
+Efficient computation using three-term recurrence at fixed x with increasing degree:
+\itemize{
+\item \code{legendre_next(n, x, Pl, Plm1)}: Computes P_{n+1}(x) from P_n and P_{n-1}
+\item \code{legendre_next_m(n, m, x, Pl, Plm1)}: Computes P_{n+1}^m(x) from previous values
+}
+
+Recurrence relations guarantee low absolute error but cannot guarantee low relative
+error near polynomial roots.
 }
 \examples{
 # Legendre polynomial of the first kind P_2(0.5)
@@ -49,13 +92,13 @@ legendre_p(2, 0.5)
 legendre_p_prime(2, 0.5)
 # Zeros of the Legendre polynomial of the first kind P_2
 legendre_p_zeros(2)
-# Legendre polynomial of the first kind with order 1 P_2^1(0.5)
+# Associated Legendre polynomial P_2^1(0.5)
 legendre_p_m(2, 1, 0.5)
 # Legendre polynomial of the second kind Q_2(0.5)
 legendre_q(2, 0.5)
 # Next Legendre polynomial of the first kind P_3(0.5) using P_2(0.5) and P_1(0.5)
 legendre_next(2, 0.5, legendre_p(2, 0.5), legendre_p(1, 0.5))
-# Next Legendre polynomial of the first kind with order 1 P_3^1(0.5) using P_2^1(0.5) and P_1^1(0.5)
+# Next associated Legendre polynomial P_3^1(0.5) using P_2^1(0.5) and P_1^1(0.5)
 legendre_next_m(2, 1, 0.5, legendre_p_m(2, 1, 0.5), legendre_p_m(1, 1, 0.5))
 }
 \seealso{

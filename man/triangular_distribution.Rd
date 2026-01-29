@@ -37,6 +37,16 @@ A single numeric value with the computed probability density, log-probability de
 }
 \description{
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Triangular distribution.
+
+The triangular distribution is a continuous probability distribution with a lower limit \eqn{a}, mode \eqn{c}, and upper limit \eqn{b}.
+It is often used where the distribution is only vaguely known, but upper and lower limits are known, and a "best guess" (mode) is added.
+
+It has the probability density function (PDF):
+\deqn{f(x) = \frac{2(x-a)}{(b-a)(c-a)} \quad \text{for } a \le x \le c}
+\deqn{f(x) = \frac{2(b-x)}{(b-a)(b-c)} \quad \text{for } c < x \le b}
+
+\strong{Accuracy and Implementation Notes:}
+The triangular distribution is implemented with simple arithmetic operators and so should have errors within an epsilon or two.
 }
 \examples{
 # Triangular distribution with lower = -1, mode = 0, upper = 1

@@ -22,21 +22,36 @@ hypergeometric_lcdf(x, r, n, N)
 hypergeometric_quantile(p, r, n, N)
 }
 \arguments{
-\item{r}{number of successes in the population (r >= 0)}
+\item{r}{Number of successes in the population (r ≥ 0).}
 
-\item{n}{number of draws (n >= 0)}
+\item{n}{Number of draws (n ≥ 0).}
 
-\item{N}{population size (N >= r)}
+\item{N}{Population size (N ≥ r).}
 
-\item{x}{quantile (non-negative integer)}
+\item{x}{Quantile value (non-negative integer).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Hypergeometric distribution.
+Functions to compute the probability mass function (pmf), cumulative distribution
+function, and quantile function for the Hypergeometric distribution.
+
+For a population of size $N$ with $r$ successes and $N-r$ failures, drawing $n$
+items without replacement, the probability of observing $k$ successes is
+
+\deqn{P(X = k) = \frac{\binom{r}{k}\binom{N-r}{n-k}}{\binom{N}{n}}}
+
+with support \eqn{k \in [\max(0, n + r - N), \min(n, r)]}.
+
+\strong{Accuracy and Implementation Notes:}
+For small $N$, factorial table lookup provides high accuracy. For larger $N$ up to
+the largest stored prime, a prime-factorization method is used. For very large $N$,
+accuracy degrades roughly by \deqn{\log_{10}(N)} digits. The CDF is computed by summing PDFs
+using recurrence relations, and quantiles are obtained by summing from the tail.
+As a strictly discrete distribution, quantiles are rounded outward to ensure coverage.
 }
 \examples{
 # Hypergeometric distribution with r = 5, n = 10, N = 20

@@ -22,19 +22,33 @@ laplace_lcdf(x, location = 0, scale = 1)
 laplace_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{location}{location parameter (default is 0)}
+\item{location}{Location parameter (default is 0).}
 
-\item{scale}{scale parameter (default is 1)}
+\item{scale}{Scale parameter (default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value.}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Laplace distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Laplace (double exponential) distribution.
+
+With location \deqn{\mu} and scale \deqn{\sigma > 0}, the PDF is
+
+\deqn{f(x) = \frac{1}{2\sigma}\exp\left(-\frac{|x-\mu|}{\sigma}\right)}
+
+and the CDF is
+
+\deqn{F(x) = \begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\sigma}\right), & x < \mu,\\
+1 - \frac{1}{2}\exp\left(\frac{\mu-x}{\sigma}\right), & x \ge \mu.\end{cases}}
+
+\strong{Accuracy and Implementation Notes:}
+Implemented in terms of \code{exp} and \code{log}; \code{logcdf} and \code{logpdf} are specialized for
+improved numerical accuracy. Complements use stable \code{log1p} forms.
 }
 \examples{
 # Laplace distribution with location = 0, scale = 1

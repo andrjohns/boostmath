@@ -1,6 +1,19 @@
 #' @title S\eqn{\alpha}S Point5 Distribution Functions
 #' @name saspoint5_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the S\eqn{\alpha}S Point5 distribution.
+#' @description
+#' Functions to compute the probability density function, cumulative distribution function, and quantile function for the S\eqn{\alpha}S Point5 distribution.
+#'
+#' The S\eqn{\alpha}S Point5 distribution is a special case of a stable distribution with shape parameter \eqn{\alpha=1/2}, \eqn{\beta=0}.
+#'
+#' It has the probability density function (PDF):
+#' \deqn{f(x; \mu, \gamma) = \frac{1}{\sqrt{2\pi}} x^{-3/2} e^{-\frac{1}{2x}}}
+#' (Note: The boost documentation reference shows a standard form, generalized by location \eqn{\mu} and scale \eqn{\gamma}).
+#'
+#' This distribution has heavier tails than the Cauchy distribution. Note that the S\eqn{\alpha}S Point5 distribution does not have a defined mean or standard deviation.
+#'
+#' **Accuracy and Implementation Notes:**
+#' The error is within 4 epsilon.
+#'
 #' @param x quantile
 #' @param location location parameter (default is 0)
 #' @param scale scale parameter (default is 1)

@@ -7,13 +7,23 @@
 constants(constant = NULL)
 }
 \arguments{
-\item{constant}{A string specifying the name of the constant to retrieve. If \code{NULL}, returns a list of all constants (see documentation below for full list).}
+\item{constant}{A string specifying the name of the constant to retrieve. If \code{NULL},
+returns a list of all constants (see documentation for the full list).}
 }
 \value{
-Requested constant value if \code{constant} is specified, otherwise a list of all available constants.
+Requested constant value if \code{constant} is specified, otherwise a list of all
+available constants.
 }
 \description{
 Provides access to mathematical constants used in the Boost Math library.
+
+The available constants include rational fractions, \deqn{\pi}-related values, \deqn{\e}-related
+values, and assorted special constants (e.g., Euler–Mascheroni, Catalan). Integer
+values are intentionally omitted since they can be constructed exactly from literals.
+
+\strong{Accuracy and Implementation Notes:}
+The constants are provided at high precision by Boost.Math; refer to the Boost
+constants table for names and values.
 }
 \examples{
 constants()

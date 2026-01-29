@@ -23,7 +23,13 @@ An object of class \code{catmull_rom} with methods:
 }
 }
 \description{
-Constructs a Catmull-Rom spline interpolator given control points.
+Catmull-Rom splines are a family of interpolating curves which are commonly used in computer graphics and animation.
+
+\strong{Properties:}
+
+They enjoy affine invariance, local support, C2-smoothness, and interpolation of control points.
+The curve is internally closed, however the user specifies if it should be treated as open or closed via the parameters.
+Evaluation is O(log N).
 }
 \examples{
 control_points <- list(c(0, 0, 0), c(1, 1, 0), c(2, 0, 0), c(3, 1, 0))
@@ -33,4 +39,7 @@ interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$max_parameter()
 interpolator$parameter_at_point(2)
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/catmull_rom.html}{Boost Documentation}
 }

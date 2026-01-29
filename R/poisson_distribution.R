@@ -1,6 +1,18 @@
 #' @title Poisson Distribution Functions
 #' @name poisson_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Poisson distribution.
+#' @description
+#' Functions to compute the probability density function, cumulative distribution function, and quantile function for the Poisson distribution.
+#'
+#' The Poisson distribution expresses the probability of a number of events (or failures, arrivals, occurrences ...) occurring in a fixed period of time, provided these events occur with a known mean rate \eqn{\lambda} (events/time), and are independent of the time since the last event.
+#'
+#' It has the Probability Mass Function:
+#' \deqn{f(k;\lambda) = \frac{\lambda^k e^{-\lambda}}{k!}}
+#' for \eqn{k} events, with an expected number of events \eqn{\lambda}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' The Poisson distribution is implemented in terms of the incomplete gamma functions (\code{gamma_p} and \code{gamma_q}) and as such should have low error rates.
+#' The quantile function will by default return an integer result that has been rounded outwards to ensure that if an X% quantile is requested, then at least the requested coverage will be present in the central region, and no more than the requested coverage will be present in the tails.
+#'
 #' @param x quantile
 #' @param lambda rate parameter (default is 1)
 #' @param p probability (0 <= p <= 1)

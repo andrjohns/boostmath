@@ -22,19 +22,31 @@ inverse_gamma_lcdf(x, shape, scale = 1)
 inverse_gamma_quantile(p, shape, scale = 1)
 }
 \arguments{
-\item{shape}{shape parameter (shape > 0)}
+\item{shape}{Shape parameter (shape > 0).}
 
-\item{scale}{scale parameter (scale > 0; default is 1)}
+\item{scale}{Scale parameter (scale > 0; default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value (x ≥ 0).}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Inverse Gamma distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Inverse Gamma distribution.
+
+With shape \deqn{\alpha} and scale \deqn{\beta}, the PDF is
+
+\deqn{f(x;\alpha,\beta) = \frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{-\alpha-1} \exp\left(-\frac{\beta}{x}\right)}
+
+and the CDF is \deqn{F(x)=\Gamma(\alpha,\beta/x)/\Gamma(\alpha)}.
+
+\strong{Accuracy and Implementation Notes:}
+Implemented via incomplete gamma functions (\code{gamma_p}, \code{gamma_q}) and their inverses.
+\code{logpdf} is specialized for numerical accuracy. Results are typically accurate to a
+few epsilons in double precision.
 }
 \examples{
 # Inverse Gamma distribution with shape = 5, scale = 4

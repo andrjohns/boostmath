@@ -32,7 +32,20 @@ An object of class \code{cardinal_cubic_b_spline} with methods:
 }
 }
 \description{
-Constructs a cardinal cubic B-spline interpolator given data points.
+The cardinal cubic B-spline interpolator allows for fast and accurate interpolation of a function
+which is known at equally spaced points.
+
+\strong{Mathematical Properties:}
+
+It uses compactly supported basis functions constructed via iterative convolution, ensuring numerical stability.
+The interpolant is O(h^4) accurate for values and O(h^3) accurate for derivatives,
+where h is the step size.
+
+\strong{Conditions:}
+
+Ideally, the function being interpolated should be four-times continuously differentiable.
+If the derivatives at the endpoints are not provided, they are estimated using one-sided
+finite-difference formulas.
 }
 \examples{
 y <- c(1, 2, 0, 2, 1)
@@ -43,4 +56,7 @@ x <- 0.5
 spline_obj$interpolate(x)
 spline_obj$prime(x)
 spline_obj$double_prime(x)
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_cubic_b.html}{Boost Documentation}
 }

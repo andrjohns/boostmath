@@ -11,19 +11,43 @@ hermite(n, x)
 hermite_next(n, x, Hn, Hnm1)
 }
 \arguments{
-\item{n}{Degree of the polynomial}
+\item{n}{Degree of the polynomial (practical limit ~120)}
 
 \item{x}{Argument of the polynomial}
 
-\item{Hn}{Value of the Hermite polynomial \eqn{(H_n(x))}}
+\item{Hn}{Value of the Hermite polynomial H_n(x)}
 
-\item{Hnm1}{Value of the Hermite polynomial \eqn{(H_{n-1}(x))}}
+\item{Hnm1}{Value of the Hermite polynomial \deqn{H_{n-1}(x)}}
 }
 \value{
-A single numeric value with the computed Hermite polynomial or its next value.
+A single numeric value with the computed Hermite polynomial.
 }
 \description{
-Functions to compute Hermite polynomials.
+Functions to compute Hermite polynomials using three-term recurrence relations.
+
+Hermite polynomials are orthogonal polynomials that appear in probability theory
+(as derivatives of the Gaussian function), quantum mechanics (quantum harmonic
+oscillator), and numerical analysis.
+
+\strong{Hermite Polynomials H_n(x):}
+\itemize{
+\item \code{hermite(n, x)}: Evaluates the Hermite polynomial of degree n at point x
+\item Orthogonal with respect to the weight function \deqn{e^{-x²}} on (-∞, ∞)
+\item Appear as eigenfunctions of the quantum harmonic oscillator
+}
+
+\strong{Recurrence Relation:}
+\itemize{
+\item \code{hermite_next(n, x, Hn, Hnm1)}: Computes \deqn{H_{n+1}(x)} from H_n and \deqn{H_{n-1}}
+\item Uses stable three-term recurrence for sequential computation
+}
+
+\strong{Implementation Notes:}
+\itemize{
+\item Guarantees low absolute error but not low relative error near polynomial roots
+\item Values greater than ~120 for n are unlikely to produce sensible results
+\item Relative errors may grow arbitrarily large when the function is very close to a root
+}
 }
 \examples{
 # Hermite polynomial H_2(0.5)

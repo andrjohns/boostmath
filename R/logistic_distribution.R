@@ -1,10 +1,27 @@
 #' @title Logistic Distribution Functions
 #' @name logistic_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Logistic distribution.
-#' @param x quantile
-#' @param location location parameter (default is 0)
-#' @param scale scale parameter (default is 1)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, and quantile function for the Logistic distribution.
+#'
+#' With location $u$ and scale $s>0$, the PDF and CDF are
+#'
+#' \deqn{f(x) = \frac{e^{-(x-u)/s}}{s\left(1+e^{-(x-u)/s}\right)^2}}
+#' \deqn{F(x) = \frac{1}{1+e^{-(x-u)/s}}}
+#'
+#' and the quantile is
+#'
+#' \deqn{Q(p) = u - s\log\left(\frac{1}{p}-1\right)}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' Implemented with `exp`/`log`. `logcdf` is specialized for improved numerical accuracy.
+#' Quantiles can suffer catastrophic cancellation when the location parameter is large;
+#' only low absolute error can be guaranteed in that regime.
+#'
+#' @param x Quantile value.
+#' @param location Location parameter (default is 0).
+#' @param scale Scale parameter (default is 1).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/logistic_dist.html) for more details on the mathematical background.
 #' @examples

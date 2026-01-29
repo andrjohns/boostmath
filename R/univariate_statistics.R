@@ -1,33 +1,68 @@
-#' @title Univariate Statistics Functions
+#' @title Univariate Statistics
 #' @name univariate_statistics
-#' @description Functions to compute various univariate statistics.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html) for more details on the mathematical background.
-#' @param x A numeric vector.
-#' @param ... Additional arguments (not used).
-#' @return A numeric value or vector with the computed statistic.
+#' @description
+#' Functions to compute robust univariate statistics from a dataset.
+#'
+#' **Central Tendency:**
+#' *   `mean_boost`: Computes the arithmetic mean using Higham's numerically stable algorithm.
+#' *   `median_boost`: Computes the median (robust to outliers).
+#' *   `mode`: Computes the mode(s) of the dataset.
+#'
+#' **Dispersion (Spread):**
+#' *   `variance`: Computes the population variance using Higham's algorithm.
+#' *   `sample_variance`: Computes the sample variance (unbiased estimator).
+#' *   `mean_and_sample_variance`: Efficiently computes both mean and sample variance in one pass.
+#' *   `median_absolute_deviation`: Computes the Median Absolute Deviation (MAD), a robust measure of variability.
+#' *   `interquartile_range`: Computes the Interquartile Range (IQR = Q3 - Q1), robust to outliers.
+#'
+#' **Shape:**
+#' *   `skewness`: Measures the asymmetry of the distribution (Pebay's algorithm).
+#' *   `kurtosis`: Measures the "tailedness" of the distribution (Pebay's algorithm).
+#' *   `excess_kurtosis`: Kurtosis minus 3 (Normal distribution has 0 excess kurtosis).
+#' *   `first_four_moments`: Computes Mean, Variance, Skewness, and Kurtosis in a single pass.
+#'
+#' **Inequality:**
+#' *   `gini_coefficient`: Computes the Gini coefficient (population). range \\eqn{[0, 1 - 1/n]}.
+#' *   `sample_gini_coefficient`: Computes the sample Gini coefficient. range \\eqn{[0, 1]}.
+#'
+#' @details
+#' These functions are designed to be numerically stable and efficient.
+#' Most implementations follow algorithms described by Higham (Accuracy and Stability of Numerical Algorithms) or Pebay (Sandia Labs) for one-pass parallel computation.
+#'
+#' @param x A numeric vector containing the dataset.
+#' @param ... Additional arguments (for S3 compatibility, e.g., with defaults).
+#'
+#' @return A numeric value (or vector for moments/mode) with the computed statistic.
+#'
+#' @references
+#' Higham, N. J. (2002). Accuracy and stability of numerical algorithms. SIAM.
+#' Pebay, P. P. (2008). Formulas for Robust, One-Pass Parallel Computation of Covariances and Arbitrary-Order Statistical Moments. Sandia Report.
+#'
+#' @seealso
+#' [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html)
+#'
 #' @examples
-#' # Mean
-#' mean_boost(c(1, 2, 3, 4, 5))
-#' # Variance
-#' variance(c(1, 2, 3, 4, 5))
-#' # Sample Variance
-#' sample_variance(c(1, 2, 3, 4, 5))
-#' # Mean and Sample Variance
-#' mean_and_sample_variance(c(1, 2, 3, 4, 5))
-#' # Skewness
-#' skewness(c(1, 2, 3, 4, 5))
-#' # Kurtosis
-#' kurtosis(c(1, 2, 3, 4, 5))
-#' # Excess Kurtosis
-#' excess_kurtosis(c(1, 2, 3, 4, 5))
-#' # First Four Moments
-#' first_four_moments(c(1, 2, 3, 4, 5))
-#' # Median
-#' median_boost(c(1, 2, 3, 4, 5))
-#' # Median Absolute Deviation
-#' median_absolute_deviation(c(1, 2, 3, 4, 5))
-#' # Interquartile Range
-#' interquartile_range(c(1, 2, 3, 4, 5))
+#' data <- c(1, 2, 3, 4, 100) # Dataset with an outlier
+#'
+#' # --- Central Tendency ---
+#' mean_boost(data)
+#' median_boost(data) # Less affected by 100
+#' mode(c(1, 2, 2, 3))
+#'
+#' # --- Dispersion ---
+#' variance(data)
+#' sample_variance(data)
+#' median_absolute_deviation(data) # Robust
+#' interquartile_range(data)       # Robust
+#'
+#' # --- Shape ---
+#' skewness(data)
+#' excess_kurtosis(data)
+#' first_four_moments(data)
+#'
+#' # --- Inequality ---
+#' gini_coefficient(c(1, 0, 0, 0)) # High inequality
+
 #' # Gini Coefficient
 #' gini_coefficient(c(1, 2, 3, 4, 5))
 #' # Sample Gini Coefficient

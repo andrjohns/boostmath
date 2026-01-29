@@ -1,21 +1,30 @@
 #' @title Chi-Squared Distribution Functions
 #' @name chi_squared_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function,
-#' and quantile function for the Chi-Squared distribution.
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, quantile function, and sample-size estimation for the Chi-Squared distribution.
 #'
-#' the PDF is:
+#' With degrees of freedom \deqn{\nu > 0}, the PDF is
 #'
-#' \deqn{f(x;k) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(\frac{k}{2})}}
+#' \deqn{f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
 #'
-#' The CDF is:
+#' and the CDF is given by the regularized incomplete gamma function
+#' \deqn{P(\nu/2, x/2)}.
 #'
-#' \deqn{F(x;k) = P(\frac{k}{2},\frac{x}{2})}
+#' **Accuracy and Implementation Notes:**
+#' The CDF and quantiles are implemented via incomplete gamma functions. Specifically,
+#' the PDF uses `gamma_p_derivative(\nu/2, x/2)/2`, the CDF uses `gamma_p`, the
+#' complement uses `gamma_q`, and quantiles use `gamma_p_inv`/`gamma_q_inv`. Accuracy
+#' therefore follows that of the incomplete gamma functions.
 #'
-#' Where \eqn{P(s,t)} is the regularised gamma function
+#' **Sample Size Estimation:**
+#' `chi_squared_find_degrees_of_freedom` estimates the sample size required to detect
+#' a difference from a nominal variance. The sign of `difference_from_variance` determines
+#' whether the test is for higher or lower variance.
 #'
-#' @param x quantile
-#' @param df degrees of freedom (df > 0)
-#' @param p probability (0 <= p <= 1)
+#' @param x Quantile value (x ≥ 0).
+#' @param df Degrees of freedom (df > 0).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @param difference_from_variance The difference from the assumed nominal variance that is to be detected: Note that the sign of this value is critical (see the documentation for more details).
 #' @param alpha The acceptable probability of a Type I error (false positive).
 #' @param beta The acceptable probability of a Type II error (false negative).

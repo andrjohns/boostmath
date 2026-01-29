@@ -62,18 +62,18 @@
 #' \deqn{\Lambda_0(\phi, k) = \frac{F(\phi,\sqrt{1-k^2})}{F(\frac{\pi}{2}, \sqrt{1-k^2})} + \frac{2}{\pi}F(\frac{\pi}{2},k)Z(\phi, \sqrt{1-k^2})}
 #'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ellint.html) for more details on the mathematical background.
-#' @param x First parameter of the integral
-#' @param y Second parameter of the integral
-#' @param z Third parameter of the integral
-#' @param p Fourth parameter of the integral (for Rj)
-#' @param k Elliptic modulus (for incomplete elliptic integrals)
-#' @param n Characteristic (for incomplete elliptic integrals of the third kind)
-#' @param phi Amplitude (for incomplete elliptic integrals)
+#' @param x First parameter of Carlson's integral (must be non-negative)
+#' @param y Second parameter of Carlson's integral
+#' @param z Third parameter of Carlson's integral
+#' @param p Fourth parameter of the integral (for Rj, must be non-zero)
+#' @param k Elliptic modulus for Legendre-form integrals
+#' @param n Characteristic for elliptic integrals of the third kind
+#' @param phi Amplitude (angle) for incomplete elliptic integrals
 #' @return A single numeric value with the computed elliptic integral.
 #' @examples
 #' # Carlson's elliptic integral Rf with parameters x = 1, y = 2, z = 3
 #' ellint_rf(1, 2, 3)
-#' #' # Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
+#' # Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
 #' ellint_rd(1, 2, 3)
 #' # Carlson's elliptic integral Rj with parameters x = 1, y = 2, z = 3, p = 4
 #' ellint_rj(1, 2, 3, 4)

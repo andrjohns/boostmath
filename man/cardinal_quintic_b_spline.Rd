@@ -32,7 +32,13 @@ An object of class \code{cardinal_quintic_b_spline} with methods:
 }
 }
 \description{
-Constructs a cardinal quintic B-spline interpolator given control points.
+The cardinal quintic B-spline interpolator is similar to the cubic B-spline but uses
+basis functions constructed by convolving a box function with itself five times.
+
+\strong{Properties:}
+
+The basis functions are more smooth (C4) than the cubic B-spline (C2), making this useful
+for computing second derivatives. The second derivative of the quintic B-spline is a cubic spline.
 }
 \examples{
 y <- seq(0, 1, length.out = 20)
@@ -43,4 +49,7 @@ xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$double_prime(xi)
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quintic_b.html}{Boost Documentation}
 }

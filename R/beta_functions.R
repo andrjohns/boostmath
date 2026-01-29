@@ -35,10 +35,10 @@
 #'   - `ibetac_inv(a, b, q)`: Returns \eqn{x} such that \eqn{q = 1 - I_x(a, b)}
 #'
 #' * **Parameter inverses (solving for a or b):**
-#'   - `ibeta_inva(b, x, p)`: Returns a such that \eqn{p} = I_x(a, b)
-#'   - `ibetac_inva(b, x, q)`: Returns a such that \eqn{q} = 1 - I_x(a, b)
-#'   - `ibeta_invb(a, x, p)`: Returns b such that \eqn{p} = I_x(a, b)
-#'   - `ibetac_invb(a, x, q)`: Returns b such that \eqn{q} = 1 - I_x(a, b)
+#'   - `ibeta_inva(b, x, p)`: Returns a such that \eqn{p = I_x(a, b)}
+#'   - `ibetac_inva(b, x, q)`: Returns a such that \eqn{q = 1 - I_x(a, b)}
+#'   - `ibeta_invb(a, x, p)`: Returns b such that \eqn{p = I_x(a, b)}
+#'   - `ibetac_invb(a, x, q)`: Returns b such that \eqn{q = 1 - I_x(a, b)}s
 #'
 #' **Derivatives:**
 #'

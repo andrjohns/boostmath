@@ -32,9 +32,15 @@ beta_find_beta(mean = NULL, variance = NULL, alpha = NULL, x = NULL, p = NULL)
 
 \item{beta}{Shape parameter (beta > 0).}
 
+<<<<<<< HEAD
 \item{x}{Quantile value (0 <= x <= 1).}
 
 \item{p}{Probability (0 <= p <= 1).}
+=======
+\item{x}{Quantile value (0 ≤ x ≤ 1).}
+
+\item{p}{Probability (0 ≤ p ≤ 1).}
+>>>>>>> docs
 
 \item{mean}{Mean of the Beta distribution.}
 

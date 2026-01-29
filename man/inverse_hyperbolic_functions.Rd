@@ -14,21 +14,68 @@ asinh_boost(x)
 atanh_boost(x)
 }
 \arguments{
-\item{x}{Input numeric value}
+\item{x}{Input numeric value (domain depends on the function)}
 }
 \value{
 A single numeric value with the computed inverse hyperbolic function.
 }
 \description{
-Functions to compute the inverse hyperbolic functions: acosh, asinh, and atanh.
+Functions to compute the inverse hyperbolic functions with high precision and
+proper handling of edge cases.
+
+Inverse hyperbolic functions are the inverses of the hyperbolic functions and
+appear in calculus, special relativity, and solutions to differential equations.
+
+\strong{Inverse Hyperbolic Cosine:}
+\itemize{
+\item \code{acosh_boost(x)}: Computes arccosh(x) = cosh⁻¹(x)
+\item Mathematical definition: acosh(x) = log(x + sqrt(x² - 1))
+\item Domain: x ≥ 1
+\item Range: [0, ∞)
+\item Identity: cosh(acosh(x)) = x for x ≥ 1
+\item Derivative: d/dx acosh(x) = 1/sqrt(x² - 1)
+}
+
+\strong{Inverse Hyperbolic Sine:}
+\itemize{
+\item \code{asinh_boost(x)}: Computes arcsinh(x) = sinh⁻¹(x)
+\item Mathematical definition: asinh(x) = log(x + sqrt(x² + 1))
+\item Domain: (-∞, ∞)
+\item Range: (-∞, ∞)
+\item Odd function: asinh(-x) = -asinh(x)
+\item Identity: sinh(asinh(x)) = x for all x
+\item Derivative: d/dx asinh(x) = 1/sqrt(x² + 1)
+}
+
+\strong{Inverse Hyperbolic Tangent:}
+\itemize{
+\item \code{atanh_boost(x)}: Computes arctanh(x) = tanh⁻¹(x)
+\item Mathematical definition: atanh(x) = (1/2)log((1 + x)/(1 - x))
+\item Domain: (-1, 1)
+\item Range: (-∞, ∞)
+\item Odd function: atanh(-x) = -atanh(x)
+\item Identity: tanh(atanh(x)) = x for |x| < 1
+\item Derivative: d/dx atanh(x) = 1/(1 - x²)
+\item Special values: atanh(0) = 0, atanh(±1) = ±∞
+}
+
+\strong{Applications:}
+
+These functions appear in:
+\itemize{
+\item Special relativity (rapidity transformations)
+\item Integration (e.g., ∫ 1/sqrt(x² + 1) dx = asinh(x) + C)
+\item Complex analysis and conformal mappings
+\item Statistical distributions (e.g., Fisher's z-transformation)
+}
 }
 \examples{
-# Inverse Hyperbolic Cosine
-acosh_boost(2)
-# Inverse Hyperbolic Sine
-asinh_boost(1)
-# Inverse Hyperbolic Tangent
-atanh_boost(0.5)
+# Inverse Hyperbolic Cosine (x ≥ 1)
+acosh_boost(2)  # Returns approximately 1.317
+# Inverse Hyperbolic Sine (all real x)
+asinh_boost(1)  # Returns approximately 0.881
+# Inverse Hyperbolic Tangent (|x| < 1)
+atanh_boost(0.5)  # Returns approximately 0.549
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/inv_hyper.html}{Boost Documentation} for more details on the mathematical background.

@@ -1,0 +1,6 @@
+{
+    "name": "boostmath",
+    "build": {
+        "dockerfile": "Dockerfile"
+    }
+}

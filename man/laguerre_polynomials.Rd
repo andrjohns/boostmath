@@ -21,26 +21,57 @@ laguerre_next_m(n, m, x, Ln, Lnm1)
 
 \item{x}{Argument of the polynomial}
 
-\item{m}{Order of the polynomial (for Laguerre polynomials of the first kind)}
+\item{m}{Order of the polynomial (for associated Laguerre polynomials)}
 
-\item{Ln}{Value of the Laguerre polynomial \eqn{(L_n(x))}}
+\item{Ln}{Value of the Laguerre polynomial L_n(x)}
 
-\item{Lnm1}{Value of the Laguerre polynomial \eqn{(L_{n-1}(x))}}
+\item{Lnm1}{Value of the Laguerre polynomial L_{n-1}(x)}
 }
 \value{
-A single numeric value with the computed Laguerre polynomial, its derivative, or related functions.
+A single numeric value with the computed Laguerre polynomial.
 }
 \description{
-Functions to compute Laguerre polynomials of the first kind.
+Functions to compute Laguerre polynomials and associated Laguerre polynomials.
+
+Laguerre polynomials are orthogonal polynomials that appear in the solution of the
+quantum harmonic oscillator, hydrogen atom wavefunctions, and various problems in
+mathematical physics and probability theory.
+
+\strong{Standard Laguerre Polynomials L_n(x):}
+\itemize{
+\item \code{laguerre(n, x)}: Evaluates the Laguerre polynomial of degree n at point x
+\item Solutions to Laguerre's differential equation
+\item Orthogonal with respect to the weight function e^{-x} on [0, ∞)
+}
+
+\strong{Associated Laguerre Polynomials L_n^m(x):}
+\itemize{
+\item \code{laguerre_m(n, m, x)}: Evaluates the associated Laguerre polynomial of degree n
+and order m at point x
+\item Generalizations of the standard Laguerre polynomials
+}
+
+\strong{Recurrence Relations:}
+
+Three-term recurrence relations enable efficient sequential computation:
+\itemize{
+\item \code{laguerre_next(n, x, Ln, Lnm1)}: Computes L_{n+1}(x) from L_n and L_{n-1}
+\item \code{laguerre_next_m(n, m, x, Ln, Lnm1)}: Computes L_{n+1}^m(x) from previous values
+}
+
+\strong{Implementation Notes:}
+
+Functions use stable three-term recurrence relations that guarantee low absolute
+error but cannot guarantee low relative error near polynomial roots.
 }
 \examples{
-# Laguerre polynomial of the first kind L_2(0.5)
+# Laguerre polynomial L_2(0.5)
 laguerre(2, 0.5)
-# Laguerre polynomial of the first kind with order 1 L_2^1(0.5)
+# Associated Laguerre polynomial L_2^1(0.5)
 laguerre_m(2, 1, 0.5)
-# Next Laguerre polynomial of the first kind L_3(0.5) using L_2(0.5) and L_1(0.5)
+# Next Laguerre polynomial L_3(0.5) using L_2(0.5) and L_1(0.5)
 laguerre_next(2, 0.5, laguerre(2, 0.5), laguerre(1, 0.5))
-# Next Laguerre polynomial of the first kind with order 1 L_3^1(0.5) using L_2^1(0.5) and L_1^1(0.5)
+# Next associated Laguerre polynomial L_3^1(0.5) using L_2^1(0.5) and L_1^1(0.5)
 laguerre_next_m(2, 1, 0.5, laguerre_m(2, 1, 0.5), laguerre_m(1, 1, 0.5))
 }
 \seealso{

@@ -31,7 +31,15 @@ An object of class \code{cardinal_quadratic_b_spline} with methods:
 }
 }
 \description{
-Constructs a cardinal quadratic B-spline interpolator given control points.
+The cardinal quadratic B-spline interpolator is very nearly the same as the cubic B-spline interpolator,
+but uses quadratic basis functions.
+
+\strong{Use Cases:}
+
+Basis functions are constructed by convolving a box function with itself twice.
+Since the basis functions are less smooth than the cubic B-spline, this is primarily useful for
+approximating functions of reduced smoothness.
+It is appropriate for functions which are two or three times continuously differentiable.
 }
 \examples{
 y <- c(0, 1, 0, 1)
@@ -41,4 +49,7 @@ interpolator <- cardinal_quadratic_b_spline(y, t0, h)
 xi <- 0.5
 interpolator$interpolate(xi)
 interpolator$prime(xi)
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quadratic_b.html}{Boost Documentation}
 }

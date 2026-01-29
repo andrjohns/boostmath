@@ -1,30 +1,69 @@
-#' @title Root-Finding and Minimisation Functions
+#' @title Root-Finding and Minimisation
 #' @name rootfinding_and_minimisation
-#' @description Functions for root-finding and minimisation using various algorithms.
-#' @details This package provides a set of functions for finding roots of equations and minimising functions using different numerical methods. The methods include bisection, bracket and solve, TOMS
-#' 748, Newton-Raphson, Halley's method, Schroder's method, and Brent's method. It also includes functions for finding roots of polynomials (quadratic, cubic, quartic) and computing minima.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/root_finding.html) for more details on the mathematical background.
-#' @param f A function to find the root of or to minimise. It should take and return a single numeric value for root-finding, or a numeric vector for minimisation.
-#' @param lower The lower bound of the interval to search for the root or minimum.
-#' @param upper The upper bound of the interval to search for the root or minimum.
-#' @param guess A numeric value that is a guess for the root or minimum.
-#' @param factor Size of steps to take when searching for the root.
-#' @param rising If TRUE, the function is assumed to be rising, otherwise it is assumed to be falling.
-#' @param digits The number of significant digits to which the root or minimum should be found. Defaults to double precision.
-#' @param max_iter The maximum number of iterations to perform. Defaults to the maximum integer value.
+#' @description
+#' Functions for finding roots of equations and minimizing functions using various numerical methods.
+#'
+#' **Root Finding Without Derivatives:**
+#' These methods require a bracket (an interval \eqn{[a, b]} where the function has opposite signs) or a guess.
+#' *   **Bisection (`bisect`):** A robust method that repeatedly subdivides the interval. Guaranteed to converge but slowly (linear convergence).
+#' *   **TOMS 748 (`toms748_solve`):** An asymptotically efficient algorithm (Alefeld, Potra, and Shi) that combines interpolation and bisection. It has higher-order convergence and is often optimal for smooth functions.
+#' *   **Bracket and Solve (`bracket_and_solve_root`):** A convenience wrapper that attempts to find a bracket around a guess and then solves using TOMS 748.
+#'
+#' **Root Finding With Derivatives:**
+#' These methods require the user to provide derivatives of the function.
+#' *   **Newton-Raphson (`newton_raphson_iterate`):** Second-order convergence. Requires \eqn{f(x)} and \eqn{f'(x)}.
+#' *   **Halley's Method (`halley_iterate`):** Third-order convergence. Requires \eqn{f(x)}, \eqn{f'(x)}, and \eqn{f''(x)}.
+#' *   **Schroder's Method (`schroder_iterate`):** Third-order convergence. Similar to Halley's method but more robust ensuring quadratic convergence for multiple roots.
+#'
+#' **Minimization:**
+#' *   **Brent's Method (`brent_find_minima`):** Finds the minimum of a function in a given interval. It is a hybrid method using a combination of the golden section search and quadratic interpolation.
+#'
+#' @param f A function to find the root of or to minimise.
+#'   *   For **no-derivative** methods: A function returning a single numeric value.
+#'   *   For **Newton-Raphson**: A function returning a vector `c(f(x), f'(x))`.
+#'   *   For **Halley/Schroder**: A function returning a vector `c(f(x), f'(x), f''(x))`.
+#'   *   For **Minimization**: A function returning a single numeric value.
+#' @param lower The lower bound of the interval to search.
+#' @param upper The upper bound of the interval to search.
+#' @param guess A numeric value that is a guess for the root.
+#' @param factor Size of steps to take when searching for the root (for `bracket_and_solve_root`).
+#' @param rising If TRUE, the function is assumed to be rising (for `bracket_and_solve_root`).
+#' @param digits The number of significant digits to which the root or minimum should be found. Default is double precision.
+#' @param max_iter The maximum number of iterations to perform.
+#'
 #' @return A list containing the root or minimum value, the value of the function at that point, and the number of iterations performed.
+#'
+#' @seealso
+#' \code{\link{polynomial_root_finding}}
+#'
 #' @examples
-#' f <- function(x) x^2 - 2
-#' bisect(f, lower = 0, upper = 2)
-#' bracket_and_solve_root(f, guess = 1, factor = 0.1, rising = TRUE)
-#' toms748_solve(f, lower = 0, upper = 2)
-#' f <- function(x) c(x^2 - 2, 2 * x)
-#' newton_raphson_iterate(f, guess = 1, lower = 0, upper = 2)
-#' f <- function(x) c(x^2 - 2, 2 * x, 2)
-#' halley_iterate(f, guess = 1, lower = 0, upper = 2)
-#' schroder_iterate(f, guess = 1, lower = 0, upper = 2)
-#' f <- function(x) (x - 2)^2 + 1
-#' brent_find_minima(f, lower = 0, upper = 4)
+#' # --- Root Finding Without Derivatives ---
+#' # Bisection for x^2 - 2 = 0
+#' f_bi <- function(x) x^2 - 2
+#' bisect(f_bi, lower = 0, upper = 2)
+#'
+#' # TOMS 748 for x^2 - 2 = 0
+#' toms748_solve(f_bi, lower = 0, upper = 2)
+#'
+#' # Bracket and Solve
+#' bracket_and_solve_root(f_bi, guess = 1, factor = 2, rising = TRUE)
+#'
+#' # --- Root Finding With Derivatives ---
+#' # Newton-Raphson: Need f(x) and f'(x)
+#' # x^2 - 2 = 0  => f(x) = x^2 - 2, f'(x) = 2x
+#' f_newton <- function(x) c(x^2 - 2, 2 * x)
+#' newton_raphson_iterate(f_newton, guess = 1, lower = 0, upper = 2)
+#'
+#' # Halley/Schroder: Need f(x), f'(x), f''(x)
+#' # x^2 - 2 = 0  => f''(x) = 2
+#' f_halley <- function(x) c(x^2 - 2, 2 * x, 2)
+#' halley_iterate(f_halley, guess = 1, lower = 0, upper = 2)
+#' schroder_iterate(f_halley, guess = 1, lower = 0, upper = 2)
+#'
+#' # --- Minimization ---
+#' # Find minimum of (x-2)^2 + 1
+#' f_min <- function(x) (x - 2)^2 + 1
+#' brent_find_minima(f_min, lower = 0, upper = 4)
 NULL
 
 #' @rdname rootfinding_and_minimisation
@@ -71,25 +110,45 @@ brent_find_minima <- function(f, lower, upper, digits = .Machine$double.digits, 
 
 #' @title Polynomial Root-Finding
 #' @name polynomial_root_finding
-#' @description Functions for finding roots of polynomials of various degrees.
-#' @details This package provides functions to find roots of quadratic, cubic, and quartic polynomials. The functions return the roots as numeric vectors.
-#' @param a Coefficient of the polynomial term (e.g., for quadratic ax^2 + bx + c, a is the coefficient of x^2).
-#' @param b Coefficient of the linear term (e.g., for quadratic ax^2 + bx + c, b is the coefficient of x).
-#' @param c Constant term (e.g., for quadratic ax^2 + bx + c, c is the constant).
-#' @param d Coefficient of the cubic term (for cubic ax^3 + bx^2 + cx + d, d is the constant).
-#' @param e Coefficient of the quartic term (for quartic ax^4 + bx^3 + cx^2 + dx + e, e is the constant).
+#' @description
+#' Functions for finding roots of polynomials of degree 2, 3, and 4 (quadratic, cubic, quartic).
+#'
+#' **Quadratic Roots:**
+#' Solves \eqn{ax^2 + bx + c = 0}.
+#' Returns real roots. If roots are complex, behavior depends on implementation (typically NaN for this real-valued interface).
+#'
+#' **Cubic Roots:**
+#' Solves \eqn{ax^3 + bx^2 + cx + d = 0}.
+#' Returns real roots.
+#'
+#' **Quartic Roots:**
+#' Solves \eqn{ax^4 + bx^3 + cx^2 + dx + e = 0}.
+#' Returns real roots.
+#'
+#' @details
+#' These functions use analytic formulas where possible and numerically stable implementations to avoid catastrophic cancellation.
+#'
+#' @param a Coefficient of the highest degree term.
+#' @param b Coefficient of the second highest degree term.
+#' @param c Coefficient of the third highest degree term (or constant for quadratic).
+#' @param d Coefficient of the fourth highest degree term (or constant for cubic).
+#' @param e Constant term for quartic.
 #' @param root The root to evaluate the residual or condition number at.
-#' @return A numeric vector of the polynomial roots, residual, or condition number.
+#'
+#' @return A numeric vector containing the real roots of the polynomial.
+#'
 #' @examples
-#' # Example of finding quadratic roots
+#' # Quadratic: x^2 - 3x + 2 = 0 -> Roots: 1, 2
 #' quadratic_roots(1, -3, 2)
-#' # Example of finding cubic roots
+#'
+#' # Cubic: x^3 - 6x^2 + 11x - 6 = 0 -> Roots: 1, 2, 3
 #' cubic_roots(1, -6, 11, -6)
-#' # Example of finding quartic roots
+#'
+#' # Quartic: x^4 - 10x^3 + 35x^2 - 50x + 24 = 0 -> Roots: 1, 2, 3, 4
 #' quartic_roots(1, -10, 35, -50, 24)
-#' # Example of finding cubic root residual
+#'
+#' # Residual and Condition Number
 #' cubic_root_residual(1, -6, 11, -6, 1)
-#' # Example of finding cubic root condition number
 #' cubic_root_condition_number(1, -6, 11, -6, 1)
 NULL
 

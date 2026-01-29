@@ -42,16 +42,21 @@ ibeta_derivative(a, b, x)
 
 \item{b}{Second parameter of the beta function (must be positive)}
 
-\item{x}{Upper limit of integration (0 <= x <= 1)}
+\item{x}{Upper limit of integration (0 ≤ x ≤ 1)}
 
-\item{p}{Probability value (0 <= p <= 1)}
+\item{p}{Probability value (0 ≤ p ≤ 1)}
 
+<<<<<<< HEAD
 \item{q}{Probability value (0 <= q <= 1), where q = 1 - p}
+=======
+\item{q}{Probability value (0 ≤ q ≤ 1), where q = 1 - p}
+>>>>>>> docs
 }
 \value{
 A single numeric value with the computed beta function, normalized incomplete beta function, or their complements, depending on the function called.
 }
 \description{
+<<<<<<< HEAD
 Functions to compute the Beta function, normalized incomplete beta function,
 and their complements, as well as their inverses and derivatives.
 
@@ -61,11 +66,25 @@ and their complements, as well as their inverses and derivatives.
 }
 
 \deqn{B(a, b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}}
+=======
+Functions to compute the Euler beta function, normalized incomplete beta function,
+and their complements, as well as their inverses and derivatives.
+
+Beta functions are important special functions that appear in probability distributions,
+Bayesian statistics, and various areas of mathematical analysis.
+
+\strong{Euler Beta Function B(a, b):}
+
+The complete beta function defined by an integral. The special case B(a, 1) = 1/a.
+The implementation uses the Lanczos approximation to avoid numerical overflow and
+cancellation errors. Requires a, b > 0.
+>>>>>>> docs
 
 \strong{Incomplete Beta Functions:}
 \itemize{
 \item \strong{Normalized (Regularized) Functions:}
 \itemize{
+<<<<<<< HEAD
 \item \code{ibeta(a, b, x)}: Normalized incomplete beta function \eqn{I_x(a, b)}
 }
 }
@@ -85,11 +104,29 @@ and their complements, as well as their inverses and derivatives.
 \itemize{
 \item \code{betac(a, b, x)}: Full complement , \eqn{1 - B_x(a, b) = B_{1-x}(b, a)}
 }
+=======
+\item \code{ibeta(a, b, x)}: Normalized incomplete beta function I_x(a, b)
+\item \code{ibetac(a, b, x)}: Normalized complement, equals 1 - I_x(a, b)
+\item Requires: 0 ≤ x ≤ 1, a, b ≥ 0 (not both zero)
+}
+\item \strong{Non-normalized Functions:}
+\itemize{
+\item \code{beta_boost(a, b, x)}: Full incomplete beta function B_x(a, b)
+\item \code{betac(a, b, x)}: Full complement
+\item Requires: 0 ≤ x ≤ 1, a, b > 0
+}
+}
+
+Implementation uses multiple computational methods including continued fractions
+(Didonato-Morris), series representations, and relationships to incomplete gamma
+functions, chosen adaptively based on parameter values.
+>>>>>>> docs
 
 \strong{Inverse Functions:}
 \itemize{
 \item \strong{Primary inverses (solving for x):}
 \itemize{
+<<<<<<< HEAD
 \item \code{ibeta_inv(a, b, p)}: Returns \eqn{x} such that \eqn{p = I_x(a, b)}
 \item \code{ibetac_inv(a, b, q)}: Returns \eqn{x} such that \eqn{q = 1 - I_x(a, b)}
 }
@@ -108,6 +145,29 @@ and their complements, as well as their inverses and derivatives.
 of the incomplete beta function
 
 \deqn{\frac{\partial}{\partial x}I_x(a,b) = \frac{(1-x)^{b-1}x^{a-1}}{B(a,b)}}
+=======
+\item \code{ibeta_inv(a, b, p)}: Returns x such that p = I_x(a, b)
+\item \code{ibetac_inv(a, b, q)}: Returns x such that q = 1 - I_x(a, b)
+}
+\item \strong{Parameter inverses (solving for a or b):}
+\itemize{
+\item \code{ibeta_inva(b, x, p)}: Returns a such that p = I_x(a, b)
+\item \code{ibetac_inva(b, x, q)}: Returns a such that q = 1 - I_x(a, b)
+\item \code{ibeta_invb(a, x, p)}: Returns b such that p = I_x(a, b)
+\item \code{ibetac_invb(a, x, q)}: Returns b such that q = 1 - I_x(a, b)
+}
+}
+
+All inverse functions require a, b > 0 and use a two-stage approach: initial
+approximation from asymptotic expansions followed by Halley iteration refinement.
+Note: p and q are complementary probabilities where p + q = 1.
+
+\strong{Derivative:}
+
+\code{ibeta_derivative(a, b, x)}: Computes the partial derivative with respect to x
+of the incomplete beta function. Accuracy is almost identical to the incomplete
+beta function itself.
+>>>>>>> docs
 }
 \examples{
 \dontrun{

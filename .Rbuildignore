@@ -10,3 +10,7 @@
 ^\.github$
 ^compile_commands\.json$
 ^\.cache$
+<<<<<<< HEAD
+=======
+^\.devcontainer
+>>>>>>> docs

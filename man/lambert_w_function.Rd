@@ -23,7 +23,50 @@ lambert_wm1_prime(z)
 A single numeric value with the computed Lambert W function or its derivative.
 }
 \description{
-Functions to compute the Lambert W function and its derivatives for the principal branch (\eqn{W_0}) and the branch -1 (\eqn{W_{-1}}).
+Functions to compute the Lambert W function and its derivatives for the principal branch
+(W₀) and the branch -1 (W₋₁).
+
+The Lambert W function (also known as the Omega function or product logarithm) is the
+inverse of f(W) = W·e^W. It solves the equation:
+
+\deqn{W(z) \cdot e^{W(z)} = z}
+
+\strong{Branches:}
+
+The function has two real branches:
+\itemize{
+\item \strong{W₀ (Principal Branch):}
+\itemize{
+\item Domain: [-1/e, ∞) where 1/e ≅ 0.367879
+\item \code{lambert_w0(z)}: Returns the principal branch value
+\item \code{lambert_w0_prime(z)}: Returns the derivative of W₀
+\item For z ≥ 0, there is a single real solution
+}
+\item \strong{W₋₁ (Secondary Branch):}
+\itemize{
+\item Domain: [-1/e, 0)
+\item \code{lambert_wm1(z)}: Returns the -1 branch value
+\item \code{lambert_wm1_prime(z)}: Returns the derivative of W₋₁
+\item Exists where two real solutions occur on (-1/e, 0)
+\item As z approaches 0, W₋₁(z) approaches -∞
+}
+}
+
+\strong{Special Values:}
+\itemize{
+\item W₀(-1/e) = -1 (exactly)
+\item W₋₁(-1/e) = -1 (exactly)
+\item W₋₁(0) = -∞
+}
+
+\strong{Singularity:}
+
+At z = -1/e ≅ -0.367879, the two branches meet and the condition number of
+function evaluation tends to infinity.
+
+The implementation uses Halley's method and Newton-Raphson iteration for
+numerical refinement. Applications include solving transcendental equations,
+delay differential equations, and enumeration problems.
 }
 \examples{
 # Lambert W Function (Principal Branch)

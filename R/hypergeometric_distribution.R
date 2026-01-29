@@ -1,11 +1,28 @@
 #' @title Hypergeometric Distribution Functions
 #' @name hypergeometric_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Hypergeometric distribution.
-#' @param x quantile (non-negative integer)
-#' @param r number of successes in the population (r >= 0)
-#' @param n number of draws (n >= 0)
-#' @param N population size (N >= r)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability mass function (pmf), cumulative distribution
+#' function, and quantile function for the Hypergeometric distribution.
+#'
+#' For a population of size $N$ with $r$ successes and $N-r$ failures, drawing $n$
+#' items without replacement, the probability of observing $k$ successes is
+#'
+#' \deqn{P(X = k) = \frac{\binom{r}{k}\binom{N-r}{n-k}}{\binom{N}{n}}}
+#'
+#' with support \eqn{k \in [\max(0, n + r - N), \min(n, r)]}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' For small $N$, factorial table lookup provides high accuracy. For larger $N$ up to
+#' the largest stored prime, a prime-factorization method is used. For very large $N$,
+#' accuracy degrades roughly by \deqn{\log_{10}(N)} digits. The CDF is computed by summing PDFs
+#' using recurrence relations, and quantiles are obtained by summing from the tail.
+#' As a strictly discrete distribution, quantiles are rounded outward to ensure coverage.
+#'
+#' @param x Quantile value (non-negative integer).
+#' @param r Number of successes in the population (r ≥ 0).
+#' @param n Number of draws (n ≥ 0).
+#' @param N Population size (N ≥ r).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hypergeometric_dist.html) for more details on the mathematical background.
 #' @examples

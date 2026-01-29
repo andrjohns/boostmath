@@ -22,19 +22,28 @@ mapairy_lcdf(x, location = 0, scale = 1)
 mapairy_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{location}{location parameter (default is 0)}
+\item{location}{Location parameter (default is 0).}
 
-\item{scale}{scale parameter (default is 1)}
+\item{scale}{Scale parameter (default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value.}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Map-Airy distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Map-Airy distribution.
+
+The Map-Airy distribution is a stable distribution with \deqn{\alpha=3/2} and \deqn{\beta=1},
+used to model the area under a Brownian excursion. It is parameterized by location
+\deqn{\mu} and scale $c$.
+
+\strong{Accuracy and Implementation Notes:}
+Boost reports errors within about 4 epsilon except in the rapidly decaying left tail.
+Some moments (skewness, kurtosis) are undefined and will raise errors if requested.
 }
 \examples{
 # Map-Airy distribution with location 0 and scale 1

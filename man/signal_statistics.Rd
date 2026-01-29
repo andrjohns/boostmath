@@ -9,7 +9,7 @@
 \alias{oracle_snr_db}
 \alias{m2m4_snr_estimator}
 \alias{m2m4_snr_estimator_db}
-\title{Signal Statistics Functions}
+\title{Signal Statistics}
 \usage{
 absolute_gini_coefficient(x)
 
@@ -26,41 +26,85 @@ m2m4_snr_estimator(noisy_signal, signal_kurtosis = 1, noise_kurtosis = 3)
 m2m4_snr_estimator_db(noisy_signal, signal_kurtosis = 1, noise_kurtosis = 3)
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{A numeric vector representing the signal or coefficients.}
 
-\item{signal}{A numeric vector.}
+\item{signal}{A numeric vector representing the true (clean) signal.}
 
-\item{noisy_signal}{A numeric vector.}
+\item{noisy_signal}{A numeric vector representing the signal with noise.}
 
-\item{signal_kurtosis}{A single numeric value.}
+\item{signal_kurtosis}{Kurtosis of the signal (for M2M4). Default is 1 (e.g., constant amplitude).}
 
-\item{noise_kurtosis}{A single numeric value.}
+\item{noise_kurtosis}{Kurtosis of the noise (for M2M4). Default is 3 (Gaussian noise).}
 }
 \value{
-A numeric value or vector with the computed statistic.
+A numeric value representing the computed statistic.
 }
 \description{
-Functions to compute various signal statistics.
+Functions for computing statistics commonly used in signal analysis, such as sparsity measures and Signal-to-Noise Ratio (SNR) estimators.
+
+\strong{Absolute Gini Coefficient:}
+The Gini coefficient is a measure of the sparsity of a signal (expansion in a basis).
+\itemize{
+\item \code{absolute_gini_coefficient}: Computes the population Gini coefficient.
+\item \code{sample_absolute_gini_coefficient}: Computes the sample Gini coefficient.
+A Gini coefficient of 0 implies every element has equal magnitude (least sparse).
+A Gini coefficient of 1 implies only one element is non-zero (most sparse).
+}
+
+\strong{Hoyer Sparsity:}
+A measure of sparsity based on the ratio of the L1 and L2 norms:
+\deqn{H(v) = \frac{\sqrt{N} - \frac{\|v\|_1}{\|v\|_2}}{\sqrt{N} - 1}}{H(v) = (sqrt(N) - L1(v)/L2(v)) / (sqrt(N) - 1)}
+Returns 1 for maximum sparsity (one non-zero element) and 0 for minimum sparsity (all elements equal).
+
+\strong{Oracle SNR:}
+Computes the Signal-to-Noise Ratio (SNR) when the true signal is known (Oracle).
+\itemize{
+\item \code{oracle_snr}: \eqn{\frac{\|s\|^2}{\|s - x\|^2}}{||s||^2 / ||s - x||^2} where \eqn{s} is the signal and \eqn{x} is the noisy signal.
+\item \code{oracle_snr_db}: Returns the SNR in decibels (dB): \eqn{10 \log_{10}(\text{SNR})}{10 * log10(SNR)}.
+}
+
+\strong{M2M4 SNR Estimator:}
+A "blind" estimator (requires no clean signal reference) using the M2M4 property (uses 2nd and 4th moments).
+Useful for "in-service" estimation.
+\itemize{
+\item \code{m2m4_snr_estimator}: Returns the estimated SNR ratio.
+\item \code{m2m4_snr_estimator_db}: Returns the estimated SNR in dB.
+Works best for SNR between -3 dB and 15 dB. Requires assumptions about signal and noise kurtosis (default signal=1, noise=3 for Gaussian).
+}
 }
 \examples{
-# Absolute Gini Coefficient
-absolute_gini_coefficient(c(1, 2, 3, 4, 5))
-# Sample Absolute Gini Coefficient
-sample_absolute_gini_coefficient(c(1, 2, 3, 4, 5))
-# Hoyer Sparsity
-hoyer_sparsity(c(1, 0, 0, 2, 3))
+# --- Sparsity Measures ---
 
-signal <- c(1, 2, 3)
-noisy_signal <- c(1.1, 2.1, 3.1)
-# Oracle SNR
-oracle_snr(signal, noisy_signal)
-# Oracle SNR in dB
-oracle_snr_db(signal, noisy_signal)
-# M2M4 SNR Estimator
-m2m4_snr_estimator(noisy_signal, 3, 2)
-# M2M4 SNR Estimator in dB
-m2m4_snr_estimator_db(noisy_signal, 3, 2)
+# Gini Coefficient
+vec <- c(1, 0, 0, 0)
+# High sparsity -> High Gini coefficient
+sample_absolute_gini_coefficient(vec)
+
+vec_uniform <- c(1, 1, 1, 1)
+# Low sparsity -> Low Gini coefficient
+absolute_gini_coefficient(vec_uniform)
+
+# Hoyer Sparsity
+hoyer_sparsity(vec)      # Returns 1
+hoyer_sparsity(vec_uniform) # Returns 0
+
+# --- SNR Estimation ---
+
+s <- sin(seq(0, 10, length.out = 100))
+n <- rnorm(100, sd = 0.5)
+x <- s + n
+
+# Oracle SNR (Known signal)
+oracle_snr_db(s, x)
+
+# M2M4 Blind SNR Estimation
+# Assuming signal kurtosis = 1.5 (sinusoid) and Gaussian noise (kurtosis = 3)
+m2m4_snr_estimator_db(x, signal_kurtosis = 1.5, noise_kurtosis = 3)
+}
+\references{
+Hurley, N., & Rickard, S. (2009). Comparing measures of sparsity. IEEE Transactions on Information Theory, 55(10), 4723-4741.
+Pauluzzi, D. R., & Beaulieu, N. C. (2000). A comparison of SNR estimation techniques for the AWGN channel. IEEE Transactions on Communications, 48(10), 1681-1691.
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/signal_statistics.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/signal_statistics.html}{Boost Documentation}
 }

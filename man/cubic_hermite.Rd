@@ -23,7 +23,13 @@ An object of class \code{cubic_hermite} with methods:
 }
 }
 \description{
-Constructs a cubic Hermite interpolator given the vectors of abscissas, ordinates, and derivatives.
+The cubic Hermite interpolant takes non-equispaced data and interpolates between them via
+cubic Hermite polynomials whose slopes must be provided.
+
+\strong{Applications:}
+
+The interpolant is C1 and evaluation has O(log N) complexity.
+This interpolator is useful for solution skeletons of ODE steppers.
 }
 \examples{
 x <- c(0, 1, 2)
@@ -35,4 +41,7 @@ interpolator$interpolate(xi)
 interpolator$prime(xi)
 interpolator$push_back(3, 0, 1)
 interpolator$domain()
+}
+\seealso{
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html}{Boost Documentation}
 }

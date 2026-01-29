@@ -1,10 +1,26 @@
 #' @title Laplace Distribution Functions
 #' @name laplace_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Laplace distribution.
-#' @param x quantile
-#' @param location location parameter (default is 0)
-#' @param scale scale parameter (default is 1)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, and quantile function for the Laplace (double exponential) distribution.
+#'
+#' With location \deqn{\mu} and scale \deqn{\sigma > 0}, the PDF is
+#'
+#' \deqn{f(x) = \frac{1}{2\sigma}\exp\left(-\frac{|x-\mu|}{\sigma}\right)}
+#'
+#' and the CDF is
+#'
+#' \deqn{F(x) = \begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\sigma}\right), & x < \mu,\\
+#' 1 - \frac{1}{2}\exp\left(\frac{\mu-x}{\sigma}\right), & x \ge \mu.\end{cases}}
+#'
+#' **Accuracy and Implementation Notes:**
+#' Implemented in terms of `exp` and `log`; `logcdf` and `logpdf` are specialized for
+#' improved numerical accuracy. Complements use stable `log1p` forms.
+#'
+#' @param x Quantile value.
+#' @param location Location parameter (default is 0).
+#' @param scale Scale parameter (default is 1).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/laplace_dist.html) for more details on the mathematical background.
 #' @examples

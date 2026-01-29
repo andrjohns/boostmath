@@ -1,13 +1,26 @@
 #' @title Negative Binomial Distribution Functions
 #' @name negative_binomial_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Negative Binomial distribution.
-#' @param x quantile
-#' @param successes number of successes (successes >= 0)
-#' @param success_fraction probability of success on each trial (0 <= success_fraction <= 1)
-#' @param failures number of failures (failures >= 0)
-#' @param trials number of trials
-#' @param alpha significance level (0 < alpha < 1)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability mass function (pmf), cumulative distribution
+#' function, and quantile function for the Negative Binomial distribution.
+#'
+#' For $r$ successes with success fraction $p$, the probability of observing $k$ failures
+#' before the $r$-th success is
+#'
+#' \deqn{P(X = k) = \binom{k+r-1}{k} p^r (1-p)^k, \quad k \in \{0,1,2,\dots\}}
+#'
+#' **Accuracy and Implementation Notes:**
+#' Implemented using incomplete beta functions (`ibeta`, `ibetac`) and their derivatives
+#' for the PDF. As a discrete distribution, quantiles are rounded outward to ensure
+#' coverage. Confidence bounds use Clopper–Pearson style intervals.
+#'
+#' @param x Quantile value.
+#' @param successes Number of successes (successes > 0).
+#' @param success_fraction Probability of success on each trial (0 ≤ success_fraction ≤ 1).
+#' @param failures Number of failures (failures ≥ 0).
+#' @param trials Number of trials.
+#' @param alpha Significance level (0 < alpha < 1).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/negative_binomial_dist.html) for more details on the mathematical background.
 #' @examples

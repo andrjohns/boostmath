@@ -10,7 +10,7 @@ ljung_box(v, lags = -1, fit_dof = 0)
 \arguments{
 \item{v}{A numeric vector.}
 
-\item{lags}{A single integer value.}
+\item{lags}{A single integer value (default uses \deqn{\log(n)}).}
 
 \item{fit_dof}{A single integer value.}
 }
@@ -18,7 +18,19 @@ ljung_box(v, lags = -1, fit_dof = 0)
 A two-element numeric vector containing the test statistic and the p-value.
 }
 \description{
-Functions to perform the Ljung-Box test for autocorrelation.
+Functions to perform the Ljung-Box test for autocorrelation in residuals.
+
+The test statistic is
+
+\deqn{Q = n(n+2)\sum_{k=1}^{\ell} \frac{\hat{\rho}_k^2}{n-k}}
+
+where $n$ is the sample size, \deqn{\ell} is the number of lags, and \deqn{\hat{\rho}_k}
+are sample autocorrelations. The p-value is computed against a chi-squared
+approximation with adjusted degrees of freedom.
+
+\strong{Implementation Notes:}
+By default, the number of lags is chosen as \deqn{\log(n)} for \deqn{O(n \log n)} complexity.
+\code{fit_dof} adjusts only the p-value to account for model parameters.
 }
 \examples{
 # Ljung-Box test for autocorrelation

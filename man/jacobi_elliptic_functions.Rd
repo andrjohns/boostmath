@@ -44,7 +44,7 @@ jacobi_sd(k, u)
 jacobi_sn(k, u)
 }
 \arguments{
-\item{k}{Elliptic modulus (0 <= k < 1)}
+\item{k}{Elliptic modulus (typically 0 ≤ k ≤ 1, but k > 1 uses complementary relations)}
 
 \item{u}{Argument of the elliptic functions}
 }
@@ -52,10 +52,58 @@ jacobi_sn(k, u)
 For \code{jacobi_elliptic}, a list containing the values of the Jacobi elliptic functions: \code{sn}, \code{cn}, \code{dn}. For individual functions, a single numeric value is returned.
 }
 \description{
-Functions to compute the Jacobi elliptic functions: sn, cn, dn, and others.
+Functions to compute the Jacobi elliptic functions, which are doubly periodic
+generalizations of trigonometric and hyperbolic functions.
+
+Jacobi elliptic functions are fundamental in the theory of elliptic functions and appear
+in solutions to nonlinear differential equations, including the pendulum equation,
+and in the theory of elliptic curves.
+
+\strong{Three Principal Functions:}
+
+The three copolar Jacobi elliptic functions are:
+\itemize{
+\item \strong{sn(u, k)} - Sine amplitude
+\item \strong{cn(u, k)} - Cosine amplitude
+\item \strong{dn(u, k)} - Delta amplitude
+}
+
+These satisfy the fundamental identity: sn² + cn² = 1 and dn² + k²sn² = 1
+
+\strong{Parameter Notation:}
+\itemize{
+\item k = elliptic modulus (used in this implementation)
+\item Alternative notations: m = k² (parameter), α = modular angle where k = sin(α)
+}
+
+\strong{Special Cases:}
+\itemize{
+\item sn(0, k) = 0; cn(0, k) = dn(0, k) = 1
+\item When k = 0: sn(u, 0) = sin(u); cn(u, 0) = cos(u); dn(u, 0) = 1
+\item When k = 1: sn(u, 1) = tanh(u); cn(u, 1) = dn(u, 1) = sech(u)
+}
+
+\strong{Derived Functions:}
+
+Twelve Jacobi elliptic functions exist, derived from ratios of sn, cn, dn:
+\itemize{
+\item cd = cn/dn, cs = cn/sn, dc = dn/cn, ds = dn/sn
+\item nc = 1/cn, nd = 1/dn, ns = 1/sn
+\item sc = sn/cn, sd = sn/dn
+}
+
+All functions satisfy double periodicity and various addition formulas analogous
+to trigonometric identities.
+
+\strong{Implementation:}
+
+Values are calculated using the arithmetic-geometric mean (AGM) method.
+For k > 1, transformation relations apply the complementary modulus.
+The function \code{jacobi_elliptic(k, u)} returns all three principal functions
+simultaneously for efficiency.
 }
 \examples{
-# Jacobi Elliptic Functions
+# All three principal Jacobi Elliptic Functions at once
 k <- 0.5
 u <- 2
 jacobi_elliptic(k, u)

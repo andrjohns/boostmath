@@ -1,10 +1,25 @@
 #' @title Inverse Chi-Squared Distribution Functions
 #' @name inverse_chi_squared_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function, and quantile function for the Inverse Chi-Squared distribution.
-#' @param x quantile
-#' @param df degrees of freedom (df > 0; default is 1)
-#' @param scale scale parameter (default is 1/df)
-#' @param p probability (0 <= p <= 1)
+#' @description
+#' Functions to compute the probability density function, cumulative distribution
+#' function, and quantile function for the Inverse Chi-Squared distribution.
+#'
+#' For degrees of freedom \deqn{\nu} and scale \deqn{\xi}, the PDF is
+#'
+#' \deqn{f(x;\nu,\xi) = \frac{(\nu\xi/2)^{\nu/2}}{\Gamma(\nu/2)} x^{-1-\nu/2} \exp\left(-\frac{\nu\xi}{2x}\right)}
+#'
+#' and the CDF is \deqn{F(x)=\Gamma(\nu/2,\nu\xi/2x)/\Gamma(\nu/2)}. The unscaled case
+#' corresponds to \deqn{\xi = 1/\nu}.
+#'
+#' **Accuracy and Implementation Notes:**
+#' Implemented via incomplete gamma functions (`gamma_p`, `gamma_q`) and their inverses.
+#' Results are typically accurate to a few epsilons in double precision. Moments such as
+#' mean/variance/skewness are only defined for sufficiently large \deqn{\nu}.
+#'
+#' @param x Quantile value (x ≥ 0).
+#' @param df Degrees of freedom (df > 0; default is 1).
+#' @param scale Scale parameter (default is 1/df).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_chi_squared_dist.html) for more details on the mathematical background.
 #' @examples

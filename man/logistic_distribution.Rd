@@ -22,19 +22,34 @@ logistic_lcdf(x, location = 0, scale = 1)
 logistic_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{location}{location parameter (default is 0)}
+\item{location}{Location parameter (default is 0).}
 
-\item{scale}{scale parameter (default is 1)}
+\item{scale}{Scale parameter (default is 1).}
 
-\item{x}{quantile}
+\item{x}{Quantile value.}
 
-\item{p}{probability (0 <= p <= 1)}
+\item{p}{Probability (0 ≤ p ≤ 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-Functions to compute the probability density function, cumulative distribution function, and quantile function for the Logistic distribution.
+Functions to compute the probability density function, cumulative distribution
+function, and quantile function for the Logistic distribution.
+
+With location $u$ and scale $s>0$, the PDF and CDF are
+
+\deqn{f(x) = \frac{e^{-(x-u)/s}}{s\left(1+e^{-(x-u)/s}\right)^2}}
+\deqn{F(x) = \frac{1}{1+e^{-(x-u)/s}}}
+
+and the quantile is
+
+\deqn{Q(p) = u - s\log\left(\frac{1}{p}-1\right)}.
+
+\strong{Accuracy and Implementation Notes:}
+Implemented with \code{exp}/\code{log}. \code{logcdf} is specialized for improved numerical accuracy.
+Quantiles can suffer catastrophic cancellation when the location parameter is large;
+only low absolute error can be guaranteed in that regime.
 }
 \examples{
 # Logistic distribution with location = 0, scale = 1

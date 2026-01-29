@@ -1,20 +1,32 @@
 #' @title Binomial Distribution Functions
 #' @name binomial_distribution
-#' @description Functions to compute the probability density function, cumulative distribution function,
-#' and quantile function for the Binomial distribution.
+#' @description
+#' Functions to compute the probability mass function (pmf), cumulative distribution
+#' function, quantile function, and confidence bounds for the Binomial distribution.
 #'
-#' The PDF is:
+#' The Binomial distribution models the number of successes $k$ in $n$ independent
+#' trials with success probability $p$. The pmf is
 #'
-#' \deqn{f(k; n, p) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}}
+#' \deqn{P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}}
 #'
-#' The CDF is:
+#' for integers \deqn{0 \le k \le n}, and the CDF gives \deqn{P(X \le k)}.
 #'
-#' \deqn{1 - I_p(k + 1, n - k)}
+#' **Accuracy and Implementation Notes:**
+#' CDF and related functions are implemented using incomplete beta functions (`ibeta`,
+#' `ibetac`). The pmf is evaluated via `ibeta_derivative` for stability. Quantiles are
+#' obtained numerically (TOMS 748), since no closed-form inverse exists for discrete $k$.
+#' As a discrete distribution, quantiles are rounded outward to ensure at least the
+#' requested coverage; use complements for improved tail accuracy.
 #'
-#' @param k number of successes (0 <= k <= n)
-#' @param n number of trials (n >= 0)
-#' @param prob probability of success on each trial (0 <= prob <= 1)
-#' @param p probability (0 <= p <= 1)
+#' **Confidence Bounds:**
+#' `binomial_find_lower_bound_on_p` and `binomial_find_upper_bound_on_p` implement
+#' Clopper–Pearson exact intervals (default) or Jeffreys prior intervals, as described
+#' in the Boost documentation.
+#'
+#' @param k Number of successes (0 ≤ k ≤ n).
+#' @param n Number of trials (n ≥ 0).
+#' @param prob Probability of success on each trial (0 ≤ prob ≤ 1).
+#' @param p Probability (0 ≤ p ≤ 1).
 #' @param alpha Largest acceptable probability that the true value of the success fraction is less than the value returned (by `binomial_find_lower_bound_on_p`) or greater than the value returned (by `binomial_find_upper_bound_on_p`).
 #' @param method Method to use for calculating the confidence bounds. Options are "clopper_pearson_exact" (default) and "jeffreys_prior".
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
