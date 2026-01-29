@@ -17,13 +17,13 @@
 #'
 #' \deqn{F(x; \alpha, \beta) = I_x(\alpha, \beta)}
 #'
-#' Where \eqn{I_x} is the regularized incomplete beta function.
+#' Where \eqn{I_x} is the regularised incomplete beta function.
 #'
 #' The quantile is:
 #'
 #' \deqn{F^{-1}(p; \alpha, \beta) = I_{p}^{-1}(\alpha, \beta)}
 #'
-#' Where \eqn{I_{p}^{-1}} is the inverse of the regularized incomplete beta function.
+#' Where \eqn{I_{p}^{-1}} is the inverse of the regularised incomplete beta function.
 #'
 #' @param x Quantile value (0 <= x <= 1).
 #' @param alpha Shape parameter (alpha > 0).

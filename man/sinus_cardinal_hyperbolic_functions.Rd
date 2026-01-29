@@ -27,8 +27,8 @@ applications. The implementations avoid numerical instability near x = 0.
 The sinc function is defined as:
 \deqn{sinc(\pi x) = \frac{\sin(\pi x)}{\pi x}}
 \itemize{
-\item \code{sinc_pi(x)}: Computes sinc(πx) = sin(πx)/(πx)
-\item Special value: sinc_pi(0) = 1 (by L'Hôpital's rule or Taylor series)
+\item \code{sinc_pi(x)}: Computes sinc(pix) = sin(pix)/(pix)
+\item Special value: sinc_pi(0) = 1 (by L'Hopital's rule or Taylor series)
 \item The function oscillates with decreasing amplitude as |x| increases
 \item Used extensively in signal processing (ideal low-pass filter impulse response)
 \item Appears in the Whittaker-Shannon interpolation formula
@@ -39,8 +39,8 @@ The sinc function is defined as:
 The hyperbolic sinc function is defined as:
 \deqn{sinhc(\pi x) = \frac{\sinh(\pi x)}{\pi x}}
 \itemize{
-\item \code{sinhc_pi(x)}: Computes sinhc(πx) = sinh(πx)/(πx)
-\item Special value: sinhc_pi(0) = 1 (by L'Hôpital's rule or Taylor series)
+\item \code{sinhc_pi(x)}: Computes sinhc(pix) = sinh(pix)/(pix)
+\item Special value: sinhc_pi(0) = 1 (by L'Hopital's rule or Taylor series)
 \item The function grows exponentially for large |x|
 \item Analogous to sinc but using hyperbolic sine instead of circular sine
 }
@@ -51,7 +51,7 @@ Both functions use Taylor series expansions near x = 0 to avoid division by zero
 and loss of precision. For x away from 0, direct evaluation is used.
 }
 \examples{
-# Sinus cardinal function at x = 0.5: sinc(π/2)
+# Sinus cardinal function at x = 0.5: sinc(pi/2)
 sinc_pi(0.5)
 # Sinus cardinal at zero (returns exactly 1)
 sinc_pi(0)

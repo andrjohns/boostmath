@@ -83,8 +83,8 @@ Functions to compute robust univariate statistics from a dataset.
 
 \strong{Inequality:}
 \itemize{
-\item \code{gini_coefficient}: Computes the Gini coefficient (population). range \\eqn{[0, 1 - 1/n]}.
-\item \code{sample_gini_coefficient}: Computes the sample Gini coefficient. range \\eqn{[0, 1]}.
+\item \code{gini_coefficient}: Computes the Gini coefficient (population). range \eqn{[0, 1 - 1/n]}.
+\item \code{sample_gini_coefficient}: Computes the sample Gini coefficient. range \eqn{[0, 1]}.
 }
 }
 \details{

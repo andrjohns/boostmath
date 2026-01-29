@@ -1,7 +1,7 @@
 #' Riemann Zeta Function
 #'
 #' @description
-#' Computes the Riemann zeta function ζ(z), one of the most important functions
+#' Computes the Riemann zeta function zeta(z), one of the most important functions
 #' in analytic number theory.
 #'
 #' **Mathematical Definition:**
@@ -13,10 +13,10 @@
 #'
 #' **Special Values:**
 #'
-#' * ζ(2) = π²/6 (Basel problem)
-#' * ζ(4) = π⁴/90
-#' * ζ(0) = -1/2
-#' * ζ(-1) = -1/12
+#' * zeta(2) = pi^2/6 (Basel problem)
+#' * zeta(4) = pi^4/90
+#' * zeta(0) = -1/2
+#' * zeta(-1) = -1/12
 #' * Closed forms exist for all even positive integers and all negative integers
 #' * For odd positive integers > 1, values are computed numerically
 #'
@@ -28,7 +28,7 @@
 #' * For z > 4: Simple rational approximation series
 #' * Reflection formula for negative arguments
 #' * Pre-computed cached values for positive odd integers
-#' * Specialized rational approximations for standard floating-point precisions
+#' * Specialised rational approximations for standard floating-point precisions
 #'
 #' **Applications:**
 #'
@@ -38,13 +38,13 @@
 #'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/zetas/zeta.html) for more details on the mathematical background.
 #' @param z Real number input
-#' @return The value of the Riemann zeta function ζ(z).
+#' @return The value of the Riemann zeta function zeta(z).
 #' @export
 #' @examples
 #' # Riemann Zeta Function
-#' zeta(2)  # Should return pi^2 / 6 ≈ 1.6449340668
-#' zeta(3)  # Apéry's constant ≈ 1.2020569032
-#' zeta(4)  # pi^4 / 90 ≈ 1.0823232337
+#' zeta(2)  # Should return pi^2 / 6 ~= 1.6449340668
+#' zeta(3)  # Apery's constant ~= 1.2020569032
+#' zeta(4)  # pi^4 / 90 ~= 1.0823232337
 zeta <- function(z) {
   .Call(`zeta_`, z)
 }

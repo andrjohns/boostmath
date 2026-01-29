@@ -38,7 +38,7 @@ geometric_find_maximum_number_of_trials(failures, prob, alpha)
 
 \item{x}{Quantile value (non-negative integer).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 
 \item{trials}{Number of trials.}
 
@@ -59,13 +59,13 @@ in Bernoulli trials with success probability $p$. The pmf is
 \deqn{P(X = k) = (1-p)^k p, \quad k \in \{0,1,2,\dots\}}
 
 \strong{Accuracy and Implementation Notes:}
-Implemented using \code{pow}, \code{exp}, and \code{log1p}. \code{logcdf} is specialized for numerical
+Implemented using \code{pow}, \code{exp}, and \code{log1p}. \code{logcdf} is specialised for numerical
 accuracy. This is a discrete distribution; quantiles are rounded outward to ensure
 at least the requested coverage. For extreme $p$ close to 1, accuracy can degrade.
 
 \strong{Confidence Bounds:}
 The bound and trial-estimation functions are implemented as in the negative binomial
-distribution (successes = 1), using Clopper–Pearson style bounds and numeric inversion.
+distribution (successes = 1), using Clopper-Pearson style bounds and numeric inversion.
 }
 \examples{
 # Geometric distribution with probability of success prob = 0.5

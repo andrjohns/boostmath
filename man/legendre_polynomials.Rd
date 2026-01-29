@@ -34,7 +34,7 @@ legendre_next_m(n, m, x, Pl, Plm1)
 
 \item{Pl}{Value of the Legendre polynomial P_l(x)}
 
-\item{Plm1}{Value of the Legendre polynomial P_{l-1}(x)}
+\item{Plm1}{Value of the Legendre polynomial \eqn{P_{l-1}(x)}}
 }
 \value{
 A single numeric value with the computed Legendre polynomial, its derivative, or zeros (as a vector).
@@ -51,12 +51,12 @@ Laplace's equation in spherical coordinates) and numerical analysis (Gaussian qu
 
 Standard solutions to the Legendre differential equation.
 \itemize{
-\item Domain: -1 ≤ x ≤ 1 (domain error outside this range)
-\item Reflection formula: P_{-l-1}(x) = P_l(x)
+\item Domain: -1 <= x <= 1 (domain error outside this range)
+\item Reflection formula: \eqn{P_{-l-1}(x) = P_l(x)}
 \item \code{legendre_p(n, x)}: Evaluates P_n(x)
 \item \code{legendre_p_prime(n, x)}: Derivative of P_n(x)
 \item \code{legendre_p_zeros(n)}: Returns zeros in increasing order. For odd n, first zero is 0.
-Computed using Newton's method with Tricomi's initial estimates (O(n²) complexity)
+Computed using Newton's method with Tricomi's initial estimates (O(n^2) complexity)
 }
 
 \strong{Associated Legendre Polynomials P_n^m(x):}
@@ -71,15 +71,15 @@ Computed using Newton's method with Tricomi's initial estimates (O(n²) complexi
 Second solution to the Legendre differential equation.
 \itemize{
 \item \code{legendre_q(n, x)}: Evaluates Q_n(x)
-\item Domain: -1 ≤ x ≤ 1 (domain error otherwise)
+\item Domain: -1 <= x <= 1 (domain error otherwise)
 }
 
 \strong{Recurrence Relations:}
 
 Efficient computation using three-term recurrence at fixed x with increasing degree:
 \itemize{
-\item \code{legendre_next(n, x, Pl, Plm1)}: Computes P_{n+1}(x) from P_n and P_{n-1}
-\item \code{legendre_next_m(n, m, x, Pl, Plm1)}: Computes P_{n+1}^m(x) from previous values
+\item \code{legendre_next(n, x, Pl, Plm1)}: Computes \eqn{P_{n+1}(x)} from \eqn{P_n} and \eqn{P_{n-1}}
+\item \code{legendre_next_m(n, m, x, Pl, Plm1)}: Computes \eqn{P_{n+1}^m(x)} from previous values
 }
 
 Recurrence relations guarantee low absolute error but cannot guarantee low relative

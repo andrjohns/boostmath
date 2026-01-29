@@ -28,7 +28,7 @@ extreme_value_quantile(p, location = 0, scale = 1)
 
 \item{x}{Quantile value.}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -47,7 +47,7 @@ and the quantile is
 \deqn{Q(p) = a - b\log\left(-\log(p)\right)}.
 
 \strong{Accuracy and Implementation Notes:}
-Implemented using \code{exp} and \code{log} with specialized \code{logcdf} and \code{logpdf} for improved
+Implemented using \code{exp} and \code{log} with specialised \code{logcdf} and \code{logpdf} for improved
 accuracy. Complements use stable \code{expm1}/\code{log1p} forms to reduce cancellation.
 }
 \examples{

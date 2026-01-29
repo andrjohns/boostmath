@@ -3,8 +3,8 @@
 #' @description
 #' Provides access to mathematical constants used in the Boost Math library.
 #'
-#' The available constants include rational fractions, \deqn{\pi}-related values, \deqn{\e}-related
-#' values, and assorted special constants (e.g., Euler–Mascheroni, Catalan). Integer
+#' The available constants include rational fractions, \deqn{\pi}-related values, \deqn{e}-related
+#' values, and assorted special constants (e.g., Euler-Mascheroni, Catalan). Integer
 #' values are intentionally omitted since they can be constructed exactly from literals.
 #'
 #' **Accuracy and Implementation Notes:**

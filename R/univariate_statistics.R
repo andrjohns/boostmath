@@ -22,8 +22,8 @@
 #' *   `first_four_moments`: Computes Mean, Variance, Skewness, and Kurtosis in a single pass.
 #'
 #' **Inequality:**
-#' *   `gini_coefficient`: Computes the Gini coefficient (population). range \\eqn{[0, 1 - 1/n]}.
-#' *   `sample_gini_coefficient`: Computes the sample Gini coefficient. range \\eqn{[0, 1]}.
+#' *   `gini_coefficient`: Computes the Gini coefficient (population). range \eqn{[0, 1 - 1/n]}.
+#' *   `sample_gini_coefficient`: Computes the sample Gini coefficient. range \eqn{[0, 1]}.
 #'
 #' @details
 #' These functions are designed to be numerically stable and efficient.

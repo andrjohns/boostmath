@@ -54,7 +54,7 @@ and unify numerous special functions.
 \item \code{hypergeometric_0F1(b, z)}: Zero numerator parameters, one denominator parameter
 \item Implemented via defining series when convergent, continued fractions for divergent cases,
 or Bessel function relations
-\item Domain error when b is an integer ≤ 0
+\item Domain error when b is an integer <= 0
 }
 \item \strong{1F0(a, z):}
 \itemize{
@@ -70,9 +70,9 @@ or Bessel function relations
 \item Equivalent to Mathematica's Hypergeometric1F1[a, b, z] and Maple's KummerM(a, b, z)
 \item For |z| < 1, has a convergent hypergeometric series expansion
 }
-\item \strong{Regularized 1F1:}
+\item \strong{Regularised 1F1:}
 \itemize{
-\item \code{hypergeometric_1F1_regularized(a, b, z)}: Normalized version that avoids
+\item \code{hypergeometric_1F1_regularized(a, b, z)}: Normalised version that avoids
 spurious overflow/underflow
 }
 \item \strong{Logarithmic 1F1:}
@@ -81,7 +81,7 @@ spurious overflow/underflow
 }
 }
 
-\strong{Generalized Hypergeometric Function pFq:}
+\strong{Generalised Hypergeometric Function pFq:}
 \itemize{
 \item \code{hypergeometric_pFq(a, b, z)}: General form with p numerator parameters and
 q denominator parameters
@@ -109,11 +109,11 @@ hypergeometric_0F1(1, 0.8)
 hypergeometric_2F0(0.1, -1, 0.1)
 # Hypergeometric Function 1F1 (Kummer's function)
 hypergeometric_1F1(2, 3, 1)
-# Regularized Hypergeometric Function 1F1
+# Regularised Hypergeometric Function 1F1
 hypergeometric_1F1_regularized(2, 3, 1)
 # Logarithm of the Hypergeometric Function 1F1
 log_hypergeometric_1F1(2, 3, 1)
-# Generalized Hypergeometric Function pFq (3F4 example)
+# Generalised Hypergeometric Function pFq (3F4 example)
 hypergeometric_pFq(c(2, 3, 4), c(5, 6, 7, 8), 0.5)
 }
 \seealso{

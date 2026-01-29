@@ -18,7 +18,7 @@ An object of class \code{bezier_polynomial} with methods:
 }
 }
 \description{
-Bézier polynomials are smooth curves which approximate a set of control points.
+Bezier polynomials are smooth curves which approximate a set of control points.
 They are commonly used in computer-aided geometric design.
 
 \strong{Properties:}

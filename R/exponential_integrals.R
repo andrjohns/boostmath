@@ -22,7 +22,7 @@
 #' \deqn{Ei(z) = -\int_{-z}^\infty \frac{e^{-t}}{t} dt}
 #'
 #' For z < 0, the function uses rational approximations via the zeta function.
-#' For z > 0, it employs infinite series for arbitrary precision or optimized
+#' For z > 0, it employs infinite series for arbitrary precision or optimised
 #' rational approximations for standard precision types.
 #'
 #' Both functions are implemented using high-accuracy algorithms with sub-epsilon

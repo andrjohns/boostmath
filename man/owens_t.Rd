@@ -16,7 +16,7 @@ The value of the Owens T function at (h, a).
 }
 \description{
 Computes Owen's T function T(h, a), which gives the probability of the event
-(X > h and 0 < Y < a·X) where X and Y are independent standard normal random variables.
+(X > h and 0 < Y < a*X) where X and Y are independent standard normal random variables.
 
 \strong{Geometric Interpretation:}
 
@@ -27,9 +27,9 @@ y = ax, y = 0, and x = h.
 \strong{Special Cases:}
 \itemize{
 \item T(h, 0) = 0
-\item T(0, a) = (1/2π) arctan(a)
-\item T(h, 1) = (1/2) Φ(h) [1 - Φ(h)], where Φ is the standard normal CDF
-\item T(h, ∞) = Φ(|h|)
+\item T(0, a) = (1/2pi) arctan(a)
+\item T(h, 1) = (1/2) Phi(h) [1 - Phi(h)], where Phi is the standard normal CDF
+\item T(h, Inf) = Phi(|h|)
 }
 
 \strong{Applications:}

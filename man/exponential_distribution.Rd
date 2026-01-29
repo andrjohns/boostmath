@@ -24,26 +24,14 @@ exponential_quantile(p, lambda = 1)
 \arguments{
 \item{lambda}{Rate parameter (lambda > 0).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-<<<<<<< HEAD
-Functions to compute the probability density function, cumulative distribution function,
-and quantile function for the Exponential distribution.
-
-The PDF is:
-
-\deqn{f(x;\lambda) = \begin{cases}\lambda e^{-\lambda x} & x \ge 0\\0 & x < 0\end{cases}}
-
-The CDF is:
-
-\deqn{F(x;\lambda) = \begin{cases}1 - e^{-\lambda x} & x \ge 0\\0 & x < 0\end{cases}}
-=======
 Functions to compute the probability density function, cumulative distribution
 function, and quantile function for the Exponential distribution.
 
@@ -58,8 +46,7 @@ and the quantile is
 
 \strong{Accuracy and Implementation Notes:}
 The implementation uses \code{exp}, \code{log}, \code{expm1}, and \code{log1p}. Both \code{logcdf} and \code{logpdf}
-are specialized for improved numerical accuracy, and complements use stable forms.
->>>>>>> docs
+are specialised for improved numerical accuracy, and complements use stable forms.
 }
 \examples{
 # Exponential distribution with rate parameter lambda = 2

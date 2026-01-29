@@ -22,15 +22,15 @@ hypergeometric_lcdf(x, r, n, N)
 hypergeometric_quantile(p, r, n, N)
 }
 \arguments{
-\item{r}{Number of successes in the population (r ≥ 0).}
+\item{r}{Number of successes in the population (r >= 0).}
 
-\item{n}{Number of draws (n ≥ 0).}
+\item{n}{Number of draws (n >= 0).}
 
-\item{N}{Population size (N ≥ r).}
+\item{N}{Population size (N >= r).}
 
 \item{x}{Quantile value (non-negative integer).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.

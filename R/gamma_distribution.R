@@ -8,19 +8,19 @@
 #'
 #' \deqn{f(x) = \frac{1}{\Gamma(k)\,\theta^k} x^{k-1} e^{-x/\theta}, \quad x \ge 0}
 #'
-#' and the CDF is \deqn{P(k, x/\theta)}, the regularized incomplete gamma function. The
+#' and the CDF is \deqn{P(k, x/\theta)}, the regularised incomplete gamma function. The
 #' quantile is computed via inverse incomplete gamma functions. When $k$ is an integer,
 #' this is the Erlang distribution; Boost uses the shape/scale parameterization.
 #'
 #' **Accuracy and Implementation Notes:**
 #' Implemented in terms of incomplete gamma functions (`gamma_p`, `gamma_q`) and their
 #' inverses. The PDF uses `gamma_p_derivative(k, x/\theta)/\theta`, and `logpdf` is
-#' specialized for improved accuracy.
+#' specialised for improved accuracy.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param shape Shape parameter (shape > 0).
 #' @param scale Scale parameter (scale > 0).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/gamma_dist.html) for more details on the mathematical background.
 #' @examples

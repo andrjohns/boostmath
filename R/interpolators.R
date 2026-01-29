@@ -98,7 +98,7 @@ barycentric_rational <- function(x, y, order = 3) {
 }
 #' @title Bezier Polynomial Interpolator
 #' @description
-#' Bézier polynomials are smooth curves which approximate a set of control points.
+#' Bezier polynomials are smooth curves which approximate a set of control points.
 #' They are commonly used in computer-aided geometric design.
 #'
 #' **Properties:**
@@ -364,7 +364,7 @@ cubic_hermite <- function(x, y, dydx) {
 
 #' @title Cardinal Cubic Hermite Interpolator
 #' @description
-#' The cardinal cubic Hermite interpolator is similar to the cubic Hermite interpolator but optimized for equispaced data.
+#' The cardinal cubic Hermite interpolator is similar to the cubic Hermite interpolator but optimised for equispaced data.
 #'
 #' **Performance:**
 #'
@@ -546,7 +546,7 @@ quintic_hermite <- function(x, y, dydx, d2ydx2) {
 }
 #' @title Cardinal Quintic Hermite Interpolator
 #' @description
-#' The cardinal quintic Hermite interpolator is similar to the quintic Hermite interpolator but optimized for equispaced data.
+#' The cardinal quintic Hermite interpolator is similar to the quintic Hermite interpolator but optimised for equispaced data.
 #'
 #' **Performance:**
 #'

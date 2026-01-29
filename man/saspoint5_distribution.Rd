@@ -40,7 +40,7 @@ The S\eqn{\alpha}S Point5 distribution is a special case of a stable distributio
 
 It has the probability density function (PDF):
 \deqn{f(x; \mu, \gamma) = \frac{1}{\sqrt{2\pi}} x^{-3/2} e^{-\frac{1}{2x}}}
-(Note: The boost documentation reference shows a standard form, generalized by location \eqn{\mu} and scale \eqn{\gamma}).
+(Note: The boost documentation reference shows a standard form, generalised by location \eqn{\mu} and scale \eqn{\gamma}).
 
 This distribution has heavier tails than the Cauchy distribution. Note that the S\eqn{\alpha}S Point5 distribution does not have a defined mean or standard deviation.
 

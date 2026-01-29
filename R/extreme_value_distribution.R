@@ -14,13 +14,13 @@
 #' \deqn{Q(p) = a - b\log\left(-\log(p)\right)}.
 #'
 #' **Accuracy and Implementation Notes:**
-#' Implemented using `exp` and `log` with specialized `logcdf` and `logpdf` for improved
+#' Implemented using `exp` and `log` with specialised `logcdf` and `logpdf` for improved
 #' accuracy. Complements use stable `expm1`/`log1p` forms to reduce cancellation.
 #'
 #' @param x Quantile value.
 #' @param location Location parameter (default is 0).
 #' @param scale Scale parameter (default is 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/extreme_dist.html) for more details on the mathematical background.
 #' @examples

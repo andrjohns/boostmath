@@ -23,11 +23,6 @@ A numeric vector containing:
 }
 }
 \description{
-<<<<<<< HEAD
-Compute the Chatterjee correlation coefficient, a rank-based coefficient:
-
-\deqn{\xi_n(X,Y) = 1 - \frac{3\sum_{i=1}^{n-1}|r_{i+1} - r_i|}{n^2 - 1}}
-=======
 Computes the Chatterjee correlation coefficient, a robust measure of dependence.
 Unlike classical correlation coefficients (Pearson, Spearman), Chatterjee's coefficient
 measures the degree to which \code{y} is a function of \code{x} (functional dependence),
@@ -50,7 +45,6 @@ Given pairs $(X_i, Y_i)$, sort them such that \deqn{X_{(1)} \le \dots \le X_{(n)
 Let $r_i$ be the rank of \deqn{Y_{(i)}}. The coefficient is:
 \deqn{ \xi_n(X, Y) = 1 - \frac{3 \sum_{i=1}^{n-1} |r_{i+1} - r_i|}{n^2 - 1} }
 (simplified version for no ties). Use the function for the exact robust calculation handling ties.
->>>>>>> docs
 }
 \examples{
 # Functional dependence (Y = X^2)

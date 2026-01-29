@@ -26,9 +26,9 @@ gamma_quantile(p, shape, scale = 1)
 
 \item{scale}{Scale parameter (scale > 0).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -41,14 +41,14 @@ With shape $k>0$ and scale \deqn{\theta>0}, the PDF is
 
 \deqn{f(x) = \frac{1}{\Gamma(k)\,\theta^k} x^{k-1} e^{-x/\theta}, \quad x \ge 0}
 
-and the CDF is \deqn{P(k, x/\theta)}, the regularized incomplete gamma function. The
+and the CDF is \deqn{P(k, x/\theta)}, the regularised incomplete gamma function. The
 quantile is computed via inverse incomplete gamma functions. When $k$ is an integer,
 this is the Erlang distribution; Boost uses the shape/scale parameterization.
 
 \strong{Accuracy and Implementation Notes:}
 Implemented in terms of incomplete gamma functions (\code{gamma_p}, \code{gamma_q}) and their
 inverses. The PDF uses \verb{gamma_p_derivative(k, x/\\theta)/\\theta}, and \code{logpdf} is
-specialized for improved accuracy.
+specialised for improved accuracy.
 }
 \examples{
 # Gamma distribution with shape = 3, scale = 4

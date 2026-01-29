@@ -28,7 +28,7 @@ logistic_quantile(p, location = 0, scale = 1)
 
 \item{x}{Quantile value.}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -47,7 +47,7 @@ and the quantile is
 \deqn{Q(p) = u - s\log\left(\frac{1}{p}-1\right)}.
 
 \strong{Accuracy and Implementation Notes:}
-Implemented with \code{exp}/\code{log}. \code{logcdf} is specialized for improved numerical accuracy.
+Implemented with \code{exp}/\code{log}. \code{logcdf} is specialised for improved numerical accuracy.
 Quantiles can suffer catastrophic cancellation when the location parameter is large;
 only low absolute error can be guaranteed in that regime.
 }

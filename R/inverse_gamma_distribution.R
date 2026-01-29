@@ -12,13 +12,13 @@
 #'
 #' **Accuracy and Implementation Notes:**
 #' Implemented via incomplete gamma functions (`gamma_p`, `gamma_q`) and their inverses.
-#' `logpdf` is specialized for numerical accuracy. Results are typically accurate to a
+#' `logpdf` is specialised for numerical accuracy. Results are typically accurate to a
 #' few epsilons in double precision.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param shape Shape parameter (shape > 0).
 #' @param scale Scale parameter (scale > 0; default is 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gamma_dist.html) for more details on the mathematical background.
 #' @examples

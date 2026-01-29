@@ -27,7 +27,7 @@ An object of class \code{cardinal_quintic_hermite} with methods:
 }
 }
 \description{
-The cardinal quintic Hermite interpolator is similar to the quintic Hermite interpolator but optimized for equispaced data.
+The cardinal quintic Hermite interpolator is similar to the quintic Hermite interpolator but optimised for equispaced data.
 
 \strong{Performance:}
 

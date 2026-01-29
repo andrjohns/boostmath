@@ -32,7 +32,7 @@ oscillator), and numerical analysis.
 \strong{Hermite Polynomials H_n(x):}
 \itemize{
 \item \code{hermite(n, x)}: Evaluates the Hermite polynomial of degree n at point x
-\item Orthogonal with respect to the weight function \deqn{e^{-x²}} on (-∞, ∞)
+\item Orthogonal with respect to the weight function \deqn{e^{-x^2}} on (-Inf, Inf)
 \item Appear as eigenfunctions of the quantum harmonic oscillator
 }
 

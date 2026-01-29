@@ -28,7 +28,7 @@ paired_samples_t_test(u, v)
 
 \item{num_samples}{Number of samples (for \code{one_sample_t_test_params}).}
 
-\item{assumed_mean}{The hypothesized population mean to compare against.}
+\item{assumed_mean}{The hypothesised population mean to compare against.}
 
 \item{u}{A numeric vector of data values for the first sample.}
 
@@ -69,7 +69,8 @@ one_sample_t_test(data, assumed_mean = 4)
 
 # Using summary statistics:
 # Mean = 5.8, Variance = 0.7, N = 5
-one_sample_t_test_params(sample_mean = 5.8, sample_variance = 0.7, num_samples = 5, assumed_mean = 4)
+one_sample_t_test_params(sample_mean = 5.8, sample_variance = 0.7,
+                         num_samples = 5, assumed_mean = 4)
 
 # --- Two Sample T-Test ---
 sample1 <- c(5, 6, 7, 5, 6)

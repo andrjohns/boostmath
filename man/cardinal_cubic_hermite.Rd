@@ -24,7 +24,7 @@ An object of class \code{cardinal_cubic_hermite} with methods:
 }
 }
 \description{
-The cardinal cubic Hermite interpolator is similar to the cubic Hermite interpolator but optimized for equispaced data.
+The cardinal cubic Hermite interpolator is similar to the cubic Hermite interpolator but optimised for equispaced data.
 
 \strong{Performance:}
 

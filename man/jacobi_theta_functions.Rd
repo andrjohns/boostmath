@@ -45,14 +45,14 @@ jacobi_theta4m1tau(x, tau)
 
 \item{q}{The nome parameter of the Jacobi theta function (0 < q < 1)}
 
-\item{tau}{The nome parameter in τ-form (real-valued, implicitly multiplied by i)}
+\item{tau}{The nome parameter in tau-form (real-valued, implicitly multiplied by i)}
 }
 \value{
 A single numeric value with the computed Jacobi theta function.
 }
 \description{
-Functions to compute the four Jacobi theta functions θ₁, θ₂, θ₃, θ₄, which are
-inter-related periodic functions parameterized by either q (nome) or τ.
+Functions to compute the four Jacobi theta functions theta_1, theta_2, theta_3, theta_4, which are
+inter-related periodic functions parameterised by either q (nome) or tau.
 
 Jacobi theta functions are fundamental in the theory of elliptic functions, modular
 forms, and appear in number theory, string theory, and solutions to the heat equation
@@ -60,10 +60,10 @@ on a circle.
 
 \strong{The Four Theta Functions:}
 \itemize{
-\item \strong{θ₁(x, q)} - First Jacobi theta function
-\item \strong{θ₂(x, q)} - Second Jacobi theta function
-\item \strong{θ₃(x, q)} - Third Jacobi theta function
-\item \strong{θ₄(x, q)} - Fourth Jacobi theta function
+\item \strong{theta_1(x, q)} - First Jacobi theta function
+\item \strong{theta_2(x, q)} - Second Jacobi theta function
+\item \strong{theta_3(x, q)} - Third Jacobi theta function
+\item \strong{theta_4(x, q)} - Fourth Jacobi theta function
 }
 
 These are periodic functions of x expressed in terms of the nome parameter q.
@@ -76,8 +76,8 @@ EllipticTheta function (whose first argument is the function number).
 \itemize{
 \item \code{jacobi_theta1(x, q)}, \code{jacobi_theta2(x, q)}, \code{jacobi_theta3(x, q)}, \code{jacobi_theta4(x, q)}
 }
-\item \strong{τ-parameterization:}
-Alternative form where q is expressed through τ. The mathematical τ is assumed to be
+\item \strong{tau-parameterization:}
+Alternative form where q is expressed through tau. The mathematical tau is assumed to be
 purely imaginary, but the Boost argument is real-valued and implicitly multiplied by i.
 \itemize{
 \item \code{jacobi_theta1tau(x, tau)}, \code{jacobi_theta2tau(x, tau)}, etc.
@@ -89,9 +89,9 @@ purely imaginary, but the Boost argument is real-valued and implicitly multiplie
 Similar to expm1(), these functions return one less than the evaluated function,
 yielding increased accuracy when q is small:
 \itemize{
-\item \code{jacobi_theta3m1(x, q)} = θ₃(x, q) - 1
-\item \code{jacobi_theta4m1(x, q)} = θ₄(x, q) - 1
-\item Also available in τ-parameterization: \code{jacobi_theta3m1tau}, \code{jacobi_theta4m1tau}
+\item \code{jacobi_theta3m1(x, q)} = theta_3(x, q) - 1
+\item \code{jacobi_theta4m1(x, q)} = theta_4(x, q) - 1
+\item Also available in tau-parameterization: \code{jacobi_theta3m1tau}, \code{jacobi_theta4m1tau}
 }
 
 \strong{Relationships:}

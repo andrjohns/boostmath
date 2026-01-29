@@ -34,13 +34,13 @@ binomial_find_minimum_number_of_trials(k, prob, alpha)
 binomial_find_maximum_number_of_trials(k, prob, alpha)
 }
 \arguments{
-\item{n}{Number of trials (n ≥ 0).}
+\item{n}{Number of trials (n >= 0).}
 
-\item{prob}{Probability of success on each trial (0 ≤ prob ≤ 1).}
+\item{prob}{Probability of success on each trial (0 <= prob <= 1).}
 
-\item{k}{Number of successes (0 ≤ k ≤ n).}
+\item{k}{Number of successes (0 <= k <= n).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 
 \item{alpha}{Largest acceptable probability that the true value of the success fraction is less than the value returned (by \code{binomial_find_lower_bound_on_p}) or greater than the value returned (by \code{binomial_find_upper_bound_on_p}).}
 
@@ -50,18 +50,6 @@ binomial_find_maximum_number_of_trials(k, prob, alpha)
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-<<<<<<< HEAD
-Functions to compute the probability density function, cumulative distribution function,
-and quantile function for the Binomial distribution.
-
-The PDF is:
-
-\deqn{f(k; n, p) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}}
-
-The CDF is:
-
-\deqn{1 - I_p(k + 1, n - k)}
-=======
 Functions to compute the probability mass function (pmf), cumulative distribution
 function, quantile function, and confidence bounds for the Binomial distribution.
 
@@ -81,9 +69,8 @@ requested coverage; use complements for improved tail accuracy.
 
 \strong{Confidence Bounds:}
 \code{binomial_find_lower_bound_on_p} and \code{binomial_find_upper_bound_on_p} implement
-Clopper–Pearson exact intervals (default) or Jeffreys prior intervals, as described
+Clopper-Pearson exact intervals (default) or Jeffreys prior intervals, as described
 in the Boost documentation.
->>>>>>> docs
 }
 \examples{
 # Binomial distribution with n = 10, prob = 0.5

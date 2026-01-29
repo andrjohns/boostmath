@@ -21,21 +21,6 @@ A single numeric value with the computed exponential integral.
 \description{
 Functions to compute various exponential integrals, including En and Ei.
 
-<<<<<<< HEAD
-\strong{Exponential Integral En}
-\itemize{
-\item \code{expint_en(n, z)}: Exponential integral En of z: \eqn{E_n(z)}:
-}
-
-\deqn{E_n(z) = \int_{1}^\infty \frac{e^{-xt}}{t^n}dt}
-
-\strong{Exponential Integral Ei}
-\itemize{
-\item \code{expint_ei(n, z)}: Exponential integral Ei of z: \eqn{E_i(z)}:
-}
-
-\deqn{E_i(z) = \int_{x}^\infty \frac{e^{-t}}{t}dt}s
-=======
 Exponential integrals are fundamental special functions in mathematical analysis
 appearing in many applications including radiative transfer, antenna theory,
 and solutions to differential equations.
@@ -55,12 +40,11 @@ Defined by the integral:
 \deqn{Ei(z) = -\int_{-z}^\infty \frac{e^{-t}}{t} dt}
 
 For z < 0, the function uses rational approximations via the zeta function.
-For z > 0, it employs infinite series for arbitrary precision or optimized
+For z > 0, it employs infinite series for arbitrary precision or optimised
 rational approximations for standard precision types.
 
 Both functions are implemented using high-accuracy algorithms with sub-epsilon
 precision over most of their range.
->>>>>>> docs
 }
 \examples{
 # Exponential integral En with n = 1 and z = 2

@@ -9,8 +9,8 @@
 #'
 #' The Bernoulli numbers are a sequence of rational numbers useful for Taylor series expansions,
 #' the Euler-Maclaurin formula, and the Riemann zeta function.
-#' - `bernoulli_b2n(n)`: Returns the (2n)-th Bernoulli number B_{2n}. Note that odd Bernoulli numbers are 0 (except B_1 = -1/2).
-#' - `max_bernoulli_b2n()`: Returns the largest n such that B_{2n} can be represented in the return type.
+#' - `bernoulli_b2n(n)`: Returns the (2n)-th Bernoulli number \eqn{B_{2n}}. Note that odd Bernoulli numbers are 0 (except B_1 = -1/2).
+#' - `max_bernoulli_b2n()`: Returns the largest n such that \eqn{B_{2n}} can be represented in the return type.
 #' - `unchecked_bernoulli_b2n(n)`: A faster version without overflow checks.
 #' - `bernoulli_b2n(start_index, number_of_bernoullis_b2n)`: Computes a range of Bernoulli numbers.
 #'
@@ -28,7 +28,7 @@
 #'
 #' **Fibonacci Numbers F(n):**
 #'
-#' Computes Fibonacci numbers defined by F_n = F_{n-1} + F_{n-2} with F_0 = 0, F_1 = 1.
+#' Computes Fibonacci numbers defined by \eqn{F_n = F_{n-1} + F_{n-2}} with \eqn{F_0 = 0, F_1 = 1}.
 #' - `fibonacci(n)`: Returns the n-th Fibonacci number.
 #' - `unchecked_fibonacci(n)`: A faster version without overflow checks.
 #'

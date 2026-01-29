@@ -11,8 +11,8 @@
 #' The sinc function is defined as:
 #' \deqn{sinc(\pi x) = \frac{\sin(\pi x)}{\pi x}}
 #'
-#' * `sinc_pi(x)`: Computes sinc(πx) = sin(πx)/(πx)
-#' * Special value: sinc_pi(0) = 1 (by L'Hôpital's rule or Taylor series)
+#' * `sinc_pi(x)`: Computes sinc(pix) = sin(pix)/(pix)
+#' * Special value: sinc_pi(0) = 1 (by L'Hopital's rule or Taylor series)
 #' * The function oscillates with decreasing amplitude as |x| increases
 #' * Used extensively in signal processing (ideal low-pass filter impulse response)
 #' * Appears in the Whittaker-Shannon interpolation formula
@@ -22,8 +22,8 @@
 #' The hyperbolic sinc function is defined as:
 #' \deqn{sinhc(\pi x) = \frac{\sinh(\pi x)}{\pi x}}
 #'
-#' * `sinhc_pi(x)`: Computes sinhc(πx) = sinh(πx)/(πx)
-#' * Special value: sinhc_pi(0) = 1 (by L'Hôpital's rule or Taylor series)
+#' * `sinhc_pi(x)`: Computes sinhc(pix) = sinh(pix)/(pix)
+#' * Special value: sinhc_pi(0) = 1 (by L'Hopital's rule or Taylor series)
 #' * The function grows exponentially for large |x|
 #' * Analogous to sinc but using hyperbolic sine instead of circular sine
 #'
@@ -36,7 +36,7 @@
 #' @param x Input value
 #' @return A single numeric value with the computed sinus cardinal or hyperbolic sinus cardinal function.
 #' @examples
-#' # Sinus cardinal function at x = 0.5: sinc(π/2)
+#' # Sinus cardinal function at x = 0.5: sinc(pi/2)
 #' sinc_pi(0.5)
 #' # Sinus cardinal at zero (returns exactly 1)
 #' sinc_pi(0)

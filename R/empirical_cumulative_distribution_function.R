@@ -4,7 +4,7 @@
 #'
 #' The ECDF is a step function constructed from observed data that converges to the
 #' true CDF as sample size grows. It is commonly used in goodness-of-fit workflows that
-#' compare the empirical CDF to a hypothesized distribution.
+#' compare the empirical CDF to a hypothesised distribution.
 #'
 #' **Implementation Notes:**
 #' Data must be sorted; by default the constructor sorts at \deqn{O(n \log n)} cost. If the

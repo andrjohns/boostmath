@@ -17,10 +17,10 @@
 #' `ibeta_derivative` with branch selection to avoid loss of accuracy when the beta
 #' argument is near 1.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param df1 Degrees of freedom for the numerator (df1 > 0).
 #' @param df2 Degrees of freedom for the denominator (df2 > 0).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html) for more details on the mathematical background.
 #' @examples

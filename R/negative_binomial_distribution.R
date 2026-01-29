@@ -12,15 +12,15 @@
 #' **Accuracy and Implementation Notes:**
 #' Implemented using incomplete beta functions (`ibeta`, `ibetac`) and their derivatives
 #' for the PDF. As a discrete distribution, quantiles are rounded outward to ensure
-#' coverage. Confidence bounds use Clopper–Pearson style intervals.
+#' coverage. Confidence bounds use Clopper-Pearson style intervals.
 #'
 #' @param x Quantile value.
 #' @param successes Number of successes (successes > 0).
-#' @param success_fraction Probability of success on each trial (0 ≤ success_fraction ≤ 1).
-#' @param failures Number of failures (failures ≥ 0).
+#' @param success_fraction Probability of success on each trial (0 <= success_fraction <= 1).
+#' @param failures Number of failures (failures >= 0).
 #' @param trials Number of trials.
 #' @param alpha Significance level (0 < alpha < 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/negative_binomial_dist.html) for more details on the mathematical background.
 #' @examples

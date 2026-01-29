@@ -22,15 +22,6 @@ correlation_coefficient(x, y)
 A numeric value (or tuple for \code{means_and_covariance}) with the computed statistic.
 }
 \description{
-<<<<<<< HEAD
-Functions to compute various bivariate statistics.
-\itemize{
-\item \code{covariance(x, y)}: Compute population covariance of \code{x} & \code{y}
-\item \code{means_and_covariance(x, y)}: Boost estimates the means as part of the covariance estimation,
-return them in a single pass
-\item \code{correlation_coefficient(x, y)}: Perason correlation coefficient of \code{x} & \code{y}
-}
-=======
 Functions to compute bivariate statistics including covariance and the Pearson
 correlation coefficient.
 
@@ -43,13 +34,6 @@ The population covariance is
 The Pearson correlation coefficient is
 
 \deqn{\rho_{x,y} = \frac{\operatorname{cov}(x, y)}{\sigma_x \sigma_y}}
-
-\strong{Accuracy and Implementation Notes:}
-The implementation follows numerically stable single-pass algorithms (Bennett et al.)
-with parallel variants (Schubert et al.). Inputs are real-valued only; if integer types
-are supplied, results are returned as double precision. If either input is constant,
-the correlation coefficient is indeterminate and returns NaN.
->>>>>>> docs
 }
 \examples{
 # Covariance

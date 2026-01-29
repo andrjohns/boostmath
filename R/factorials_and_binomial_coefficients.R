@@ -9,7 +9,7 @@
 #'
 #' **Factorial Functions:**
 #'
-#' * `factorial_boost(i)`: Computes i! = 1·2·3·...·i
+#' * `factorial_boost(i)`: Computes i! = 1*2*3*...*i
 #'   - Standard factorial with overflow checking
 #'   - Returns error for i > max_factorial()
 #'
@@ -22,9 +22,9 @@
 #'
 #' **Double Factorial:**
 #'
-#' * `double_factorial(i)`: Computes i!! = i·(i-2)·(i-4)·...
-#'   - For even i: i!! = i·(i-2)·...·4·2
-#'   - For odd i: i!! = i·(i-2)·...·3·1
+#' * `double_factorial(i)`: Computes i!! = i*(i-2)*(i-4)*...
+#'   - For even i: i!! = i*(i-2)*...*4*2
+#'   - For odd i: i!! = i*(i-2)*...*3*1
 #'   - Definition: 0!! = 1, (-1)!! = 1
 #'
 #' **Rising and Falling Factorials (Pochhammer Symbols):**
@@ -34,7 +34,7 @@
 #'   - Used in hypergeometric functions and series expansions
 #'   - For integer x, equals (x+i-1)! / (x-1)!
 #'
-#' * `falling_factorial(x, i)`: Computes \deqn{x^\{\[i\]\} = x(x-1)(x-2)...(x-i+1)}
+#' * `falling_factorial(x, i)`: Computes \deqn{(x)_i = x(x-1)(x-2)...(x-i+1)}
 #'   - Also called descending factorial
 #'   - Counts permutations: number of ways to arrange i items from x items
 #'   - For integer x, equals x! / (x-i)!
@@ -52,7 +52,7 @@
 #' @param i Non-negative integer input for factorials and double factorials
 #' @param x Base value for rising and falling factorials (can be real-valued)
 #' @param n Total number of elements for binomial coefficients
-#' @param k Number of elements to choose for binomial coefficients (0 ≤ k ≤ n)
+#' @param k Number of elements to choose for binomial coefficients (0 <= k <= n)
 #' @return A single numeric value with the computed factorial, double factorial, rising factorial, falling factorial, or binomial coefficient.
 #' @examples
 #' # Factorial of 5: 5! = 120
@@ -61,11 +61,11 @@
 #' unchecked_factorial(5)
 #' # Maximum factorial value that can be computed
 #' max_factorial()
-#' # Double factorial: 6!! = 6·4·2 = 48
+#' # Double factorial: 6!! = 6*4*2 = 48
 #' double_factorial(6)
-#' # Rising factorial: 3^(2) = 3·4 = 12
+#' # Rising factorial: 3^(2) = 3*4 = 12
 #' rising_factorial(3, 2)
-#' # Falling factorial: 3^[2] = 3·2 = 6
+#' # Falling factorial: 3^[2] = 3*2 = 6
 #' falling_factorial(3, 2)
 #' # Binomial coefficient: C(5,2) = 10
 #' binomial_coefficient(5, 2)

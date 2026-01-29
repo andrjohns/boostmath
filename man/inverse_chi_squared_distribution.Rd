@@ -26,9 +26,9 @@ inverse_chi_squared_quantile(p, df = 1, scale = 1/df)
 
 \item{scale}{Scale parameter (default is 1/df).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.

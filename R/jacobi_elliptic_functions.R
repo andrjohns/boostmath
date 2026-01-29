@@ -15,12 +15,12 @@
 #' * **cn(u, k)** - Cosine amplitude
 #' * **dn(u, k)** - Delta amplitude
 #'
-#' These satisfy the fundamental identity: sn² + cn² = 1 and dn² + k²sn² = 1
+#' These satisfy the fundamental identity: sn^2 + cn^2 = 1 and dn^2 + k^2sn^2 = 1
 #'
 #' **Parameter Notation:**
 #'
 #' * k = elliptic modulus (used in this implementation)
-#' * Alternative notations: m = k² (parameter), α = modular angle where k = sin(α)
+#' * Alternative notations: m = k^2 (parameter), alpha = modular angle where k = sin(alpha)
 #'
 #' **Special Cases:**
 #'
@@ -46,7 +46,7 @@
 #' simultaneously for efficiency.
 #'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/jacobi.html) for more details on the mathematical background.
-#' @param k Elliptic modulus (typically 0 ≤ k ≤ 1, but k > 1 uses complementary relations)
+#' @param k Elliptic modulus (typically 0 <= k <= 1, but k > 1 uses complementary relations)
 #' @param u Argument of the elliptic functions
 #' @return For `jacobi_elliptic`, a list containing the values of the Jacobi elliptic functions: `sn`, `cn`, `dn`. For individual functions, a single numeric value is returned.
 #' @examples

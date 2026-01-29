@@ -33,9 +33,9 @@ chi_squared_find_degrees_of_freedom(
 \arguments{
 \item{df}{Degrees of freedom (df > 0).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 
 \item{difference_from_variance}{The difference from the assumed nominal variance that is to be detected: Note that the sign of this value is critical (see the documentation for more details).}
 
@@ -51,20 +51,6 @@ chi_squared_find_degrees_of_freedom(
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-<<<<<<< HEAD
-Functions to compute the probability density function, cumulative distribution function,
-and quantile function for the Chi-Squared distribution.
-
-the PDF is:
-
-\deqn{f(x;k) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(\frac{k}{2})}}
-
-The CDF is:
-
-\deqn{F(x;k) = P(\frac{k}{2},\frac{x}{2})}
-
-Where \eqn{P(s,t)} is the regularised gamma function
-=======
 Functions to compute the probability density function, cumulative distribution
 function, quantile function, and sample-size estimation for the Chi-Squared distribution.
 
@@ -72,7 +58,7 @@ With degrees of freedom \deqn{\nu > 0}, the PDF is
 
 \deqn{f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
 
-and the CDF is given by the regularized incomplete gamma function
+and the CDF is given by the regularised incomplete gamma function
 \deqn{P(\nu/2, x/2)}.
 
 \strong{Accuracy and Implementation Notes:}
@@ -85,7 +71,6 @@ therefore follows that of the incomplete gamma functions.
 \code{chi_squared_find_degrees_of_freedom} estimates the sample size required to detect
 a difference from a nominal variance. The sign of \code{difference_from_variance} determines
 whether the test is for higher or lower variance.
->>>>>>> docs
 }
 \examples{
 # Chi-Squared distribution with 3 degrees of freedom

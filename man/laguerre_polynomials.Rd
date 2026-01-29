@@ -23,9 +23,9 @@ laguerre_next_m(n, m, x, Ln, Lnm1)
 
 \item{m}{Order of the polynomial (for associated Laguerre polynomials)}
 
-\item{Ln}{Value of the Laguerre polynomial L_n(x)}
+\item{Ln}{Value of the Laguerre polynomial \eqn{L_n(x)}}
 
-\item{Lnm1}{Value of the Laguerre polynomial L_{n-1}(x)}
+\item{Lnm1}{Value of the Laguerre polynomial \eqn{L_{n-1}(x)}}
 }
 \value{
 A single numeric value with the computed Laguerre polynomial.
@@ -41,7 +41,7 @@ mathematical physics and probability theory.
 \itemize{
 \item \code{laguerre(n, x)}: Evaluates the Laguerre polynomial of degree n at point x
 \item Solutions to Laguerre's differential equation
-\item Orthogonal with respect to the weight function e^{-x} on [0, ∞)
+\item Orthogonal with respect to the weight function \eqn{e^{-x}} on [0, Inf)
 }
 
 \strong{Associated Laguerre Polynomials L_n^m(x):}
@@ -55,8 +55,8 @@ and order m at point x
 
 Three-term recurrence relations enable efficient sequential computation:
 \itemize{
-\item \code{laguerre_next(n, x, Ln, Lnm1)}: Computes L_{n+1}(x) from L_n and L_{n-1}
-\item \code{laguerre_next_m(n, m, x, Ln, Lnm1)}: Computes L_{n+1}^m(x) from previous values
+\item \code{laguerre_next(n, x, Ln, Lnm1)}: Computes \eqn{L_{n+1}(x)} from \eqn{L_n} and \eqn{L_{n-1}}
+\item \code{laguerre_next_m(n, m, x, Ln, Lnm1)}: Computes \eqn{L_{n+1}^m(x)} from previous values
 }
 
 \strong{Implementation Notes:}

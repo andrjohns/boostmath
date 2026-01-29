@@ -10,16 +10,16 @@
 #' \deqn{F(x) = \vartheta_4\!\left(0, \frac{2x^2}{\pi}\right)}
 #'
 #' for \deqn{x \ge 0}. The PDF is obtained by differentiating the CDF, and quantiles are
-#' computed via Newton–Raphson iteration.
+#' computed via Newton-Raphson iteration.
 #'
 #' **Accuracy and Implementation Notes:**
 #' The CDF uses the Jacobi theta function and inherits its accuracy. The PDF is
 #' implemented separately. The limiting distribution has nonzero mass above 1 for
 #' finite $n$ (unlike the exact KS distribution), especially when $n$ is small.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param n Sample size (n > 0).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/kolmogorov_smirnov_dist.html) for more details on the mathematical background.
 #' @examples

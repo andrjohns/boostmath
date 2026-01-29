@@ -8,7 +8,7 @@
 #'
 #' \deqn{f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
 #'
-#' and the CDF is given by the regularized incomplete gamma function
+#' and the CDF is given by the regularised incomplete gamma function
 #' \deqn{P(\nu/2, x/2)}.
 #'
 #' **Accuracy and Implementation Notes:**
@@ -22,9 +22,9 @@
 #' a difference from a nominal variance. The sign of `difference_from_variance` determines
 #' whether the test is for higher or lower variance.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param df Degrees of freedom (df > 0).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @param difference_from_variance The difference from the assumed nominal variance that is to be detected: Note that the sign of this value is critical (see the documentation for more details).
 #' @param alpha The acceptable probability of a Type I error (false positive).
 #' @param beta The acceptable probability of a Type II error (false negative).

@@ -2,10 +2,10 @@
 #' @name lambert_w_function
 #' @description
 #' Functions to compute the Lambert W function and its derivatives for the principal branch
-#' (W₀) and the branch -1 (W₋₁).
+#' (W_0) and the branch -1 (W_-_1).
 #'
 #' The Lambert W function (also known as the Omega function or product logarithm) is the
-#' inverse of f(W) = W·e^W. It solves the equation:
+#' inverse of f(W) = W*e^W. It solves the equation:
 #'
 #' \deqn{W(z) \cdot e^{W(z)} = z}
 #'
@@ -13,28 +13,28 @@
 #'
 #' The function has two real branches:
 #'
-#' * **W₀ (Principal Branch):**
-#'   - Domain: [-1/e, ∞) where 1/e ≅ 0.367879
+#' * **W_0 (Principal Branch):**
+#'   - Domain: [-1/e, Inf) where 1/e ~= 0.367879
 #'   - `lambert_w0(z)`: Returns the principal branch value
-#'   - `lambert_w0_prime(z)`: Returns the derivative of W₀
-#'   - For z ≥ 0, there is a single real solution
+#'   - `lambert_w0_prime(z)`: Returns the derivative of W_0
+#'   - For z >= 0, there is a single real solution
 #'
-#' * **W₋₁ (Secondary Branch):**
+#' * **W_-_1 (Secondary Branch):**
 #'   - Domain: [-1/e, 0)
 #'   - `lambert_wm1(z)`: Returns the -1 branch value
-#'   - `lambert_wm1_prime(z)`: Returns the derivative of W₋₁
+#'   - `lambert_wm1_prime(z)`: Returns the derivative of W_-_1
 #'   - Exists where two real solutions occur on (-1/e, 0)
-#'   - As z approaches 0, W₋₁(z) approaches -∞
+#'   - As z approaches 0, W_-_1(z) approaches -Inf
 #'
 #' **Special Values:**
 #'
-#' * W₀(-1/e) = -1 (exactly)
-#' * W₋₁(-1/e) = -1 (exactly)
-#' * W₋₁(0) = -∞
+#' * W_0(-1/e) = -1 (exactly)
+#' * W_-_1(-1/e) = -1 (exactly)
+#' * W_-_1(0) = -Inf
 #'
 #' **Singularity:**
 #'
-#' At z = -1/e ≅ -0.367879, the two branches meet and the condition number of
+#' At z = -1/e ~= -0.367879, the two branches meet and the condition number of
 #' function evaluation tends to infinity.
 #'
 #' The implementation uses Halley's method and Newton-Raphson iteration for

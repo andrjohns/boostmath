@@ -66,9 +66,9 @@ gamma_p_derivative(a, z)
 
 \item{delta}{Increment for the ratio of gamma functions}
 
-\item{q}{Probability value for the incomplete gamma functions (0 ≤ q ≤ 1)}
+\item{q}{Probability value for the incomplete gamma functions (0 <= q <= 1)}
 
-\item{p}{Probability value for the incomplete gamma functions (0 ≤ p ≤ 1)}
+\item{p}{Probability value for the incomplete gamma functions (0 <= p <= 1)}
 }
 \value{
 A single numeric value with the computed gamma function, logarithm, digamma, trigamma, polygamma, or incomplete gamma functions.
@@ -80,53 +80,53 @@ and various incomplete gamma functions.
 The gamma function is a fundamental special function that extends the factorial
 function to real and complex numbers.
 
-\strong{Gamma Function Γ(z):}
+\strong{Gamma Function Gamma(z):}
 \itemize{
-\item \code{tgamma(z)}: Computes Γ(z), the true gamma function
+\item \code{tgamma(z)}: Computes Gamma(z), the true gamma function
 \item Key mathematical relationships:
 \itemize{
-\item Recursion formula: Γ(z) = Γ(z+1)/z
-\item Reflection formula: Γ(z)·Γ(1-z) = π/sin(πz)
-\item Identity: Γ(z+1) = z·Γ(z)
+\item Recursion formula: Gamma(z) = Gamma(z+1)/z
+\item Reflection formula: Gamma(z)*Gamma(1-z) = pi/sin(piz)
+\item Identity: Gamma(z+1) = z*Gamma(z)
 }
 \item Implementation uses Lanczos approximation for standard precision and
 Stirling's approximation for large z
-\item \code{tgamma1pm1(z)}: Computes Γ(1+z) - 1 with enhanced numerical stability
+\item \code{tgamma1pm1(z)}: Computes Gamma(1+z) - 1 with enhanced numerical stability
 for very small z values, avoiding precision loss
-\item \code{lgamma_boost(z)}: Returns log(Γ(z)), the logarithm of the gamma function
+\item \code{lgamma_boost(z)}: Returns log(Gamma(z)), the logarithm of the gamma function
 }
 
 \strong{Derivative Functions:}
 \itemize{
-\item \code{digamma_boost(z)}: The digamma (psi) function ψ(z) = d/dz\[ln(Γ(z))\],
+\item \code{digamma_boost(z)}: The digamma (psi) function digamma(z) = d/dz\[ln(Gamma(z))\],
 the logarithmic derivative of the gamma function
 \itemize{
-\item Reflection formula: ψ(1-z) = ψ(z) + π/tan(πz)
-\item Recurrence relation: ψ(z+1) = ψ(z) + 1/z
+\item Reflection formula: digamma(1-z) = digamma(z) + pi/tan(piz)
+\item Recurrence relation: digamma(z+1) = digamma(z) + 1/z
 }
-\item \code{trigamma_boost(z)}: The trigamma function, the second derivative of ln(Γ(z))
+\item \code{trigamma_boost(z)}: The trigamma function, the second derivative of ln(Gamma(z))
 \item \code{polygamma(n, z)}: The nth derivative of the digamma function (n-th order polygamma)
 }
 
 \strong{Ratios:}
 \itemize{
-\item \code{tgamma_ratio(a, b)}: Computes Γ(a)/Γ(b)
-\item \code{tgamma_delta_ratio(a, delta)}: Computes Γ(a)/Γ(a + delta)
+\item \code{tgamma_ratio(a, b)}: Computes Gamma(a)/Gamma(b)
+\item \code{tgamma_delta_ratio(a, delta)}: Computes Gamma(a)/Gamma(a + delta)
 }
 
 \strong{Incomplete Gamma Functions:}
 
-These functions require a > 0 and z ≥ 0.
+These functions require a > 0 and z >= 0.
 \itemize{
-\item \strong{Normalized (Regularized) Functions} (return values in \eqn{[0, 1]}):
+\item \strong{Normalised (Regularised) Functions} (return values in \eqn{[0, 1]}):
 \itemize{
-\item \code{gamma_p(a, z)}: Normalized lower incomplete gamma P(a, z).
+\item \code{gamma_p(a, z)}: Normalised lower incomplete gamma P(a, z).
 Changes rapidly from 0 to 1 around z = a
-\item \code{gamma_q(a, z)}: Normalized upper incomplete gamma Q(a, z).
+\item \code{gamma_q(a, z)}: Normalised upper incomplete gamma Q(a, z).
 Changes rapidly from 1 to 0 around z = a
 \item Note: P(a, z) + Q(a, z) = 1
 }
-\item \strong{Non-normalized Functions} (return values in \eqn{[0, Γ(a)]}):
+\item \strong{Non-normalised Functions} (return values in \eqn{[0, Gamma(a)]}):
 \itemize{
 \item \code{tgamma_lower(a, z)}: Full lower incomplete gamma function
 \item \code{tgamma_upper(a, z)}: Full upper incomplete gamma function
@@ -143,7 +143,7 @@ Changes rapidly from 1 to 0 around z = a
 
 \strong{Derivative:}
 \itemize{
-\item \code{gamma_p_derivative(a, z)}: Computes the derivative of the normalized
+\item \code{gamma_p_derivative(a, z)}: Computes the derivative of the normalised
 lower incomplete gamma function with respect to z
 }
 }
@@ -165,23 +165,23 @@ polygamma(1, 5)
 tgamma_ratio(5, 3)
 # Ratio of gamma functions with delta for a = 5, delta = 2
 tgamma_delta_ratio(5, 2)
-# Normalized lower incomplete gamma function P(a, z) for a = 5, z = 2
+# Normalised lower incomplete gamma function P(a, z) for a = 5, z = 2
 gamma_p(5, 2)
-# Normalized upper incomplete gamma function Q(a, z) for a = 5, z = 2
+# Normalised upper incomplete gamma function Q(a, z) for a = 5, z = 2
 gamma_q(5, 2)
 # Full lower incomplete gamma function for a = 5, z = 2
 tgamma_lower(5, 2)
 # Full upper incomplete gamma function for a = 5, z = 2
 tgamma_upper(5, 2)
-# Inverse of the normalized upper incomplete gamma function for a = 5, q = 0.5
+# Inverse of the normalised upper incomplete gamma function for a = 5, q = 0.5
 gamma_q_inv(5, 0.5)
-# Inverse of the normalized lower incomplete gamma function for a = 5, p = 0.5
+# Inverse of the normalised lower incomplete gamma function for a = 5, p = 0.5
 gamma_p_inv(5, 0.5)
-# Inverse of the normalized upper incomplete gamma function with respect to a for z = 2, q = 0.5
+# Inverse of the normalised upper incomplete gamma function with respect to a for z = 2, q = 0.5
 gamma_q_inva(2, 0.5)
-# Inverse of the normalized lower incomplete gamma function with respect to a for z = 2, p = 0.5
+# Inverse of the normalised lower incomplete gamma function with respect to a for z = 2, p = 0.5
 gamma_p_inva(2, 0.5)
-# Derivative of the normalized lower incomplete gamma function for a = 5, z = 2
+# Derivative of the normalised lower incomplete gamma function for a = 5, z = 2
 gamma_p_derivative(5, 2)
 }
 }

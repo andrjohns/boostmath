@@ -44,17 +44,17 @@ negative_binomial_find_maximum_number_of_trials(
 \arguments{
 \item{successes}{Number of successes (successes > 0).}
 
-\item{success_fraction}{Probability of success on each trial (0 ≤ success_fraction ≤ 1).}
+\item{success_fraction}{Probability of success on each trial (0 <= success_fraction <= 1).}
 
 \item{x}{Quantile value.}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 
 \item{trials}{Number of trials.}
 
 \item{alpha}{Significance level (0 < alpha < 1).}
 
-\item{failures}{Number of failures (failures ≥ 0).}
+\item{failures}{Number of failures (failures >= 0).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -71,7 +71,7 @@ before the $r$-th success is
 \strong{Accuracy and Implementation Notes:}
 Implemented using incomplete beta functions (\code{ibeta}, \code{ibetac}) and their derivatives
 for the PDF. As a discrete distribution, quantiles are rounded outward to ensure
-coverage. Confidence bounds use Clopper–Pearson style intervals.
+coverage. Confidence bounds use Clopper-Pearson style intervals.
 }
 \examples{
 # Negative Binomial distribution with successes = 5, success_fraction = 0.5

@@ -21,7 +21,7 @@
 #' @param sample_mean Sample mean (for `one_sample_t_test_params`).
 #' @param sample_variance Sample variance (for `one_sample_t_test_params`).
 #' @param num_samples Number of samples (for `one_sample_t_test_params`).
-#' @param assumed_mean The hypothesized population mean to compare against.
+#' @param assumed_mean The hypothesised population mean to compare against.
 #' @param u A numeric vector of data values for the first sample.
 #' @param v A numeric vector of data values for the second sample.
 #'
@@ -40,7 +40,8 @@
 #'
 #' # Using summary statistics:
 #' # Mean = 5.8, Variance = 0.7, N = 5
-#' one_sample_t_test_params(sample_mean = 5.8, sample_variance = 0.7, num_samples = 5, assumed_mean = 4)
+#' one_sample_t_test_params(sample_mean = 5.8, sample_variance = 0.7,
+#'                          num_samples = 5, assumed_mean = 4)
 #'
 #' # --- Two Sample T-Test ---
 #' sample1 <- c(5, 6, 7, 5, 6)

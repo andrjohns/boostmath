@@ -16,10 +16,10 @@
 #' Results are typically accurate to a few epsilons in double precision. Moments such as
 #' mean/variance/skewness are only defined for sufficiently large \deqn{\nu}.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param df Degrees of freedom (df > 0; default is 1).
 #' @param scale Scale parameter (default is 1/df).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_chi_squared_dist.html) for more details on the mathematical background.
 #' @examples

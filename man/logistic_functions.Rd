@@ -27,18 +27,18 @@ particularly in logistic regression and neural networks.
 The logistic sigmoid (also called the logistic function or expit) is defined as:
 \deqn{\sigma(x) = \frac{1}{1 + e^{-x}} = \frac{e^x}{1 + e^x}}
 \itemize{
-\item \code{logistic_sigmoid(x)}: Computes σ(x)
-\item Domain: (-∞, ∞)
+\item \code{logistic_sigmoid(x)}: Computes sigma(x)
+\item Domain: (-Inf, Inf)
 \item Range: (0, 1)
 \item S-shaped (sigmoid) curve
-\item Symmetric around x = 0: σ(-x) = 1 - σ(x)
+\item Symmetric around x = 0: sigma(-x) = 1 - sigma(x)
 \item Special values:
 \itemize{
-\item σ(0) = 0.5
-\item σ(∞) = 1
-\item σ(-∞) = 0
+\item sigma(0) = 0.5
+\item sigma(Inf) = 1
+\item sigma(-Inf) = 0
 }
-\item Derivative: σ'(x) = σ(x)(1 - σ(x))
+\item Derivative: sigma'(x) = sigma(x)(1 - sigma(x))
 }
 
 \strong{Applications:}
@@ -56,14 +56,14 @@ The logit function (log-odds or inverse sigmoid) is defined as:
 \itemize{
 \item \code{logit(x)}: Computes logit(x) = log(x/(1-x))
 \item Domain: (0, 1)
-\item Range: (-∞, ∞)
-\item Inverse of the logistic sigmoid: logit(σ(x)) = x
+\item Range: (-Inf, Inf)
+\item Inverse of the logistic sigmoid: logit(sigma(x)) = x
 \item Odd function around p = 0.5: logit(1 - p) = -logit(p)
 \item Special values:
 \itemize{
 \item logit(0.5) = 0
-\item logit(0) = -∞
-\item logit(1) = ∞
+\item logit(0) = -Inf
+\item logit(1) = Inf
 }
 \item Derivative: d/dp logit(p) = 1/(p(1-p))
 }

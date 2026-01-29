@@ -32,15 +32,9 @@ beta_find_beta(mean = NULL, variance = NULL, alpha = NULL, x = NULL, p = NULL)
 
 \item{beta}{Shape parameter (beta > 0).}
 
-<<<<<<< HEAD
 \item{x}{Quantile value (0 <= x <= 1).}
 
 \item{p}{Probability (0 <= p <= 1).}
-=======
-\item{x}{Quantile value (0 ≤ x ≤ 1).}
-
-\item{p}{Probability (0 ≤ p ≤ 1).}
->>>>>>> docs
 
 \item{mean}{Mean of the Beta distribution.}
 
@@ -66,13 +60,13 @@ The CDF is:
 
 \deqn{F(x; \alpha, \beta) = I_x(\alpha, \beta)}
 
-Where \eqn{I_x} is the regularized incomplete beta function.
+Where \eqn{I_x} is the regularised incomplete beta function.
 
 The quantile is:
 
 \deqn{F^{-1}(p; \alpha, \beta) = I_{p}^{-1}(\alpha, \beta)}
 
-Where \eqn{I_{p}^{-1}} is the inverse of the regularized incomplete beta function.
+Where \eqn{I_{p}^{-1}} is the inverse of the regularised incomplete beta function.
 }
 \examples{
 # Beta distribution with shape parameters alpha = 2, beta = 5

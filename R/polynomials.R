@@ -11,12 +11,12 @@
 #' **Legendre Polynomials of the First Kind P_n(x):**
 #'
 #' Standard solutions to the Legendre differential equation.
-#' * Domain: -1 ≤ x ≤ 1 (domain error outside this range)
-#' * Reflection formula: P_{-l-1}(x) = P_l(x)
+#' * Domain: -1 <= x <= 1 (domain error outside this range)
+#' * Reflection formula: \eqn{P_{-l-1}(x) = P_l(x)}
 #' * `legendre_p(n, x)`: Evaluates P_n(x)
 #' * `legendre_p_prime(n, x)`: Derivative of P_n(x)
 #' * `legendre_p_zeros(n)`: Returns zeros in increasing order. For odd n, first zero is 0.
-#'   Computed using Newton's method with Tricomi's initial estimates (O(n²) complexity)
+#'   Computed using Newton's method with Tricomi's initial estimates (O(n^2) complexity)
 #'
 #' **Associated Legendre Polynomials P_n^m(x):**
 #'
@@ -28,13 +28,13 @@
 #'
 #' Second solution to the Legendre differential equation.
 #' * `legendre_q(n, x)`: Evaluates Q_n(x)
-#' * Domain: -1 ≤ x ≤ 1 (domain error otherwise)
+#' * Domain: -1 <= x <= 1 (domain error otherwise)
 #'
 #' **Recurrence Relations:**
 #'
 #' Efficient computation using three-term recurrence at fixed x with increasing degree:
-#' * `legendre_next(n, x, Pl, Plm1)`: Computes P_{n+1}(x) from P_n and P_{n-1}
-#' * `legendre_next_m(n, m, x, Pl, Plm1)`: Computes P_{n+1}^m(x) from previous values
+#' * `legendre_next(n, x, Pl, Plm1)`: Computes \eqn{P_{n+1}(x)} from \eqn{P_n} and \eqn{P_{n-1}}
+#' * `legendre_next_m(n, m, x, Pl, Plm1)`: Computes \eqn{P_{n+1}^m(x)} from previous values
 #'
 #' Recurrence relations guarantee low absolute error but cannot guarantee low relative
 #' error near polynomial roots.
@@ -44,7 +44,7 @@
 #' @param m Order of the polynomial (for associated Legendre polynomials)
 #' @param x Argument of the polynomial (must be in \eqn{[-1, 1]})
 #' @param Pl Value of the Legendre polynomial P_l(x)
-#' @param Plm1 Value of the Legendre polynomial P_{l-1}(x)
+#' @param Plm1 Value of the Legendre polynomial \eqn{P_{l-1}(x)}
 #' @return A single numeric value with the computed Legendre polynomial, its derivative, or zeros (as a vector).
 #' @examples
 #' # Legendre polynomial of the first kind P_2(0.5)
@@ -118,7 +118,7 @@ legendre_next_m <- function(n, m, x, Pl, Plm1) {
 #'
 #' * `laguerre(n, x)`: Evaluates the Laguerre polynomial of degree n at point x
 #' * Solutions to Laguerre's differential equation
-#' * Orthogonal with respect to the weight function e^{-x} on [0, ∞)
+#' * Orthogonal with respect to the weight function \eqn{e^{-x}} on [0, Inf)
 #'
 #' **Associated Laguerre Polynomials L_n^m(x):**
 #'
@@ -129,8 +129,8 @@ legendre_next_m <- function(n, m, x, Pl, Plm1) {
 #' **Recurrence Relations:**
 #'
 #' Three-term recurrence relations enable efficient sequential computation:
-#' * `laguerre_next(n, x, Ln, Lnm1)`: Computes L_{n+1}(x) from L_n and L_{n-1}
-#' * `laguerre_next_m(n, m, x, Ln, Lnm1)`: Computes L_{n+1}^m(x) from previous values
+#' * `laguerre_next(n, x, Ln, Lnm1)`: Computes \eqn{L_{n+1}(x)} from \eqn{L_n} and \eqn{L_{n-1}}
+#' * `laguerre_next_m(n, m, x, Ln, Lnm1)`: Computes \eqn{L_{n+1}^m(x)} from previous values
 #'
 #' **Implementation Notes:**
 #'
@@ -141,8 +141,8 @@ legendre_next_m <- function(n, m, x, Pl, Plm1) {
 #' @param n Degree of the polynomial
 #' @param m Order of the polynomial (for associated Laguerre polynomials)
 #' @param x Argument of the polynomial
-#' @param Ln Value of the Laguerre polynomial L_n(x)
-#' @param Lnm1 Value of the Laguerre polynomial L_{n-1}(x)
+#' @param Ln Value of the Laguerre polynomial \eqn{L_n(x)}
+#' @param Lnm1 Value of the Laguerre polynomial \eqn{L_{n-1}(x)}
 #' @return A single numeric value with the computed Laguerre polynomial.
 #' @examples
 #' # Laguerre polynomial L_2(0.5)
@@ -191,7 +191,7 @@ laguerre_next_m <- function(n, m, x, Ln, Lnm1) {
 #' **Hermite Polynomials H_n(x):**
 #'
 #' * `hermite(n, x)`: Evaluates the Hermite polynomial of degree n at point x
-#' * Orthogonal with respect to the weight function \deqn{e^{-x²}} on (-∞, ∞)
+#' * Orthogonal with respect to the weight function \deqn{e^{-x^2}} on (-Inf, Inf)
 #' * Appear as eigenfunctions of the quantum harmonic oscillator
 #'
 #' **Recurrence Relation:**
@@ -242,11 +242,11 @@ hermite_next <- function(n, x, Hn, Hnm1) {
 #'
 #' **Chebyshev Polynomials of the First Kind T_n(x):**
 #'
-#' * `chebyshev_t(n, x)`: Evaluates T_n(x)
-#' * Recurrence relation: \deqn{T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)} for n > 0
+#' * `chebyshev_t(n, x)`: Evaluates \eqn{T_n(x)}
+#' * Recurrence relation: \eqn{T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)} for n > 0
 #' * Initial conditions: T_0(x) = 1, T_1(x) = x
 #' * `chebyshev_t_prime(n, x)`: Derivative of T_n(x)
-#' * Stable evaluation for x ∈ \eqn{[-1, 1]} (mixed forward-backward stable)
+#' * Stable evaluation for x  in  \eqn{[-1, 1]} (mixed forward-backward stable)
 #'
 #' **Chebyshev Polynomials of the Second Kind U_n(x):**
 #'
@@ -255,11 +255,11 @@ hermite_next <- function(n, x, Hn, Hnm1) {
 #'
 #' **Recurrence Relation:**
 #'
-#' * `chebyshev_next(x, Tn, Tn_1)`: Computes \deqn{T_{n+1}(x)} from T_n and \deqn{T_{n-1}}
+#' * `chebyshev_next(x, Tn, Tn_1)`: Computes \eqn{T_{n+1}(x)} from T_n and \eqn{T_{n-1}}
 #'
 #' **Clenshaw's Recurrence Algorithm:**
 #'
-#' Efficient O(n) evaluation of Chebyshev series (alternative to O(n²) direct computation):
+#' Efficient O(n) evaluation of Chebyshev series (alternative to O(n^2) direct computation):
 #' * `chebyshev_clenshaw_recurrence(c, x)`: Evaluates Chebyshev series with
 #'   coefficients c at point x on standard interval \eqn{[-1, 1]}
 #' * `chebyshev_clenshaw_recurrence_ab(c, a, b, x)`: Evaluates Chebyshev series
@@ -268,13 +268,13 @@ hermite_next <- function(n, x, Hn, Hnm1) {
 #' **Stability:**
 #'
 #' Evaluation by three-term recurrence is known to be mixed forward-backward stable
-#' for x ∈ \eqn{[-1, 1]}. Stability outside this interval is not established.
+#' for x  in  \eqn{[-1, 1]}. Stability outside this interval is not established.
 #'
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_poly/chebyshev.html) for more details on the mathematical background.
 #' @param n Degree of the polynomial
 #' @param x Argument of the polynomial (typically in \eqn{[-1, 1]} for stability)
 #' @param Tn Value of the Chebyshev polynomial T_n(x)
-#' @param Tn_1 Value of the Chebyshev polynomial T_{n-1}(x)
+#' @param Tn_1 Value of the Chebyshev polynomial \eqn{T_{n-1}(x)}
 #' @param c Vector of coefficients for the Chebyshev series
 #' @param a Lower bound of the interval (for interval transformation)
 #' @param b Upper bound of the interval (for interval transformation)

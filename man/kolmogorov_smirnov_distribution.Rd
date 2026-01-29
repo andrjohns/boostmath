@@ -24,9 +24,9 @@ kolmogorov_smirnov_quantile(p, n)
 \arguments{
 \item{n}{Sample size (n > 0).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -41,7 +41,7 @@ expressed in terms of the Jacobi theta function:
 \deqn{F(x) = \vartheta_4\!\left(0, \frac{2x^2}{\pi}\right)}
 
 for \deqn{x \ge 0}. The PDF is obtained by differentiating the CDF, and quantiles are
-computed via Newton–Raphson iteration.
+computed via Newton-Raphson iteration.
 
 \strong{Accuracy and Implementation Notes:}
 The CDF uses the Jacobi theta function and inherits its accuracy. The PDF is

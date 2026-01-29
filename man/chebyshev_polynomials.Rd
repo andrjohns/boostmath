@@ -27,7 +27,7 @@ chebyshev_clenshaw_recurrence_ab(c, a, b, x)
 
 \item{Tn}{Value of the Chebyshev polynomial T_n(x)}
 
-\item{Tn_1}{Value of the Chebyshev polynomial T_{n-1}(x)}
+\item{Tn_1}{Value of the Chebyshev polynomial \eqn{T_{n-1}(x)}}
 
 \item{n}{Degree of the polynomial}
 
@@ -50,11 +50,11 @@ in polynomial interpolation.
 
 \strong{Chebyshev Polynomials of the First Kind T_n(x):}
 \itemize{
-\item \code{chebyshev_t(n, x)}: Evaluates T_n(x)
-\item Recurrence relation: \deqn{T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)} for n > 0
+\item \code{chebyshev_t(n, x)}: Evaluates \eqn{T_n(x)}
+\item Recurrence relation: \eqn{T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)} for n > 0
 \item Initial conditions: T_0(x) = 1, T_1(x) = x
 \item \code{chebyshev_t_prime(n, x)}: Derivative of T_n(x)
-\item Stable evaluation for x ∈ \eqn{[-1, 1]} (mixed forward-backward stable)
+\item Stable evaluation for x  in  \eqn{[-1, 1]} (mixed forward-backward stable)
 }
 
 \strong{Chebyshev Polynomials of the Second Kind U_n(x):}
@@ -65,12 +65,12 @@ in polynomial interpolation.
 
 \strong{Recurrence Relation:}
 \itemize{
-\item \code{chebyshev_next(x, Tn, Tn_1)}: Computes \deqn{T_{n+1}(x)} from T_n and \deqn{T_{n-1}}
+\item \code{chebyshev_next(x, Tn, Tn_1)}: Computes \eqn{T_{n+1}(x)} from T_n and \eqn{T_{n-1}}
 }
 
 \strong{Clenshaw's Recurrence Algorithm:}
 
-Efficient O(n) evaluation of Chebyshev series (alternative to O(n²) direct computation):
+Efficient O(n) evaluation of Chebyshev series (alternative to O(n^2) direct computation):
 \itemize{
 \item \code{chebyshev_clenshaw_recurrence(c, x)}: Evaluates Chebyshev series with
 coefficients c at point x on standard interval \eqn{[-1, 1]}
@@ -81,7 +81,7 @@ on arbitrary interval \eqn{[a, b]} using Reinsch's modification
 \strong{Stability:}
 
 Evaluation by three-term recurrence is known to be mixed forward-backward stable
-for x ∈ \eqn{[-1, 1]}. Stability outside this interval is not established.
+for x  in  \eqn{[-1, 1]}. Stability outside this interval is not established.
 }
 \examples{
 # Chebyshev polynomial of the first kind T_2(0.5)

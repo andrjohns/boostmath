@@ -17,7 +17,7 @@
 #'
 #' **Gauss-Kronrod Quadrature:**
 #' An adaptive extension of Gaussian quadrature.
-#' Adds \eqn{n+1} nodes (Kronrod points) to an \eqn{n}-point Gaussian quadrature to provide an *a posteriori* error estimate ($O(h^{3n+1})$ vs $O(h^{2n-1})$).
+#' Adds \eqn{n+1} nodes (Kronrod points) to an \eqn{n}-point Gaussian quadrature to provide an *a posteriori* error estimate (\eqn{O(h^{3n+1})} vs \eqn{O(h^{2n-1})}).
 #' Preserves exponential convergence for smooth functions.
 #' Best suited for smooth functions with no end-point singularities.
 #'

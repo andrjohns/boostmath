@@ -28,7 +28,7 @@ mapairy_quantile(p, location = 0, scale = 1)
 
 \item{x}{Quantile value.}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -38,7 +38,7 @@ Functions to compute the probability density function, cumulative distribution
 function, and quantile function for the Map-Airy distribution.
 
 The Map-Airy distribution is a stable distribution with \deqn{\alpha=3/2} and \deqn{\beta=1},
-used to model the area under a Brownian excursion. It is parameterized by location
+used to model the area under a Brownian excursion. It is parameterised by location
 \deqn{\mu} and scale $c$.
 
 \strong{Accuracy and Implementation Notes:}

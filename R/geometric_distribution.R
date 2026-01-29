@@ -10,17 +10,17 @@
 #' \deqn{P(X = k) = (1-p)^k p, \quad k \in \{0,1,2,\dots\}}
 #'
 #' **Accuracy and Implementation Notes:**
-#' Implemented using `pow`, `exp`, and `log1p`. `logcdf` is specialized for numerical
+#' Implemented using `pow`, `exp`, and `log1p`. `logcdf` is specialised for numerical
 #' accuracy. This is a discrete distribution; quantiles are rounded outward to ensure
 #' at least the requested coverage. For extreme $p$ close to 1, accuracy can degrade.
 #'
 #' **Confidence Bounds:**
 #' The bound and trial-estimation functions are implemented as in the negative binomial
-#' distribution (successes = 1), using Clopper–Pearson style bounds and numeric inversion.
+#' distribution (successes = 1), using Clopper-Pearson style bounds and numeric inversion.
 #'
 #' @param x Quantile value (non-negative integer).
 #' @param prob Probability of success (0 < prob < 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @param trials Number of trials.
 #' @param failures Number of failures.
 #' @param alpha Largest acceptable probability that the true value of the success fraction is less than the value returned (by `geometric_find_lower_bound_on_p`) or greater than the value returned (by `geometric_find_upper_bound_on_p`).

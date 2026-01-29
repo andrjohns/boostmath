@@ -12,7 +12,7 @@
 #' \deqn{erf(z) = \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2} dt}
 #'
 #' The error function is an odd function (erf(-z) = -erf(z)). Implementation uses
-#' rational approximations optimized for absolute error, particularly for |z| ≤ 0.5.
+#' rational approximations optimised for absolute error, particularly for |z| <= 0.5.
 #'
 #' **Complementary Error Function:**
 #'
@@ -21,14 +21,14 @@
 #'
 #' Key reflection formulas:
 #' * erfc(-z) = 2 - erfc(z) (preferred when -z < -0.5)
-#' * erfc(-z) = 1 + erf(z) (preferred when -0.5 ≤ -z < 0)
+#' * erfc(-z) = 1 + erf(z) (preferred when -0.5 <= -z < 0)
 #'
 #' For large z, uses exponential scaling to maintain numerical stability.
 #'
 #' **Inverse Functions:**
 #'
-#' * `erf_inv(p)`: Returns x such that p = erf(x), where -1 ≤ p ≤ 1
-#' * `erfc_inv(p)`: Returns x such that p = erfc(x), where 0 ≤ p ≤ 2
+#' * `erf_inv(p)`: Returns x such that p = erf(x), where -1 <= p <= 1
+#' * `erfc_inv(p)`: Returns x such that p = erfc(x), where 0 <= p <= 2
 #'
 #' Inverse functions use rational approximations with different formulas for different
 #' ranges of p, achieving accuracy to less than ~2 epsilon for standard precision types.

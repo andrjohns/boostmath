@@ -22,19 +22,18 @@ cauchy_lcdf(x, location = 0, scale = 1)
 cauchy_quantile(p, location = 0, scale = 1)
 }
 \arguments{
-\item{location}{Location parameter (default is 0).}
+\item{location}{location parameter (default is 0)}
 
-\item{scale}{Scale parameter (default is 1).}
+\item{scale}{scale parameter (default is 1)}
 
-\item{x}{Quantile value.}
+\item{x}{quantile}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{probability (0 <= p <= 1)}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
-<<<<<<< HEAD
 Functions to compute the probability density function, cumulative distribution function,
 and quantile function for the Cauchy distribution.
 
@@ -45,24 +44,6 @@ The PDF is:
 The CDF:
 
 \deqn{F(x; x_0, \gamma) = \frac{1}{\pi}\text{arctan}\left(\frac{x-x_0}{\gamma}\right)+\frac{1}{2}}
-=======
-Functions to compute the probability density function, cumulative distribution
-function, and quantile function for the Cauchy (Cauchy–Lorentz) distribution.
-
-The Cauchy distribution with location $x_0$ and scale \deqn{\gamma > 0} has PDF
-
-\deqn{f(x) = \frac{1}{\pi\,\gamma\,\left(1 + \left(\frac{x - x_0}{\gamma}\right)^2\right)}}
-
-and CDF
-
-\deqn{F(x) = \frac{1}{\pi}\arctan\left(\frac{x - x_0}{\gamma}\right) + \frac{1}{2}.}
-
-\strong{Accuracy and Implementation Notes:}
-Implemented using \code{tan}/\code{atan}. The CDF uses an \code{atan2}-based form to reduce
-cancellation for extreme $x$. Quantiles are computed via a stable transformation
-after mapping $p$ into \eqn{[-0.5, 0.5]}. The Cauchy distribution has undefined mean
-and variance; accessors for those statistics are not meaningful.
->>>>>>> docs
 }
 \examples{
 # Cauchy distribution with location = 0, scale = 1

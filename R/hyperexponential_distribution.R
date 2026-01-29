@@ -16,10 +16,10 @@
 #' within a few machine epsilons. Quantiles have no closed form and are computed
 #' numerically.
 #'
-#' @param x Quantile value (x ≥ 0).
-#' @param probabilities Vector of non-negative probabilities (will be normalized to sum to 1).
+#' @param x Quantile value (x >= 0).
+#' @param probabilities Vector of non-negative probabilities (will be normalised to sum to 1).
 #' @param rates Vector of positive rates (all rates must be > 0).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hyperexponential_dist.html) for more details on the mathematical background.
 #' @examples

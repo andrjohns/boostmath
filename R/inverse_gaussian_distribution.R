@@ -17,13 +17,13 @@
 #'
 #' **Accuracy and Implementation Notes:**
 #' Implemented using the standard normal distribution and the exponential function.
-#' `logpdf` is specialized for numerical accuracy. Quantiles have no closed form and
-#' are computed via Newton–Raphson refinement.
+#' `logpdf` is specialised for numerical accuracy. Quantiles have no closed form and
+#' are computed via Newton-Raphson refinement.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param mu Mean parameter (mu > 0; default is 1).
 #' @param lambda Scale parameter (lambda > 0; default is 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gaussian_dist.html) for more details on the mathematical background.
 #' @examples

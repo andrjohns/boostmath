@@ -15,11 +15,11 @@
 #'
 #' **Accuracy and Implementation Notes:**
 #' The implementation uses `exp`, `log`, `expm1`, and `log1p`. Both `logcdf` and `logpdf`
-#' are specialized for improved numerical accuracy, and complements use stable forms.
+#' are specialised for improved numerical accuracy, and complements use stable forms.
 #'
-#' @param x Quantile value (x ≥ 0).
+#' @param x Quantile value (x >= 0).
 #' @param lambda Rate parameter (lambda > 0).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/exp_dist.html) for more details on the mathematical background.
 #' @examples

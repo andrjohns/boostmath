@@ -26,9 +26,9 @@ inverse_gamma_quantile(p, shape, scale = 1)
 
 \item{scale}{Scale parameter (scale > 0; default is 1).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -45,7 +45,7 @@ and the CDF is \deqn{F(x)=\Gamma(\alpha,\beta/x)/\Gamma(\alpha)}.
 
 \strong{Accuracy and Implementation Notes:}
 Implemented via incomplete gamma functions (\code{gamma_p}, \code{gamma_q}) and their inverses.
-\code{logpdf} is specialized for numerical accuracy. Results are typically accurate to a
+\code{logpdf} is specialised for numerical accuracy. Results are typically accurate to a
 few epsilons in double precision.
 }
 \examples{

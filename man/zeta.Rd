@@ -10,10 +10,10 @@ zeta(z)
 \item{z}{Real number input}
 }
 \value{
-The value of the Riemann zeta function ζ(z).
+The value of the Riemann zeta function zeta(z).
 }
 \description{
-Computes the Riemann zeta function ζ(z), one of the most important functions
+Computes the Riemann zeta function zeta(z), one of the most important functions
 in analytic number theory.
 
 \strong{Mathematical Definition:}
@@ -25,10 +25,10 @@ for Re(z) > 1, and by analytic continuation elsewhere.
 
 \strong{Special Values:}
 \itemize{
-\item ζ(2) = π²/6 (Basel problem)
-\item ζ(4) = π⁴/90
-\item ζ(0) = -1/2
-\item ζ(-1) = -1/12
+\item zeta(2) = pi^2/6 (Basel problem)
+\item zeta(4) = pi^4/90
+\item zeta(0) = -1/2
+\item zeta(-1) = -1/12
 \item Closed forms exist for all even positive integers and all negative integers
 \item For odd positive integers > 1, values are computed numerically
 }
@@ -42,7 +42,7 @@ The function uses different computational strategies depending on the argument:
 \item For z > 4: Simple rational approximation series
 \item Reflection formula for negative arguments
 \item Pre-computed cached values for positive odd integers
-\item Specialized rational approximations for standard floating-point precisions
+\item Specialised rational approximations for standard floating-point precisions
 }
 
 \strong{Applications:}
@@ -53,9 +53,9 @@ The famous Riemann Hypothesis concerns the non-trivial zeros of this function.
 }
 \examples{
 # Riemann Zeta Function
-zeta(2)  # Should return pi^2 / 6 ≈ 1.6449340668
-zeta(3)  # Apéry's constant ≈ 1.2020569032
-zeta(4)  # pi^4 / 90 ≈ 1.0823232337
+zeta(2)  # Should return pi^2 / 6 ~= 1.6449340668
+zeta(3)  # Apery's constant ~= 1.2020569032
+zeta(4)  # pi^4 / 90 ~= 1.0823232337
 }
 \seealso{
 \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/zetas/zeta.html}{Boost Documentation} for more details on the mathematical background.

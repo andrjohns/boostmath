@@ -20,13 +20,13 @@
 #'
 #' **Confidence Bounds:**
 #' `binomial_find_lower_bound_on_p` and `binomial_find_upper_bound_on_p` implement
-#' Clopper–Pearson exact intervals (default) or Jeffreys prior intervals, as described
+#' Clopper-Pearson exact intervals (default) or Jeffreys prior intervals, as described
 #' in the Boost documentation.
 #'
-#' @param k Number of successes (0 ≤ k ≤ n).
-#' @param n Number of trials (n ≥ 0).
-#' @param prob Probability of success on each trial (0 ≤ prob ≤ 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param k Number of successes (0 <= k <= n).
+#' @param n Number of trials (n >= 0).
+#' @param prob Probability of success on each trial (0 <= prob <= 1).
+#' @param p Probability (0 <= p <= 1).
 #' @param alpha Largest acceptable probability that the true value of the success fraction is less than the value returned (by `binomial_find_lower_bound_on_p`) or greater than the value returned (by `binomial_find_upper_bound_on_p`).
 #' @param method Method to use for calculating the confidence bounds. Options are "clopper_pearson_exact" (default) and "jeffreys_prior".
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.

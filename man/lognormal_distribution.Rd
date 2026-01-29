@@ -28,7 +28,7 @@ lognormal_quantile(p, location = 0, scale = 1)
 
 \item{x}{Quantile value (x > 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.

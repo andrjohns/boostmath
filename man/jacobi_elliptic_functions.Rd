@@ -44,7 +44,7 @@ jacobi_sd(k, u)
 jacobi_sn(k, u)
 }
 \arguments{
-\item{k}{Elliptic modulus (typically 0 ≤ k ≤ 1, but k > 1 uses complementary relations)}
+\item{k}{Elliptic modulus (typically 0 <= k <= 1, but k > 1 uses complementary relations)}
 
 \item{u}{Argument of the elliptic functions}
 }
@@ -68,12 +68,12 @@ The three copolar Jacobi elliptic functions are:
 \item \strong{dn(u, k)} - Delta amplitude
 }
 
-These satisfy the fundamental identity: sn² + cn² = 1 and dn² + k²sn² = 1
+These satisfy the fundamental identity: sn^2 + cn^2 = 1 and dn^2 + k^2sn^2 = 1
 
 \strong{Parameter Notation:}
 \itemize{
 \item k = elliptic modulus (used in this implementation)
-\item Alternative notations: m = k² (parameter), α = modular angle where k = sin(α)
+\item Alternative notations: m = k^2 (parameter), alpha = modular angle where k = sin(alpha)
 }
 
 \strong{Special Cases:}

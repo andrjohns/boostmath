@@ -22,13 +22,13 @@ hyperexponential_lcdf(x, probabilities, rates)
 hyperexponential_quantile(p, probabilities, rates)
 }
 \arguments{
-\item{probabilities}{Vector of non-negative probabilities (will be normalized to sum to 1).}
+\item{probabilities}{Vector of non-negative probabilities (will be normalised to sum to 1).}
 
 \item{rates}{Vector of positive rates (all rates must be > 0).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.

@@ -32,7 +32,7 @@ binomial_coefficient(n, k)
 
 \item{n}{Total number of elements for binomial coefficients}
 
-\item{k}{Number of elements to choose for binomial coefficients (0 ≤ k ≤ n)}
+\item{k}{Number of elements to choose for binomial coefficients (0 <= k <= n)}
 }
 \value{
 A single numeric value with the computed factorial, double factorial, rising factorial, falling factorial, or binomial coefficient.
@@ -46,7 +46,7 @@ distributions, and series expansions of special functions.
 
 \strong{Factorial Functions:}
 \itemize{
-\item \code{factorial_boost(i)}: Computes i! = 1·2·3·...·i
+\item \code{factorial_boost(i)}: Computes i! = 1\emph{2}3*...*i
 \itemize{
 \item Standard factorial with overflow checking
 \item Returns error for i > max_factorial()
@@ -62,10 +62,10 @@ return type without overflow
 
 \strong{Double Factorial:}
 \itemize{
-\item \code{double_factorial(i)}: Computes i!! = i·(i-2)·(i-4)·...
+\item \code{double_factorial(i)}: Computes i!! = i*(i-2)\emph{(i-4)}...
 \itemize{
-\item For even i: i!! = i·(i-2)·...·4·2
-\item For odd i: i!! = i·(i-2)·...·3·1
+\item For even i: i!! = i*(i-2)*...\emph{4}2
+\item For odd i: i!! = i*(i-2)*...\emph{3}1
 \item Definition: 0!! = 1, (-1)!! = 1
 }
 }
@@ -78,7 +78,7 @@ return type without overflow
 \item Used in hypergeometric functions and series expansions
 \item For integer x, equals (x+i-1)! / (x-1)!
 }
-\item \code{falling_factorial(x, i)}: Computes \deqn{x^\{\[i\]\} = x(x-1)(x-2)...(x-i+1)}
+\item \code{falling_factorial(x, i)}: Computes \deqn{(x)_i = x(x-1)(x-2)...(x-i+1)}
 \itemize{
 \item Also called descending factorial
 \item Counts permutations: number of ways to arrange i items from x items
@@ -105,11 +105,11 @@ factorial_boost(5)
 unchecked_factorial(5)
 # Maximum factorial value that can be computed
 max_factorial()
-# Double factorial: 6!! = 6·4·2 = 48
+# Double factorial: 6!! = 6*4*2 = 48
 double_factorial(6)
-# Rising factorial: 3^(2) = 3·4 = 12
+# Rising factorial: 3^(2) = 3*4 = 12
 rising_factorial(3, 2)
-# Falling factorial: 3^[2] = 3·2 = 6
+# Falling factorial: 3^[2] = 3*2 = 6
 falling_factorial(3, 2)
 # Binomial coefficient: C(5,2) = 10
 binomial_coefficient(5, 2)

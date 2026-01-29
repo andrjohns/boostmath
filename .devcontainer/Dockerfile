@@ -19,5 +19,7 @@ ENV LC_MEASUREMENT="en_GB.UTF-8"
 ENV LC_COLLATE="en_GB.UTF-8"
 ENV LC_ALL="en_GB.UTF-8"
 
-RUN apt-get install -y --no-install-recommends r-base-dev r-cran-devtools git wget curl
+RUN apt-get update && apt-get install -y --no-install-recommends r-base-dev r-cran-devtools r-cran-tinytest \
+    r-cran-v8 clangd git wget curl nodejs qpdf texlive-latex-recommended tidy texlive-fonts-extra
 RUN Rscript -e "install.packages(c('BH', 'cpp11'))"
+RUN echo "Sys.setenv(MAKEFLAGS=paste0('-j', parallel::detectCores()))" > ~/.Rprofile

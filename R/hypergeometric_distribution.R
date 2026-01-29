@@ -19,10 +19,10 @@
 #' As a strictly discrete distribution, quantiles are rounded outward to ensure coverage.
 #'
 #' @param x Quantile value (non-negative integer).
-#' @param r Number of successes in the population (r ≥ 0).
-#' @param n Number of draws (n ≥ 0).
-#' @param N Population size (N ≥ r).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param r Number of successes in the population (r >= 0).
+#' @param n Number of draws (n >= 0).
+#' @param N Population size (N >= r).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hypergeometric_dist.html) for more details on the mathematical background.
 #' @examples

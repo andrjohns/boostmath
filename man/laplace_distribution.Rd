@@ -28,7 +28,7 @@ laplace_quantile(p, location = 0, scale = 1)
 
 \item{x}{Quantile value.}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -47,7 +47,7 @@ and the CDF is
 1 - \frac{1}{2}\exp\left(\frac{\mu-x}{\sigma}\right), & x \ge \mu.\end{cases}}
 
 \strong{Accuracy and Implementation Notes:}
-Implemented in terms of \code{exp} and \code{log}; \code{logcdf} and \code{logpdf} are specialized for
+Implemented in terms of \code{exp} and \code{log}; \code{logcdf} and \code{logpdf} are specialised for
 improved numerical accuracy. Complements use stable \code{log1p} forms.
 }
 \examples{

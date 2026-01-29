@@ -19,7 +19,7 @@
 #' @param x Quantile value.
 #' @param location Location parameter (default is 0).
 #' @param scale Scale parameter (default is 1).
-#' @param p Probability (0 ≤ p ≤ 1).
+#' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/landau_dist.html) for more details on the mathematical background.
 #' @examples

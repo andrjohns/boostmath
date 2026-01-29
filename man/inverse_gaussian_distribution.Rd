@@ -26,9 +26,9 @@ inverse_gaussian_quantile(p, mu = 1, lambda = 1)
 
 \item{lambda}{Scale parameter (lambda > 0; default is 1).}
 
-\item{x}{Quantile value (x ≥ 0).}
+\item{x}{Quantile value (x >= 0).}
 
-\item{p}{Probability (0 ≤ p ≤ 1).}
+\item{p}{Probability (0 <= p <= 1).}
 }
 \value{
 A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
@@ -50,8 +50,8 @@ where \deqn{\Phi} is the standard normal CDF.
 
 \strong{Accuracy and Implementation Notes:}
 Implemented using the standard normal distribution and the exponential function.
-\code{logpdf} is specialized for numerical accuracy. Quantiles have no closed form and
-are computed via Newton–Raphson refinement.
+\code{logpdf} is specialised for numerical accuracy. Quantiles have no closed form and
+are computed via Newton-Raphson refinement.
 }
 \examples{
 # Inverse Gaussian distribution with mu = 3, lambda = 4
