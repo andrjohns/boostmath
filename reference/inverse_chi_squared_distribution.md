@@ -4,6 +4,20 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Inverse Chi-Squared
 distribution.
 
+For degrees of freedom \$\$\nu\$\$ and scale \$\$\xi\$\$, the PDF is
+
+\$\$f(x;\nu,\xi) = \frac{(\nu\xi/2)^{\nu/2}}{\Gamma(\nu/2)} x^{-1-\nu/2}
+\exp\left(-\frac{\nu\xi}{2x}\right)\$\$
+
+and the CDF is \$\$F(x)=\Gamma(\nu/2,\nu\xi/2x)/\Gamma(\nu/2)\$\$. The
+unscaled case corresponds to \$\$\xi = 1/\nu\$\$.
+
+**Accuracy and Implementation Notes:** Implemented via incomplete gamma
+functions (`gamma_p`, `gamma_q`) and their inverses. Results are
+typically accurate to a few epsilons in double precision. Moments such
+as mean/variance/skewness are only defined for sufficiently large
+\$\$\nu\$\$.
+
 ## Usage
 
 ``` r
@@ -24,19 +38,19 @@ inverse_chi_squared_quantile(p, df = 1, scale = 1/df)
 
 - df:
 
-  degrees of freedom (df \> 0; default is 1)
+  Degrees of freedom (df \> 0; default is 1).
 
 - scale:
 
-  scale parameter (default is 1/df)
+  Scale parameter (default is 1/df).
 
 - x:
 
-  quantile
+  Quantile value (x \>= 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

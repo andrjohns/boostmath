@@ -1,7 +1,15 @@
 # Cardinal Quadratic B-Spline Interpolator
 
-Constructs a cardinal quadratic B-spline interpolator given control
-points.
+The cardinal quadratic B-spline interpolator is very nearly the same as
+the cubic B-spline interpolator, but uses quadratic basis functions.
+
+**Use Cases:**
+
+Basis functions are constructed by convolving a box function with itself
+twice. Since the basis functions are less smooth than the cubic
+B-spline, this is primarily useful for approximating functions of
+reduced smoothness. It is appropriate for functions which are two or
+three times continuously differentiable.
 
 ## Usage
 
@@ -45,6 +53,11 @@ An object of class `cardinal_quadratic_b_spline` with methods:
 
 - `prime(xi)`: Evaluate the derivative of the interpolator at point
   `xi`.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quadratic_b.html)
 
 ## Examples
 

@@ -1,6 +1,14 @@
 # Catmull-Rom Interpolation
 
-Constructs a Catmull-Rom spline interpolator given control points.
+Catmull-Rom splines are a family of interpolating curves which are
+commonly used in computer graphics and animation.
+
+**Properties:**
+
+They enjoy affine invariance, local support, C2-smoothness, and
+interpolation of control points. The curve is internally closed, however
+the user specifies if it should be treated as open or closed via the
+parameters. Evaluation is O(log N).
 
 ## Usage
 
@@ -36,6 +44,11 @@ An object of class `catmull_rom` with methods:
 - `max_parameter()`: Get the maximum parameter value of the spline.
 
 - `parameter_at_point(i)`: Get the parameter value at index `i`.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/catmull_rom.html)
 
 ## Examples
 

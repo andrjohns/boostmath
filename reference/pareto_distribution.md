@@ -4,6 +4,20 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Pareto
 distribution.
 
+The Pareto distribution is a continuous distribution that often
+describes the larger compared to the smaller. A classic example is that
+80% of the wealth is owned by 20% of the population.
+
+It has the probability density function (PDF): \$\$f(x; \alpha, \beta) =
+\frac{\alpha\beta^\alpha}{x^{\alpha+1}}\$\$ for shape parameter \\\alpha
+\> 0\\, scale parameter \\\beta \> 0\\, and \\x \ge \beta\\. If \\x \<
+\beta\\, the pdf is zero.
+
+**Accuracy and Implementation Notes:** The Pareto distribution is
+implemented in terms of the standard library `exp` functions plus
+`expm1` and so should have very small errors, usually only a few
+epsilon.
+
 ## Usage
 
 ``` r

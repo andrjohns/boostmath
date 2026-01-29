@@ -4,6 +4,20 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Landau
 distribution.
 
+The Landau distribution is a stable distribution with \$\$\alpha=1\$\$
+and \$\$\beta=1\$\$. A standard integral representation of its PDF is
+
+\$\$f(x) = \frac{1}{\pi}\int_0^\infty \exp\left(-t\log t - x
+t\right)\sin(\pi t)\\dt.\$\$
+
+The location parameter \$\$\mu\$\$ and scale parameter \$c\$ shift and
+scale the distribution, with a bias term \$\$b = -\frac{2}{\pi}\log
+c\$\$ applied in the Boost parameterization.
+
+**Accuracy and Implementation Notes:** Boost reports errors within about
+4 epsilon except for the rapidly decaying left tail. Some moments (mean,
+variance, skewness, kurtosis) are undefined and will raise errors.
+
 ## Usage
 
 ``` r
@@ -24,19 +38,19 @@ landau_quantile(p, location = 0, scale = 1)
 
 - location:
 
-  location parameter (default is 0)
+  Location parameter (default is 0).
 
 - scale:
 
-  scale parameter (default is 1)
+  Scale parameter (default is 1).
 
 - x:
 
-  quantile
+  Quantile value.
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

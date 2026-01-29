@@ -203,31 +203,31 @@ elliptic integrals and incomplete elliptic integrals.</p>
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>First parameter of the integral</p></dd>
+<dd><p>First parameter of Carlson's integral (must be non-negative)</p></dd>
 
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
-<dd><p>Second parameter of the integral</p></dd>
+<dd><p>Second parameter of Carlson's integral</p></dd>
 
 
 <dt id="arg-z">z<a class="anchor" aria-label="anchor" href="#arg-z"></a></dt>
-<dd><p>Third parameter of the integral</p></dd>
+<dd><p>Third parameter of Carlson's integral</p></dd>
 
 
 <dt id="arg-p">p<a class="anchor" aria-label="anchor" href="#arg-p"></a></dt>
-<dd><p>Fourth parameter of the integral (for Rj)</p></dd>
+<dd><p>Fourth parameter of the integral (for Rj, must be non-zero)</p></dd>
 
 
 <dt id="arg-k">k<a class="anchor" aria-label="anchor" href="#arg-k"></a></dt>
-<dd><p>Elliptic modulus (for incomplete elliptic integrals)</p></dd>
+<dd><p>Elliptic modulus for Legendre-form integrals</p></dd>
 
 
 <dt id="arg-phi">phi<a class="anchor" aria-label="anchor" href="#arg-phi"></a></dt>
-<dd><p>Amplitude (for incomplete elliptic integrals)</p></dd>
+<dd><p>Amplitude (angle) for incomplete elliptic integrals</p></dd>
 
 
 <dt id="arg-n">n<a class="anchor" aria-label="anchor" href="#arg-n"></a></dt>
-<dd><p>Characteristic (for incomplete elliptic integrals of the third kind)</p></dd>
+<dd><p>Characteristic for elliptic integrals of the third kind</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -244,7 +244,7 @@ elliptic integrals and incomplete elliptic integrals.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Carlson's elliptic integral Rf with parameters x = 1, y = 2, z = 3</span></span></span>
 <span class="r-in"><span><span class="fu">ellint_rf</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7269459</span>
-<span class="r-in"><span><span class="co">#' # Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3</span></span></span>
+<span class="r-in"><span><span class="co"># Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3</span></span></span>
 <span class="r-in"><span><span class="fu">ellint_rd</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.2904603</span>
 <span class="r-in"><span><span class="co"># Carlson's elliptic integral Rj with parameters x = 1, y = 2, z = 3, p = 4</span></span></span>

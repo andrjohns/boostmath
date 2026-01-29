@@ -3,6 +3,87 @@
 Functions to compute the gamma function, its logarithm, digamma,
 trigamma, polygamma, and various incomplete gamma functions.
 
+The gamma function is a fundamental special function that extends the
+factorial function to real and complex numbers.
+
+**Gamma Function Gamma(z):**
+
+- `tgamma(z)`: Computes Gamma(z), the true gamma function
+
+- Key mathematical relationships:
+
+  - Recursion formula: Gamma(z) = Gamma(z+1)/z
+
+  - Reflection formula: Gamma(z)\*Gamma(1-z) = pi/sin(piz)
+
+  - Identity: Gamma(z+1) = z\*Gamma(z)
+
+- Implementation uses Lanczos approximation for standard precision and
+  Stirling's approximation for large z
+
+- `tgamma1pm1(z)`: Computes Gamma(1+z) - 1 with enhanced numerical
+  stability for very small z values, avoiding precision loss
+
+- `lgamma_boost(z)`: Returns log(Gamma(z)), the logarithm of the gamma
+  function
+
+**Derivative Functions:**
+
+- `digamma_boost(z)`: The digamma (psi) function digamma(z) =
+  d/dz\\ln(Gamma(z))\\, the logarithmic derivative of the gamma function
+
+  - Reflection formula: digamma(1-z) = digamma(z) + pi/tan(piz)
+
+  - Recurrence relation: digamma(z+1) = digamma(z) + 1/z
+
+- `trigamma_boost(z)`: The trigamma function, the second derivative of
+  ln(Gamma(z))
+
+- `polygamma(n, z)`: The nth derivative of the digamma function (n-th
+  order polygamma)
+
+**Ratios:**
+
+- `tgamma_ratio(a, b)`: Computes Gamma(a)/Gamma(b)
+
+- `tgamma_delta_ratio(a, delta)`: Computes Gamma(a)/Gamma(a + delta)
+
+**Incomplete Gamma Functions:**
+
+These functions require a \> 0 and z \>= 0.
+
+- **Normalised (Regularised) Functions** (return values in \\\[0,
+  1\]\\):
+
+  - `gamma_p(a, z)`: Normalised lower incomplete gamma P(a, z). Changes
+    rapidly from 0 to 1 around z = a
+
+  - `gamma_q(a, z)`: Normalised upper incomplete gamma Q(a, z). Changes
+    rapidly from 1 to 0 around z = a
+
+  - Note: P(a, z) + Q(a, z) = 1
+
+- **Non-normalised Functions** (return values in \\\[0, Gamma(a)\]\\):
+
+  - `tgamma_lower(a, z)`: Full lower incomplete gamma function
+
+  - `tgamma_upper(a, z)`: Full upper incomplete gamma function
+
+**Inverse Functions:**
+
+- `gamma_p_inv(a, p)`: Returns z such that p = P(a, z)
+
+- `gamma_q_inv(a, q)`: Returns z such that q = Q(a, z)
+
+- `gamma_p_inva(z, p)`: Returns a such that p = P(a, z)
+
+- `gamma_q_inva(z, q)`: Returns a such that q = Q(a, z)
+
+**Derivative:**
+
+- `gamma_p_derivative(a, z)`: Computes the derivative of the normalised
+  lower incomplete gamma function with respect to z
+
 ## Usage
 
 ``` r
@@ -53,7 +134,7 @@ gamma_p_derivative(a, z)
 
 - a:
 
-  Argument for the incomplete gamma functions
+  Argument for the incomplete gamma functions (must be positive)
 
 - b:
 
@@ -65,11 +146,11 @@ gamma_p_derivative(a, z)
 
 - q:
 
-  Probability value for the incomplete gamma functions
+  Probability value for the incomplete gamma functions (0 \<= q \<= 1)
 
 - p:
 
-  Probability value for the incomplete gamma functions
+  Probability value for the incomplete gamma functions (0 \<= p \<= 1)
 
 ## Value
 
@@ -118,7 +199,7 @@ gamma_p_inv(5, 0.5)
 gamma_q_inva(2, 0.5)
 # Inverse of the normalised lower incomplete gamma function with respect to a for z = 2, p = 0.5
 gamma_p_inva(2, 0.5)
-# Derivative of the normalised upper incomplete gamma function for a = 5, z = 2
+# Derivative of the normalised lower incomplete gamma function for a = 5, z = 2
 gamma_p_derivative(5, 2)
 } # }
 ```

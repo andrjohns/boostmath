@@ -4,6 +4,18 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Log Normal
 distribution.
 
+If \$\$\log X \sim \mathcal{N}(m, s^2)\$\$, then \$X\$ is lognormal. The
+PDF is
+
+\$\$f(x) = \frac{1}{x s \sqrt{2\pi}}\exp\left(-\frac{(\log x - m)^2}{2
+s^2}\right), \quad x\>0\$\$
+
+and the CDF is \$\$\Phi((\log x - m)/s)\$\$.
+
+**Accuracy and Implementation Notes:** Implemented with `log`, `exp`,
+and the error function. The CDF/quantile are computed via the normal
+distribution evaluated at \$\$\log(x)\$\$.
+
 ## Usage
 
 ``` r
@@ -24,19 +36,19 @@ lognormal_quantile(p, location = 0, scale = 1)
 
 - location:
 
-  location parameter (default is 0)
+  Location parameter (mean of \$\$\log X\$\$; default is 0).
 
 - scale:
 
-  scale parameter (default is 1)
+  Scale parameter (sd of \$\$\log X\$\$; default is 1).
 
 - x:
 
-  quantile
+  Quantile value (x \> 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

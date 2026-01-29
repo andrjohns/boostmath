@@ -1,6 +1,52 @@
-# Univariate Statistics Functions
+# Univariate Statistics
 
-Functions to compute various univariate statistics.
+Functions to compute robust univariate statistics from a dataset.
+
+**Central Tendency:**
+
+- `mean_boost`: Computes the arithmetic mean using Higham's numerically
+  stable algorithm.
+
+- `median_boost`: Computes the median (robust to outliers).
+
+- `mode`: Computes the mode(s) of the dataset.
+
+**Dispersion (Spread):**
+
+- `variance`: Computes the population variance using Higham's algorithm.
+
+- `sample_variance`: Computes the sample variance (unbiased estimator).
+
+- `mean_and_sample_variance`: Efficiently computes both mean and sample
+  variance in one pass.
+
+- `median_absolute_deviation`: Computes the Median Absolute Deviation
+  (MAD), a robust measure of variability.
+
+- `interquartile_range`: Computes the Interquartile Range (IQR = Q3 -
+  Q1), robust to outliers.
+
+**Shape:**
+
+- `skewness`: Measures the asymmetry of the distribution (Pebay's
+  algorithm).
+
+- `kurtosis`: Measures the "tailedness" of the distribution (Pebay's
+  algorithm).
+
+- `excess_kurtosis`: Kurtosis minus 3 (Normal distribution has 0 excess
+  kurtosis).
+
+- `first_four_moments`: Computes Mean, Variance, Skewness, and Kurtosis
+  in a single pass.
+
+**Inequality:**
+
+- `gini_coefficient`: Computes the Gini coefficient (population). range
+  \\\[0, 1 - 1/n\]\\.
+
+- `sample_gini_coefficient`: Computes the sample Gini coefficient. range
+  \\\[0, 1\]\\.
 
 ## Usage
 
@@ -42,58 +88,70 @@ mode(x, ...)
 
 - x:
 
-  A numeric vector.
+  A numeric vector containing the dataset.
 
 - ...:
 
-  Additional arguments (not used).
+  Additional arguments (for S3 compatibility, e.g., with defaults).
 
 ## Value
 
-A numeric value or vector with the computed statistic.
+A numeric value (or vector for moments/mode) with the computed
+statistic.
+
+## Details
+
+These functions are designed to be numerically stable and efficient.
+Most implementations follow algorithms described by Higham (Accuracy and
+Stability of Numerical Algorithms) or Pebay (Sandia Labs) for one-pass
+parallel computation.
+
+## References
+
+Higham, N. J. (2002). Accuracy and stability of numerical algorithms.
+SIAM. Pebay, P. P. (2008). Formulas for Robust, One-Pass Parallel
+Computation of Covariances and Arbitrary-Order Statistical Moments.
+Sandia Report.
 
 ## See also
 
 [Boost
 Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html)
-for more details on the mathematical background.
 
 ## Examples
 
 ``` r
-# Mean
-mean_boost(c(1, 2, 3, 4, 5))
+data <- c(1, 2, 3, 4, 100) # Dataset with an outlier
+
+# --- Central Tendency ---
+mean_boost(data)
+#> [1] 22
+median_boost(data) # Less affected by 100
 #> [1] 3
-# Variance
-variance(c(1, 2, 3, 4, 5))
+mode(c(1, 2, 2, 3))
 #> [1] 2
-# Sample Variance
-sample_variance(c(1, 2, 3, 4, 5))
-#> [1] 2.5
-# Mean and Sample Variance
-mean_and_sample_variance(c(1, 2, 3, 4, 5))
-#> [1] 3.0 2.5
-# Skewness
-skewness(c(1, 2, 3, 4, 5))
-#> [1] 0
-# Kurtosis
-kurtosis(c(1, 2, 3, 4, 5))
-#> [1] 1.7
-# Excess Kurtosis
-excess_kurtosis(c(1, 2, 3, 4, 5))
-#> [1] -1.3
-# First Four Moments
-first_four_moments(c(1, 2, 3, 4, 5))
-#> [1] 3.0 2.0 0.0 6.8
-# Median
-median_boost(c(1, 2, 3, 4, 5))
-#> [1] 3
-# Median Absolute Deviation
-median_absolute_deviation(c(1, 2, 3, 4, 5))
+
+# --- Dispersion ---
+variance(data)
+#> [1] 1522
+sample_variance(data)
+#> [1] 1902.5
+median_absolute_deviation(data) # Robust
 #> [1] 1
-# Interquartile Range
-interquartile_range(c(1, 2, 3, 4, 5))
-#> [1] 3
+interquartile_range(data)       # Robust
+#> [1] 50.5
+
+# --- Shape ---
+skewness(data)
+#> [1] 1.497537
+excess_kurtosis(data)
+#> [1] 0.2467165
+first_four_moments(data)
+#> [1]      22    1522   88920 7520967
+
+# --- Inequality ---
+gini_coefficient(c(1, 0, 0, 0)) # High inequality
+#> [1] 0.75
 # Gini Coefficient
 gini_coefficient(c(1, 2, 3, 4, 5))
 #> [1] 0.2666667

@@ -1,7 +1,11 @@
 # Cardinal Cubic Hermite Interpolator
 
-Constructs a cardinal cubic Hermite interpolator given the vectors of
-abscissas, ordinates, and derivatives.
+The cardinal cubic Hermite interpolator is similar to the cubic Hermite
+interpolator but optimised for equispaced data.
+
+**Performance:**
+
+This allows for constant-time evaluation.
 
 ## Usage
 
@@ -37,6 +41,11 @@ An object of class `cardinal_cubic_hermite` with methods:
   `xi`.
 
 - `domain()`: Get the domain of the interpolator.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html)
 
 ## Examples
 

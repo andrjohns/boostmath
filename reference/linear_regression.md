@@ -1,6 +1,20 @@
 # Linear Regression Functions
 
-Functions to perform linear regression.
+Functions to perform simple ordinary least squares (OLS) linear
+regression.
+
+The OLS fit finds \$c_0\$ and \$c_1\$ that minimize
+
+\$\$\sum\_{i=1}^n (y_i - (c_0 + c_1 x_i))^2\$\$
+
+producing the model \$f(x)=c_0+c_1x\$. The optional \$R^2\$ output uses
+
+\$\$R^2 = 1 - \frac{\sum_i (y_i - \hat{y}\_i)^2}{\sum_i (y_i -
+\bar{y})^2}\$\$
+
+**Accuracy and Implementation Notes:** Boost uses a numerically stable
+one-pass approach based on means, variances, and covariances to reduce
+cancellation error.
 
 ## Usage
 

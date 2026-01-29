@@ -4,6 +4,22 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Student's t
 distribution.
 
+Student's t-distribution is defined as the distribution of the random
+variable \\t\\ which is (very loosely) the "best" that we can do while
+not knowing the true standard deviation of the sample.
+
+Given \\N\\ independent measurements, let \$\$t = \frac{\mu - M}{s /
+\sqrt{N}}\$\$ where \\M\\ is the population mean, \\\mu\\ is the sample
+mean, and \\s\\ is the sample variance.
+
+It has the PDF: \$\$f(x;\nu) =
+\frac{\Gamma((\nu+1)/2)}{\sqrt{\nu\pi}\Gamma(\nu/2)}
+\left(1+\frac{x^2}{\nu}\right)^{-(\nu+1)/2}\$\$ where \\\nu\\ is the
+degrees of freedom.
+
+**Accuracy and Implementation Notes:** The Student's t distribution is
+implemented in terms of the incomplete beta function and its inverses.
+
 ## Usage
 
 ``` r

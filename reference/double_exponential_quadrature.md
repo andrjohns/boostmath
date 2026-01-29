@@ -1,7 +1,21 @@
 # Double Exponential Quadrature
 
-Functions for numerical integration using double exponential quadrature
-methods such as tanh-sinh, sinh-sinh, and exp-sinh quadrature.
+Numerical integration using double exponential quadrature methods
+(Tanh-Sinh, Sinh-Sinh, Exp-Sinh). These methods use variable
+transformations to achieve high-order convergence, often optimal for
+functions in the Hardy space (holomorphic in the unit disk).
+
+**Tanh-Sinh Quadrature:** Best for integration over a finite interval
+\\(a, b)\\. Can handle singularities at the endpoints of the integration
+domain. Converges rapidly for holomorphic integrands.
+
+**Sinh-Sinh Quadrature:** Designed for integration over the entire real
+line \\(-\infty, \infty)\\. Handles integrands with large features or
+decay properties.
+
+**Exp-Sinh Quadrature:** Designed for integration over a semi-infinite
+interval, typically \\(0, \infty)\\, or ranges like \\(a, \infty)\\ or
+\\(-\infty, b)\\. Supports endpoint singularities.
 
 ## Usage
 
@@ -42,15 +56,21 @@ exp_sinh(f, a, b, tol = sqrt(.Machine$double.eps), max_refinements = 9)
 
 A single numeric value with the computed integral.
 
+## See also
+
+[`numerical_integration`](https://andrjohns.github.io/boostmath/reference/numerical_integration.md)
+
 ## Examples
 
 ``` r
-# Tanh-sinh quadrature of log(x) from 0 to 1
+# Tanh-sinh quadrature of log(x) from 0 to 1 (Endpoint singularity)
 tanh_sinh(function(x) { log(x) * log1p(-x) }, a = 0, b = 1)
 #> [1] 0.3550659
-# Sinh-sinh quadrature of exp(-x^2)
+
+# Sinh-sinh quadrature of exp(-x^2) over (-Inf, Inf)
 sinh_sinh(function(x) { exp(-x * x) })
 #> [1] 1.772454
+
 # Exp-sinh quadrature of exp(-3*x) from 0 to Inf
 exp_sinh(function(x) { exp(-3 * x) }, a = 0, b = Inf)
 #> [1] 0.3333333

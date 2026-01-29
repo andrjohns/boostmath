@@ -1,6 +1,13 @@
 # Bezier Polynomial Interpolator
 
-Constructs a Bezier polynomial interpolator given control points.
+Bezier polynomials are smooth curves which approximate a set of control
+points. They are commonly used in computer-aided geometric design.
+
+**Properties:**
+
+The curve is approximating, meaning it does not necessarily pass through
+the control points. Passing n control points creates a polynomial of
+degree n-1. Evaluation is O(N^2) via de Casteljau's algorithm.
 
 ## Usage
 
@@ -26,6 +33,11 @@ An object of class `bezier_polynomial` with methods:
 
 - `edit_control_point(new_control_point, index)`: Insert a new control
   point at the specified index.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bezier_polynomial.html)
 
 ## Examples
 

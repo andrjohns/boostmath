@@ -25,6 +25,18 @@ empirical_cumulative_distribution_function(data, sorted = FALSE)
 An object representing the ECDF, with member function `$ecdf(x)` to
 evaluate the ECDF at point(s) `x`.
 
+## Details
+
+The ECDF is a step function constructed from observed data that
+converges to the true CDF as sample size grows. It is commonly used in
+goodness-of-fit workflows that compare the empirical CDF to a
+hypothesised distribution.
+
+**Implementation Notes:** Data must be sorted; by default the
+constructor sorts at \$\$O(n \log n)\$\$ cost. If the data is already
+sorted, set `sorted = TRUE` to avoid the sort. Evaluation uses binary
+search (`upper_bound`) and runs in \$\$O(\log n)\$\$ time.
+
 ## Examples
 
 ``` r

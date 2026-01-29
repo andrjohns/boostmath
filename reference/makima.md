@@ -1,7 +1,16 @@
 # Modified Akima Interpolator
 
-Constructs a Modified Akima interpolator given the vectors of abscissas,
-ordinates, and derivatives.
+The modified Akima interpolant takes non-equispaced data and
+interpolates between them via cubic Hermite polynomials whose slopes are
+chosen significantly.
+
+**Properties:**
+
+The slopes are chosen by a modification of a geometric construction
+proposed by Akima. The interpolant is C1 and evaluation has O(log N)
+complexity. It oscillates less than the cubic spline but has less
+smoothness. The modification is given by Cosmin Ionita and agrees with
+Matlab's version.
 
 ## Usage
 

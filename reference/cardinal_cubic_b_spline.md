@@ -1,6 +1,20 @@
 # Cardinal Cubic B-Spline Interpolator
 
-Constructs a cardinal cubic B-spline interpolator given data points.
+The cardinal cubic B-spline interpolator allows for fast and accurate
+interpolation of a function which is known at equally spaced points.
+
+**Mathematical Properties:**
+
+It uses compactly supported basis functions constructed via iterative
+convolution, ensuring numerical stability. The interpolant is O(h^4)
+accurate for values and O(h^3) accurate for derivatives, where h is the
+step size.
+
+**Conditions:**
+
+Ideally, the function being interpolated should be four-times
+continuously differentiable. If the derivatives at the endpoints are not
+provided, they are estimated using one-sided finite-difference formulas.
 
 ## Usage
 
@@ -46,6 +60,11 @@ An object of class `cardinal_cubic_b_spline` with methods:
 
 - `double_prime(x)`: Evaluate the second derivative of the spline at
   point `x`.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_cubic_b.html)
 
 ## Examples
 

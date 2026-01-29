@@ -1,16 +1,29 @@
 # Binomial Distribution Functions
 
-Functions to compute the probability density function, cumulative
-distribution function, and quantile function for the Binomial
-distribution.
+Functions to compute the probability mass function (pmf), cumulative
+distribution function, quantile function, and confidence bounds for the
+Binomial distribution.
 
-The PDF is:
+The Binomial distribution models the number of successes \$k\$ in \$n\$
+independent trials with success probability \$p\$. The pmf is
 
-\$\$f(k; n, p) = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}\$\$
+\$\$P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}\$\$
 
-The CDF is:
+for integers \$\$0 \le k \le n\$\$, and the CDF gives \$\$P(X \le
+k)\$\$.
 
-\$\$1 - I_p(k + 1, n - k)\$\$
+**Accuracy and Implementation Notes:** CDF and related functions are
+implemented using incomplete beta functions (`ibeta`, `ibetac`). The pmf
+is evaluated via `ibeta_derivative` for stability. Quantiles are
+obtained numerically (TOMS 748), since no closed-form inverse exists for
+discrete \$k\$. As a discrete distribution, quantiles are rounded
+outward to ensure at least the requested coverage; use complements for
+improved tail accuracy.
+
+**Confidence Bounds:** `binomial_find_lower_bound_on_p` and
+`binomial_find_upper_bound_on_p` implement Clopper-Pearson exact
+intervals (default) or Jeffreys prior intervals, as described in the
+Boost documentation.
 
 ## Usage
 
@@ -40,19 +53,19 @@ binomial_find_maximum_number_of_trials(k, prob, alpha)
 
 - n:
 
-  number of trials (n \>= 0)
+  Number of trials (n \>= 0).
 
 - prob:
 
-  probability of success on each trial (0 \<= prob \<= 1)
+  Probability of success on each trial (0 \<= prob \<= 1).
 
 - k:
 
-  number of successes (0 \<= k \<= n)
+  Number of successes (0 \<= k \<= n).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 - alpha:
 

@@ -4,6 +4,18 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Uniform
 distribution.
 
+The uniform distribution, also known as a rectangular distribution, is a
+probability distribution that has constant probability.
+
+The continuous uniform distribution has the probability density function
+(PDF): \$\$f(x) = \frac{1}{\text{upper} - \text{lower}} \quad \text{for
+} \text{lower} \le x \le \text{upper}\$\$ \$\$f(x) = 0 \quad \text{for }
+x \< \text{lower} \text{ or } x \> \text{upper}\$\$
+
+**Accuracy and Implementation Notes:** The uniform distribution is
+implemented with simple arithmetic operators and so should have errors
+within an epsilon or two.
+
 ## Usage
 
 ``` r

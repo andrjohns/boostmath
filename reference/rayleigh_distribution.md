@@ -4,6 +4,20 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Rayleigh
 distribution.
 
+The Rayleigh distribution is a continuous distribution. It is often used
+where two orthogonal components have an absolute value, for example,
+wind velocity and direction may be combined to yield a wind speed, or
+real and imaginary components may have absolute values that are Rayleigh
+distributed.
+
+It has the probability density function (PDF): \$\$f(x; \sigma) =
+\frac{x}{\sigma^2} e^{-x^2 / (2\sigma^2)}\$\$ for \\\sigma \> 0\\ and
+\\x \> 0\\.
+
+**Accuracy and Implementation Notes:** The Rayleigh distribution is
+implemented in terms of the standard library `sqrt` and `exp` and as
+such should have very low error rates.
+
 ## Usage
 
 ``` r

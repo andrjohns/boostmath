@@ -1,6 +1,27 @@
 # Floating Point Utilities
 
-Utilities for floating point number manipulation and analysis.
+Utilities for floating-point number manipulation and analysis, including
+adjacent representable values, ULP distances, and condition numbers.
+
+**Floating-Point Navigation:**
+
+- `float_next(x)` / `float_prior(x)` move to the next greater/smaller
+  representable value.
+
+- `float_distance(x, y)` returns the representation distance in ULPs.
+
+- `float_advance(x, n)` advances by \$n\$ ULPs.
+
+- `ulp(x)` returns the size of one unit in the last place at `x`.
+
+**Comparisons:**
+
+- `relative_difference(x, y)` and `epsilon_difference(x, y)` provide
+  scale-aware measures of deviation.
+
+**Condition Numbers:** `summation_condition_number` and
+`evaluation_condition_number` help quantify numerical sensitivity to
+perturbations.
 
 ## Usage
 
@@ -32,7 +53,7 @@ epsilon_difference(x, y)
 
 - distance:
 
-  Integer number of ULPS to advance by.
+  Integer number of ULPs to advance by.
 
 ## Value
 

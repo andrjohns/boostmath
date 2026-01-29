@@ -4,6 +4,20 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Logistic
 distribution.
 
+With location \$u\$ and scale \$s\>0\$, the PDF and CDF are
+
+\$\$f(x) = \frac{e^{-(x-u)/s}}{s\left(1+e^{-(x-u)/s}\right)^2}\$\$
+\$\$F(x) = \frac{1}{1+e^{-(x-u)/s}}\$\$
+
+and the quantile is
+
+\$\$Q(p) = u - s\log\left(\frac{1}{p}-1\right)\$\$.
+
+**Accuracy and Implementation Notes:** Implemented with `exp`/`log`.
+`logcdf` is specialised for improved numerical accuracy. Quantiles can
+suffer catastrophic cancellation when the location parameter is large;
+only low absolute error can be guaranteed in that regime.
+
 ## Usage
 
 ``` r
@@ -24,19 +38,19 @@ logistic_quantile(p, location = 0, scale = 1)
 
 - location:
 
-  location parameter (default is 0)
+  Location parameter (default is 0).
 
 - scale:
 
-  scale parameter (default is 1)
+  Scale parameter (default is 1).
 
 - x:
 
-  quantile
+  Quantile value.
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

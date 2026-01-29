@@ -2,7 +2,25 @@
 
 Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Inverse Gaussian
-distribution.
+(Inverse Normal) distribution.
+
+With mean \$\$\mu\$\$ and scale \$\$\lambda\$\$, the PDF is
+
+\$\$f(x;\mu,\lambda) = \sqrt{\frac{\lambda}{2\pi
+x^3}}\exp\left(-\frac{\lambda(x-\mu)^2}{2\mu^2 x}\right)\$\$
+
+and the CDF is
+
+\$\$F(x) =
+\Phi\left(\sqrt{\frac{\lambda}{x}}\left(\frac{x}{\mu}-1\right)\right) +
+\exp\left(\frac{2\lambda}{\mu}\right)\Phi\left(-\sqrt{\frac{\lambda}{x}}\left(\frac{x}{\mu}+1\right)\right)\$\$
+
+where \$\$\Phi\$\$ is the standard normal CDF.
+
+**Accuracy and Implementation Notes:** Implemented using the standard
+normal distribution and the exponential function. `logpdf` is
+specialised for numerical accuracy. Quantiles have no closed form and
+are computed via Newton-Raphson refinement.
 
 ## Usage
 
@@ -24,19 +42,19 @@ inverse_gaussian_quantile(p, mu = 1, lambda = 1)
 
 - mu:
 
-  mean parameter (mu \> 0; default is 1)
+  Mean parameter (mu \> 0; default is 1).
 
 - lambda:
 
-  scale parameter (lambda \> 0; default is 1)
+  Scale parameter (lambda \> 0; default is 1).
 
 - x:
 
-  quantile
+  Quantile value (x \>= 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

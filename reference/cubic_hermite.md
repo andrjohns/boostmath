@@ -1,7 +1,13 @@
 # Cubic Hermite Interpolator
 
-Constructs a cubic Hermite interpolator given the vectors of abscissas,
-ordinates, and derivatives.
+The cubic Hermite interpolant takes non-equispaced data and interpolates
+between them via cubic Hermite polynomials whose slopes must be
+provided.
+
+**Applications:**
+
+The interpolant is C1 and evaluation has O(log N) complexity. This
+interpolator is useful for solution skeletons of ODE steppers.
 
 ## Usage
 
@@ -35,6 +41,11 @@ An object of class `cubic_hermite` with methods:
 - `push_back(x, y, dydx)`: Add a new control point to the interpolator.
 
 - `domain()`: Get the domain of the interpolator.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html)
 
 ## Examples
 

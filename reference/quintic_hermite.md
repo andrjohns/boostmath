@@ -1,7 +1,14 @@
 # Quintic Hermite Interpolator
 
-Constructs a quintic Hermite interpolator given the vectors of
-abscissas, ordinates, first derivatives, and second derivatives.
+The quintic Hermite interpolator takes a list of possibly non-uniformly
+spaced abscissas, ordinates, and their velocities and accelerations.
+
+**Applications:**
+
+It constructs a quintic interpolating polynomial between segments. This
+is useful for taking solution skeletons from ODE steppers and turning
+them into a continuous function. The interpolant is C2 and its
+evaluation has O(log N) complexity.
 
 ## Usage
 
@@ -43,6 +50,11 @@ An object of class `quintic_hermite` with methods:
   interpolator.
 
 - `domain()`: Get the domain of the interpolator.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html)
 
 ## Examples
 

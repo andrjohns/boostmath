@@ -1,7 +1,14 @@
 # Cardinal Quintic B-Spline Interpolator
 
-Constructs a cardinal quintic B-spline interpolator given control
-points.
+The cardinal quintic B-spline interpolator is similar to the cubic
+B-spline but uses basis functions constructed by convolving a box
+function with itself five times.
+
+**Properties:**
+
+The basis functions are more smooth (C4) than the cubic B-spline (C2),
+making this useful for computing second derivatives. The second
+derivative of the quintic B-spline is a cubic spline.
 
 ## Usage
 
@@ -50,6 +57,11 @@ An object of class `cardinal_quintic_b_spline` with methods:
 
 - `double_prime(xi)`: Evaluate the second derivative of the interpolator
   at point `xi`.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quintic_b.html)
 
 ## Examples
 

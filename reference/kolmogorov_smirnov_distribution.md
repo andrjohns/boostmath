@@ -4,6 +4,19 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Kolmogorov-Smirnov
 distribution.
 
+Boost implements the limiting (first-order) Kolmogorov distribution. The
+CDF is expressed in terms of the Jacobi theta function:
+
+\$\$F(x) = \vartheta_4\\\left(0, \frac{2x^2}{\pi}\right)\$\$
+
+for \$\$x \ge 0\$\$. The PDF is obtained by differentiating the CDF, and
+quantiles are computed via Newton-Raphson iteration.
+
+**Accuracy and Implementation Notes:** The CDF uses the Jacobi theta
+function and inherits its accuracy. The PDF is implemented separately.
+The limiting distribution has nonzero mass above 1 for finite \$n\$
+(unlike the exact KS distribution), especially when \$n\$ is small.
+
 ## Usage
 
 ``` r
@@ -24,15 +37,15 @@ kolmogorov_smirnov_quantile(p, n)
 
 - n:
 
-  sample size (n \> 0)
+  Sample size (n \> 0).
 
 - x:
 
-  quantile
+  Quantile value (x \>= 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

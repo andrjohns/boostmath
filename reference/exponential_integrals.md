@@ -2,17 +2,30 @@
 
 Functions to compute various exponential integrals, including En and Ei.
 
-**Exponential Integral En**
+Exponential integrals are fundamental special functions in mathematical
+analysis appearing in many applications including radiative transfer,
+antenna theory, and solutions to differential equations.
 
-- `expint_en(n, z)`: Exponential integral En of z: \\E_n(z)\\:
+**Exponential Integral En:**
 
-\$\$E_n(z) = \int\_{1}^\infty \frac{e^{-xt}}{t^n}dt\$\$
+Defined by the integral: \$\$E_n(z) = \int_1^\infty \frac{e^{-zt}}{t^n}
+dt\$\$
 
-**Exponential Integral Ei**
+The function uses different computational strategies: continued fraction
+expansion for large z, and infinite series for small z. Special case E1
+(when n=1) employs rational approximations for enhanced accuracy.
 
-- `expint_ei(n, z)`: Exponential integral Ei of z: \\E_i(z)\\:
+**Exponential Integral Ei:**
 
-\$\$E_i(z) = \int\_{x}^\infty \frac{e^{-t}}{t}dt\$\$s
+Defined by the integral: \$\$Ei(z) = -\int\_{-z}^\infty \frac{e^{-t}}{t}
+dt\$\$
+
+For z \< 0, the function uses rational approximations via the zeta
+function. For z \> 0, it employs infinite series for arbitrary precision
+or optimised rational approximations for standard precision types.
+
+Both functions are implemented using high-accuracy algorithms with
+sub-epsilon precision over most of their range.
 
 ## Usage
 
@@ -26,7 +39,7 @@ expint_ei(z)
 
 - n:
 
-  Order of the integral (for En)
+  Order of the integral (for En), must be a non-negative integer
 
 - z:
 
@@ -40,7 +53,7 @@ A single numeric value with the computed exponential integral.
 
 [Boost
 Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/expint.html)
-for
+for more details on the mathematical background.
 
 ## Examples
 

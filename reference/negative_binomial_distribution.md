@@ -1,8 +1,19 @@
 # Negative Binomial Distribution Functions
 
-Functions to compute the probability density function, cumulative
+Functions to compute the probability mass function (pmf), cumulative
 distribution function, and quantile function for the Negative Binomial
 distribution.
+
+For \$r\$ successes with success fraction \$p\$, the probability of
+observing \$k\$ failures before the \$r\$-th success is
+
+\$\$P(X = k) = \binom{k+r-1}{k} p^r (1-p)^k, \quad k \in
+\\0,1,2,\dots\\\$\$
+
+**Accuracy and Implementation Notes:** Implemented using incomplete beta
+functions (`ibeta`, `ibetac`) and their derivatives for the PDF. As a
+discrete distribution, quantiles are rounded outward to ensure coverage.
+Confidence bounds use Clopper-Pearson style intervals.
 
 ## Usage
 
@@ -40,31 +51,31 @@ negative_binomial_find_maximum_number_of_trials(
 
 - successes:
 
-  number of successes (successes \>= 0)
+  Number of successes (successes \> 0).
 
 - success_fraction:
 
-  probability of success on each trial (0 \<= success_fraction \<= 1)
+  Probability of success on each trial (0 \<= success_fraction \<= 1).
 
 - x:
 
-  quantile
+  Quantile value.
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 - trials:
 
-  number of trials
+  Number of trials.
 
 - alpha:
 
-  significance level (0 \< alpha \< 1)
+  Significance level (0 \< alpha \< 1).
 
 - failures:
 
-  number of failures (failures \>= 0)
+  Number of failures (failures \>= 0).
 
 ## Value
 

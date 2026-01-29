@@ -1,7 +1,13 @@
 # PCHIP Interpolator
 
-Constructs a PCHIP interpolator given the vectors of abscissas,
-ordinates, and derivatives.
+The PCHIP (Piecewise Cubic Hermite Interpolating Polynomial) interpolant
+takes non-equispaced data and interpolates between them via cubic
+Hermite polynomials whose slopes are chosen to preserve monotonicity.
+
+**Details:**
+
+The interpolant is C1 and evaluation has O(log N) complexity. See
+Fritsch and Carlson for details.
 
 ## Usage
 
@@ -37,6 +43,11 @@ An object of class `pchip` with methods:
   `xi`.
 
 - `push_back(x, y)`: Add a new control point
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/pchip.html)
 
 ## Examples
 

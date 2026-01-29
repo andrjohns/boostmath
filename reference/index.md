@@ -112,7 +112,7 @@
   [`cauchy_quantile()`](https://andrjohns.github.io/boostmath/reference/cauchy_distribution.md)
   : Cauchy Distribution Functions
 - [`chatterjee_correlation()`](https://andrjohns.github.io/boostmath/reference/chatterjee_correlation.md)
-  : Chatterjee Correlation Function
+  : Chatterjee Correlation
 - [`chebyshev_next()`](https://andrjohns.github.io/boostmath/reference/chebyshev_polynomials.md)
   [`chebyshev_t()`](https://andrjohns.github.io/boostmath/reference/chebyshev_polynomials.md)
   [`chebyshev_u()`](https://andrjohns.github.io/boostmath/reference/chebyshev_polynomials.md)
@@ -526,7 +526,7 @@
   [`halley_iterate()`](https://andrjohns.github.io/boostmath/reference/rootfinding_and_minimisation.md)
   [`schroder_iterate()`](https://andrjohns.github.io/boostmath/reference/rootfinding_and_minimisation.md)
   [`brent_find_minima()`](https://andrjohns.github.io/boostmath/reference/rootfinding_and_minimisation.md)
-  : Root-Finding and Minimisation Functions
+  : Root-Finding and Minimisation
 - [`runs_above_and_below_threshold()`](https://andrjohns.github.io/boostmath/reference/runs_tests.md)
   [`runs_above_and_below_median()`](https://andrjohns.github.io/boostmath/reference/runs_tests.md)
   : Runs Tests
@@ -544,10 +544,10 @@
   [`oracle_snr_db()`](https://andrjohns.github.io/boostmath/reference/signal_statistics.md)
   [`m2m4_snr_estimator()`](https://andrjohns.github.io/boostmath/reference/signal_statistics.md)
   [`m2m4_snr_estimator_db()`](https://andrjohns.github.io/boostmath/reference/signal_statistics.md)
-  : Signal Statistics Functions
+  : Signal Statistics
 - [`sinc_pi()`](https://andrjohns.github.io/boostmath/reference/sinus_cardinal_hyperbolic_functions.md)
   [`sinhc_pi()`](https://andrjohns.github.io/boostmath/reference/sinus_cardinal_hyperbolic_functions.md)
-  : Sinus Cardinal and Hyperbolic Functions
+  : Sinus Cardinal and Hyperbolic Sinus Cardinal Functions
 - [`skew_normal_distribution()`](https://andrjohns.github.io/boostmath/reference/skew_normal_distribution.md)
   [`skew_normal_pdf()`](https://andrjohns.github.io/boostmath/reference/skew_normal_distribution.md)
   [`skew_normal_lpdf()`](https://andrjohns.github.io/boostmath/reference/skew_normal_distribution.md)
@@ -571,7 +571,7 @@
   [`one_sample_t_test()`](https://andrjohns.github.io/boostmath/reference/t_tests.md)
   [`two_sample_t_test()`](https://andrjohns.github.io/boostmath/reference/t_tests.md)
   [`paired_samples_t_test()`](https://andrjohns.github.io/boostmath/reference/t_tests.md)
-  : T-Tests
+  : Student's T-Tests
 - [`triangular_distribution()`](https://andrjohns.github.io/boostmath/reference/triangular_distribution.md)
   [`triangular_pdf()`](https://andrjohns.github.io/boostmath/reference/triangular_distribution.md)
   [`triangular_lpdf()`](https://andrjohns.github.io/boostmath/reference/triangular_distribution.md)
@@ -600,7 +600,7 @@
   [`gini_coefficient()`](https://andrjohns.github.io/boostmath/reference/univariate_statistics.md)
   [`sample_gini_coefficient()`](https://andrjohns.github.io/boostmath/reference/univariate_statistics.md)
   [`mode(`*`<default>`*`)`](https://andrjohns.github.io/boostmath/reference/univariate_statistics.md)
-  : Univariate Statistics Functions
+  : Univariate Statistics
 - [`l0_pseudo_norm()`](https://andrjohns.github.io/boostmath/reference/vector_functionals.md)
   [`hamming_distance()`](https://andrjohns.github.io/boostmath/reference/vector_functionals.md)
   [`l1_norm()`](https://andrjohns.github.io/boostmath/reference/vector_functionals.md)
@@ -612,7 +612,7 @@
   [`lp_norm()`](https://andrjohns.github.io/boostmath/reference/vector_functionals.md)
   [`lp_distance()`](https://andrjohns.github.io/boostmath/reference/vector_functionals.md)
   [`total_variation()`](https://andrjohns.github.io/boostmath/reference/vector_functionals.md)
-  : Vector Functionals
+  : Vector Norms and Distances
 - [`weibull_distribution()`](https://andrjohns.github.io/boostmath/reference/weibull_distribution.md)
   [`weibull_pdf()`](https://andrjohns.github.io/boostmath/reference/weibull_distribution.md)
   [`weibull_lpdf()`](https://andrjohns.github.io/boostmath/reference/weibull_distribution.md)

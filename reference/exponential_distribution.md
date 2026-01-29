@@ -4,15 +4,18 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Exponential
 distribution.
 
-The PDF is:
+With rate parameter \$\$\lambda \> 0\$\$, the PDF and CDF are
 
-\$\$f(x;\lambda) = \begin{cases}\lambda e^{-\lambda x} & x \ge 0\\0 & x
-\< 0\end{cases}\$\$
+\$\$f(x) = \lambda e^{-\lambda x}, \quad x \ge 0\$\$ \$\$F(x) = 1 -
+e^{-\lambda x}\$\$
 
-The CDF is:
+and the quantile is
 
-\$\$F(x;\lambda) = \begin{cases}1 - e^{-\lambda x} & x \ge 0\\0 & x \<
-0\end{cases}\$\$
+\$\$Q(p) = -\frac{\log(1-p)}{\lambda}\$\$.
+
+**Accuracy and Implementation Notes:** The implementation uses `exp`,
+`log`, `expm1`, and `log1p`. Both `logcdf` and `logpdf` are specialised
+for improved numerical accuracy, and complements use stable forms.
 
 ## Usage
 
@@ -34,15 +37,15 @@ exponential_quantile(p, lambda = 1)
 
 - lambda:
 
-  rate parameter (lambda \> 0)
+  Rate parameter (lambda \> 0).
 
 - x:
 
-  quantile
+  Quantile value (x \>= 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

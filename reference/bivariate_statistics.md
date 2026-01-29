@@ -1,14 +1,16 @@
 # Bivariate Statistics Functions
 
-Functions to compute various bivariate statistics.
+Functions to compute bivariate statistics including covariance and the
+Pearson correlation coefficient.
 
-- `covariance(x, y)`: Compute population covariance of `x` & `y`
+**Covariance:** The population covariance is
 
-- `means_and_covariance(x, y)`: Boost estimates the means as part of the
-  covariance estimation, return them in a single pass
+\$\$\operatorname{cov}(x, y) = \frac{1}{n}\sum\_{i=1}^n (x_i -
+\bar{x})(y_i - \bar{y})\$\$
 
-- `correlation_coefficient(x, y)`: Perason correlation coefficient of
-  `x` & `y`
+**Correlation Coefficient:** The Pearson correlation coefficient is
+
+\$\$\rho\_{x,y} = \frac{\operatorname{cov}(x, y)}{\sigma_x \sigma_y}\$\$
 
 ## Usage
 
@@ -32,7 +34,8 @@ correlation_coefficient(x, y)
 
 ## Value
 
-A numeric value or vector with the computed statistic.
+A numeric value (or tuple for `means_and_covariance`) with the computed
+statistic.
 
 ## See also
 

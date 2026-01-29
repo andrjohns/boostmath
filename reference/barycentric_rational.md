@@ -1,6 +1,17 @@
 # Barycentric Rational Interpolation
 
-Constructs a barycentric rational interpolator given data points.
+Barycentric rational interpolation is a high-accuracy interpolation
+method for non-uniformly spaced samples.
+
+**Performance and Accuracy:**
+
+It requires O(N) time for construction and O(N) time for each
+evaluation. If the approximation order is d, the error is O(h^(d+1)).
+
+**Caveats:**
+
+This method is robust but can behave unexpectedly if the sample spacing
+at the endpoints is much larger than in the center.
 
 ## Usage
 
@@ -31,6 +42,11 @@ An object of class `barycentric_rational_interpolator` with methods:
 
 - `prime(xi)`: Evaluate the derivative of the interpolator at point
   `xi`.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/barycentric.html)
 
 ## Examples
 

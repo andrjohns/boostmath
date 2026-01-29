@@ -1,8 +1,20 @@
 # Noncentral F Distribution Functions
 
 Functions to compute the probability density function, cumulative
-distribution function, and quantile function for the Fisher F
+distribution function, and quantile function for the Noncentral F
 distribution.
+
+The noncentral F distribution is a generalization of the Fisher F
+Distribution. It is defined as the ratio \$\$F =
+\frac{X/\nu_1}{Y/\nu_2}\$\$ where \\X\\ is a noncentral \\\chi^2\\
+random variable with \\\nu_1\\ degrees of freedom and non-centrality
+parameter \\\lambda\\, and \\Y\\ is a central \\\chi^2\\ random variable
+with \\\nu_2\\ degrees of freedom.
+
+**Accuracy and Implementation Notes:** This distribution is implemented
+in terms of the Noncentral Beta Distribution. Refer to the Noncentral
+Beta Distribution documentation for details on accuracy and
+implementation method.
 
 ## Usage
 

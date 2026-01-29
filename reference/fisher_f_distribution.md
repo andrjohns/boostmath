@@ -4,6 +4,21 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Fisher F
 distribution.
 
+If \$\$X_1 \sim \chi^2\_{\nu_1}\$\$ and \$\$X_2 \sim \chi^2\_{\nu_2}\$\$
+are independent, then \$\$F = (X_1/\nu_1)/(X_2/\nu_2)\$\$ has an F
+distribution. The PDF is
+
+\$\$f(x) = \frac{\sqrt{\frac{(\nu_1 x)^{\nu_1} \nu_2^{\nu_2}}{(\nu_1 x +
+\nu_2)^{\nu_1 + \nu_2}}}}{x\\B(\nu_1/2, \nu_2/2)}\$\$
+
+and the CDF is expressed via incomplete beta functions.
+
+**Accuracy and Implementation Notes:** The CDF and quantiles are
+implemented in terms of the incomplete beta function and its inverses.
+The PDF is evaluated using stable formulations based on
+`ibeta_derivative` with branch selection to avoid loss of accuracy when
+the beta argument is near 1.
+
 ## Usage
 
 ``` r
@@ -24,19 +39,19 @@ fisher_f_quantile(p, df1, df2)
 
 - df1:
 
-  degrees of freedom for the numerator (df1 \> 0)
+  Degrees of freedom for the numerator (df1 \> 0).
 
 - df2:
 
-  degrees of freedom for the denominator (df2 \> 0)
+  Degrees of freedom for the denominator (df2 \> 0).
 
 - x:
 
-  quantile
+  Quantile value (x \>= 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

@@ -18,13 +18,13 @@ The CDF is:
 
 \$\$F(x; \alpha, \beta) = I_x(\alpha, \beta)\$\$
 
-Where \\I_x\\ is the regularized incomplete beta function.
+Where \\I_x\\ is the regularised incomplete beta function.
 
 The quantile is:
 
 \$\$F^{-1}(p; \alpha, \beta) = I\_{p}^{-1}(\alpha, \beta)\$\$
 
-Where \\I\_{p}^{-1}\\ is the inverse of the regularized incomplete beta
+Where \\I\_{p}^{-1}\\ is the inverse of the regularised incomplete beta
 function.
 
 ## Usage

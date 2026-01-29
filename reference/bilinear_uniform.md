@@ -1,6 +1,14 @@
 # Bilinear Uniform Interpolator
 
-Constructs a bilinear uniform interpolator given a grid of data points.
+The bilinear uniform interpolator takes a grid of data points specified
+by a linear index and interpolates between each segment using a bilinear
+function.
+
+**Details:**
+
+"Bilinear" means it is the product of two linear functions. The
+interpolant is continuous and its evaluation is constant time. The
+interpolator is point-centered.
 
 ## Usage
 
@@ -47,6 +55,11 @@ bilinear_uniform(x, rows, cols, dx = 1, dy = 1, x0 = 0, y0 = 0)
 An object of class `bilinear_uniform` with methods:
 
 - `interpolate(xi, yi)`: Evaluate the interpolator at point `(xi, yi)`.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bilinear_uniform.html)
 
 ## Examples
 

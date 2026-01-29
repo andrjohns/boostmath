@@ -1,7 +1,59 @@
 # Number Series
 
-Functions to compute Bernoulli numbers, tangent numbers, fibonacci
-numbers, and prime numbers.
+Functions to compute Bernoulli numbers, Tangent numbers, Prime numbers,
+and Fibonacci numbers. The library provides efficient implementations
+using table lookups for smaller indices and advanced algorithms for
+larger values.
+
+**Bernoulli Numbers B(2n):**
+
+The Bernoulli numbers are a sequence of rational numbers useful for
+Taylor series expansions, the Euler-Maclaurin formula, and the Riemann
+zeta function.
+
+- `bernoulli_b2n(n)`: Returns the (2n)-th Bernoulli number \\B\_{2n}\\.
+  Note that odd Bernoulli numbers are 0 (except B_1 = -1/2).
+
+- `max_bernoulli_b2n()`: Returns the largest n such that \\B\_{2n}\\ can
+  be represented in the return type.
+
+- `unchecked_bernoulli_b2n(n)`: A faster version without overflow
+  checks.
+
+- `bernoulli_b2n(start_index, number_of_bernoullis_b2n)`: Computes a
+  range of Bernoulli numbers.
+
+**Tangent Numbers T(n):**
+
+Tangent numbers (or zag functions) appear in the Maclaurin series of
+tan(x).
+
+- `tangent_t2n(n)`: Returns the n-th Tangent number.
+
+- `tangent_t2n(start_index, number_of_tangent_t2n)`: Computes a range of
+  Tangent numbers.
+
+**Prime Numbers:**
+
+Fast table lookup for the first 10,000 prime numbers.
+
+- `prime(n)`: Returns the n-th prime number (0-indexed, so prime(0) =
+  2).
+
+- `max_prime()`: Returns the maximum index n supported (currently
+  10,000).
+
+**Fibonacci Numbers F(n):**
+
+Computes Fibonacci numbers defined by \\F_n = F\_{n-1} + F\_{n-2}\\ with
+\\F_0 = 0, F_1 = 1\\.
+
+- `fibonacci(n)`: Returns the n-th Fibonacci number.
+
+- `unchecked_fibonacci(n)`: A faster version without overflow checks.
+
+Implementation uses table lookup for small values and iterative
+algorithms for larger values.
 
 ## Usage
 
@@ -27,68 +79,49 @@ unchecked_fibonacci(n)
 
 - n:
 
-  Index of number to compute (must be a non-negative integer)
+  Index of the number to compute (must be a non-negative integer).
 
 - start_index:
 
-  The starting index for the range of numbers (must be a non-negative
-  integer)
+  The starting index for computing a range of numbers.
 
 - number_of_bernoullis_b2n:
 
-  The number of Bernoulli numbers to compute
+  The number of Bernoulli numbers to compute in the range.
 
 - number_of_tangent_t2n:
 
-  The number of tangent numbers to compute
+  The number of Tangent numbers to compute in the range.
 
 ## Value
 
-A single numeric value for the Bernoulli numbers, tangent numbers,
-fibonacci numbers, or prime numbers, or a vector of values for ranges.
-
-## Details
-
-Efficient computation of Bernoulli numbers, tangent numbers, fibonacci
-numbers, and prime numbers.
-
-The `checked_` functions ensure that the input is within valid bounds,
-while the `unchecked_` functions do not perform such checks, allowing
-for potentially faster computation at the risk of overflow or invalid
-input.
-
-The `max_` functions return the maximum index for which the respective
-numbers can be computed using precomputed lookup tables.
+A single numeric or integer value for scalar inputs, or a vector for
+range computations. For `max_` functions, returns the maximum supported
+index.
 
 ## See also
 
 [Boost
 Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/number_series.html)
-for more details on the mathematical background.
 
 ## Examples
 
 ``` r
+if (FALSE) { # \dontrun{
+# 10th Bernoulli number B_20 (index is doubled)
 bernoulli_b2n(10)
-#> [1] -529.1242
+# Maximum supported index for Bernoulli numbers
 max_bernoulli_b2n()
-#> [1] 129
-unchecked_bernoulli_b2n(10)
-#> [1] -529.1242
+# Range of Bernoulli numbers B_0, B_2, ..., B_18 (10 numbers)
 bernoulli_b2n(start_index = 0, number_of_bernoullis_b2n = 10)
-#>  [1]  1.00000000  0.16666667 -0.03333333  0.02380952 -0.03333333  0.07575758
-#>  [7] -0.25311355  1.16666667 -7.09215686 54.97117794
+
+# 10th Tangent number
 tangent_t2n(10)
-#> [1] 2.908889e+13
-tangent_t2n(start_index = 0, number_of_tangent_t2n = 10)
-#>  [1]            0            1            2           16          272
-#>  [6]         7936       353792     22368256   1903757312 209865342976
+
+# 10th Prime number (0-indexed)
 prime(10)
-#> [1] 31
-max_prime()
-#> [1] 9999
+
+# 10th Fibonacci number
 fibonacci(10)
-#> [1] 55
-unchecked_fibonacci(10)
-#> [1] 55
+} # }
 ```

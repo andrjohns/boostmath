@@ -1,18 +1,28 @@
 # Chi-Squared Distribution Functions
 
 Functions to compute the probability density function, cumulative
-distribution function, and quantile function for the Chi-Squared
-distribution.
+distribution function, quantile function, and sample-size estimation for
+the Chi-Squared distribution.
 
-the PDF is:
+With degrees of freedom \$\$\nu \> 0\$\$, the PDF is
 
-\$\$f(x;k) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(\frac{k}{2})}\$\$
+\$\$f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2},
+\quad x \ge 0\$\$
 
-The CDF is:
+and the CDF is given by the regularised incomplete gamma function
+\$\$P(\nu/2, x/2)\$\$.
 
-\$\$F(x;k) = P(\frac{k}{2},\frac{x}{2})\$\$
+**Accuracy and Implementation Notes:** The CDF and quantiles are
+implemented via incomplete gamma functions. Specifically, the PDF uses
+`gamma_p_derivative(\nu/2, x/2)/2`, the CDF uses `gamma_p`, the
+complement uses `gamma_q`, and quantiles use
+`gamma_p_inv`/`gamma_q_inv`. Accuracy therefore follows that of the
+incomplete gamma functions.
 
-Where \\P(s,t)\\ is the regularised gamma function
+**Sample Size Estimation:** `chi_squared_find_degrees_of_freedom`
+estimates the sample size required to detect a difference from a nominal
+variance. The sign of `difference_from_variance` determines whether the
+test is for higher or lower variance.
 
 ## Usage
 
@@ -42,15 +52,15 @@ chi_squared_find_degrees_of_freedom(
 
 - df:
 
-  degrees of freedom (df \> 0)
+  Degrees of freedom (df \> 0).
 
 - x:
 
-  quantile
+  Quantile value (x \>= 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 - difference_from_variance:
 

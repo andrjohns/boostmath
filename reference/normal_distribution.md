@@ -4,6 +4,23 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Normal
 distribution.
 
+The normal distribution is probably the most well known statistical
+distribution: it is also known as the Gaussian Distribution. A normal
+distribution with mean zero and standard deviation one is known as the
+Standard Normal Distribution.
+
+Given mean \\\mu\\ and standard deviation \\\sigma\\, it has the PDF:
+\$\$f(x;\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}
+e^{-\frac{(x-\mu)^2}{2\sigma^2}}\$\$
+
+The cumulative distribution function is given by: \$\$F(x;\mu,\sigma) =
+\int\_{-\infty}^{x} f(t;\mu,\sigma) dt = \frac{1}{2}
+\text{erfc}\left(\frac{-(x-\mu)}{\sigma\sqrt{2}}\right)\$\$
+
+**Accuracy and Implementation Notes:** The normal distribution is
+implemented in terms of the error function, and as such should have very
+low error rates.
+
 ## Usage
 
 ``` r

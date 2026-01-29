@@ -1,6 +1,44 @@
-# Vector Functionals
+# Vector Norms and Distances
 
-Functions to compute various vector norms and distances.
+Functions to compute various vector norms, distances, and functional
+properties. These functionals form the basis of many numerical analysis
+and signal processing algorithms.
+
+**Norms (Magnitude):**
+
+- `l1_norm`: Computes the L1 norm (Manhattan norm), sum of absolute
+  values.
+
+- `l2_norm`: Computes the L2 norm (Euclidean norm), square root of sum
+  of squares.
+
+- `sup_norm`: Computes the Supremum (L-infinity) norm, the maximum
+  absolute value.
+
+- `lp_norm`: Computes the Lp norm for an arbitrary integer `p`.
+
+**Distances (Difference):**
+
+- `l1_distance`: Computes the L1 distance between two vectors.
+
+- `l2_distance`: Computes the L2 (Euclidean) distance between two
+  vectors.
+
+- `sup_distance`: Computes the Supremum (L-infinity) distance/Chebyshev
+  distance.
+
+- `lp_distance`: Computes the Lp distance for an arbitrary integer `p`.
+
+**Sparsity & Structure:**
+
+- `l0_pseudo_norm`: Counts the number of non-zero elements (Hamming
+  weight).
+
+- `hamming_distance`: Counts the number of mismatching elements between
+  two vectors.
+
+- `total_variation`: Computes the total variation (sum of absolute
+  differences between adjacent elements).
 
 ## Usage
 
@@ -47,46 +85,57 @@ total_variation(x)
 
 A single numeric value with the computed norm or distance.
 
+## Details
+
+- **L0 Pseudo-Norm:** Not a true norm (doesn't satisfy homogeneity), but
+  useful for sparsity (e.g., Compressed Sensing).
+
+- **L1 Norm:** Often used in sparse signal recovery (LASSO).
+
+- **Total Variation:** Useful in signal processing for denoising while
+  preserving edges (Total Variation Denoising).
+
+The implementations are designed to be efficient and work with various
+numeric types.
+
+## References
+
+Higham, N. J. (2002). Accuracy and stability of numerical algorithms.
+SIAM. Mallat, S. (2008). A wavelet tour of signal processing: the sparse
+way. Academic press.
+
 ## See also
 
 [Boost
 Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/vector_functionals.html)
-for more details on the mathematical background.
 
 ## Examples
 
 ``` r
-# L0 Pseudo Norm
-l0_pseudo_norm(c(1, 0, 2, 0, 3))
-#> [1] 3
-# Hamming Distance
-hamming_distance(c(1, 0, 1), c(0, 1, 1))
-#> [1] 2
-# L1 Norm
-l1_norm(c(1, -2, 3))
+v1 <- c(1, -2, 3)
+v2 <- c(4, -5, 6)
+
+# --- Norms ---
+l1_norm(v1)      # |1| + |-2| + |3| = 6
 #> [1] 6
-# L1 Distance
-l1_distance(c(1, -2, 3), c(4, -5, 6))
-#> [1] 9
-# L2 Norm
-l2_norm(c(3, 4))
-#> [1] 5
-# L2 Distance
-l2_distance(c(3, 4), c(0, 0))
-#> [1] 5
-# Supremum Norm
-sup_norm(c(1, -2, 3))
+l2_norm(v1)      # sqrt(1^2 + (-2)^2 + 3^2) = sqrt(14)
+#> [1] 3.741657
+sup_norm(v1)     # max(|1|, |-2|, |3|) = 3
 #> [1] 3
-# Supremum Distance
-sup_distance(c(1, -2, 3), c(4, -5, 6))
-#> [1] 3
-# Lp Norm
-lp_norm(c(1, -2, 3), 3)
+lp_norm(v1, 3)   # Cube root of sum of cubes
 #> [1] 3.301927
-# Lp Distance
-lp_distance(c(1, -2, 3), c(4, -5, 6), 3)
-#> [1] 4.326749
-# Total Variation
-total_variation(c(1, 2, 1, 3))
-#> [1] 4
+
+# --- Distances ---
+l1_distance(v1, v2)
+#> [1] 9
+l2_distance(v1, v2)
+#> [1] 5.196152
+hamming_distance(c(1, 0, 1), c(0, 1, 1)) # 2 differences (pos 1 and 2)
+#> [1] 2
+
+# --- Structure ---
+l0_pseudo_norm(c(0, 5, 0, 2)) # Returns 2 (two non-zeros)
+#> [1] 2
+total_variation(c(1, 5, 2))   # |5-1| + |2-5| = 4 + 3 = 7
+#> [1] 7
 ```

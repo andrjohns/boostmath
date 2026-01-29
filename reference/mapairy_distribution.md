@@ -4,6 +4,15 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Map-Airy
 distribution.
 
+The Map-Airy distribution is a stable distribution with
+\$\$\alpha=3/2\$\$ and \$\$\beta=1\$\$, used to model the area under a
+Brownian excursion. It is parameterised by location \$\$\mu\$\$ and
+scale \$c\$.
+
+**Accuracy and Implementation Notes:** Boost reports errors within about
+4 epsilon except in the rapidly decaying left tail. Some moments
+(skewness, kurtosis) are undefined and will raise errors if requested.
+
 ## Usage
 
 ``` r
@@ -24,19 +33,19 @@ mapairy_quantile(p, location = 0, scale = 1)
 
 - location:
 
-  location parameter (default is 0)
+  Location parameter (default is 0).
 
 - scale:
 
-  scale parameter (default is 1)
+  Scale parameter (default is 1).
 
 - x:
 
-  quantile
+  Quantile value.
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

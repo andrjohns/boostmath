@@ -1,8 +1,24 @@
 # Laplace Distribution Functions
 
 Functions to compute the probability density function, cumulative
-distribution function, and quantile function for the Laplace
-distribution.
+distribution function, and quantile function for the Laplace (double
+exponential) distribution.
+
+With location \$\$\mu\$\$ and scale \$\$\sigma \> 0\$\$, the PDF is
+
+\$\$f(x) =
+\frac{1}{2\sigma}\exp\left(-\frac{\|x-\mu\|}{\sigma}\right)\$\$
+
+and the CDF is
+
+\$\$F(x) =
+\begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\sigma}\right), & x \<
+\mu,\\ 1 - \frac{1}{2}\exp\left(\frac{\mu-x}{\sigma}\right), & x \ge
+\mu.\end{cases}\$\$
+
+**Accuracy and Implementation Notes:** Implemented in terms of `exp` and
+`log`; `logcdf` and `logpdf` are specialised for improved numerical
+accuracy. Complements use stable `log1p` forms.
 
 ## Usage
 
@@ -24,19 +40,19 @@ laplace_quantile(p, location = 0, scale = 1)
 
 - location:
 
-  location parameter (default is 0)
+  Location parameter (default is 0).
 
 - scale:
 
-  scale parameter (default is 1)
+  Scale parameter (default is 1).
 
 - x:
 
-  quantile
+  Quantile value.
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

@@ -3,6 +3,21 @@
 Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Gamma distribution.
 
+With shape \$k\>0\$ and scale \$\$\theta\>0\$\$, the PDF is
+
+\$\$f(x) = \frac{1}{\Gamma(k)\\\theta^k} x^{k-1} e^{-x/\theta}, \quad x
+\ge 0\$\$
+
+and the CDF is \$\$P(k, x/\theta)\$\$, the regularised incomplete gamma
+function. The quantile is computed via inverse incomplete gamma
+functions. When \$k\$ is an integer, this is the Erlang distribution;
+Boost uses the shape/scale parameterization.
+
+**Accuracy and Implementation Notes:** Implemented in terms of
+incomplete gamma functions (`gamma_p`, `gamma_q`) and their inverses.
+The PDF uses `gamma_p_derivative(k, x/\theta)/\theta`, and `logpdf` is
+specialised for improved accuracy.
+
 ## Usage
 
 ``` r
@@ -23,19 +38,19 @@ gamma_quantile(p, shape, scale = 1)
 
 - shape:
 
-  shape parameter (shape \> 0)
+  Shape parameter (shape \> 0).
 
 - scale:
 
-  scale parameter (scale \> 0)
+  Scale parameter (scale \> 0).
 
 - x:
 
-  quantile
+  Quantile value (x \>= 0).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

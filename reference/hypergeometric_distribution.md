@@ -1,8 +1,24 @@
 # Hypergeometric Distribution Functions
 
-Functions to compute the probability density function, cumulative
+Functions to compute the probability mass function (pmf), cumulative
 distribution function, and quantile function for the Hypergeometric
 distribution.
+
+For a population of size \$N\$ with \$r\$ successes and \$N-r\$
+failures, drawing \$n\$ items without replacement, the probability of
+observing \$k\$ successes is
+
+\$\$P(X = k) = \frac{\binom{r}{k}\binom{N-r}{n-k}}{\binom{N}{n}}\$\$
+
+with support \\k \in \[\max(0, n + r - N), \min(n, r)\]\\.
+
+**Accuracy and Implementation Notes:** For small \$N\$, factorial table
+lookup provides high accuracy. For larger \$N\$ up to the largest stored
+prime, a prime-factorization method is used. For very large \$N\$,
+accuracy degrades roughly by \$\$\log\_{10}(N)\$\$ digits. The CDF is
+computed by summing PDFs using recurrence relations, and quantiles are
+obtained by summing from the tail. As a strictly discrete distribution,
+quantiles are rounded outward to ensure coverage.
 
 ## Usage
 
@@ -24,23 +40,23 @@ hypergeometric_quantile(p, r, n, N)
 
 - r:
 
-  number of successes in the population (r \>= 0)
+  Number of successes in the population (r \>= 0).
 
 - n:
 
-  number of draws (n \>= 0)
+  Number of draws (n \>= 0).
 
 - N:
 
-  population size (N \>= r)
+  Population size (N \>= r).
 
 - x:
 
-  quantile (non-negative integer)
+  Quantile value (non-negative integer).
 
 - p:
 
-  probability (0 \<= p \<= 1)
+  Probability (0 \<= p \<= 1).
 
 ## Value
 

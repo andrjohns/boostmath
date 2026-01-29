@@ -4,6 +4,27 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Noncentral T
 distribution.
 
+The noncentral T distribution is a generalization of the Student's t
+Distribution. Let \\X\\ have a normal distribution with mean \\\delta\\
+and variance 1, and let \\\nu S^2\\ have a chi-squared distribution with
+degrees of freedom \\\nu\\. Assume that \\X\\ and \\S^2\\ are
+independent. The distribution of \\t\_{\nu}(\delta) = X/S\\ is called a
+noncentral t distribution with degrees of freedom \\\nu\\ and
+noncentrality parameter \\\delta\\.
+
+This gives the following PDF: \$\$f(x;\nu,\delta) = \frac{\nu^{\nu/2}
+e^{-\delta^2/2}}{\sqrt{\pi} \Gamma(\nu/2) (\nu+x^2)^{(\nu+1)/2}}
+\sum\_{i=0}^{\infty} \frac{\Gamma((\nu+i+1)/2)}{i!}
+\left(\frac{x\delta\sqrt{2}}{\sqrt{\nu+x^2}}\right)^i\$\$ where the sum
+involves a confluent hypergeometric function.
+
+**Accuracy and Implementation Notes:** The CDF is computed using a
+modification of the method described by Benton and Krishnamoorthy
+(2003), involving the incomplete beta function and the normal CDF.
+Iteration starts at the largest of the Poisson weighting terms and
+proceeds in both directions. For large \\\nu\\, the distribution is
+approximated by a Student's t distribution centered on \\\delta\\.
+
 ## Usage
 
 ``` r

@@ -1,7 +1,11 @@
 # Cardinal Quintic Hermite Interpolator
 
-Constructs a cardinal quintic Hermite interpolator given the vectors of
-ordinates, first derivatives, and second derivatives.
+The cardinal quintic Hermite interpolator is similar to the quintic
+Hermite interpolator but optimised for equispaced data.
+
+**Performance:**
+
+This allows for constant-time evaluation.
 
 ## Usage
 
@@ -44,6 +48,11 @@ An object of class `cardinal_quintic_hermite` with methods:
   at point `xi`.
 
 - `domain()`: Get the domain of the interpolator.
+
+## See also
+
+[Boost
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html)
 
 ## Examples
 

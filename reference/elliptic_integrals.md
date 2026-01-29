@@ -106,31 +106,31 @@ heuman_lambda(k, phi)
 
 - x:
 
-  First parameter of the integral
+  First parameter of Carlson's integral (must be non-negative)
 
 - y:
 
-  Second parameter of the integral
+  Second parameter of Carlson's integral
 
 - z:
 
-  Third parameter of the integral
+  Third parameter of Carlson's integral
 
 - p:
 
-  Fourth parameter of the integral (for Rj)
+  Fourth parameter of the integral (for Rj, must be non-zero)
 
 - k:
 
-  Elliptic modulus (for incomplete elliptic integrals)
+  Elliptic modulus for Legendre-form integrals
 
 - phi:
 
-  Amplitude (for incomplete elliptic integrals)
+  Amplitude (angle) for incomplete elliptic integrals
 
 - n:
 
-  Characteristic (for incomplete elliptic integrals of the third kind)
+  Characteristic for elliptic integrals of the third kind
 
 ## Value
 
@@ -148,7 +148,7 @@ for more details on the mathematical background.
 # Carlson's elliptic integral Rf with parameters x = 1, y = 2, z = 3
 ellint_rf(1, 2, 3)
 #> [1] 0.7269459
-#' # Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
+# Carlson's elliptic integral Rd with parameters x = 1, y = 2, z = 3
 ellint_rd(1, 2, 3)
 #> [1] 0.2904603
 # Carlson's elliptic integral Rj with parameters x = 1, y = 2, z = 3, p = 4
