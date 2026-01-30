@@ -24,12 +24,9 @@ wavelets indexed by the number of vanishing moments $p$, returning $2p$ taps.
 
 \strong{Conventions:}
 Boost indexes filters by vanishing moments (as in PyWavelets and Mathematica),
-normalizes coefficients to unit \deqn{\ell_2} norm, and uses the convolutional ordering
+normalizes coefficients to unit \eqn{\ell_2} norm, and uses the convolutional ordering
 shown in Daubechies (1988). Other libraries may index by number of taps, use a
-\deqn{\sqrt{2}} scaling, or reverse coefficient order.
-
-\strong{Accuracy:}
-The coefficients are accurate to octuple precision in Boost.Math.
+\eqn{\sqrt{2}} scaling, or reverse coefficient order.
 }
 \examples{
 # Daubechies Scaling Filter of order 4
@@ -38,5 +35,6 @@ daubechies_scaling_filter(4)
 daubechies_wavelet_filter(4)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/daubechies_filters.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/daubechies_filters.html}{Boost Documentation}
+for more details on the mathematical background.
 }

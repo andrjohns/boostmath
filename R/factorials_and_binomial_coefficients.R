@@ -9,51 +9,48 @@
 #'
 #' **Factorial Functions:**
 #'
-#' * `factorial_boost(i)`: Computes i! = 1*2*3*...*i
+#' * `factorial_boost(i)`: Computes \eqn{i! = 1*2*3*...*i}
 #'   - Standard factorial with overflow checking
-#'   - Returns error for i > max_factorial()
+#'   - Returns error for \eqn{i} > max_factorial()
 #'
 #' * `unchecked_factorial(i)`: Fast table lookup for small factorials
-#'   - No overflow checking, assumes i is valid
+#'   - No overflow checking, assumes \eqn{i} is valid
 #'   - Use when performance is critical and i is known to be small
 #'
-#' * `max_factorial()`: Returns the largest i for which factorial(i) fits in the
+#' * `max_factorial()`: Returns the largest \eqn{i} for which \eqn{factorial_boost(i)} fits in the
 #'   return type without overflow
 #'
 #' **Double Factorial:**
 #'
-#' * `double_factorial(i)`: Computes i!! = i*(i-2)*(i-4)*...
-#'   - For even i: i!! = i*(i-2)*...*4*2
-#'   - For odd i: i!! = i*(i-2)*...*3*1
-#'   - Definition: 0!! = 1, (-1)!! = 1
+#' * `double_factorial(i)`: Computes \eqn{i!! = i*(i-2)*(i-4)*...}
+#'   - For even i: \eqn{i!! = i*(i-2)*...*4*2}
+#'   - For odd i: \eqn{i!! = i*(i-2)*...*3*1}
 #'
 #' **Rising and Falling Factorials (Pochhammer Symbols):**
 #'
-#' * `rising_factorial(x, i)`: Computes \deqn{x^{(i)} = x(x+1)(x+2)...(x+i-1)}
+#' * `rising_factorial(x, i)`: Computes \eqn{x^{(i)} = x(x+1)(x+2)...(x+i-1)}
 #'   - Also called Pochhammer symbol or ascending factorial
 #'   - Used in hypergeometric functions and series expansions
-#'   - For integer x, equals (x+i-1)! / (x-1)!
+#'   - For integer \eqn{x}, equals \eqn{(x+i-1)! / (x-1)!}
 #'
-#' * `falling_factorial(x, i)`: Computes \deqn{(x)_i = x(x-1)(x-2)...(x-i+1)}
+#' * `falling_factorial(x, i)`: Computes \eqn{(x)_i = x(x-1)(x-2)...(x-i+1)}
 #'   - Also called descending factorial
 #'   - Counts permutations: number of ways to arrange i items from x items
-#'   - For integer x, equals x! / (x-i)!
+#'   - For integer \eqn{x}, \eqn{equals x! / (x-i)!}
 #'
 #' **Binomial Coefficients:**
 #'
-#' * `binomial_coefficient(n, k)`: Computes C(n,k) = n! / (k!(n-k)!)
-#'   - "n choose k": number of ways to choose k items from n items
-#'   - Symmetric: C(n,k) = C(n,n-k)
-#'   - Pascal's triangle: C(n,k) = C(n-1,k-1) + C(n-1,k)
+#' * `binomial_coefficient(n, k)`: Computes \eqn{C(n,k) = n! / (k!(n-k)!)}
+#'   - "n choose k": number of ways to choose \eqn{k} items from \eqn{n} items
 #'
-#' All functions use efficient algorithms to avoid overflow and maintain precision.
-#'
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/factorials.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/factorials.html)
+#' for more details on the mathematical background.
 #' @param i Non-negative integer input for factorials and double factorials
 #' @param x Base value for rising and falling factorials (can be real-valued)
 #' @param n Total number of elements for binomial coefficients
 #' @param k Number of elements to choose for binomial coefficients (0 <= k <= n)
-#' @return A single numeric value with the computed factorial, double factorial, rising factorial, falling factorial, or binomial coefficient.
+#' @return A single numeric value with the computed factorial, double factorial, rising factorial,
+#' falling factorial, or binomial coefficient.
 #' @examples
 #' # Factorial of 5: 5! = 120
 #' factorial_boost(5)

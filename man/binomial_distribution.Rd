@@ -42,23 +42,26 @@ binomial_find_maximum_number_of_trials(k, prob, alpha)
 
 \item{p}{Probability (0 <= p <= 1).}
 
-\item{alpha}{Largest acceptable probability that the true value of the success fraction is less than the value returned (by \code{binomial_find_lower_bound_on_p}) or greater than the value returned (by \code{binomial_find_upper_bound_on_p}).}
+\item{alpha}{Largest acceptable probability that the true value of the success fraction
+is less than the value returned (by \code{binomial_find_lower_bound_on_p}) or greater than
+the value returned (by \code{binomial_find_upper_bound_on_p}).}
 
-\item{method}{Method to use for calculating the confidence bounds. Options are "clopper_pearson_exact" (default) and "jeffreys_prior".}
+\item{method}{Method to use for calculating the confidence bounds.
+Options are "clopper_pearson_exact" (default) and "jeffreys_prior".}
 }
 \value{
-A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
+A single numeric value with the computed probability density,
+log-probability density, cumulative distribution, log-cumulative distribution,
+or quantile depending on the function called.
 }
 \description{
 Functions to compute the probability mass function (pmf), cumulative distribution
 function, quantile function, and confidence bounds for the Binomial distribution.
 
 The Binomial distribution models the number of successes $k$ in $n$ independent
-trials with success probability $p$. The pmf is
+trials with success probability \q{p}. The pmf is
 
 \deqn{P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}}
-
-for integers \deqn{0 \le k \le n}, and the CDF gives \deqn{P(X \le k)}.
 
 \strong{Accuracy and Implementation Notes:}
 CDF and related functions are implemented using incomplete beta functions (\code{ibeta},
@@ -113,5 +116,6 @@ binomial_find_maximum_number_of_trials(3, 0.5, 0.05)
 }
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html}{Boost Documentation}
+for more details on the mathematical background.
 }

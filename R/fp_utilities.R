@@ -7,7 +7,7 @@
 #' **Floating-Point Navigation:**
 #' * `float_next(x)` / `float_prior(x)` move to the next greater/smaller representable value.
 #' * `float_distance(x, y)` returns the representation distance in ULPs.
-#' * `float_advance(x, n)` advances by $n$ ULPs.
+#' * `float_advance(x, n)` advances by \eqn{n} ULPs.
 #' * `ulp(x)` returns the size of one unit in the last place at `x`.
 #'
 #' **Comparisons:**

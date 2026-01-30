@@ -43,7 +43,7 @@ representable values, ULP distances, and condition numbers.
 \itemize{
 \item \code{float_next(x)} / \code{float_prior(x)} move to the next greater/smaller representable value.
 \item \code{float_distance(x, y)} returns the representation distance in ULPs.
-\item \code{float_advance(x, n)} advances by $n$ ULPs.
+\item \code{float_advance(x, n)} advances by \eqn{n} ULPs.
 \item \code{ulp(x)} returns the size of one unit in the last place at \code{x}.
 }
 

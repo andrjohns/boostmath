@@ -4,12 +4,12 @@
 #' Functions to compute the probability density function, cumulative distribution
 #' function, quantile function, and sample-size estimation for the Chi-Squared distribution.
 #'
-#' With degrees of freedom \deqn{\nu > 0}, the PDF is
+#' With degrees of freedom deqn{\nu > 0}, the PDF is:
 #'
-#' \deqn{f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
+#' \deqn{f(x; \nu) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
 #'
 #' and the CDF is given by the regularised incomplete gamma function
-#' \deqn{P(\nu/2, x/2)}.
+#' \deqn{F(x;\nu) = P(\nu/2, x/2)}
 #'
 #' **Accuracy and Implementation Notes:**
 #' The CDF and quantiles are implemented via incomplete gamma functions. Specifically,
@@ -25,13 +25,17 @@
 #' @param x Quantile value (x >= 0).
 #' @param df Degrees of freedom (df > 0).
 #' @param p Probability (0 <= p <= 1).
-#' @param difference_from_variance The difference from the assumed nominal variance that is to be detected: Note that the sign of this value is critical (see the documentation for more details).
+#' @param difference_from_variance The difference from the assumed nominal variance
+#' that is to be detected.
 #' @param alpha The acceptable probability of a Type I error (false positive).
 #' @param beta The acceptable probability of a Type II error (false negative).
 #' @param variance The assumed nominal variance.
-#' @param hint An initial guess for the degrees of freedom to start the search from (current sample size is a good start).
-#' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html) for more details on the mathematical background.
+#' @param hint An initial guess for the degrees of freedom to start the search from
+#' (current sample size is a good start).
+#' @return A single numeric value with the computed probability density, log-probability density,
+#' cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html)
+#' for more details on the mathematical background.
 #' @examples
 #' # Chi-Squared distribution with 3 degrees of freedom
 #' dist <- chi_squared_distribution(3)

@@ -31,24 +31,21 @@ extreme_value_quantile(p, location = 0, scale = 1)
 \item{p}{Probability (0 <= p <= 1).}
 }
 \value{
-A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
+A single numeric value with the computed probability density, log-probability density,
+cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
 Functions to compute the probability density function, cumulative distribution
 function, and quantile function for the Extreme Value (Gumbel) distribution.
 
-With location $a$ and scale $b > 0$, the PDF and CDF are
+With location \eqn{a} and scale \eqn{b > 0}, the PDF and CDF are
 
-\deqn{f(x) = \frac{1}{b}\exp\left(\frac{a-x}{b}\right)\exp\left(-\exp\left(\frac{a-x}{b}\right)\right)}
-\deqn{F(x) = \exp\left(-\exp\left(\frac{a-x}{b}\right)\right)}
+\deqn{f(x; a, b) = \frac{1}{b}\exp\left(\frac{a-x}{b}\right)\exp\left(-\exp\left(\frac{a-x}{b}\right)\right)}
+\deqn{F(x; a, b) = \exp\left(-\exp\left(\frac{a-x}{b}\right)\right)}
 
 and the quantile is
 
-\deqn{Q(p) = a - b\log\left(-\log(p)\right)}.
-
-\strong{Accuracy and Implementation Notes:}
-Implemented using \code{exp} and \code{log} with specialised \code{logcdf} and \code{logpdf} for improved
-accuracy. Complements use stable \code{expm1}/\code{log1p} forms to reduce cancellation.
+\deqn{F^{-1}(p; a, b) = a - b\log\left(-\log(p)\right)}.
 }
 \examples{
 # Extreme Value distribution with location = 0, scale = 1
@@ -80,5 +77,6 @@ extreme_value_lcdf(0)
 extreme_value_quantile(0.5)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/extreme_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/extreme_dist.html}{Boost Documentation}
+for more details on the mathematical background.
 }

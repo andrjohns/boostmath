@@ -4,18 +4,15 @@
 #' Functions to compute the probability density function, cumulative distribution
 #' function, and quantile function for the Fisher F distribution.
 #'
-#' If \deqn{X_1 \sim \chi^2_{\nu_1}} and \deqn{X_2 \sim \chi^2_{\nu_2}} are independent, then
-#' \deqn{F = (X_1/\nu_1)/(X_2/\nu_2)} has an F distribution. The PDF is
+#' The PDF is:
 #'
-#' \deqn{f(x) = \frac{\sqrt{\frac{(\nu_1 x)^{\nu_1} \nu_2^{\nu_2}}{(\nu_1 x + \nu_2)^{\nu_1 + \nu_2}}}}{x\,B(\nu_1/2, \nu_2/2)}}
+#' \deqn{f(x; \nu_1, \nu_2) = \frac{\sqrt{\frac{(\nu_1 x)^{\nu_1} \nu_2^{\nu_2}}{(\nu_1 x + \nu_2)^{\nu_1 + \nu_2}}}}{x\,B(\nu_1/2, \nu_2/2)}}
 #'
-#' and the CDF is expressed via incomplete beta functions.
+#' The CDF is:
 #'
-#' **Accuracy and Implementation Notes:**
-#' The CDF and quantiles are implemented in terms of the incomplete beta function and
-#' its inverses. The PDF is evaluated using stable formulations based on
-#' `ibeta_derivative` with branch selection to avoid loss of accuracy when the beta
-#' argument is near 1.
+#' \deqn{F(x; \nu_1, \nu_2) = I_{\nu_1 x / (\nu_1 x + \nu_2))(\frac{\nu_1}{2},\frac{\nu_2}{2})}}
+#'
+#' Where \eqn{I_{.}(.,.)} is the regularised incomplete beta function
 #'
 #' @param x Quantile value (x >= 0).
 #' @param df1 Degrees of freedom for the numerator (df1 > 0).

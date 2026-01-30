@@ -13,13 +13,10 @@ chatterjee_correlation(x, y)
 }
 \value{
 A numeric value representing the Chatterjee correlation coefficient.
-(Note: The C++ wrapper returns the coefficient itself. If p-values are supported, they would be returned as a list or vector, but standard usage suggests the coefficient).
-\emph{Wait}, the previous doc said "two-element numeric vector containing the test statistic and the p-value". I will assume this is correct and describe the return value as such.
 
 A numeric vector containing:
 \enumerate{
 \item \strong{Correlation Coefficient:} The Chatterjee correlation estimate.
-\item \strong{P-Value:} The p-value testing the hypothesis of independence (if supported/implemented).
 }
 }
 \description{
@@ -33,7 +30,7 @@ capturing non-linear relationships.
 \item \strong{Functional Dependence:} Value is 1 if and only if \code{y} is a measurable function of \code{x}.
 \item \strong{Independence:} Value is 0 if \code{x} and \code{y} are independent.
 \item \strong{Range:} The coefficient is theoretically in \eqn{[0, 1]}.
-\item \strong{Asymmetry:} The measure is asymmetric; \deqn{C(X, Y) \neq C(Y, X)}. It specifically tests if $Y = f(X)$.
+\item \strong{Asymmetry:} The measure is asymmetric; \eqn{C(X, Y) \neq C(Y, X)}. It specifically tests if $Y = f(X)$.
 }
 }
 \details{
@@ -41,10 +38,9 @@ The coefficient is calculated using the ranks of \code{y} when sorted by \code{x
 This implementation computes the sample version of the coefficient as described by Chatterjee (2021).
 
 \strong{Formula:}
-Given pairs $(X_i, Y_i)$, sort them such that \deqn{X_{(1)} \le \dots \le X_{(n)}}.
-Let $r_i$ be the rank of \deqn{Y_{(i)}}. The coefficient is:
+Given pairs \eqn{(X_i, Y_i)}, sort them such that \eqn{X_{(1)} \le \dots \le X_{(n)}}.
+Let \eqn{r_i} be the rank of \eqn{Y_{(i)}}. The coefficient is:
 \deqn{ \xi_n(X, Y) = 1 - \frac{3 \sum_{i=1}^{n-1} |r_{i+1} - r_i|}{n^2 - 1} }
-(simplified version for no ties). Use the function for the exact robust calculation handling ties.
 }
 \examples{
 # Functional dependence (Y = X^2)

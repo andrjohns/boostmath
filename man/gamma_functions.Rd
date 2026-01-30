@@ -77,41 +77,27 @@ A single numeric value with the computed gamma function, logarithm, digamma, tri
 Functions to compute the gamma function, its logarithm, digamma, trigamma, polygamma,
 and various incomplete gamma functions.
 
-The gamma function is a fundamental special function that extends the factorial
-function to real and complex numbers.
-
 \strong{Gamma Function Gamma(z):}
 \itemize{
-\item \code{tgamma(z)}: Computes Gamma(z), the true gamma function
-\item Key mathematical relationships:
-\itemize{
-\item Recursion formula: Gamma(z) = Gamma(z+1)/z
-\item Reflection formula: Gamma(z)*Gamma(1-z) = pi/sin(piz)
-\item Identity: Gamma(z+1) = z*Gamma(z)
-}
-\item Implementation uses Lanczos approximation for standard precision and
-Stirling's approximation for large z
-\item \code{tgamma1pm1(z)}: Computes Gamma(1+z) - 1 with enhanced numerical stability
+\item \code{tgamma(z)}: Computes \eqn{\Gamma(z)}, the true gamma function
+\item \code{tgamma1pm1(z)}: Computes \eqn{\Gamma(1+z) - 1} with enhanced numerical stability
 for very small z values, avoiding precision loss
-\item \code{lgamma_boost(z)}: Returns log(Gamma(z)), the logarithm of the gamma function
+\item \code{lgamma_boost(z)}: Returns \eqn{\log(\Gamma(z))}, the logarithm of the gamma function
 }
 
 \strong{Derivative Functions:}
 \itemize{
-\item \code{digamma_boost(z)}: The digamma (psi) function digamma(z) = d/dz\[ln(Gamma(z))\],
-the logarithmic derivative of the gamma function
-\itemize{
-\item Reflection formula: digamma(1-z) = digamma(z) + pi/tan(piz)
-\item Recurrence relation: digamma(z+1) = digamma(z) + 1/z
-}
-\item \code{trigamma_boost(z)}: The trigamma function, the second derivative of ln(Gamma(z))
-\item \code{polygamma(n, z)}: The nth derivative of the digamma function (n-th order polygamma)
+\item \code{digamma_boost(z)}: The digamma function, the first derivative of the logarithm of the Gamma function
+\eqn{\psi(z) = \frac{d}{dz}\log\Gamma(z) = \frac{\Gamma'(z)}{\Gamma(z)}},
+\item \code{trigamma_boost(z)}: The trigamma function, the second derivative of the logarithm of the Gamma function
+\eqn{\psi_1(z) = \frac{d^2}{dz^2}\log\Gamma(z)}
+\item \code{polygamma(n, z)}: The nth derivative of the digamma function (n-th order polygamma) \eqn{\psi^{(m)}(z) = \frac{d^m}{dz^m}\psi(z)}
 }
 
 \strong{Ratios:}
 \itemize{
-\item \code{tgamma_ratio(a, b)}: Computes Gamma(a)/Gamma(b)
-\item \code{tgamma_delta_ratio(a, delta)}: Computes Gamma(a)/Gamma(a + delta)
+\item \code{tgamma_ratio(a, b)}: Computes \eqn{\Gamma(a)/\Gamma(b)}
+\item \code{tgamma_delta_ratio(a, delta)}: Computes \eqn{\Gamma(a)/\Gamma(a + \delta)}
 }
 
 \strong{Incomplete Gamma Functions:}
@@ -120,31 +106,28 @@ These functions require a > 0 and z >= 0.
 \itemize{
 \item \strong{Normalised (Regularised) Functions} (return values in \eqn{[0, 1]}):
 \itemize{
-\item \code{gamma_p(a, z)}: Normalised lower incomplete gamma P(a, z).
-Changes rapidly from 0 to 1 around z = a
-\item \code{gamma_q(a, z)}: Normalised upper incomplete gamma Q(a, z).
-Changes rapidly from 1 to 0 around z = a
-\item Note: P(a, z) + Q(a, z) = 1
+\item \code{gamma_p(a, z)}: Normalised lower incomplete gamma \eqn{P(a, z) = \frac{\gamma(a, z)}{\Gamma(z)}}
+\item \code{gamma_q(a, z)}: Normalised upper incomplete gamma \eqn{Q(a, z) = \frac{\Gamma(a, z)}{\Gamma(a)}}
 }
 \item \strong{Non-normalised Functions} (return values in \eqn{[0, Gamma(a)]}):
 \itemize{
-\item \code{tgamma_lower(a, z)}: Full lower incomplete gamma function
-\item \code{tgamma_upper(a, z)}: Full upper incomplete gamma function
+\item \code{tgamma_lower(a, z)}: Full lower incomplete gamma function \eqn{\gamma(a, z) = \int_{0}^z t^{a-1}e^{-t}dt}
+\item \code{tgamma_upper(a, z)}: Full upper incomplete gamma function \eqn{\Gamma(a, z) = \int_{z}^\Infty t^{a-1}e^{-t}dt}
 }
 }
 
 \strong{Inverse Functions:}
 \itemize{
-\item \code{gamma_p_inv(a, p)}: Returns z such that p = P(a, z)
-\item \code{gamma_q_inv(a, q)}: Returns z such that q = Q(a, z)
-\item \code{gamma_p_inva(z, p)}: Returns a such that p = P(a, z)
-\item \code{gamma_q_inva(z, q)}: Returns a such that q = Q(a, z)
+\item \code{gamma_p_inv(a, p)}: Returns \eqn{z} such that \eqn{p = P(a, z)}
+\item \code{gamma_q_inv(a, q)}: Returns \eqn{z} such that \eqn{q = Q(a, z)}
+\item \code{gamma_p_inva(z, p)}: Returns \eqn{a} such that \eqn{p = P(a, z)}
+\item \code{gamma_q_inva(z, q)}: Returns \eqn{a} such that \eqn{q = Q(a, z)}
 }
 
 \strong{Derivative:}
 \itemize{
 \item \code{gamma_p_derivative(a, z)}: Computes the derivative of the normalised
-lower incomplete gamma function with respect to z
+lower incomplete gamma function with respect to z: \eqn{\frac{\partial}{\partial z}P(a, z) = \frac{e^{-z}z^{a-1}}{\Gamma(a)}}
 }
 }
 \examples{

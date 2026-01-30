@@ -35,7 +35,8 @@ binomial_coefficient(n, k)
 \item{k}{Number of elements to choose for binomial coefficients (0 <= k <= n)}
 }
 \value{
-A single numeric value with the computed factorial, double factorial, rising factorial, falling factorial, or binomial coefficient.
+A single numeric value with the computed factorial, double factorial, rising factorial,
+falling factorial, or binomial coefficient.
 }
 \description{
 Functions to compute factorials, double factorials, rising and falling factorials
@@ -46,57 +47,52 @@ distributions, and series expansions of special functions.
 
 \strong{Factorial Functions:}
 \itemize{
-\item \code{factorial_boost(i)}: Computes i! = 1\emph{2}3*...*i
+\item \code{factorial_boost(i)}: Computes \eqn{i! = 1*2*3*...*i}
 \itemize{
 \item Standard factorial with overflow checking
-\item Returns error for i > max_factorial()
+\item Returns error for \eqn{i} > max_factorial()
 }
 \item \code{unchecked_factorial(i)}: Fast table lookup for small factorials
 \itemize{
-\item No overflow checking, assumes i is valid
+\item No overflow checking, assumes \eqn{i} is valid
 \item Use when performance is critical and i is known to be small
 }
-\item \code{max_factorial()}: Returns the largest i for which factorial(i) fits in the
+\item \code{max_factorial()}: Returns the largest \eqn{i} for which \eqn{factorial_boost(i)} fits in the
 return type without overflow
 }
 
 \strong{Double Factorial:}
 \itemize{
-\item \code{double_factorial(i)}: Computes i!! = i*(i-2)\emph{(i-4)}...
+\item \code{double_factorial(i)}: Computes \eqn{i!! = i*(i-2)*(i-4)*...}
 \itemize{
-\item For even i: i!! = i*(i-2)*...\emph{4}2
-\item For odd i: i!! = i*(i-2)*...\emph{3}1
-\item Definition: 0!! = 1, (-1)!! = 1
+\item For even i: \eqn{i!! = i*(i-2)*...*4*2}
+\item For odd i: \eqn{i!! = i*(i-2)*...*3*1}
 }
 }
 
 \strong{Rising and Falling Factorials (Pochhammer Symbols):}
 \itemize{
-\item \code{rising_factorial(x, i)}: Computes \deqn{x^{(i)} = x(x+1)(x+2)...(x+i-1)}
+\item \code{rising_factorial(x, i)}: Computes \eqn{x^{(i)} = x(x+1)(x+2)...(x+i-1)}
 \itemize{
 \item Also called Pochhammer symbol or ascending factorial
 \item Used in hypergeometric functions and series expansions
-\item For integer x, equals (x+i-1)! / (x-1)!
+\item For integer \eqn{x}, equals \eqn{(x+i-1)! / (x-1)!}
 }
-\item \code{falling_factorial(x, i)}: Computes \deqn{(x)_i = x(x-1)(x-2)...(x-i+1)}
+\item \code{falling_factorial(x, i)}: Computes \eqn{(x)_i = x(x-1)(x-2)...(x-i+1)}
 \itemize{
 \item Also called descending factorial
 \item Counts permutations: number of ways to arrange i items from x items
-\item For integer x, equals x! / (x-i)!
+\item For integer \eqn{x}, \eqn{equals x! / (x-i)!}
 }
 }
 
 \strong{Binomial Coefficients:}
 \itemize{
-\item \code{binomial_coefficient(n, k)}: Computes C(n,k) = n! / (k!(n-k)!)
+\item \code{binomial_coefficient(n, k)}: Computes \eqn{C(n,k) = n! / (k!(n-k)!)}
 \itemize{
-\item "n choose k": number of ways to choose k items from n items
-\item Symmetric: C(n,k) = C(n,n-k)
-\item Pascal's triangle: C(n,k) = C(n-1,k-1) + C(n-1,k)
+\item "n choose k": number of ways to choose \eqn{k} items from \eqn{n} items
 }
 }
-
-All functions use efficient algorithms to avoid overflow and maintain precision.
 }
 \examples{
 # Factorial of 5: 5! = 120
@@ -115,5 +111,6 @@ falling_factorial(3, 2)
 binomial_coefficient(5, 2)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/factorials.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/factorials.html}{Boost Documentation}
+for more details on the mathematical background.
 }

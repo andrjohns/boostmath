@@ -5,11 +5,9 @@
 #' function, quantile function, and confidence bounds for the Binomial distribution.
 #'
 #' The Binomial distribution models the number of successes $k$ in $n$ independent
-#' trials with success probability $p$. The pmf is
+#' trials with success probability \q{p}. The pmf is
 #'
 #' \deqn{P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}}
-#'
-#' for integers \deqn{0 \le k \le n}, and the CDF gives \deqn{P(X \le k)}.
 #'
 #' **Accuracy and Implementation Notes:**
 #' CDF and related functions are implemented using incomplete beta functions (`ibeta`,
@@ -27,10 +25,16 @@
 #' @param n Number of trials (n >= 0).
 #' @param prob Probability of success on each trial (0 <= prob <= 1).
 #' @param p Probability (0 <= p <= 1).
-#' @param alpha Largest acceptable probability that the true value of the success fraction is less than the value returned (by `binomial_find_lower_bound_on_p`) or greater than the value returned (by `binomial_find_upper_bound_on_p`).
-#' @param method Method to use for calculating the confidence bounds. Options are "clopper_pearson_exact" (default) and "jeffreys_prior".
-#' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html) for more details on the mathematical background.
+#' @param alpha Largest acceptable probability that the true value of the success fraction
+#' is less than the value returned (by `binomial_find_lower_bound_on_p`) or greater than
+#' the value returned (by `binomial_find_upper_bound_on_p`).
+#' @param method Method to use for calculating the confidence bounds.
+#' Options are "clopper_pearson_exact" (default) and "jeffreys_prior".
+#' @return A single numeric value with the computed probability density,
+#' log-probability density, cumulative distribution, log-cumulative distribution,
+#' or quantile depending on the function called.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html)
+#' for more details on the mathematical background.
 #' @examples
 #' # Binomial distribution with n = 10, prob = 0.5
 #' dist <- binomial_distribution(10, 0.5)

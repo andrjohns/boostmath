@@ -37,7 +37,8 @@ chi_squared_find_degrees_of_freedom(
 
 \item{p}{Probability (0 <= p <= 1).}
 
-\item{difference_from_variance}{The difference from the assumed nominal variance that is to be detected: Note that the sign of this value is critical (see the documentation for more details).}
+\item{difference_from_variance}{The difference from the assumed nominal variance
+that is to be detected.}
 
 \item{alpha}{The acceptable probability of a Type I error (false positive).}
 
@@ -45,21 +46,23 @@ chi_squared_find_degrees_of_freedom(
 
 \item{variance}{The assumed nominal variance.}
 
-\item{hint}{An initial guess for the degrees of freedom to start the search from (current sample size is a good start).}
+\item{hint}{An initial guess for the degrees of freedom to start the search from
+(current sample size is a good start).}
 }
 \value{
-A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
+A single numeric value with the computed probability density, log-probability density,
+cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 }
 \description{
 Functions to compute the probability density function, cumulative distribution
 function, quantile function, and sample-size estimation for the Chi-Squared distribution.
 
-With degrees of freedom \deqn{\nu > 0}, the PDF is
+With degrees of freedom deqn{\nu > 0}, the PDF is:
 
-\deqn{f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
+\deqn{f(x; \nu) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2}, \quad x \ge 0}
 
 and the CDF is given by the regularised incomplete gamma function
-\deqn{P(\nu/2, x/2)}.
+\deqn{F(x;\nu) = P(\nu/2, x/2)}
 
 \strong{Accuracy and Implementation Notes:}
 The CDF and quantiles are implemented via incomplete gamma functions. Specifically,
@@ -106,5 +109,6 @@ chi_squared_quantile(0.5, 3)
 chi_squared_find_degrees_of_freedom(2.0, 0.05, 0.2, 5.0)
 }
 \seealso{
-\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html}{Boost Documentation} for more details on the mathematical background.
+\href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html}{Boost Documentation}
+for more details on the mathematical background.
 }
