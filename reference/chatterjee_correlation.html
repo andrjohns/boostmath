@@ -7,7 +7,7 @@ Characteristics:
 Functional Dependence: Value is 1 if and only if y is a measurable function of x.
 Independence: Value is 0 if x and y are independent.
 Range: The coefficient is theoretically in \([0, 1]\).
-Asymmetry: The measure is asymmetric; $$C(X, Y) \neq C(Y, X)$$. It specifically tests if $Y = f(X)$.
+Asymmetry: The measure is asymmetric; \(C(X, Y) \neq C(Y, X)\). It specifically tests if $Y = f(X)$.
 
 "><meta property="og:description" content="Computes the Chatterjee correlation coefficient, a robust measure of dependence.
 Unlike classical correlation coefficients (Pearson, Spearman), Chatterjee's coefficient
@@ -17,7 +17,7 @@ Characteristics:
 Functional Dependence: Value is 1 if and only if y is a measurable function of x.
 Independence: Value is 0 if x and y are independent.
 Range: The coefficient is theoretically in \([0, 1]\).
-Asymmetry: The measure is asymmetric; $$C(X, Y) \neq C(Y, X)$$. It specifically tests if $Y = f(X)$.
+Asymmetry: The measure is asymmetric; \(C(X, Y) \neq C(Y, X)\). It specifically tests if $Y = f(X)$.
 
 "></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -74,7 +74,7 @@ capturing non-linear relationships.</p>
 <p><strong>Characteristics:</strong></p><ul><li><p><strong>Functional Dependence:</strong> Value is 1 if and only if <code>y</code> is a measurable function of <code>x</code>.</p></li>
 <li><p><strong>Independence:</strong> Value is 0 if <code>x</code> and <code>y</code> are independent.</p></li>
 <li><p><strong>Range:</strong> The coefficient is theoretically in \([0, 1]\).</p></li>
-<li><p><strong>Asymmetry:</strong> The measure is asymmetric; $$C(X, Y) \neq C(Y, X)$$. It specifically tests if $Y = f(X)$.</p></li>
+<li><p><strong>Asymmetry:</strong> The measure is asymmetric; \(C(X, Y) \neq C(Y, X)\). It specifically tests if $Y = f(X)$.</p></li>
 </ul></div>
 
     <div class="section level2">
@@ -96,21 +96,17 @@ capturing non-linear relationships.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A numeric value representing the Chatterjee correlation coefficient.
-(Note: The C++ wrapper returns the coefficient itself. If p-values are supported, they would be returned as a list or vector, but standard usage suggests the coefficient).
-<em>Wait</em>, the previous doc said "two-element numeric vector containing the test statistic and the p-value". I will assume this is correct and describe the return value as such.</p>
+    <p>A numeric value representing the Chatterjee correlation coefficient.</p>
 <p>A numeric vector containing:</p><ol><li><p><strong>Correlation Coefficient:</strong> The Chatterjee correlation estimate.</p></li>
-<li><p><strong>P-Value:</strong> The p-value testing the hypothesis of independence (if supported/implemented).</p></li>
 </ol></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The coefficient is calculated using the ranks of <code>y</code> when sorted by <code>x</code>.
 This implementation computes the sample version of the coefficient as described by Chatterjee (2021).</p>
 <p><strong>Formula:</strong>
-Given pairs $(X_i, Y_i)$, sort them such that $$X_{(1)} \le \dots \le X_{(n)}$$.
-Let $r_i$ be the rank of $$Y_{(i)}$$. The coefficient is:
-$$ \xi_n(X, Y) = 1 - \frac{3 \sum_{i=1}^{n-1} |r_{i+1} - r_i|}{n^2 - 1} $$
-(simplified version for no ties). Use the function for the exact robust calculation handling ties.</p>
+Given pairs \((X_i, Y_i)\), sort them such that \(X_{(1)} \le \dots \le X_{(n)}\).
+Let \(r_i\) be the rank of \(Y_{(i)}\). The coefficient is:
+$$ \xi_n(X, Y) = 1 - \frac{3 \sum_{i=1}^{n-1} |r_{i+1} - r_i|}{n^2 - 1} $$</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>

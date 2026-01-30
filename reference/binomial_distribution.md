@@ -5,12 +5,9 @@ distribution function, quantile function, and confidence bounds for the
 Binomial distribution.
 
 The Binomial distribution models the number of successes \$k\$ in \$n\$
-independent trials with success probability \$p\$. The pmf is
+independent trials with success probability p. The pmf is
 
 \$\$P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}\$\$
-
-for integers \$\$0 \le k \le n\$\$, and the CDF gives \$\$P(X \le
-k)\$\$.
 
 **Accuracy and Implementation Notes:** CDF and related functions are
 implemented using incomplete beta functions (`ibeta`, `ibetac`). The pmf

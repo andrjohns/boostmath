@@ -4,13 +4,13 @@ Functions to compute the probability density function, cumulative
 distribution function, quantile function, and sample-size estimation for
 the Chi-Squared distribution.
 
-With degrees of freedom \$\$\nu \> 0\$\$, the PDF is
+With degrees of freedom deqn \> 0, the PDF is:
 
-\$\$f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2},
+\$\$f(x; \nu) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2},
 \quad x \ge 0\$\$
 
 and the CDF is given by the regularised incomplete gamma function
-\$\$P(\nu/2, x/2)\$\$.
+\$\$F(x;\nu) = P(\nu/2, x/2)\$\$
 
 **Accuracy and Implementation Notes:** The CDF and quantiles are
 implemented via incomplete gamma functions. Specifically, the PDF uses
@@ -65,8 +65,7 @@ chi_squared_find_degrees_of_freedom(
 - difference_from_variance:
 
   The difference from the assumed nominal variance that is to be
-  detected: Note that the sign of this value is critical (see the
-  documentation for more details).
+  detected.
 
 - alpha:
 

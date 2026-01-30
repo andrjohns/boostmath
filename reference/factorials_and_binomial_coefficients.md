@@ -8,63 +8,52 @@ probability distributions, and series expansions of special functions.
 
 **Factorial Functions:**
 
-- `factorial_boost(i)`: Computes i! = 1*2*3\*...\*i
+- `factorial_boost(i)`: Computes \\i! = 1\*2\*3\*...\*i\\
 
   - Standard factorial with overflow checking
 
-  - Returns error for i \> max_factorial()
+  - Returns error for \\i\\ \> max_factorial()
 
 - `unchecked_factorial(i)`: Fast table lookup for small factorials
 
-  - No overflow checking, assumes i is valid
+  - No overflow checking, assumes \\i\\ is valid
 
   - Use when performance is critical and i is known to be small
 
-- `max_factorial()`: Returns the largest i for which factorial(i) fits
-  in the return type without overflow
+- `max_factorial()`: Returns the largest \\i\\ for which
+  \\factorial_boost(i)\\ fits in the return type without overflow
 
 **Double Factorial:**
 
-- `double_factorial(i)`: Computes i!! = i\*(i-2)*(i-4)*...
+- `double_factorial(i)`: Computes \\i!! = i\*(i-2)\*(i-4)\*...\\
 
-  - For even i: i!! = i\*(i-2)\*...*4*2
+  - For even i: \\i!! = i\*(i-2)\*...\*4\*2\\
 
-  - For odd i: i!! = i\*(i-2)\*...*3*1
-
-  - Definition: 0!! = 1, (-1)!! = 1
+  - For odd i: \\i!! = i\*(i-2)\*...\*3\*1\\
 
 **Rising and Falling Factorials (Pochhammer Symbols):**
 
-- `rising_factorial(x, i)`: Computes \$\$x^{(i)} =
-  x(x+1)(x+2)...(x+i-1)\$\$
+- `rising_factorial(x, i)`: Computes \\x^{(i)} = x(x+1)(x+2)...(x+i-1)\\
 
   - Also called Pochhammer symbol or ascending factorial
 
   - Used in hypergeometric functions and series expansions
 
-  - For integer x, equals (x+i-1)! / (x-1)!
+  - For integer \\x\\, equals \\(x+i-1)! / (x-1)!\\
 
-- `falling_factorial(x, i)`: Computes \$\$(x)\_i =
-  x(x-1)(x-2)...(x-i+1)\$\$
+- `falling_factorial(x, i)`: Computes \\(x)\_i = x(x-1)(x-2)...(x-i+1)\\
 
   - Also called descending factorial
 
   - Counts permutations: number of ways to arrange i items from x items
 
-  - For integer x, equals x! / (x-i)!
+  - For integer \\x\\, \\equals x! / (x-i)!\\
 
 **Binomial Coefficients:**
 
-- `binomial_coefficient(n, k)`: Computes C(n,k) = n! / (k!(n-k)!)
+- `binomial_coefficient(n, k)`: Computes \\C(n,k) = n! / (k!(n-k)!)\\
 
-  - "n choose k": number of ways to choose k items from n items
-
-  - Symmetric: C(n,k) = C(n,n-k)
-
-  - Pascal's triangle: C(n,k) = C(n-1,k-1) + C(n-1,k)
-
-All functions use efficient algorithms to avoid overflow and maintain
-precision.
+  - "n choose k": number of ways to choose \\k\\ items from \\n\\ items
 
 ## Usage
 

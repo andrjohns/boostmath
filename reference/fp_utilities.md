@@ -10,7 +10,7 @@ adjacent representable values, ULP distances, and condition numbers.
 
 - `float_distance(x, y)` returns the representation distance in ULPs.
 
-- `float_advance(x, n)` advances by \$n\$ ULPs.
+- `float_advance(x, n)` advances by \\n\\ ULPs.
 
 - `ulp(x)` returns the size of one unit in the last place at `x`.
 

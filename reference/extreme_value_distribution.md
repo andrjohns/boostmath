@@ -4,19 +4,15 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Extreme Value
 (Gumbel) distribution.
 
-With location \$a\$ and scale \$b \> 0\$, the PDF and CDF are
+With location \\a\\ and scale \\b \> 0\\, the PDF and CDF are
 
-\$\$f(x) =
+\$\$f(x; a, b) =
 \frac{1}{b}\exp\left(\frac{a-x}{b}\right)\exp\left(-\exp\left(\frac{a-x}{b}\right)\right)\$\$
-\$\$F(x) = \exp\left(-\exp\left(\frac{a-x}{b}\right)\right)\$\$
+\$\$F(x; a, b) = \exp\left(-\exp\left(\frac{a-x}{b}\right)\right)\$\$
 
 and the quantile is
 
-\$\$Q(p) = a - b\log\left(-\log(p)\right)\$\$.
-
-**Accuracy and Implementation Notes:** Implemented using `exp` and `log`
-with specialised `logcdf` and `logpdf` for improved accuracy.
-Complements use stable `expm1`/`log1p` forms to reduce cancellation.
+\$\$F^{-1}(p; a, b) = a - b\log\left(-\log(p)\right)\$\$.
 
 ## Usage
 

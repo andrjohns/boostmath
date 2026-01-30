@@ -4,17 +4,11 @@ Functions to compute the probability mass function (pmf), cumulative
 distribution function, quantile function, and confidence bounds for the
 Geometric distribution.
 
-The geometric distribution models the number of failures \$k\$ before
-the first success in Bernoulli trials with success probability \$p\$.
+The geometric distribution models the number of failures \\k\\ before
+the first success in Bernoulli trials with success probability \\p\\.
 The pmf is
 
 \$\$P(X = k) = (1-p)^k p, \quad k \in \\0,1,2,\dots\\\$\$
-
-**Accuracy and Implementation Notes:** Implemented using `pow`, `exp`,
-and `log1p`. `logcdf` is specialised for numerical accuracy. This is a
-discrete distribution; quantiles are rounded outward to ensure at least
-the requested coverage. For extreme \$p\$ close to 1, accuracy can
-degrade.
 
 **Confidence Bounds:** The bound and trial-estimation functions are
 implemented as in the negative binomial distribution (successes = 1),
