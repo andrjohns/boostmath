@@ -59,7 +59,7 @@ Functions to compute the probability mass function (pmf), cumulative distributio
 function, quantile function, and confidence bounds for the Binomial distribution.
 
 The Binomial distribution models the number of successes $k$ in $n$ independent
-trials with success probability \q{p}. The pmf is
+trials with success probability \eqn{p}. The pmf is
 
 \deqn{P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}}
 

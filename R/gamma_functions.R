@@ -38,7 +38,7 @@
 #'
 #' * **Non-normalised Functions** (return values in \eqn{[0, Gamma(a)]}):
 #'   - `tgamma_lower(a, z)`: Full lower incomplete gamma function \eqn{\gamma(a, z) = \int_{0}^z t^{a-1}e^{-t}dt}
-#'   - `tgamma_upper(a, z)`: Full upper incomplete gamma function \eqn{\Gamma(a, z) = \int_{z}^\Infty t^{a-1}e^{-t}dt}
+#'   - `tgamma_upper(a, z)`: Full upper incomplete gamma function \eqn{\Gamma(a, z) = \int_{z}^\infty t^{a-1}e^{-t}dt}
 #'
 #' **Inverse Functions:**
 #'
