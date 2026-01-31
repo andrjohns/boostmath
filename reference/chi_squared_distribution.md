@@ -4,7 +4,7 @@ Functions to compute the probability density function, cumulative
 distribution function, quantile function, and sample-size estimation for
 the Chi-Squared distribution.
 
-With degrees of freedom deqn \> 0, the PDF is:
+With degrees of freedom \$\$\nu \> 0\$\$, the PDF is:
 
 \$\$f(x; \nu) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\nu/2 - 1} e^{-x/2},
 \quad x \ge 0\$\$

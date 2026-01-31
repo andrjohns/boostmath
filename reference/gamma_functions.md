@@ -52,7 +52,7 @@ These functions require a \> 0 and z \>= 0.
     \\\gamma(a, z) = \int\_{0}^z t^{a-1}e^{-t}dt\\
 
   - `tgamma_upper(a, z)`: Full upper incomplete gamma function
-    \\\Gamma(a, z) = \int\_{z}^\Infty t^{a-1}e^{-t}dt\\
+    \\\Gamma(a, z) = \int\_{z}^\infty t^{a-1}e^{-t}dt\\
 
 **Inverse Functions:**
 
