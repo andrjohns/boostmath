@@ -4,18 +4,9 @@
 #' Functions to compute the probability density function, cumulative distribution
 #' function, and quantile function for the Holtsmark distribution.
 #'
-#' The Holtsmark distribution is a stable distribution with stability parameter
-#' \deqn{\alpha = 3/2} and symmetry parameter \deqn{\beta = 0}, commonly used in astrophysics.
-#' It is parameterised by location \deqn{\mu} and scale $c$.
+#' The PDF is:
 #'
-#' A common integral representation of the PDF is
-#'
-#' \deqn{f(x) = \frac{1}{\pi}\int_0^\infty \cos\left(t(x-\mu)\right)\,\exp\left(-(c t)^{3/2}\right)\,dt.}
-#'
-#' **Accuracy and Implementation Notes:**
-#' Boost reports errors within about 4 epsilon for PDF/CDF-complement in double precision.
-#' Some moments (e.g., skewness and kurtosis) are mathematically undefined and will raise
-#' errors if requested.
+#' \deqn{f(x; \mu, c) = \frac{1}{2\pi} \int_{-\infty}^{\infty}\exp \left( it\mu-|ct|^{3/2} \right)e^{-ixt}dt}
 #'
 #' @param x Quantile value.
 #' @param location Location parameter (default is 0).

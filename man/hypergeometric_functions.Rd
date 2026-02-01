@@ -43,62 +43,23 @@ A single numeric value with the computed hypergeometric function.
 Functions to compute various hypergeometric functions, which are solutions to hypergeometric
 differential equations and generalize many special functions.
 
-Hypergeometric functions are defined by series expansions where (a)_n denotes the rising
-factorial (Pochhammer symbol). They appear in solutions to many differential equations
-and unify numerous special functions.
-
-\strong{Specific Hypergeometric Functions:}
+\strong{Specialised Hypergeometric Functions:}
 \itemize{
-\item \strong{0F1(b, z):}
-\itemize{
-\item \code{hypergeometric_0F1(b, z)}: Zero numerator parameters, one denominator parameter
-\item Implemented via defining series when convergent, continued fractions for divergent cases,
-or Bessel function relations
-\item Domain error when b is an integer <= 0
-}
-\item \strong{1F0(a, z):}
-\itemize{
-\item \code{hypergeometric_1F0(a, z)}: One numerator parameter, zero denominator parameters
-}
-\item \strong{2F0(a1, a2, z):}
-\itemize{
-\item \code{hypergeometric_2F0(a1, a2, z)}: Two numerator parameters, zero denominator parameters
-}
-\item \strong{1F1(a, b, z):} Confluent hypergeometric function (Kummer's function)
-\itemize{
-\item \code{hypergeometric_1F1(a, b, z)}: Standard form, solves Kummer's equation
-\item Equivalent to Mathematica's Hypergeometric1F1[a, b, z] and Maple's KummerM(a, b, z)
-\item For |z| < 1, has a convergent hypergeometric series expansion
-}
-\item \strong{Regularised 1F1:}
-\itemize{
-\item \code{hypergeometric_1F1_regularized(a, b, z)}: Normalised version that avoids
-spurious overflow/underflow
-}
-\item \strong{Logarithmic 1F1:}
-\itemize{
-\item \code{log_hypergeometric_1F1(a, b, z)}: Returns log of 1F1 for numerical stability
-}
+\item \strong{hypergeometric_1F0(a, z):} : \deqn{_1F_0(a;z) = \sum_{n=0}^\infty \frac{(a)_nz^n}{n!}}
+\item \strong{hypergeometric_0F1(b, z):} : \deqn{_0F_1(;b;z) = \sum_{n=0}^\infty \frac{z^n}{(b)_n!}}
+\item \strong{hypergeometric_2F0(a1, a2, z):} : \deqn{_2F_0(a_1, a_2;z) = \sum_{n=0}^\infty \frac{(a_1)_n(a_2)_nz^n}{n!}}
+\item \strong{hypergeometric_1F1(a, b, z):} : \deqn{_1F_1(a, b;z) = \sum_{n=0}^\infty \frac{(a)_nz^n}{(b)_n!}}
+\item \strong{hypergeometric_1F1_regularized(a, b, z):} : \deqn{_1\tilde{F}_1(a, b;z) = \frac{_1F_1(a, b;z)}{\Gamma(b)}}
+\item \strong{log_hypergeometric_1F1(a, b, z):} : Numerically stable implementation of \eqn{\ln _1F_1(a, b;z)}
 }
 
 \strong{Generalised Hypergeometric Function pFq:}
 \itemize{
 \item \code{hypergeometric_pFq(a, b, z)}: General form with p numerator parameters and
-q denominator parameters
-\itemize{
-\item a: vector of upper (numerator) parameters
-\item b: vector of lower (denominator) parameters
-\item Uses direct summation of the series with optimizations
-\item Example: pFq with a = (2,3,4) and b = (5,6,7,8) computes 3F4
-}
+q denominator parameters:
 }
 
-\strong{Implementation:}
-
-The 1F1 function uses multiple computational methods including direct series,
-Kummer's relation, asymptotic expansions, Tricomi's approximation, Luke's rational
-approximation, and recurrence relations, selected based on parameter ranges for
-optimal accuracy and efficiency.
+\deqn{_pF_q\left(\{a_1,...,a_p\}, \{b_1,...,b_q\}; z\right) = \sum_{n=0}^{\infty} \frac{\prod_{j=1}^{p}(a_j)_n}{\prod_{j=1}^{q}(b_j)_n}\frac{z^n}{n!}}
 }
 \examples{
 # Hypergeometric Function 1F0

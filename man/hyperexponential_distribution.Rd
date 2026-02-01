@@ -37,17 +37,12 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution
 function, and quantile function for the Hyperexponential distribution.
 
-A $k$-phase hyperexponential distribution is a mixture of $k$ exponential
-distributions with phase probabilities \deqn{\alpha_i} and rates \deqn{\lambda_i}.
+A $k$-phase hyperexponential distribution is a mixture of \eqn{k} exponential
+distributions with phase probabilities \eqn{\alpha_i} and rates \eqn{\lambda_i}.
 The PDF and CDF are
 
-\deqn{f(x) = \sum_{i=1}^k \alpha_i \lambda_i e^{-\lambda_i x}}
-\deqn{F(x) = 1 - \sum_{i=1}^k \alpha_i e^{-\lambda_i x}, \quad x \ge 0}.
-
-\strong{Accuracy and Implementation Notes:}
-Implemented in terms of the exponential distribution, and should be accurate to
-within a few machine epsilons. Quantiles have no closed form and are computed
-numerically.
+\deqn{f(x; \alpha, \lambda) = \sum_{i=1}^k \alpha_i \lambda_i e^{-\lambda_i x}}
+\deqn{F(x; \alpha, \lambda) = 1 - \sum_{i=1}^k \alpha_i e^{-\lambda_i x}}.
 }
 \examples{
 # Hyperexponential distribution with probabilities = c(0.5, 0.5) and rates = c(1, 2)
