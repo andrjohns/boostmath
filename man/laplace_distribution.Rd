@@ -37,18 +37,14 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution
 function, and quantile function for the Laplace (double exponential) distribution.
 
-With location \deqn{\mu} and scale \deqn{\sigma > 0}, the PDF is
+The PDF is
 
-\deqn{f(x) = \frac{1}{2\sigma}\exp\left(-\frac{|x-\mu|}{\sigma}\right)}
+\deqn{f(x; \mu, \sigma) = \frac{1}{2\sigma}\exp\left(-\frac{|x-\mu|}{\sigma}\right)}
 
 and the CDF is
 
-\deqn{F(x) = \begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\sigma}\right), & x < \mu,\\
-1 - \frac{1}{2}\exp\left(\frac{\mu-x}{\sigma}\right), & x \ge \mu.\end{cases}}
-
-\strong{Accuracy and Implementation Notes:}
-Implemented in terms of \code{exp} and \code{log}; \code{logcdf} and \code{logpdf} are specialised for
-improved numerical accuracy. Complements use stable \code{log1p} forms.
+\deqn{F(x) = \begin{cases}\exp\left(\frac{x-\mu}{\sigma}\right) / \sigma, & x < \mu,\\
+1 - \exp\left(\frac{x-\mu}{\sigma}\right) / \sigma, & x \ge \mu.\end{cases}}
 }
 \examples{
 # Laplace distribution with location = 0, scale = 1

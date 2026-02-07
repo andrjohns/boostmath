@@ -4,15 +4,15 @@
 #' Functions to compute the probability mass function (pmf), cumulative distribution
 #' function, and quantile function for the Negative Binomial distribution.
 #'
-#' For $r$ successes with success fraction $p$, the probability of observing $k$ failures
-#' before the $r$-th success is
+#' The PDF is:
 #'
-#' \deqn{P(X = k) = \binom{k+r-1}{k} p^r (1-p)^k, \quad k \in \{0,1,2,\dots\}}
+#' \deqn{f(k; r, p) = \frac{\Gamma(r + k)}{k!\Gamma(r)}p^r (1-p)^k}
 #'
-#' **Accuracy and Implementation Notes:**
-#' Implemented using incomplete beta functions (`ibeta`, `ibetac`) and their derivatives
-#' for the PDF. As a discrete distribution, quantiles are rounded outward to ensure
-#' coverage. Confidence bounds use Clopper-Pearson style intervals.
+#' The CDF is:
+#'
+#' \deqn{F(k; r, p) = I_p(r, k + 1)}
+#'
+#' Where \eqn{I_p} is the regularised incomplete beta function.
 #'
 #' @param x Quantile value.
 #' @param successes Number of successes (successes > 0).

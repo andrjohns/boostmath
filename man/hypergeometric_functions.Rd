@@ -45,12 +45,12 @@ differential equations and generalize many special functions.
 
 \strong{Specialised Hypergeometric Functions:}
 \itemize{
-\item \strong{hypergeometric_1F0(a, z):} : \deqn{_1F_0(a;z) = \sum_{n=0}^\infty \frac{(a)_nz^n}{n!}}
-\item \strong{hypergeometric_0F1(b, z):} : \deqn{_0F_1(;b;z) = \sum_{n=0}^\infty \frac{z^n}{(b)_n!}}
-\item \strong{hypergeometric_2F0(a1, a2, z):} : \deqn{_2F_0(a_1, a_2;z) = \sum_{n=0}^\infty \frac{(a_1)_n(a_2)_nz^n}{n!}}
-\item \strong{hypergeometric_1F1(a, b, z):} : \deqn{_1F_1(a, b;z) = \sum_{n=0}^\infty \frac{(a)_nz^n}{(b)_n!}}
-\item \strong{hypergeometric_1F1_regularized(a, b, z):} : \deqn{_1\tilde{F}_1(a, b;z) = \frac{_1F_1(a, b;z)}{\Gamma(b)}}
-\item \strong{log_hypergeometric_1F1(a, b, z):} : Numerically stable implementation of \eqn{\ln _1F_1(a, b;z)}
+\item \code{hypergeometric_1F0(a, z)}: \deqn{_1F_0(a;z) = \sum_{n=0}^\infty \frac{(a)_nz^n}{n!}}
+\item \code{hypergeometric_0F1(b, z)}: \deqn{_0F_1(;b;z) = \sum_{n=0}^\infty \frac{z^n}{(b)_n!}}
+\item \code{hypergeometric_2F0(a1, a2, z)}: \deqn{_2F_0(a_1, a_2;z) = \sum_{n=0}^\infty \frac{(a_1)_n(a_2)_nz^n}{n!}}
+\item \code{hypergeometric_1F1(a, b, z)}:  \deqn{_1F_1(a, b;z) = \sum_{n=0}^\infty \frac{(a)_nz^n}{(b)_n!}}
+\item \code{hypergeometric_1F1_regularized(a, b, z)}: \deqn{_1\tilde{F}_1(a, b;z) = \frac{_1F_1(a, b;z)}{\Gamma(b)}}
+\item \code{log_hypergeometric_1F1(a, b, z)}: Numerically stable implementation of \eqn{\ln _1F_1(a, b;z)}
 }
 
 \strong{Generalised Hypergeometric Function pFq:}

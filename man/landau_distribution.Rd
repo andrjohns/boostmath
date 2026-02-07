@@ -37,17 +37,9 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution
 function, and quantile function for the Landau distribution.
 
-The Landau distribution is a stable distribution with \deqn{\alpha=1} and \deqn{\beta=1}.
-A standard integral representation of its PDF is
+The PDF is:
 
-\deqn{f(x) = \frac{1}{\pi}\int_0^\infty \exp\left(-t\log t - x t\right)\sin(\pi t)\,dt.}
-
-The location parameter \deqn{\mu} and scale parameter $c$ shift and scale the distribution,
-with a bias term \deqn{b = -\frac{2}{\pi}\log c} applied in the Boost parameterization.
-
-\strong{Accuracy and Implementation Notes:}
-Boost reports errors within about 4 epsilon except for the rapidly decaying left tail.
-Some moments (mean, variance, skewness, kurtosis) are undefined and will raise errors.
+\deqn{f(x; \mu, c) = \frac{1}{\pi c}\int_0^\infty \exp(-t)\cos\left(t \left(\frac{x - \mu}{c}\right) + \frac{2t}{\pi}\log\left(\frac{t}{c}\right)\right)dt}
 }
 \examples{
 # Landau distribution with location 0 and scale 1

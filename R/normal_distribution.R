@@ -12,9 +12,6 @@
 #' The cumulative distribution function is given by:
 #' \deqn{F(x;\mu,\sigma) = \int_{-\infty}^{x} f(t;\mu,\sigma) dt = \frac{1}{2} \text{erfc}\left(\frac{-(x-\mu)}{\sigma\sqrt{2}}\right)}
 #'
-#' **Accuracy and Implementation Notes:**
-#' The normal distribution is implemented in terms of the error function, and as such should have very low error rates.
-#'
 #' @param x quantile
 #' @param mean mean parameter (default is 0)
 #' @param sd standard deviation parameter (default is 1)

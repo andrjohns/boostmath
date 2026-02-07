@@ -26,8 +26,7 @@ A single numeric value with the computed Lambert W function or its derivative.
 Functions to compute the Lambert W function and its derivatives for the principal branch
 (W_0) and the branch -1 (W_-_1).
 
-The Lambert W function (also known as the Omega function or product logarithm) is the
-inverse of f(W) = W*e^W. It solves the equation:
+The Lambert W function is the solution of:
 
 \deqn{W(z) \cdot e^{W(z)} = z}
 
@@ -37,36 +36,18 @@ The function has two real branches:
 \itemize{
 \item \strong{W_0 (Principal Branch):}
 \itemize{
-\item Domain: [-1/e, Inf) where 1/e ~= 0.367879
 \item \code{lambert_w0(z)}: Returns the principal branch value
 \item \code{lambert_w0_prime(z)}: Returns the derivative of W_0
 \item For z >= 0, there is a single real solution
 }
 \item \strong{W_-_1 (Secondary Branch):}
 \itemize{
-\item Domain: [-1/e, 0)
 \item \code{lambert_wm1(z)}: Returns the -1 branch value
 \item \code{lambert_wm1_prime(z)}: Returns the derivative of W_-_1
 \item Exists where two real solutions occur on (-1/e, 0)
 \item As z approaches 0, W_-_1(z) approaches -Inf
 }
 }
-
-\strong{Special Values:}
-\itemize{
-\item W_0(-1/e) = -1 (exactly)
-\item W_-_1(-1/e) = -1 (exactly)
-\item W_-_1(0) = -Inf
-}
-
-\strong{Singularity:}
-
-At z = -1/e ~= -0.367879, the two branches meet and the condition number of
-function evaluation tends to infinity.
-
-The implementation uses Halley's method and Newton-Raphson iteration for
-numerical refinement. Applications include solving transcendental equations,
-delay differential equations, and enumeration problems.
 }
 \examples{
 # Lambert W Function (Principal Branch)

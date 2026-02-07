@@ -37,17 +37,18 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution function, and quantile function for the Noncentral T distribution.
 
 The noncentral T distribution is a generalization of the Student's t Distribution.
-Let \eqn{X} have a normal distribution with mean \eqn{\delta} and variance 1, and let \eqn{\nu S^2} have a chi-squared distribution with degrees of freedom \eqn{\nu}. Assume that \eqn{X} and \eqn{S^2} are independent.
-The distribution of \eqn{t_{\nu}(\delta) = X/S} is called a noncentral t distribution with degrees of freedom \eqn{\nu} and noncentrality parameter \eqn{\delta}.
 
-This gives the following PDF:
-\deqn{f(x;\nu,\delta) = \frac{\nu^{\nu/2} e^{-\delta^2/2}}{\sqrt{\pi} \Gamma(\nu/2) (\nu+x^2)^{(\nu+1)/2}} \sum_{i=0}^{\infty} \frac{\Gamma((\nu+i+1)/2)}{i!} \left(\frac{x\delta\sqrt{2}}{\sqrt{\nu+x^2}}\right)^i}
-where the sum involves a confluent hypergeometric function.
+The PDF is:
 
-\strong{Accuracy and Implementation Notes:}
-The CDF is computed using a modification of the method described by Benton and Krishnamoorthy (2003), involving the incomplete beta function and the normal CDF.
-Iteration starts at the largest of the Poisson weighting terms and proceeds in both directions.
-For large \eqn{\nu}, the distribution is approximated by a Student's t distribution centered on \eqn{\delta}.
+\deqn{f(x;\nu;\delta) = \frac{\nu^{\nu/2}\,\nu!} {2^{\nu} e^{\delta^{2}/2} (\nu+x^{2})^{\nu/2}\Gamma\!\left(\frac{\nu}{2}\right)} \left( \frac{\sqrt{2}\,\delta x\, {}_1F_1\!\left(\frac{\nu}{2}+1;\frac{3}{2}; \frac{\delta^{2}x^{2}}{2(\nu+x^{2})}\right)} {(\nu+x^{2})\Gamma\!\left(\frac{\nu+1}{2}\right)} + \frac{ {}_1F_1\!\left(\frac{\nu+1}{2};\frac{1}{2}; \frac{\delta^{2}x^{2}}{2(\nu+x^{2})}\right)} {\sqrt{\nu+x^{2}}\Gamma\!\left(\frac{\nu}{2}+1\right)} \right)}
+
+The CDF is:
+
+\deqn{F(t;\nu;\delta) = \Phi(-\delta) + \frac{1}{2} \sum_{i=0}^{\infty} \left( P_i\, I_x\!\left(i+\frac{1}{2},\frac{\nu}{2}\right) + \frac{\delta}{\sqrt{2}}\, Q_i\, I_x\!\left(i+1,\frac{\nu}{2}\right) \right)}
+
+Where:
+
+\deqn{P_i = e^{-\delta^{2}/2} \frac{\left(\delta^{2}/2\right)^i}{i!}, \qquad Q_i = e^{-\delta^{2}/2} \frac{\left(\delta^{2}/2\right)^i}{\Gamma\!\left(i+\frac{3}{2}\right)}, \qquad x = \frac{t^{2}}{\nu+t^{2}}}
 }
 \examples{
 # Noncentral T distribution with 5 degrees of freedom and noncentrality parameter 1

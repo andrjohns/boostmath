@@ -6,17 +6,12 @@
 #'
 #' With location $u$ and scale $s>0$, the PDF and CDF are
 #'
-#' \deqn{f(x) = \frac{e^{-(x-u)/s}}{s\left(1+e^{-(x-u)/s}\right)^2}}
-#' \deqn{F(x) = \frac{1}{1+e^{-(x-u)/s}}}
+#' \deqn{f(x; \mu, s) = \frac{e^{-(x-u)/s}}{s\left(1+e^{-(x-u)/s}\right)^2}}
+#' \deqn{F(x; \mu, s) = \frac{1}{1+e^{-(x-u)/s}}}
 #'
 #' and the quantile is
 #'
-#' \deqn{Q(p) = u - s\log\left(\frac{1}{p}-1\right)}.
-#'
-#' **Accuracy and Implementation Notes:**
-#' Implemented with `exp`/`log`. `logcdf` is specialised for improved numerical accuracy.
-#' Quantiles can suffer catastrophic cancellation when the location parameter is large;
-#' only low absolute error can be guaranteed in that regime.
+#' \deqn{F^{-1}(p; \mu, s) = \mu + s \log\left(\frac{p}{1-p}\right)}
 #'
 #' @param x Quantile value.
 #' @param location Location parameter (default is 0).

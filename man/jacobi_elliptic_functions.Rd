@@ -55,52 +55,24 @@ For \code{jacobi_elliptic}, a list containing the values of the Jacobi elliptic 
 Functions to compute the Jacobi elliptic functions, which are doubly periodic
 generalizations of trigonometric and hyperbolic functions.
 
-Jacobi elliptic functions are fundamental in the theory of elliptic functions and appear
-in solutions to nonlinear differential equations, including the pendulum equation,
-and in the theory of elliptic curves.
+\strong{Jacobi Elliptic SN, CN and DN}
+Given:
 
-\strong{Three Principal Functions:}
-
-The three copolar Jacobi elliptic functions are:
+\deqn{u = \int_0^\phi\frac{d\psi}{\sqrt{1-k^2\text{sin}^2\psi}}}
 \itemize{
-\item \strong{sn(u, k)} - Sine amplitude
-\item \strong{cn(u, k)} - Cosine amplitude
-\item \strong{dn(u, k)} - Delta amplitude
+\item \code{jacobi_sn(k, u)}: \eqn{\text{sin}\psi}
+\item \code{jacobi_cn(k, u)}: \eqn{\text{cos}\psi}
+\item \code{jacobi_dn(k, u)}: \eqn{\sqrt{(1 - k^2\text{sin}^2\psi)}}
+\item \code{jacobi_cd(k, u)}: \eqn{\frac{cn(k, u)}{dn(k, u)}}
+\item \code{jacobi_cs(k, u)}: \eqn{\frac{cn(k, u)}{sn(k, u)}}
+\item \code{jacobi_dc(k, u)}: \eqn{\frac{dn(k, u)}{cn(k, u)}}
+\item \code{jacobi_ds(k, u)}: \eqn{\frac{dn(k, u)}{sn(k, u)}}
+\item \code{jacobi_nc(k, u)}: \eqn{\frac{1}{cn(k, u)}}
+\item \code{jacobi_nd(k, u)}: \eqn{\frac{1}{dn(k, u)}}
+\item \code{jacobi_ns(k, u)}: \eqn{\frac{1}{sn(k, u)}}
+\item \code{jacobi_sc(k, u)}: \eqn{\frac{sn(k, u)}{cn(k, u)}}
+\item \code{jacobi_sd(k, u)}: \eqn{\frac{sn(k, u)}{dn(k, u)}}
 }
-
-These satisfy the fundamental identity: sn^2 + cn^2 = 1 and dn^2 + k^2sn^2 = 1
-
-\strong{Parameter Notation:}
-\itemize{
-\item k = elliptic modulus (used in this implementation)
-\item Alternative notations: m = k^2 (parameter), alpha = modular angle where k = sin(alpha)
-}
-
-\strong{Special Cases:}
-\itemize{
-\item sn(0, k) = 0; cn(0, k) = dn(0, k) = 1
-\item When k = 0: sn(u, 0) = sin(u); cn(u, 0) = cos(u); dn(u, 0) = 1
-\item When k = 1: sn(u, 1) = tanh(u); cn(u, 1) = dn(u, 1) = sech(u)
-}
-
-\strong{Derived Functions:}
-
-Twelve Jacobi elliptic functions exist, derived from ratios of sn, cn, dn:
-\itemize{
-\item cd = cn/dn, cs = cn/sn, dc = dn/cn, ds = dn/sn
-\item nc = 1/cn, nd = 1/dn, ns = 1/sn
-\item sc = sn/cn, sd = sn/dn
-}
-
-All functions satisfy double periodicity and various addition formulas analogous
-to trigonometric identities.
-
-\strong{Implementation:}
-
-Values are calculated using the arithmetic-geometric mean (AGM) method.
-For k > 1, transformation relations apply the complementary modulus.
-The function \code{jacobi_elliptic(k, u)} returns all three principal functions
-simultaneously for efficiency.
 }
 \examples{
 # All three principal Jacobi Elliptic Functions at once

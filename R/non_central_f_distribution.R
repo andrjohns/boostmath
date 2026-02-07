@@ -3,13 +3,15 @@
 #' @description
 #' Functions to compute the probability density function, cumulative distribution function, and quantile function for the Noncentral F distribution.
 #'
-#' The noncentral F distribution is a generalization of the Fisher F Distribution. It is defined as the ratio
-#' \deqn{F = \frac{X/\nu_1}{Y/\nu_2}}
-#' where \eqn{X} is a noncentral \eqn{\chi^2} random variable with \eqn{\nu_1} degrees of freedom and non-centrality parameter \eqn{\lambda}, and \eqn{Y} is a central \eqn{\chi^2} random variable with \eqn{\nu_2} degrees of freedom.
+#' The noncentral F distribution is a generalization of the Fisher F Distribution.
 #'
-#' **Accuracy and Implementation Notes:**
-#' This distribution is implemented in terms of the Noncentral Beta Distribution.
-#' Refer to the Noncentral Beta Distribution documentation for details on accuracy and implementation method.
+#' Thje PDF is:
+#'
+#' \deqn{f(x;\nu_1,\nu_2, \lambda)=\sum \limits_{k=0}^{\infty }{\frac {e^{-\lambda /2}(\lambda /2)^{k}}{B\left({\frac {\nu_{2}}{2}},{\frac {\nu_{1}}{2}}+k\right)k!}}\left({\frac {\nu_{1}}{\nu_{2}}}\right)^{{\frac {\nu_{1}}{2}}+k}\left({\frac {\nu_{2}}{\nu_{2}+\nu_{1}x}}\right)^{{\frac {\nu_{1}+\nu_{2}}{2}}+k}x^{\nu_{1}/2-1+k}}
+#'
+#' The CDF is:
+#'
+#' \deqn{F(x; d_{1},d_{2},\lambda )=\sum \limits_{j=0}^{\infty }\left({\frac {\left({\frac {1}{2}}\lambda \right)^{j}}{j!}}e^{-\lambda /2}\right)I\left({\frac {d_{1}x}{d_{2}+d_{1}x}}{\bigg |}{\frac {d_{1}}{2}}+j,{\frac {d_{2}}{2}}\right)}
 #'
 #' @param x quantile
 #' @param df1 degrees of freedom for the numerator (df1 > 0)
@@ -17,7 +19,7 @@
 #' @param lambda noncentrality parameter (lambda >= 0)
 #' @param p probability (0 <= p <= 1)
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
-#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html) for more details on the mathematical background.
+#' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_f_dist.html) for more details on the mathematical background.
 #' @examples
 #' # Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality
 #' # parameter 1

@@ -44,9 +44,6 @@ Given mean \eqn{\mu} and standard deviation \eqn{\sigma}, it has the PDF:
 
 The cumulative distribution function is given by:
 \deqn{F(x;\mu,\sigma) = \int_{-\infty}^{x} f(t;\mu,\sigma) dt = \frac{1}{2} \text{erfc}\left(\frac{-(x-\mu)}{\sigma\sqrt{2}}\right)}
-
-\strong{Accuracy and Implementation Notes:}
-The normal distribution is implemented in terms of the error function, and as such should have very low error rates.
 }
 \examples{
 # Normal distribution with mean = 0, sd = 1

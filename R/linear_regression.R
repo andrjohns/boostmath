@@ -3,17 +3,14 @@
 #' @description
 #' Functions to perform simple ordinary least squares (OLS) linear regression.
 #'
-#' The OLS fit finds $c_0$ and $c_1$ that minimize
+#' The OLS fit finds \eqn{c_0} and \eqn{c_1} that minimize
 #'
-#' \deqn{\sum_{i=1}^n (y_i - (c_0 + c_1 x_i))^2}
+#' \deqn{\mathcal{L}(c_0, c_1) := \sum_{i=0}^{n-1} (y_i - c_0 - c_1 x_i)^2}
 #'
-#' producing the model $f(x)=c_0+c_1x$. The optional $R^2$ output uses
+#' producing the model \eqn{f(x)=c_0+c_1x}. The optional \eqn{R^2} output uses
 #'
-#' \deqn{R^2 = 1 - \frac{\sum_i (y_i - \hat{y}_i)^2}{\sum_i (y_i - \bar{y})^2}}
+#' \deqn{R^2 = 1 - \frac{\sum_i (y_i - c_0 - c_1x_i)^2}{\sum_i (y_i - \bar{y})^2}}
 #'
-#' **Accuracy and Implementation Notes:**
-#' Boost uses a numerically stable one-pass approach based on means, variances, and
-#' covariances to reduce cancellation error.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/linear_regression.html) for more details on the mathematical background.
 #' @param x A numeric vector.
 #' @param y A numeric vector.

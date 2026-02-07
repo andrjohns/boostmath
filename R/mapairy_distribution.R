@@ -4,13 +4,9 @@
 #' Functions to compute the probability density function, cumulative distribution
 #' function, and quantile function for the Map-Airy distribution.
 #'
-#' The Map-Airy distribution is a stable distribution with \deqn{\alpha=3/2} and \deqn{\beta=1},
-#' used to model the area under a Brownian excursion. It is parameterised by location
-#' \deqn{\mu} and scale $c$.
+#' The PDF is:
 #'
-#' **Accuracy and Implementation Notes:**
-#' Boost reports errors within about 4 epsilon except in the rapidly decaying left tail.
-#' Some moments (skewness, kurtosis) are undefined and will raise errors if requested.
+#' \deqn{f(x; \mu, c) = 2\exp\left( \frac{2}{3} x^3 \right)(-x \text{Ai}(x^2) - \text{Ai}'(x^2))}
 #'
 #' @param x Quantile value.
 #' @param location Location parameter (default is 0).

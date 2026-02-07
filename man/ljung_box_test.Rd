@@ -22,15 +22,13 @@ Functions to perform the Ljung-Box test for autocorrelation in residuals.
 
 The test statistic is
 
-\deqn{Q = n(n+2)\sum_{k=1}^{\ell} \frac{\hat{\rho}_k^2}{n-k}}
+\deqn{Q := n(n+2)\sum_{k=1}^{\ell} \frac{\hat{r}_k^2}{n-k}}
 
-where $n$ is the sample size, \deqn{\ell} is the number of lags, and \deqn{\hat{\rho}_k}
-are sample autocorrelations. The p-value is computed against a chi-squared
-approximation with adjusted degrees of freedom.
+Where:
 
-\strong{Implementation Notes:}
-By default, the number of lags is chosen as \deqn{\log(n)} for \deqn{O(n \log n)} complexity.
-\code{fit_dof} adjusts only the p-value to account for model parameters.
+\deqn{\hat{r}_k := \frac{\sum_{i=k}^{n-1}(v_i-\bar{v})(v_{i-k} - \bar{v})}{\sum_{i=0}^{n-1}(v_i-\bar{v})^2}}
+
+Where: \eqn{n} is the sample size (length of \eqn{v}) and \eqn{\ell} is the number of lags
 }
 \examples{
 # Ljung-Box test for autocorrelation

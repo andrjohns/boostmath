@@ -37,17 +37,15 @@ A single numeric value with the computed probability density, log-probability de
 Functions to compute the probability density function, cumulative distribution
 function, and quantile function for the Inverse Chi-Squared distribution.
 
-For degrees of freedom \deqn{\nu} and scale \deqn{\xi}, the PDF is
+For degrees of freedom \eqn{\nu} and scale \eqn{\xi}, the PDF is
 
 \deqn{f(x;\nu,\xi) = \frac{(\nu\xi/2)^{\nu/2}}{\Gamma(\nu/2)} x^{-1-\nu/2} \exp\left(-\frac{\nu\xi}{2x}\right)}
 
-and the CDF is \deqn{F(x)=\Gamma(\nu/2,\nu\xi/2x)/\Gamma(\nu/2)}. The unscaled case
-corresponds to \deqn{\xi = 1/\nu}.
+The CDF is:
 
-\strong{Accuracy and Implementation Notes:}
-Implemented via incomplete gamma functions (\code{gamma_p}, \code{gamma_q}) and their inverses.
-Results are typically accurate to a few epsilons in double precision. Moments such as
-mean/variance/skewness are only defined for sufficiently large \deqn{\nu}.
+\deqn{F(x; \nu,\xi)=\frac{\Gamma(\nu/2,\nu\xi/2x)}{\Gamma(\nu/2)}}
+
+The unscaled case corresponds to \eqn{\xi = 1/\nu}.
 }
 \examples{
 # Inverse Chi-Squared distribution with 10 degrees of freedom, scale = 1

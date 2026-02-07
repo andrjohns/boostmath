@@ -18,26 +18,7 @@ The value of the Owens T function at (h, a).
 Computes Owen's T function T(h, a), which gives the probability of the event
 (X > h and 0 < Y < a*X) where X and Y are independent standard normal random variables.
 
-\strong{Geometric Interpretation:}
-
-For positive h and a, T(h, a) represents the volume of an uncorrelated bivariate
-normal distribution with zero means and unit variances over the region bounded by
-y = ax, y = 0, and x = h.
-
-\strong{Special Cases:}
-\itemize{
-\item T(h, 0) = 0
-\item T(0, a) = (1/2pi) arctan(a)
-\item T(h, 1) = (1/2) Phi(h) [1 - Phi(h)], where Phi is the standard normal CDF
-\item T(h, Inf) = Phi(|h|)
-}
-
-\strong{Applications:}
-
-Owen's T function is essential for computing the skew normal distribution and
-probabilities for bivariate and multivariate normal distributions. It appears in
-statistical inference, power calculations, and various probability computations
-involving correlated normal variables.
+\deqn{T(h,a)=\frac{1}{2\pi}\int_{0}^{a}\frac{\exp\!\left\{-\tfrac{1}{2}h^{2}(1+x^{2})\right\}}{1+x^{2}}\,dx,\quad (-\infty<h,a<+\infty)}
 }
 \examples{
 # Owens T Function

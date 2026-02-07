@@ -4,19 +4,21 @@
 #' Functions to compute the probability density function, cumulative distribution
 #' function, and quantile function for the Log Normal distribution.
 #'
-#' If \deqn{\log X \sim \mathcal{N}(m, s^2)}, then $X$ is lognormal. The PDF is
+#' The PDF is:
 #'
-#' \deqn{f(x) = \frac{1}{x s \sqrt{2\pi}}\exp\left(-\frac{(\log x - m)^2}{2 s^2}\right), \quad x>0}
+#' \deqn{f(x; \mu, \sigma^2) = \frac{1}{x \sigma \sqrt{2\pi}}\exp\left(-\frac{(\ln x - \mu)^2}{2 \sigma^2}\right), \quad x>0}
 #'
-#' and the CDF is \deqn{\Phi((\log x - m)/s)}.
+#' The CDF is:
 #'
-#' **Accuracy and Implementation Notes:**
-#' Implemented with `log`, `exp`, and the error function. The CDF/quantile are computed
-#' via the normal distribution evaluated at \deqn{\log(x)}.
+#' \deqn{F(x; \mu, \sigma^2) = \Phi \left( \frac{\ln x - \mu}{\sigma} \right)}
+#'
+#' The Quantile is:
+#'
+#' \deqn{F^{-1}(p; \mu, \sigma^2) = \exp(\mu + \sigma \Phi^{-1}(p))}
 #'
 #' @param x Quantile value (x > 0).
-#' @param location Location parameter (mean of \deqn{\log X}; default is 0).
-#' @param scale Scale parameter (sd of \deqn{\log X}; default is 1).
+#' @param location Location parameter (default is 0).
+#' @param scale Scale parameter (default is 1).
 #' @param p Probability (0 <= p <= 1).
 #' @return A single numeric value with the computed probability density, log-probability density, cumulative distribution, log-cumulative distribution, or quantile depending on the function called.
 #' @seealso [Boost Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/lognormal_dist.html) for more details on the mathematical background.

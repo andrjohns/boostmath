@@ -23,63 +23,14 @@ These functions are fundamental in statistics, machine learning, and probability
 particularly in logistic regression and neural networks.
 
 \strong{Logistic Sigmoid Function:}
-
-The logistic sigmoid (also called the logistic function or expit) is defined as:
-\deqn{\sigma(x) = \frac{1}{1 + e^{-x}} = \frac{e^x}{1 + e^x}}
 \itemize{
-\item \code{logistic_sigmoid(x)}: Computes sigma(x)
-\item Domain: (-Inf, Inf)
-\item Range: (0, 1)
-\item S-shaped (sigmoid) curve
-\item Symmetric around x = 0: sigma(-x) = 1 - sigma(x)
-\item Special values:
-\itemize{
-\item sigma(0) = 0.5
-\item sigma(Inf) = 1
-\item sigma(-Inf) = 0
-}
-\item Derivative: sigma'(x) = sigma(x)(1 - sigma(x))
-}
-
-\strong{Applications:}
-\itemize{
-\item Activation function in neural networks
-\item Models probability in logistic regression
-\item Converts log-odds to probabilities
-\item Smooth approximation to step functions
+\item \code{logistic_sigmoid(x)}: \eqn{\sigma(x) = \frac{1}{1 + e^{-x}} = \frac{e^x}{1 + e^x}}
 }
 
 \strong{Logit Function:}
-
-The logit function (log-odds or inverse sigmoid) is defined as:
-\deqn{logit(p) = \log\left(\frac{p}{1 - p}\right)}
 \itemize{
-\item \code{logit(x)}: Computes logit(x) = log(x/(1-x))
-\item Domain: (0, 1)
-\item Range: (-Inf, Inf)
-\item Inverse of the logistic sigmoid: logit(sigma(x)) = x
-\item Odd function around p = 0.5: logit(1 - p) = -logit(p)
-\item Special values:
-\itemize{
-\item logit(0.5) = 0
-\item logit(0) = -Inf
-\item logit(1) = Inf
+\item \code{logit(x)}: \deqn{logit(x) = \log\left(\frac{x}{1 - x}\right)}
 }
-\item Derivative: d/dp logit(p) = 1/(p(1-p))
-}
-
-\strong{Applications:}
-\itemize{
-\item Converts probabilities to log-odds scale
-\item Link function in logistic regression
-\item Transforms bounded quantities to unbounded scale
-\item Used in odds ratio calculations
-}
-
-\strong{Numerical Stability:}
-
-Both functions use numerically stable implementations that avoid overflow/underflow
-for extreme values of their arguments.
 }
 \examples{
 # Logistic Sigmoid Function

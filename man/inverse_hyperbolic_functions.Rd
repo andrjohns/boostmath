@@ -22,51 +22,10 @@ A single numeric value with the computed inverse hyperbolic function.
 \description{
 Functions to compute the inverse hyperbolic functions with high precision and
 proper handling of edge cases.
-
-Inverse hyperbolic functions are the inverses of the hyperbolic functions and
-appear in calculus, special relativity, and solutions to differential equations.
-
-\strong{Inverse Hyperbolic Cosine:}
 \itemize{
-\item \code{acosh_boost(x)}: Computes arccosh(x) = cosh^-^1(x)
-\item Mathematical definition: acosh(x) = log(x + sqrt(x^2 - 1))
-\item Domain: x >= 1
-\item Range: [0, Inf)
-\item Identity: cosh(acosh(x)) = x for x >= 1
-\item Derivative: d/dx acosh(x) = 1/sqrt(x^2 - 1)
-}
-
-\strong{Inverse Hyperbolic Sine:}
-\itemize{
-\item \code{asinh_boost(x)}: Computes arcsinh(x) = sinh^-^1(x)
-\item Mathematical definition: asinh(x) = log(x + sqrt(x^2 + 1))
-\item Domain: (-Inf, Inf)
-\item Range: (-Inf, Inf)
-\item Odd function: asinh(-x) = -asinh(x)
-\item Identity: sinh(asinh(x)) = x for all x
-\item Derivative: d/dx asinh(x) = 1/sqrt(x^2 + 1)
-}
-
-\strong{Inverse Hyperbolic Tangent:}
-\itemize{
-\item \code{atanh_boost(x)}: Computes arctanh(x) = tanh^-^1(x)
-\item Mathematical definition: atanh(x) = (1/2)log((1 + x)/(1 - x))
-\item Domain: (-1, 1)
-\item Range: (-Inf, Inf)
-\item Odd function: atanh(-x) = -atanh(x)
-\item Identity: tanh(atanh(x)) = x for |x| < 1
-\item Derivative: d/dx atanh(x) = 1/(1 - x^2)
-\item Special values: atanh(0) = 0, atanh(+/-1) = +/-Inf
-}
-
-\strong{Applications:}
-
-These functions appear in:
-\itemize{
-\item Special relativity (rapidity transformations)
-\item Integration (e.g., integral  1/sqrt(x^2 + 1) dx = asinh(x) + C)
-\item Complex analysis and conformal mappings
-\item Statistical distributions (e.g., Fisher's z-transformation)
+\item \code{acosh_boost(x)}: Inverse hyperbolic cosine, \eqn{\text{cosh}^{-1}(\text{cosh} (x)) = x}
+\item \code{asinh_boost(x)}: Inverse hyperbolic sine, \eqn{\text{sinh}^{-1}(\text{sinh} (x)) = x}
+\item \code{atanh_boost(x)}: Inverse hyperbolic tangent, \eqn{\text{tanh}^{-1}(\text{tanh} (x)) = x}
 }
 }
 \examples{
