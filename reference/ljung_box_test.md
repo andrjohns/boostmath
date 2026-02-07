@@ -5,16 +5,15 @@ residuals.
 
 The test statistic is
 
-\$\$Q = n(n+2)\sum\_{k=1}^{\ell} \frac{\hat{\rho}\_k^2}{n-k}\$\$
+\$\$Q := n(n+2)\sum\_{k=1}^{\ell} \frac{\hat{r}\_k^2}{n-k}\$\$
 
-where \$n\$ is the sample size, \$\$\ell\$\$ is the number of lags, and
-\$\$\hat{\rho}\_k\$\$ are sample autocorrelations. The p-value is
-computed against a chi-squared approximation with adjusted degrees of
-freedom.
+Where:
 
-**Implementation Notes:** By default, the number of lags is chosen as
-\$\$\log(n)\$\$ for \$\$O(n \log n)\$\$ complexity. `fit_dof` adjusts
-only the p-value to account for model parameters.
+\$\$\hat{r}\_k := \frac{\sum\_{i=k}^{n-1}(v_i-\bar{v})(v\_{i-k} -
+\bar{v})}{\sum\_{i=0}^{n-1}(v_i-\bar{v})^2}\$\$
+
+Where: \\n\\ is the sample size (length of \\v\\) and \\\ell\\ is the
+number of lags
 
 ## Usage
 

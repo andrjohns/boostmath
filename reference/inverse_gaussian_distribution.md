@@ -4,18 +4,17 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Inverse Gaussian
 (Inverse Normal) distribution.
 
-With mean \$\$\mu\$\$ and scale \$\$\lambda\$\$, the PDF is
+With mean \\\mu\\ and scale \\\lambda\\, the PDF is
 
 \$\$f(x;\mu,\lambda) = \sqrt{\frac{\lambda}{2\pi
 x^3}}\exp\left(-\frac{\lambda(x-\mu)^2}{2\mu^2 x}\right)\$\$
 
 and the CDF is
 
-\$\$F(x) =
-\Phi\left(\sqrt{\frac{\lambda}{x}}\left(\frac{x}{\mu}-1\right)\right) +
-\exp\left(\frac{2\lambda}{\mu}\right)\Phi\left(-\sqrt{\frac{\lambda}{x}}\left(\frac{x}{\mu}+1\right)\right)\$\$
+\$\$F(x;\mu,\lambda) = \Phi\left(\sqrt{\lambda x}(x\mu-1)\right) +
+e^{2\mu/\lambda}\Phi\left(-\sqrt{\lambda/\mu}(1+x/\mu)\right)\$\$
 
-where \$\$\Phi\$\$ is the standard normal CDF.
+where \\\Phi\\ is the standard normal CDF.
 
 **Accuracy and Implementation Notes:** Implemented using the standard
 normal distribution and the exponential function. `logpdf` is

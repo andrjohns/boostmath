@@ -7,31 +7,15 @@ distribution.
 The noncentral beta distribution is a generalization of the Beta
 Distribution.
 
-It is defined as the ratio \$\$X =
-\frac{\chi_m^2(\lambda)}{\chi_m^2(\lambda) + \chi_n^2}\$\$ where
-\\\chi_m^2(\lambda)\\ is a noncentral \\\chi^2\\ random variable with
-\\m\\ degrees of freedom, and \\\chi_n^2\\ is a central \\\chi^2\\
-random variable with \\n\\ degrees of freedom.
+The PDF is: \$\$f(x; \alpha, \beta, \lambda) = \sum\_{i=0}^{\infty} P(i;
+\lambda/2) I'\_x(\alpha+i, \beta)\$\$ where \\P(i; \lambda/2)\\ is the
+discrete Poisson probability at \\i\\, with mean \\\lambda/2\\, and
+\\I'\_x(\alpha, \beta)\\ is the derivative of the incomplete beta
+function.
 
-This gives a PDF that can be expressed as a Poisson mixture of beta
-distribution PDFs: \$\$f(x; \alpha, \beta, \lambda) =
-\sum\_{i=0}^{\infty} P(i; \lambda/2) I'\_x(\alpha+i, \beta)\$\$ where
-\\P(i; \lambda/2)\\ is the discrete Poisson probability at \\i\\, with
-mean \\\lambda/2\\, and \\I'\_x(\alpha, \beta)\\ is the derivative of
-the incomplete beta function.
-
-This leads to the usual form of the CDF as: \$\$F(x; \alpha, \beta,
-\lambda) = \sum\_{i=0}^{\infty} P(i; \lambda/2) I_x(\alpha+i, \beta)\$\$
-where \\I_x(\alpha, \beta)\\ is the incomplete beta function.
-
-**Accuracy and Implementation Notes:** The CDF and its complement are
-evaluated using the approximation due to Chattamvelli and Shanmugam to
-determine the crossover point (mean). Then either the CDF or its
-complement is computed using the relations above. The summation is
-performed by starting at \\i = \lambda/2\\, and then recursing in both
-directions ("Method 2" by Benton and Krishnamoorthy). Quantiles are
-computed using a specially modified version of bracket and solve,
-starting the search for the root at the mean of the distribution.
+The CDF is: \$\$F(x; \alpha, \beta, \lambda) = \sum\_{i=0}^{\infty} P(i;
+\lambda/2) I_x(\alpha+i, \beta)\$\$ where \\I_x(\alpha, \beta)\\ is the
+incomplete beta function.
 
 ## Usage
 

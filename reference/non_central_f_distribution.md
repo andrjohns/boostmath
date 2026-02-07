@@ -5,16 +5,23 @@ distribution function, and quantile function for the Noncentral F
 distribution.
 
 The noncentral F distribution is a generalization of the Fisher F
-Distribution. It is defined as the ratio \$\$F =
-\frac{X/\nu_1}{Y/\nu_2}\$\$ where \\X\\ is a noncentral \\\chi^2\\
-random variable with \\\nu_1\\ degrees of freedom and non-centrality
-parameter \\\lambda\\, and \\Y\\ is a central \\\chi^2\\ random variable
-with \\\nu_2\\ degrees of freedom.
+Distribution.
 
-**Accuracy and Implementation Notes:** This distribution is implemented
-in terms of the Noncentral Beta Distribution. Refer to the Noncentral
-Beta Distribution documentation for details on accuracy and
-implementation method.
+Thje PDF is:
+
+\$\$f(x;\nu_1,\nu_2, \lambda)=\sum \limits\_{k=0}^{\infty }{\frac
+{e^{-\lambda /2}(\lambda /2)^{k}}{B\left({\frac {\nu\_{2}}{2}},{\frac
+{\nu\_{1}}{2}}+k\right)k!}}\left({\frac
+{\nu\_{1}}{\nu\_{2}}}\right)^{{\frac {\nu\_{1}}{2}}+k}\left({\frac
+{\nu\_{2}}{\nu\_{2}+\nu\_{1}x}}\right)^{{\frac
+{\nu\_{1}+\nu\_{2}}{2}}+k}x^{\nu\_{1}/2-1+k}\$\$
+
+The CDF is:
+
+\$\$F(x; d\_{1},d\_{2},\lambda )=\sum \limits\_{j=0}^{\infty
+}\left({\frac {\left({\frac {1}{2}}\lambda \right)^{j}}{j!}}e^{-\lambda
+/2}\right)I\left({\frac {d\_{1}x}{d\_{2}+d\_{1}x}}{\bigg \|}{\frac
+{d\_{1}}{2}}+j,{\frac {d\_{2}}{2}}\right)\$\$
 
 ## Usage
 
@@ -63,7 +70,7 @@ distribution, or quantile depending on the function called.
 ## See also
 
 [Boost
-Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html)
+Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_f_dist.html)
 for more details on the mathematical background.
 
 ## Examples

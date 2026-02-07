@@ -3,8 +3,7 @@
 Functions to compute the Lambert W function and its derivatives for the
 principal branch (W_0) and the branch -1 (W\_-\_1).
 
-The Lambert W function (also known as the Omega function or product
-logarithm) is the inverse of f(W) = W\*e^W. It solves the equation:
+The Lambert W function is the solution of:
 
 \$\$W(z) \cdot e^{W(z)} = z\$\$
 
@@ -14,8 +13,6 @@ The function has two real branches:
 
 - **W_0 (Principal Branch):**
 
-  - Domain: \[-1/e, Inf) where 1/e ~= 0.367879
-
   - `lambert_w0(z)`: Returns the principal branch value
 
   - `lambert_w0_prime(z)`: Returns the derivative of W_0
@@ -24,8 +21,6 @@ The function has two real branches:
 
 - **W\_-\_1 (Secondary Branch):**
 
-  - Domain: \[-1/e, 0)
-
   - `lambert_wm1(z)`: Returns the -1 branch value
 
   - `lambert_wm1_prime(z)`: Returns the derivative of W\_-\_1
@@ -33,23 +28,6 @@ The function has two real branches:
   - Exists where two real solutions occur on (-1/e, 0)
 
   - As z approaches 0, W\_-\_1(z) approaches -Inf
-
-**Special Values:**
-
-- W_0(-1/e) = -1 (exactly)
-
-- W\_-\_1(-1/e) = -1 (exactly)
-
-- W\_-\_1(0) = -Inf
-
-**Singularity:**
-
-At z = -1/e ~= -0.367879, the two branches meet and the condition number
-of function evaluation tends to infinity.
-
-The implementation uses Halley's method and Newton-Raphson iteration for
-numerical refinement. Applications include solving transcendental
-equations, delay differential equations, and enumeration problems.
 
 ## Usage
 

@@ -6,17 +6,13 @@ distribution.
 
 With location \$u\$ and scale \$s\>0\$, the PDF and CDF are
 
-\$\$f(x) = \frac{e^{-(x-u)/s}}{s\left(1+e^{-(x-u)/s}\right)^2}\$\$
-\$\$F(x) = \frac{1}{1+e^{-(x-u)/s}}\$\$
+\$\$f(x; \mu, s) =
+\frac{e^{-(x-u)/s}}{s\left(1+e^{-(x-u)/s}\right)^2}\$\$ \$\$F(x; \mu, s)
+= \frac{1}{1+e^{-(x-u)/s}}\$\$
 
 and the quantile is
 
-\$\$Q(p) = u - s\log\left(\frac{1}{p}-1\right)\$\$.
-
-**Accuracy and Implementation Notes:** Implemented with `exp`/`log`.
-`logcdf` is specialised for improved numerical accuracy. Quantiles can
-suffer catastrophic cancellation when the location parameter is large;
-only low absolute error can be guaranteed in that regime.
+\$\$F^{-1}(p; \mu, s) = \mu + s \log\left(\frac{p}{1-p}\right)\$\$
 
 ## Usage
 

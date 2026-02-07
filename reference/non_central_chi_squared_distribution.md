@@ -4,32 +4,19 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Noncentral
 Chi-Squared distribution.
 
-The noncentral chi-squared distribution is a generalization of the
-Chi-Squared Distribution. If \\X_i\\ are \\\nu\\ independent, normally
-distributed random variables with means \\\mu_i\\ and variances
-\\\sigma_i^2\\, then the random variable \$\$\sum\_{i=1}^\nu
-\frac{X_i^2}{\sigma_i^2}\$\$ is distributed according to the noncentral
-chi-squared distribution.
+The PDF is:
 
-The noncentral chi-squared distribution has two parameters: \\\nu\\
-which specifies the number of degrees of freedom (i.e. the number of
-\\X_i\\), and \\\lambda\\ which is related to the mean of the random
-variables \\X_i\\ by: \$\$\lambda = \sum\_{i=1}^\nu
-\frac{\mu_i^2}{\sigma_i^2}\$\$ (Note that some references define
-\\\lambda\\ as one half of the above sum).
+\$\$f(x;\nu,\lambda) = \sum\_{k=0}^\infty
+\frac{e^{-\lambda/2}(\lambda/2)^k}{k!} f(x; \nu+2k)\$\$
 
-This leads to a PDF of: \$\$f(x;\nu,\lambda) = \sum\_{k=0}^\infty
-\frac{e^{-\lambda/2}(\lambda/2)^k}{k!} f(x; \nu+2k)\$\$ where
-\\f(x;\nu)\\ is the central chi-squared distribution PDF.
+where \\f(x;\nu)\\ is the central chi-squared distribution PDF.
 
-**Accuracy and Implementation Notes:** The CDF and its complement are
-evaluated using Temme's relation to determine the crossover point
-(approx when \\F(\nu,\lambda;\nu+\lambda) \approx 0.5\\). For small
-\\\lambda\\, Ding's method (series representation) is used. For large
-\\\lambda (\> 200)\\, Krishnamoorthy's method is used, starting the
-summation at the \\\lambda\\-th term. Computed values are comparable to
-the R Math library, with failures mostly in corner cases with very small
-probabilities.
+The CDF is:
+
+\\F(x;\nu,\lambda) = e^{-\lambda/2} \sum\_{k=0}^\infty
+\frac{(\lambda/2)^k}{k!} F(x; \nu + 2k)\\
+
+Where \\F(x; \nu)\\ is the central chi-squared distribution CDF.
 
 ## Usage
 

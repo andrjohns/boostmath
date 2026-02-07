@@ -4,17 +4,13 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Inverse Gamma
 distribution.
 
-With shape \$\$\alpha\$\$ and scale \$\$\beta\$\$, the PDF is
+With shape \\\alpha\\ and scale \\\beta\\, the PDF is
 
 \$\$f(x;\alpha,\beta) = \frac{\beta^{\alpha}}{\Gamma(\alpha)}
 x^{-\alpha-1} \exp\left(-\frac{\beta}{x}\right)\$\$
 
-and the CDF is \$\$F(x)=\Gamma(\alpha,\beta/x)/\Gamma(\alpha)\$\$.
-
-**Accuracy and Implementation Notes:** Implemented via incomplete gamma
-functions (`gamma_p`, `gamma_q`) and their inverses. `logpdf` is
-specialised for numerical accuracy. Results are typically accurate to a
-few epsilons in double precision.
+The CDF is
+\$\$F(x;\alpha,\beta)=\Gamma(\alpha,\beta/x)/\Gamma(\alpha)\$\$
 
 ## Usage
 

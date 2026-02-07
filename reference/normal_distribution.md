@@ -17,10 +17,6 @@ The cumulative distribution function is given by: \$\$F(x;\mu,\sigma) =
 \int\_{-\infty}^{x} f(t;\mu,\sigma) dt = \frac{1}{2}
 \text{erfc}\left(\frac{-(x-\mu)}{\sigma\sqrt{2}}\right)\$\$
 
-**Accuracy and Implementation Notes:** The normal distribution is
-implemented in terms of the error function, and as such should have very
-low error rates.
-
 ## Usage
 
 ``` r

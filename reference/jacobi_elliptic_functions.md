@@ -3,58 +3,33 @@
 Functions to compute the Jacobi elliptic functions, which are doubly
 periodic generalizations of trigonometric and hyperbolic functions.
 
-Jacobi elliptic functions are fundamental in the theory of elliptic
-functions and appear in solutions to nonlinear differential equations,
-including the pendulum equation, and in the theory of elliptic curves.
+**Jacobi Elliptic SN, CN and DN** Given:
 
-**Three Principal Functions:**
+\$\$u = \int_0^\phi\frac{d\psi}{\sqrt{1-k^2\text{sin}^2\psi}}\$\$
 
-The three copolar Jacobi elliptic functions are:
+- `jacobi_sn(k, u)`: \\\text{sin}\psi\\
 
-- **sn(u, k)** - Sine amplitude
+- `jacobi_cn(k, u)`: \\\text{cos}\psi\\
 
-- **cn(u, k)** - Cosine amplitude
+- `jacobi_dn(k, u)`: \\\sqrt{(1 - k^2\text{sin}^2\psi)}\\
 
-- **dn(u, k)** - Delta amplitude
+- `jacobi_cd(k, u)`: \\\frac{cn(k, u)}{dn(k, u)}\\
 
-These satisfy the fundamental identity: sn^2 + cn^2 = 1 and dn^2 +
-k^2sn^2 = 1
+- `jacobi_cs(k, u)`: \\\frac{cn(k, u)}{sn(k, u)}\\
 
-**Parameter Notation:**
+- `jacobi_dc(k, u)`: \\\frac{dn(k, u)}{cn(k, u)}\\
 
-- k = elliptic modulus (used in this implementation)
+- `jacobi_ds(k, u)`: \\\frac{dn(k, u)}{sn(k, u)}\\
 
-- Alternative notations: m = k^2 (parameter), alpha = modular angle
-  where k = sin(alpha)
+- `jacobi_nc(k, u)`: \\\frac{1}{cn(k, u)}\\
 
-**Special Cases:**
+- `jacobi_nd(k, u)`: \\\frac{1}{dn(k, u)}\\
 
-- sn(0, k) = 0; cn(0, k) = dn(0, k) = 1
+- `jacobi_ns(k, u)`: \\\frac{1}{sn(k, u)}\\
 
-- When k = 0: sn(u, 0) = sin(u); cn(u, 0) = cos(u); dn(u, 0) = 1
+- `jacobi_sc(k, u)`: \\\frac{sn(k, u)}{cn(k, u)}\\
 
-- When k = 1: sn(u, 1) = tanh(u); cn(u, 1) = dn(u, 1) = sech(u)
-
-**Derived Functions:**
-
-Twelve Jacobi elliptic functions exist, derived from ratios of sn, cn,
-dn:
-
-- cd = cn/dn, cs = cn/sn, dc = dn/cn, ds = dn/sn
-
-- nc = 1/cn, nd = 1/dn, ns = 1/sn
-
-- sc = sn/cn, sd = sn/dn
-
-All functions satisfy double periodicity and various addition formulas
-analogous to trigonometric identities.
-
-**Implementation:**
-
-Values are calculated using the arithmetic-geometric mean (AGM) method.
-For k \> 1, transformation relations apply the complementary modulus.
-The function `jacobi_elliptic(k, u)` returns all three principal
-functions simultaneously for efficiency.
+- `jacobi_sd(k, u)`: \\\frac{sn(k, u)}{dn(k, u)}\\
 
 ## Usage
 

@@ -4,17 +4,20 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Log Normal
 distribution.
 
-If \$\$\log X \sim \mathcal{N}(m, s^2)\$\$, then \$X\$ is lognormal. The
-PDF is
+The PDF is:
 
-\$\$f(x) = \frac{1}{x s \sqrt{2\pi}}\exp\left(-\frac{(\log x - m)^2}{2
-s^2}\right), \quad x\>0\$\$
+\$\$f(x; \mu, \sigma^2) = \frac{1}{x \sigma
+\sqrt{2\pi}}\exp\left(-\frac{(\ln x - \mu)^2}{2 \sigma^2}\right), \quad
+x\>0\$\$
 
-and the CDF is \$\$\Phi((\log x - m)/s)\$\$.
+The CDF is:
 
-**Accuracy and Implementation Notes:** Implemented with `log`, `exp`,
-and the error function. The CDF/quantile are computed via the normal
-distribution evaluated at \$\$\log(x)\$\$.
+\$\$F(x; \mu, \sigma^2) = \Phi \left( \frac{\ln x - \mu}{\sigma}
+\right)\$\$
+
+The Quantile is:
+
+\$\$F^{-1}(p; \mu, \sigma^2) = \exp(\mu + \sigma \Phi^{-1}(p))\$\$
 
 ## Usage
 
@@ -36,11 +39,11 @@ lognormal_quantile(p, location = 0, scale = 1)
 
 - location:
 
-  Location parameter (mean of \$\$\log X\$\$; default is 0).
+  Location parameter (default is 0).
 
 - scale:
 
-  Scale parameter (sd of \$\$\log X\$\$; default is 1).
+  Scale parameter (default is 1).
 
 - x:
 

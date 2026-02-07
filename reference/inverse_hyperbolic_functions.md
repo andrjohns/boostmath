@@ -3,69 +3,14 @@
 Functions to compute the inverse hyperbolic functions with high
 precision and proper handling of edge cases.
 
-Inverse hyperbolic functions are the inverses of the hyperbolic
-functions and appear in calculus, special relativity, and solutions to
-differential equations.
+- `acosh_boost(x)`: Inverse hyperbolic cosine,
+  \\\text{cosh}^{-1}(\text{cosh} (x)) = x\\
 
-**Inverse Hyperbolic Cosine:**
+- `asinh_boost(x)`: Inverse hyperbolic sine,
+  \\\text{sinh}^{-1}(\text{sinh} (x)) = x\\
 
-- `acosh_boost(x)`: Computes arccosh(x) = cosh^-^1(x)
-
-- Mathematical definition: acosh(x) = log(x + sqrt(x^2 - 1))
-
-- Domain: x \>= 1
-
-- Range: \[0, Inf)
-
-- Identity: cosh(acosh(x)) = x for x \>= 1
-
-- Derivative: d/dx acosh(x) = 1/sqrt(x^2 - 1)
-
-**Inverse Hyperbolic Sine:**
-
-- `asinh_boost(x)`: Computes arcsinh(x) = sinh^-^1(x)
-
-- Mathematical definition: asinh(x) = log(x + sqrt(x^2 + 1))
-
-- Domain: (-Inf, Inf)
-
-- Range: (-Inf, Inf)
-
-- Odd function: asinh(-x) = -asinh(x)
-
-- Identity: sinh(asinh(x)) = x for all x
-
-- Derivative: d/dx asinh(x) = 1/sqrt(x^2 + 1)
-
-**Inverse Hyperbolic Tangent:**
-
-- `atanh_boost(x)`: Computes arctanh(x) = tanh^-^1(x)
-
-- Mathematical definition: atanh(x) = (1/2)log((1 + x)/(1 - x))
-
-- Domain: (-1, 1)
-
-- Range: (-Inf, Inf)
-
-- Odd function: atanh(-x) = -atanh(x)
-
-- Identity: tanh(atanh(x)) = x for \|x\| \< 1
-
-- Derivative: d/dx atanh(x) = 1/(1 - x^2)
-
-- Special values: atanh(0) = 0, atanh(+/-1) = +/-Inf
-
-**Applications:**
-
-These functions appear in:
-
-- Special relativity (rapidity transformations)
-
-- Integration (e.g., integral 1/sqrt(x^2 + 1) dx = asinh(x) + C)
-
-- Complex analysis and conformal mappings
-
-- Statistical distributions (e.g., Fisher's z-transformation)
+- `atanh_boost(x)`: Inverse hyperbolic tangent,
+  \\\text{tanh}^{-1}(\text{tanh} (x)) = x\\
 
 ## Usage
 

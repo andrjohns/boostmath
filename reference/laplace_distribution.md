@@ -4,21 +4,16 @@ Functions to compute the probability density function, cumulative
 distribution function, and quantile function for the Laplace (double
 exponential) distribution.
 
-With location \$\$\mu\$\$ and scale \$\$\sigma \> 0\$\$, the PDF is
+The PDF is
 
-\$\$f(x) =
+\$\$f(x; \mu, \sigma) =
 \frac{1}{2\sigma}\exp\left(-\frac{\|x-\mu\|}{\sigma}\right)\$\$
 
 and the CDF is
 
-\$\$F(x) =
-\begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\sigma}\right), & x \<
-\mu,\\ 1 - \frac{1}{2}\exp\left(\frac{\mu-x}{\sigma}\right), & x \ge
-\mu.\end{cases}\$\$
-
-**Accuracy and Implementation Notes:** Implemented in terms of `exp` and
-`log`; `logcdf` and `logpdf` are specialised for improved numerical
-accuracy. Complements use stable `log1p` forms.
+\$\$F(x) = \begin{cases}\exp\left(\frac{x-\mu}{\sigma}\right) / \sigma,
+& x \< \mu,\\ 1 - \exp\left(\frac{x-\mu}{\sigma}\right) / \sigma, & x
+\ge \mu.\end{cases}\$\$
 
 ## Usage
 
