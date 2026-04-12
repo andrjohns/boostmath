@@ -3,6 +3,7 @@
 
 #include <cpp11/declarations.hpp>
 #include "sexp.hpp"
+#include "utils.hpp"
 
 #define NOARG_BOOST_MEMBER(name) \
   extern "C" SEXP name##_() { \
@@ -21,166 +22,161 @@
 #define UNARY_BOOST_FUNCTION(name, arg_type) \
   extern "C" SEXP name##_(SEXP x_) { \
     BEGIN_CPP11 \
-    const arg_type x = boostmath::as_cpp<arg_type>(x_); \
-    return boostmath::as_sexp(boost::math::name<double>(x)); \
+    using args_type = std::tuple<arg_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name<double>(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_ }); \
     END_CPP11 \
   }
 
 #define UNARY_BOOST_FUNCTION_NOTYPE(name, arg_type) \
   extern "C" SEXP name##_(SEXP x_) { \
     BEGIN_CPP11 \
-    const arg_type x = boostmath::as_cpp<arg_type>(x_); \
-    return boostmath::as_sexp(boost::math::name(x)); \
+    using args_type = std::tuple<arg_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_ }); \
     END_CPP11 \
   }
 
 #define UNARY_BOOST_FUNCTION_NAMESPACE(namespace, name, arg_type) \
   extern "C" SEXP name##_(SEXP x_) { \
     BEGIN_CPP11 \
-    arg_type x = boostmath::as_cpp<arg_type>(x_); \
-    return boostmath::as_sexp(boost::math::namespace::name(x)); \
+    using args_type = std::tuple<arg_type>; \
+    const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_ }); \
     END_CPP11 \
   }
 
 #define UNARY_BOOST_FUNCTION_SUFFIX(name, suffix, arg_type) \
   extern "C" SEXP name##_##suffix(SEXP x_) { \
     BEGIN_CPP11 \
-    const arg_type x = boostmath::as_cpp<arg_type>(x_); \
-    return boostmath::as_sexp(boost::math::name(x)); \
+    using args_type = std::tuple<arg_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_ }); \
     END_CPP11 \
   }
 
 #define BINARY_BOOST_FUNCTION(name, arg1_type, arg2_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    return boostmath::as_sexp(boost::math::name(x, y)); \
+    using args_type = std::tuple<arg1_type, arg2_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_ }); \
     END_CPP11 \
   }
 
 #define BINARY_BOOST_FUNCTION_TYPE(name, template_type, arg1_type, arg2_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    return boostmath::as_sexp(boost::math::name<template_type>(x, y)); \
+    using args_type = std::tuple<arg1_type, arg2_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name<template_type>(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_ }); \
     END_CPP11 \
   }
 
 #define BINARY_BOOST_FUNCTION_NAMESPACE(namespace, name, arg1_type, arg2_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    return boostmath::as_sexp(boost::math::namespace::name(x, y)); \
+    using args_type = std::tuple<arg1_type, arg2_type>; \
+    const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_ }); \
     END_CPP11 \
   }
 
 #define BINARY_BOOST_FUNCTION_VECTOR_SUFFIX(name, suffix, arg1_type, arg2_type) \
   extern "C" SEXP name##_##suffix(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    std::vector<double> results; \
-    boost::math::name<double>(x, y, std::back_inserter(results)); \
-    return boostmath::as_sexp(results); \
+    using args_type = std::tuple<arg1_type, arg2_type>; \
+    const auto f = [](auto&&... args) { \
+      std::vector<double> results; \
+      boost::math::name<double>(args..., std::back_inserter(results)); \
+      return results; \
+    }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_ }); \
     END_CPP11 \
   }
 
 #define BINARY_BOOST_FUNCTION_SUFFIX(name, suffix, arg1_type, arg2_type) \
   extern "C" SEXP name##_##suffix(SEXP x_, SEXP y_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    return boostmath::as_sexp(boost::math::name(x, y)); \
+    using args_type = std::tuple<arg1_type, arg2_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_ }); \
     END_CPP11 \
   }
 
 #define TERNARY_BOOST_FUNCTION(name, arg1_type, arg2_type, arg3_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_, SEXP z_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    return boostmath::as_sexp(boost::math::name(x, y, z)); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_ }); \
     END_CPP11 \
   }
 
 #define TERNARY_BOOST_FUNCTION_NAMESPACE(namespace, name, arg1_type, arg2_type, arg3_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_, SEXP z_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    return boostmath::as_sexp(boost::math::namespace::name(x, y, z)); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type>; \
+    const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_ }); \
     END_CPP11 \
   }
 
 #define TERNARY_BOOST_FUNCTION_VECTOR_SUFFIX(name, suffix, arg1_type, arg2_type, arg3_type) \
   extern "C" SEXP name##_##suffix(SEXP x_, SEXP y_, SEXP z_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    std::vector<double> results; \
-    boost::math::name<double>(x, y, z, std::back_inserter(results)); \
-    return boostmath::as_sexp(results); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type>; \
+    const auto f = [](auto&&... args) { \
+      std::vector<double> results; \
+      boost::math::name<double>(args..., std::back_inserter(results)); \
+      return results; \
+    }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_ }); \
     END_CPP11 \
   }
 
 #define TERNARY_BOOST_FUNCTION_SUFFIX(name, suffix, arg1_type, arg2_type, arg3_type) \
   extern "C" SEXP name##_##suffix(SEXP x_, SEXP y_, SEXP z_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    return boostmath::as_sexp(boost::math::name(x, y, z)); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_ }); \
     END_CPP11 \
   }
 
 #define QUARTERNARY_BOOST_FUNCTION(name, arg1_type, arg2_type, arg3_type, arg4_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_, SEXP z_, SEXP w_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    return boostmath::as_sexp(boost::math::name(x, y, z, w)); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type>; \
+    const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_, w_ }); \
     END_CPP11 \
   }
 
 #define QUARTERNARY_BOOST_FUNCTION_NAMESPACE(namespace, name, arg1_type, arg2_type, arg3_type, arg4_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_, SEXP z_, SEXP w_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    return boostmath::as_sexp(boost::math::namespace::name(x, y, z, w)); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type>; \
+    const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_, w_ }); \
     END_CPP11 \
   }
 
 #define QUARTERNARY_BOOST_FUNCTION_NAMESPACE_SUFFIX(namespace, name, suffix, arg1_type, arg2_type, arg3_type, arg4_type) \
   extern "C" SEXP name##_##suffix(SEXP x_, SEXP y_, SEXP z_, SEXP w_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    return boostmath::as_sexp(boost::math::namespace::name(x, y, z, w)); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type>; \
+    const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_, w_ }); \
     END_CPP11 \
   }
 
 #define PENTA_BOOST_FUNCTION_NAMESPACE(namespace, name, arg1_type, arg2_type, arg3_type, arg4_type, arg5_type) \
   extern "C" SEXP name##_(SEXP x_, SEXP y_, SEXP z_, SEXP w_, SEXP v_) { \
     BEGIN_CPP11 \
-    const arg1_type x = boostmath::as_cpp<arg1_type>(x_); \
-    const arg2_type y = boostmath::as_cpp<arg2_type>(y_); \
-    const arg3_type z = boostmath::as_cpp<arg3_type>(z_); \
-    const arg4_type w = boostmath::as_cpp<arg4_type>(w_); \
-    const arg4_type v = boostmath::as_cpp<arg4_type>(v_); \
-    return boostmath::as_sexp(boost::math::namespace::name(x, y, z, w, v)); \
+    using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type, arg5_type>; \
+    const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
+    return boostmath::boostfun<args_type>(f, { x_, y_, z_, w_, v_ }); \
     END_CPP11 \
   }
 
