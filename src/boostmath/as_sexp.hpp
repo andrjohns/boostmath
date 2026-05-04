@@ -4,6 +4,7 @@
 #include <cpp11.hpp>
 #include <complex>
 #include "./type_traits.hpp"
+#include "Rinternals.h"
 
 namespace boostmath {
   namespace internal {
@@ -61,9 +62,11 @@ namespace boostmath {
   inline SEXP as_sexp(const T& x) {
     R_xlen_t n = x.size();
     SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
+    PROTECT(data);
     for (R_xlen_t i = 0; i < n; ++i) {
       SET_VECTOR_ELT(data, i, as_sexp(x[i]));
     }
+    UNPROTECT(1);
     return data;
   }
 
@@ -115,9 +118,11 @@ namespace boostmath {
   inline SEXP as_sexp(const T& x) {
     R_xlen_t n = x.size();
     SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
+    PROTECT(data);
     for (R_xlen_t i = 0; i < n; ++i) {
       SET_VECTOR_ELT(data, i, as_sexp(x[i]));
     }
+    UNPROTECT(1);
     return data;
   }
 
@@ -130,9 +135,11 @@ namespace boostmath {
   inline SEXP as_sexp(const T& x) {
     R_xlen_t n = x.size();
     SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
+    PROTECT(data);
     for (R_xlen_t i = 0; i < n; ++i) {
       SET_VECTOR_ELT(data, i, as_sexp(x[i]));
     }
+    UNPROTECT(1);
     return data;
   }
 
