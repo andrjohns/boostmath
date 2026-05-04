@@ -1,3 +1,6 @@
+# boostmath 1.5.0
+  * Functions (excluding distributions and polynomials) now support vectorised inputs
+
 # boostmath 1.4.0
   * Added `logit` and `logistic_sigmoid` functions
   * Added `log_pi` constant
