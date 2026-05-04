@@ -2,7 +2,8 @@
 #define BOOSTMATH_UTILS_HPP
 
 #include <tuple>
-#include "sexp.hpp"
+#include "as_sexp.hpp"
+#include "as_cpp.hpp"
 #include <vector>
 
 namespace boostmath {

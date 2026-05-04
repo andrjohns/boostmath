@@ -2,7 +2,8 @@
 #define BOOSTMATH_MACROS_HPP
 
 #include <cpp11/declarations.hpp>
-#include "sexp.hpp"
+#include "as_sexp.hpp"
+#include "as_cpp.hpp"
 #include "utils.hpp"
 
 #define NOARG_BOOST_MEMBER(name) \

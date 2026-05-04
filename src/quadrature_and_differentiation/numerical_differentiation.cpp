@@ -1,7 +1,8 @@
 #include <cpp11.hpp>
 #include <cpp11/declarations.hpp>
 #include <boost/math/differentiation/finite_difference.hpp>
-#include "../boostmath/sexp.hpp"
+#include "../boostmath/as_sexp.hpp"
+#include "../boostmath/as_cpp.hpp"
 
 extern "C" {
   SEXP finite_difference_derivative_(SEXP f_, SEXP x_, SEXP order_) {
