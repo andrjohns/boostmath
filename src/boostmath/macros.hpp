@@ -4,7 +4,7 @@
 #include <cpp11/declarations.hpp>
 #include "as_sexp.hpp"
 #include "as_cpp.hpp"
-#include "utils.hpp"
+#include "boost_function.hpp"
 
 #define NOARG_BOOST_MEMBER(name) \
   extern "C" SEXP name##_() { \
@@ -25,7 +25,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg_type>; \
     const auto f = [](auto&&... args) { return boost::math::name<double>(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_)); \
     END_CPP11 \
   }
 
@@ -34,7 +34,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg_type>; \
     const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_)); \
     END_CPP11 \
   }
 
@@ -43,7 +43,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg_type>; \
     const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_)); \
     END_CPP11 \
   }
 
@@ -52,7 +52,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg_type>; \
     const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_)); \
     END_CPP11 \
   }
 
@@ -61,7 +61,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type>; \
     const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_)); \
     END_CPP11 \
   }
 
@@ -70,7 +70,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type>; \
     const auto f = [](auto&&... args) { return boost::math::name<template_type>(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_)); \
     END_CPP11 \
   }
 
@@ -79,7 +79,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type>; \
     const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_)); \
     END_CPP11 \
   }
 
@@ -92,7 +92,7 @@
       boost::math::name<double>(args..., std::back_inserter(results)); \
       return results; \
     }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_)); \
     END_CPP11 \
   }
 
@@ -101,7 +101,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type>; \
     const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_)); \
     END_CPP11 \
   }
 
@@ -110,7 +110,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type, arg3_type>; \
     const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
     END_CPP11 \
   }
 
@@ -119,7 +119,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type, arg3_type>; \
     const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
     END_CPP11 \
   }
 
@@ -132,7 +132,7 @@
       boost::math::name<double>(args..., std::back_inserter(results)); \
       return results; \
     }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
     END_CPP11 \
   }
 
@@ -141,7 +141,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type, arg3_type>; \
     const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_)); \
     END_CPP11 \
   }
 
@@ -150,7 +150,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type>; \
     const auto f = [](auto&&... args) { return boost::math::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_)); \
     END_CPP11 \
   }
 
@@ -159,7 +159,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type>; \
     const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_)); \
     END_CPP11 \
   }
 
@@ -168,7 +168,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type>; \
     const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_)); \
     END_CPP11 \
   }
 
@@ -177,7 +177,7 @@
     BEGIN_CPP11 \
     using args_type = std::tuple<arg1_type, arg2_type, arg3_type, arg4_type, arg5_type>; \
     const auto f = [](auto&&... args) { return boost::math::namespace::name(args...); }; \
-    return boostmath::boostfun<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_, v_)); \
+    return boostmath::boost_function<args_type>(f, std::forward_as_tuple(x_, y_, z_, w_, v_)); \
     END_CPP11 \
   }
 
