@@ -9,6 +9,7 @@ section of the Boost Math library cover a broad range of areas
 ### [Floating-Point Representation Distance (ULP), and Finding Adjacent Floating-Point Values](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/next_float.html)
 
 ``` r
+
 #  The next representable value which is greater than x
 print(float_next(1.0), digits = 20)
 #> [1] 1.000000000000000222
@@ -29,6 +30,7 @@ print(ulp(1.0), digits = 20)
 ### [Floating-point Comparison](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/float_comparison.html)
 
 ``` r
+
 # The relative distance/error E between two values as defined by: fabs((a - b) / min(a, b))
 print(relative_difference(1.1, 1.1000009), digits = 20)
 #> [1] 8.1818181805395140825e-07
@@ -40,6 +42,7 @@ print(epsilon_difference(1.1, 1.1000009), digits = 20)
 ### [Condition Numbers](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cond.html)
 
 ``` r
+
 # Create a summation condition number object
 scn <- summation_condition_number(kahan = TRUE)
 # Add some values

@@ -9,6 +9,7 @@ section of the Boost Math library cover a broad range of areas
 ### [Univariate Statistics](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/univariate_statistics.html)
 
 ``` r
+
 # Mean
 mean_boost(c(1, 2, 3, 4, 5))
 #> [1] 3
@@ -56,6 +57,7 @@ mode(c(1, 2, 2, 3, 4))
 ### [Bivariate Statistics](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bivariate_statistics.html)
 
 ``` r
+
 # Covariance
 covariance(c(1, 2, 3), c(4, 5, 6))
 #> [1] 0.6666667
@@ -70,6 +72,7 @@ correlation_coefficient(c(1, 2, 3), c(4, 5, 6))
 ### [Signal Statistics](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/signal_statistics.html)
 
 ``` r
+
 # Absolute Gini Coefficient
 absolute_gini_coefficient(c(1, 2, 3, 4, 5))
 #> [1] 0.2666667
@@ -98,6 +101,7 @@ m2m4_snr_estimator_db(c(1.1, 2.1, 3.1), 3, 2)
 ### [Anderson-Darling Test](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/anderson_darling.html)
 
 ``` r
+
 # Anderson-Darling test for normality
 anderson_darling_normality_statistic(c(1, 2, 3, 4, 5), 0, 1)
 #> [1] 19.49684
@@ -106,6 +110,7 @@ anderson_darling_normality_statistic(c(1, 2, 3, 4, 5), 0, 1)
 ### [T-Tests](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/t_test.html)
 
 ``` r
+
 # One Sample T-Test with parameters
 one_sample_t_test_params(sample_mean = 2, sample_variance = 1, num_samples = 30, assumed_mean = 0)
 #> [1] 1.095445e+01 8.021287e-12
@@ -123,6 +128,7 @@ paired_samples_t_test(c(1, 2, 3), c(4, 5, 6))
 ### [Z-Tests](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/z_test.html)
 
 ``` r
+
 # One Sample Z-Test with parameters
 one_sample_z_test_params(sample_mean = 2, sample_variance = 1, num_samples = 30, assumed_mean = 0)
 #> [1] 1.095445e+01 8.021287e-12
@@ -137,6 +143,7 @@ two_sample_z_test(c(1, 2, 3), c(4, 5, 6))
 ### [Runs Tests](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/runs_test.html)
 
 ``` r
+
 # Runs Above and Below Threshold
 runs_above_and_below_threshold(c(1, 2, 3, 4, 5), threshold = 3)
 #> [1] -1.2247449  0.2206714
@@ -148,6 +155,7 @@ runs_above_and_below_median(c(1, 2, 3, 4, 5))
 ### [Ljung-Box Tests](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/ljung_box.html)
 
 ``` r
+
 # Ljung-Box test for autocorrelation
 ljung_box(c(1, 2, 3, 4, 5), lags = 2, fit_dof = 0)
 #> [1] 1.5166667 0.4684465
@@ -156,6 +164,7 @@ ljung_box(c(1, 2, 3, 4, 5), lags = 2, fit_dof = 0)
 ### [Linear Regression](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/linear_regression.html)
 
 ``` r
+
 x <- c(1, 2, 3, 4, 5)
 y <- c(2, 3, 5, 7, 11)
 # Simple Ordinary Least Squares

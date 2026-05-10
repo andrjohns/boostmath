@@ -9,6 +9,7 @@ section of the Boost Math library cover a broad range of areas
 ### [Arcsine Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/arcine_dist.html)
 
 ``` r
+
 # Arcsine distribution with default parameters
 dist <- arcsine_distribution()
 # Apply generic functions
@@ -61,6 +62,7 @@ arcsine_quantile(0.5)
 ### [Bernoulli Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/bernoulli_dist.html)
 
 ``` r
+
 # Bernoulli distribution with p_success = 0.5
 dist <- bernoulli_distribution(0.5)
 # Apply generic functions
@@ -115,6 +117,7 @@ bernoulli_quantile(0.5, 0.5)
 ### [Beta Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/beta_dist.html)
 
 ``` r
+
 # Beta distribution with shape parameters alpha = 2, beta = 5
 dist <- beta_distribution(2, 5)
 # Apply generic functions
@@ -169,6 +172,7 @@ beta_quantile(0.5, 2, 5)
 ### [Binomial Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/binomial_dist.html)
 
 ``` r
+
 # Binomial dist ribution with n = 10, prob = 0.5
 dist <- binomial_distribution(10, 0.5)
 # Apply generic functions
@@ -223,6 +227,7 @@ binomial_quantile(0.5, 10, 0.5)
 ### [Cauchy Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/cauchy_dist.html)
 
 ``` r
+
 # Cauchy distribution with location = 0, scale = 1
 dist <- cauchy_distribution(0, 1)
 # Apply generic functions
@@ -265,6 +270,7 @@ cauchy_quantile(0.5)
 ### [Chi-Squared Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/chi_squared_dist.html)
 
 ``` r
+
 # Chi-Squared distribution with 3 degrees of freedom
 dist <- chi_squared_distribution(3)
 # Apply generic functions
@@ -319,6 +325,7 @@ chi_squared_quantile(0.5, 3)
 ### [Exponential Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/exp_dist.html)
 
 ``` r
+
 # Exponential distribution with rate parameter lambda = 2
 dist <- exponential_distribution(2)
 # Apply generic functions
@@ -373,6 +380,7 @@ exponential_quantile(0.5, 2)
 ### [Extreme Value Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/extreme_dist.html)
 
 ``` r
+
 # Extreme Value distribution with location = 0, scale = 1
 dist <- extreme_value_distribution(0, 1)
 # Apply generic functions
@@ -427,6 +435,7 @@ extreme_value_quantile(0.5)
 ### [F Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/f_dist.html)
 
 ``` r
+
 # Fisher F distribution with df1 = 5, df2 = 10
 dist <- fisher_f_distribution(5, 10)
 # Apply generic functions
@@ -481,6 +490,7 @@ fisher_f_quantile(0.5, 5, 10)
 ### [Gamma Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/gamma_dist.html)
 
 ``` r
+
 # Gamma distribution with shape = 3, scale = 4
 dist <- gamma_distribution(3, 4)
 # Apply generic functions
@@ -535,6 +545,7 @@ gamma_quantile(0.5, 3, 4)
 ### [Geometric Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/geometric_dist.html)
 
 ``` r
+
 # Geometric distribution with probability of success prob = 0.5
 dist <- geometric_distribution(0.5)
 # Apply generic functions
@@ -589,6 +600,7 @@ geometric_quantile(0.5, 0.5)
 ### [Holtsmark Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/holtsmark_dist.html)
 
 ``` r
+
 # Holtsmark distribution with location 0 and scale 1
 dist <- holtsmark_distribution(0, 1)
 # Apply generic functions
@@ -637,6 +649,7 @@ holtsmark_quantile(0.5)
 ### [Hyperexponential Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hyperexponential_dist.html)
 
 ``` r
+
 # Hyperexponential distribution with probabilities = c(0.5, 0.5) and rates = c(1, 2)
 dist <- hyperexponential_distribution(c(0.5, 0.5), c(1, 2))
 # Apply generic functions
@@ -691,6 +704,7 @@ hyperexponential_quantile(0.5, c(0.5, 0.5), c(1, 2))
 ### [Hypergeometric Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/hypergeometric_dist.html)
 
 ``` r
+
 # Hypergeometric distribution with r = 5, n = 10, N = 20
 dist <- hypergeometric_distribution(5, 10, 20)
 # Apply generic functions
@@ -745,6 +759,7 @@ hypergeometric_quantile(0.5, 5, 10, 20)
 ### [Inverse Chi-Squared Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_chi_squared_dist.html)
 
 ``` r
+
 # Inverse Chi-Squared distribution with 10 degrees of freedom, scale = 1
 dist <- inverse_chi_squared_distribution(10, 1)
 # Apply generic functions
@@ -799,6 +814,7 @@ inverse_chi_squared_quantile(0.5, 10, 1)
 ### [Inverse Gamma Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gamma_dist.html)
 
 ``` r
+
 # Inverse Gamma distribution with shape = 5, scale = 4
 dist <- inverse_gamma_distribution(5, 4)
 # Apply generic functions
@@ -853,6 +869,7 @@ inverse_gamma_quantile(0.5, 5, 4)
 ### [Inverse Gaussian Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/inverse_gaussian_dist.html)
 
 ``` r
+
 # Inverse Gaussian distribution with mu = 3, lambda = 4
 dist <- inverse_gaussian_distribution(3, 4)
 # Apply generic functions
@@ -907,6 +924,7 @@ inverse_gaussian_quantile(0.5, 3, 4)
 ### [Kolmogorov-Smirnov Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/kolmogorov_smirnov_dist.html)
 
 ``` r
+
 # Kolmogorov-Smirnov distribution with sample size n = 10
 dist <- kolmogorov_smirnov_distribution(10)
 # Apply generic functions
@@ -961,6 +979,7 @@ kolmogorov_smirnov_quantile(0.5, 10)
 ### [Landau Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/landau_dist.html)
 
 ``` r
+
 # Landau distribution with location 0 and scale 1
 dist <- landau_distribution(0, 1)
 # Apply generic functions
@@ -1003,6 +1022,7 @@ landau_quantile(0.5)
 ### [Laplace Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/laplace_dist.html)
 
 ``` r
+
 # Laplace distribution with location = 0, scale = 1
 dist <- laplace_distribution(0, 1)
 # Apply generic functions
@@ -1057,6 +1077,7 @@ laplace_quantile(0.5)
 ### [Logistic Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/logistic_dist.html)
 
 ``` r
+
 # Logistic distribution with location = 0, scale = 1
 dist <- logistic_distribution(0, 1)
 # Apply generic functions
@@ -1111,6 +1132,7 @@ logistic_quantile(0.5)
 ### [Log Normal Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/lognormal_dist.html)
 
 ``` r
+
 # Log Normal distribution with location = 0, scale = 1
 dist <- lognormal_distribution(0, 1)
 # Apply generic functions
@@ -1165,6 +1187,7 @@ lognormal_quantile(0.5)
 ### [Map-Airy Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/mapairy_dist.html)
 
 ``` r
+
 # Map-Airy distribution with location 0 and scale 1
 dist <- mapairy_distribution(0, 1)
 # Apply generic functions
@@ -1213,6 +1236,7 @@ mapairy_quantile(0.5)
 ### [Negative Binomial Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/negative_binomial_dist.html)
 
 ``` r
+
 # Negative Binomial distribution with successes = 5, success_fraction = 0.5
 dist <- negative_binomial_distribution(5, 0.5)
 # Apply generic functions
@@ -1267,6 +1291,7 @@ negative_binomial_quantile(0.5, 5, 0.5)
 ### [Noncentral Beta Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_beta_dist.html)
 
 ``` r
+
 # Noncentral Beta distribution with shape parameters alpha = 2, beta = 3
 # and noncentrality parameter lambda = 1
 dist <- non_central_beta_distribution(2, 3, 1)
@@ -1316,6 +1341,7 @@ non_central_beta_quantile(0.5, 2, 3, 1)
 ### [Noncentral Chi-Squared Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_chi_squared_dist.html)
 
 ``` r
+
 # Noncentral Chi-Squared distribution with 3 degrees of freedom and noncentrality
 # parameter 1
 dist <- non_central_chi_squared_distribution(3, 1)
@@ -1371,6 +1397,7 @@ non_central_chi_squared_quantile(0.5, 3, 1)
 ### [Noncentral F Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_f_dist.html)
 
 ``` r
+
 # Noncentral F distribution with df1 = 10, df2 = 10 and noncentrality
 # parameter 1
 dist <- non_central_f_distribution(10, 10, 1)
@@ -1426,6 +1453,7 @@ non_central_f_quantile(0.5, 5, 2, 1)
 ### [Noncentral T Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/nc_t_dist.html)
 
 ``` r
+
 # Noncentral T distribution with 5 degrees of freedom and noncentrality parameter 1
 dist <- non_central_t_distribution(5, 1)
 # Apply generic functions
@@ -1480,6 +1508,7 @@ non_central_t_quantile(0.5, 5, 1)
 ### [Normal Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/normal_dist.html)
 
 ``` r
+
 # Normal distribution with mean = 0, sd = 1
 dist <- normal_distribution(0, 1)
 # Apply generic functions
@@ -1534,6 +1563,7 @@ normal_quantile(0.5)
 ### [Pareto Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/pareto.html)
 
 ``` r
+
 # Pareto distribution with scale = 10, shape = 5
 dist <- pareto_distribution(10, 5)
 # Apply generic functions
@@ -1588,6 +1618,7 @@ pareto_quantile(0.5)
 ### [Poisson Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/poisson_dist.html)
 
 ``` r
+
 # Poisson distribution with lambda = 1
 dist <- poisson_distribution(1)
 # Apply generic functions
@@ -1642,6 +1673,7 @@ poisson_quantile(0.5, 1)
 ### [Rayleigh Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/rayleigh.html)
 
 ``` r
+
 # Rayleigh distribution with sigma = 1
 dist <- rayleigh_distribution(1)
 # Apply generic functions
@@ -1696,6 +1728,7 @@ rayleigh_quantile(0.5)
 ### [SaS Point5 Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/saspoint5_dist.html)
 
 ``` r
+
 # SaS Point5 distribution with location 0 and scale 1
 dist <- saspoint5_distribution(0, 1)
 # Apply generic functions
@@ -1738,6 +1771,7 @@ saspoint5_quantile(0.5)
 ### [Skew Normal Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/skew_normal_dist.html)
 
 ``` r
+
 # Skew Normal distribution with location = 0, scale = 1, shape = 0
 dist <- skew_normal_distribution(0, 1, 0)
 # Apply generic functions
@@ -1792,6 +1826,7 @@ skew_normal_quantile(0.5)
 ### [Student’s T Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/students_t_dist.html)
 
 ``` r
+
 # Student's t distribution with 5 degrees of freedom
 dist <- students_t_distribution(5)
 # Apply generic functions
@@ -1846,6 +1881,7 @@ students_t_quantile(0.5, 5)
 ### [Triangular Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/triangular_dist.html)
 
 ``` r
+
 # Triangular distribution with lower = -1, mode = 0, upper = 1
 dist <- triangular_distribution(-1, 0, 1)
 # Apply generic functions
@@ -1900,6 +1936,7 @@ triangular_quantile(0.5)
 ### [Uniform Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/uniform_dist.html)
 
 ``` r
+
 # Uniform distribution with lower = 0, upper = 1
 dist <- uniform_distribution(0, 1)
 # Apply generic functions
@@ -1954,6 +1991,7 @@ uniform_quantile(0.5)
 ### [Weibull Distribution](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/dist_ref/dists/weibull_dist.html)
 
 ``` r
+
 # Weibull distribution with shape = 1, scale = 1
 dist <- weibull_distribution(1, 1)
 # Apply generic functions

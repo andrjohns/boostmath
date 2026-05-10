@@ -3,6 +3,7 @@
 ## [Vector Functionals - Norms](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/norms.html)
 
 ``` r
+
 # L0 Pseudo Norm
 l0_pseudo_norm(c(1, 0, 2, 0, 3))
 #> [1] 3

@@ -1,5 +1,10 @@
 # Changelog
 
+## boostmath 1.5.0
+
+- Functions (excluding distributions and polynomials) now support
+  vectorised inputs
+
 ## boostmath 1.4.0
 
 CRAN release: 2025-12-15

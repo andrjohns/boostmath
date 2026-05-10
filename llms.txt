@@ -9,6 +9,7 @@ You can install the development version of boostmath from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("andrjohns/boostmath")
 ```
@@ -16,6 +17,7 @@ remotes::install_github("andrjohns/boostmath")
 Or you can install pre-built binaries from R-Universe:
 
 ``` r
+
 install.packages("boostmath", repos = c("https://andrjohns.r-universe.dev",
                                         "https://cran.r-project.org"))
 ```
@@ -25,6 +27,7 @@ install.packages("boostmath", repos = c("https://andrjohns.r-universe.dev",
 Functions can be used directly after loading the package:
 
 ``` r
+
 library(boostmath)
 #> 
 #> Attaching package: 'boostmath'
@@ -47,6 +50,7 @@ Any Boost Math functions that share the same name as R functions are
 sufffixed with `_boost` to avoid conflicts:
 
 ``` r
+
 beta_boost(3, 2)
 #> [1] 0.08333333
 lgamma_boost(5)
@@ -59,6 +63,7 @@ Boost’s integration routines are also available for use with R
 functions:
 
 ``` r
+
 trapezoidal(function(x) { 1/(5 - 4*cos(x)) }, a = 0, b = 2*pi)
 #> [1] 2.094395
 
@@ -73,6 +78,7 @@ As well as numerical differentiation by finite-differencing or the
 complex-step method:
 
 ``` r
+
 finite_difference_derivative(exp, 1.7)
 #> [1] 5.473947
 
@@ -87,6 +93,7 @@ complex_step_derivative(exp, 1.7)
 `quantile`) can be applied:
 
 ``` r
+
 # Normal distribution with mean = 0, sd = 1
 dist <- normal_distribution(0, 1)
 # Apply generic functions
@@ -130,6 +137,7 @@ Alternatively, the PDF, CDF, log-PDF, log-CDF, and quantile functions
 for statistical distributions can just be called directly:
 
 ``` r
+
 beta_pdf(0.1, 1.2, 2.1)
 #> [1] 1.569287
 

@@ -70,17 +70,17 @@ Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_too
 x <- runif(50, -1, 1)
 y <- x^2
 chatterjee_correlation(x, y) # Should be high (near 1)
-#> [1] 0.03601441
+#> [1] 0.008403361
 
 # Independence
 x <- runif(50)
 y <- runif(50)
 chatterjee_correlation(x, y) # Should be low (near 0)
-#> [1] -0.05402161
+#> [1] -0.07202881
 
 # Asymmetry check
 chatterjee_correlation(x, y)
-#> [1] -0.05402161
+#> [1] -0.07202881
 chatterjee_correlation(y, x)
-#> [1] -0.03721489
+#> [1] -0.03121248
 ```

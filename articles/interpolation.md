@@ -11,6 +11,7 @@ directly in R without needing any additional compilation.
 ### [Cardinal Cubic B-Spline](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_cubic_b.html)
 
 ``` r
+
 y <- c(1, 2, 0, 2, 1)
 t0 <- 0
 h <- 1
@@ -27,6 +28,7 @@ spline_obj$double_prime(x)
 ### [Barycentric Rational Interpolation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/barycentric.html)
 
 ``` r
+
 x <- c(0, 1, 2, 3)
 y <- c(1, 2, 0, 2)
 order <- 3
@@ -41,6 +43,7 @@ interpolator$prime(xi)
 ### [Bezier Polynomial](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bezier_polynomial.html)
 
 ``` r
+
 control_points <- list(c(0, 0, 0), c(1, 2, 0), c(2, 0, 0), c(3, 3, 0))
 interpolator <- bezier_polynomial(control_points)
 xi <- 0.8
@@ -55,6 +58,7 @@ interpolator$edit_control_point(new_control_point, 2)
 ### [Bilinear Uniform](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/bilinear_uniform.html)
 
 ``` r
+
 x <- seq(0, 1, length.out = 10)
 interpolator <- bilinear_uniform(x, rows = 2, cols = 5)
 xi <- 0.5
@@ -66,6 +70,7 @@ interpolator$interpolate(xi, yi)
 ### [Cardinal Quadratic B-Spline](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quadratic_b.html)
 
 ``` r
+
 y <- c(0, 1, 0, 1)
 t0 <- 0
 h <- 1
@@ -80,6 +85,7 @@ interpolator$prime(xi)
 ### [Cardinal Quintic B-Spline](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cardinal_quintic_b.html)
 
 ``` r
+
 y <- seq(0, 1, length.out = 20)
 t0 <- 0
 h <- 1
@@ -96,6 +102,7 @@ interpolator$double_prime(xi)
 ### [Catmull-Rom](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/catmull_rom.html)
 
 ``` r
+
 control_points <- list(c(0, 0, 0), c(1, 1, 0), c(2, 0, 0), c(3, 1, 0))
 interpolator <- catmull_rom(control_points)
 xi <- 1.5
@@ -112,6 +119,7 @@ interpolator$parameter_at_point(2)
 ### [Cubic Hermite](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html)
 
 ``` r
+
 x <- c(0, 1, 2)
 y <- c(0, 1, 0)
 dydx <- c(1, 0, -1)
@@ -137,6 +145,7 @@ interpolator$domain()
 ### [Cardinal Cubic Hermite](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_hermite.html)
 
 ``` r
+
 y <- c(0, 1, 0)
 dydx <- c(1, 0, -1)
 interpolator <- cardinal_cubic_hermite(y, dydx, 0, 1)
@@ -152,6 +161,7 @@ interpolator$domain()
 ### [Modified Akima](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/makima.html)
 
 ``` r
+
 x <- c(0, 1, 2, 3)
 y <- c(0, 1, 0, 1)
 interpolator <- makima(x, y)
@@ -172,6 +182,7 @@ interpolator$prime(xi)
 ### [PCHIP](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/pchip.html)
 
 ``` r
+
 x <- c(0, 1, 2, 3)
 y <- c(0, 1, 0, 1)
 interpolator <- pchip(x, y)
@@ -192,6 +203,7 @@ interpolator$prime(xi)
 ### [Quintic Hermite](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quintic_hermite.html)
 
 ``` r
+
 x <- c(0, 1, 2)
 y <- c(0, 1, 0)
 dydx <- c(1, 0, -1)

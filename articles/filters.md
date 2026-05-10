@@ -9,6 +9,7 @@ section of the Boost Math library cover a broad range of areas
 ### [Daubechies Filters](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/daubechies_filters.html)
 
 ``` r
+
 # Daubechies Scaling Filter of order 4
 daubechies_scaling_filter(4)
 #> [1]  0.23037781  0.71484657  0.63088077 -0.02798377 -0.18703481  0.03084138

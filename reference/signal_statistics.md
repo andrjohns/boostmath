@@ -126,10 +126,10 @@ x <- s + n
 
 # Oracle SNR (Known signal)
 oracle_snr_db(s, x)
-#> [1] 1.994808
+#> [1] 2.090315
 
 # M2M4 Blind SNR Estimation
 # Assuming signal kurtosis = 1.5 (sinusoid) and Gaussian noise (kurtosis = 3)
 m2m4_snr_estimator_db(x, signal_kurtosis = 1.5, noise_kurtosis = 3)
-#> [1] 0.4114626
+#> [1] 5.706984
 ```

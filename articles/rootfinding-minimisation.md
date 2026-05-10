@@ -11,6 +11,7 @@ needing any additional compilation.
 ### [Root Finding Without Derivatives](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/roots_noderiv.html)
 
 ``` r
+
 # Example of finding a root using bisection method
 f <- function(x) x^2 - 2
 bisect(f, lower = 0, upper = 2)
@@ -49,6 +50,7 @@ toms748_solve(f, lower = 0, upper = 2)
 ### [Root Finding With Derivatives](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/roots_deriv.html)
 
 ``` r
+
 # Example of finding a root using Newton-Raphson method
 f <- function(x) c(x^2 - 2, 2 * x)
 newton_raphson_iterate(f, guess = 1, lower = 0, upper = 2)
@@ -74,6 +76,7 @@ schroder_iterate(f, guess = 1, lower = 0, upper = 2)
 #### [Quadratic Roots](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/roots_deriv.html#math_toolkit.roots_deriv.quadratics)
 
 ``` r
+
 # Example of finding quadratic roots
 quadratic_roots(1, -3, 2)
 #> [1] 1 2
@@ -82,6 +85,7 @@ quadratic_roots(1, -3, 2)
 #### [Cubic Roots](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/cubic_roots.html)
 
 ``` r
+
 # Example of finding cubic roots
 cubic_roots(1, -6, 11, -6)
 #> [1] 1 2 3
@@ -96,6 +100,7 @@ cubic_root_condition_number(1, -6, 11, -6, 1)
 #### [Quartic Roots](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quartic_roots.html)
 
 ``` r
+
 # Example of finding quartic roots
 quartic_roots(1, -10, 35, -50, 24)
 #> [1] 1 2 3 4
@@ -104,6 +109,7 @@ quartic_roots(1, -10, 35, -50, 24)
 ### [Finding Function Minima with Brent’s Algorithm](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/brent_minima.html)
 
 ``` r
+
 # Example of finding a minimum using Brent's method
 f <- function(x) (x - 2)^2 + 1
 brent_find_minima(f, lower = 0, upper = 4)

@@ -5,6 +5,7 @@
 ### Retrieve Specific Constants
 
 ``` r
+
 constants("pi")
 #> [1] 3.141593
 constants("e")
@@ -16,6 +17,7 @@ constants("phi")
 ### List All Available Constants
 
 ``` r
+
 constants()
 #> $half
 #> [1] 0.5

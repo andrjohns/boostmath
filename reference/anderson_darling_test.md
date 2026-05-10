@@ -59,5 +59,5 @@ for more details on the mathematical background.
 # Anderson-Darling test for normality with sorted data
 x <- sort(rnorm(100))
 anderson_darling_normality_statistic(x, 0, 1)
-#> [1] 1.071972
+#> [1] 1.181559
 ```
