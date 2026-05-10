@@ -1,9 +1,12 @@
 #ifndef BOOSTMATH_TYPE_TRAITS_HPP
 #define BOOSTMATH_TYPE_TRAITS_HPP
 
+#include <cstdint>
+#include <sys/types.h>
 #include <type_traits>
 #include <tuple>
 #include <vector>
+#include <list>
 
 namespace boostmath {
   template <typename... Targs>
@@ -26,18 +29,33 @@ namespace boostmath {
   struct is_arithmetic_pair<std::pair<T1, T2>> : std::conjunction<std::is_arithmetic<T1>, std::is_arithmetic<T2>> {};
 
   template <typename T>
-  struct is_vector_of_arithmetic_containers : std::false_type {};
+  struct is_arithmetic_list : std::false_type {};
 
-  template <typename T, std::size_t N>
-  struct is_vector_of_arithmetic_containers<std::vector<std::array<T, N>>> : std::is_arithmetic<T> {};
+  template <typename T>
+  struct is_arithmetic_list<std::list<T>> : std::is_arithmetic<T> {};
 
   template <typename T>
   using is_arithmetic_container = std::disjunction<is_arithmetic_tuple<T>, is_arithmetic_array<T>, is_arithmetic_pair<T>>;
 
   template <typename T>
+  struct is_vector_of_arithmetic_containers : std::false_type {};
+
+  template <typename T>
+  struct is_vector_of_arithmetic_containers<std::vector<T>> : is_arithmetic_container<T> {};
+
+
+  template <typename T>
   using is_cpp11 = std::negation<
     std::disjunction<
       std::is_same<T, std::complex<double>>,
+      std::is_same<T, std::vector<std::complex<double>>>,
+      std::is_same<T, std::vector<double>>,
+      std::is_same<T, std::list<double>>,
+      std::is_same<T, std::vector<std::list<double>>>,
+      std::is_same<T, std::vector<std::vector<double>>>,
+      std::is_same<T, std::vector<int>>,
+      std::is_same<T, std::vector<uint64_t>>,
+      std::is_same<T, std::vector<int64_t>>,
       is_arithmetic_container<T>,
       is_vector_of_arithmetic_containers<T>,
       std::is_void<T>
