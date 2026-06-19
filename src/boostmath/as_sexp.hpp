@@ -4,23 +4,22 @@
 #include <cpp11.hpp>
 #include <complex>
 #include "./type_traits.hpp"
-#include "Rinternals.h"
 
 namespace boostmath {
   namespace internal {
-    template <typename T, std::size_t... Is, std::enable_if_t<std::negation<is_integral_scalar_type<T>>::value>* = nullptr>
+    template <typename T, std::size_t... Is>
     auto as_sexp_arithmetic_container_impl(const T& x, std::index_sequence<Is...>) {
-      SEXP data = cpp11::safe[Rf_allocVector](REALSXP, sizeof...(Is));
-      double* ptr = REAL(data);
-      ((ptr[Is] = std::get<Is>(x)), ...);
-      return data;
-    }
+      SEXP data;
+      if constexpr (is_integral_scalar_type<T>::value) {
+        data = cpp11::safe[Rf_allocVector](INTSXP, sizeof...(Is));
+        int* ptr = INTEGER(data);
+        ((ptr[Is] = std::get<Is>(x)), ...);
+      } else {
+        data = cpp11::safe[Rf_allocVector](REALSXP, sizeof...(Is));
+        double* ptr = REAL(data);
+        ((ptr[Is] = std::get<Is>(x)), ...);
+      }
 
-    template <typename T, std::size_t... Is,  std::enable_if_t<is_integral_scalar_type<T>::value>* = nullptr>
-    auto as_sexp_arithmetic_container_impl(const T& x, std::index_sequence<Is...>) {
-      SEXP data = cpp11::safe[Rf_allocVector](INTSXP, sizeof...(Is));
-      int* ptr = INTEGER(data);
-      ((ptr[Is] = std::get<Is>(x)), ...);
       return data;
     }
   }
@@ -34,118 +33,40 @@ namespace boostmath {
     return data;
   }
 
-  template <typename T, std::enable_if_t<std::is_same<T, std::vector<std::complex<double>>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](CPLXSXP, n);
-    Rcomplex* r_complex = COMPLEX(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      r_complex[i].r = x[i].real();
-      r_complex[i].i = x[i].imag();
-    }
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<std::is_same<T, std::list<double>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](REALSXP, n);
-    double* ptr = REAL(data);
-    size_t i = 0;
-    for (const auto& value : x) {
-      ptr[i++] = value;
-    }
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<std::is_same<T, std::vector<std::list<double>>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
-    PROTECT(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      SET_VECTOR_ELT(data, i, as_sexp(x[i]));
-    }
-    UNPROTECT(1);
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<std::is_same<T, std::vector<uint64_t>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](INTSXP, n);
-    int* ptr = INTEGER(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      ptr[i] = static_cast<int>(x[i]);
-    }
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<std::is_same<T, std::vector<int64_t>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](INTSXP, n);
-    int* ptr = INTEGER(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      ptr[i] = static_cast<int>(x[i]);
-    }
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<std::is_same<T, std::vector<int>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](INTSXP, n);
-    int* ptr = INTEGER(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      ptr[i] = static_cast<int>(x[i]);
-    }
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<std::is_same<T, std::vector<double>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](REALSXP, n);
-    double* ptr = REAL(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      ptr[i] = static_cast<double>(x[i]);
-    }
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<std::is_same<T, std::vector<std::vector<double>>>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
-    PROTECT(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      SET_VECTOR_ELT(data, i, as_sexp(x[i]));
-    }
-    UNPROTECT(1);
-    return data;
-  }
-
-  template <typename T, std::enable_if_t<is_arithmetic_container<T>::value>* = nullptr>
+  template <typename T, std::enable_if_t<is_fixed_container<T>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
     return internal::as_sexp_arithmetic_container_impl<T>(x, std::make_index_sequence<std::tuple_size<T>::value>{});
-  }
-
-  template <typename T, std::enable_if_t<is_vector_of_arithmetic_containers<T>::value>* = nullptr>
-  inline SEXP as_sexp(const T& x) {
-    R_xlen_t n = x.size();
-    SEXP data = cpp11::safe[Rf_allocVector](VECSXP, n);
-    PROTECT(data);
-    for (R_xlen_t i = 0; i < n; ++i) {
-      SET_VECTOR_ELT(data, i, as_sexp(x[i]));
-    }
-    UNPROTECT(1);
-    return data;
   }
 
   template <typename T, std::enable_if_t<is_cpp11<T>::value>* = nullptr>
   inline SEXP as_sexp(const T& x) {
     return cpp11::as_sexp(x);
+  }
+
+  template <typename T, std::enable_if_t<is_vector_or_list<T>::value>* = nullptr>
+  inline SEXP as_sexp(const T& x) {
+    const R_xlen_t n = x.size();
+    using scalar_t = typename T::value_type;
+    SEXP data;
+    if constexpr (std::is_integral_v<scalar_t>) {
+      data = cpp11::safe[Rf_allocVector](INTSXP, n);
+      std::copy(x.cbegin(), x.cend(), INTEGER(data));
+    } else if constexpr (std::is_floating_point_v<scalar_t>) {
+      data = cpp11::safe[Rf_allocVector](REALSXP, n);
+      std::copy(x.cbegin(), x.cend(), REAL(data));
+    } else if constexpr (std::is_same_v<scalar_t, std::complex<double>>) {
+      data = cpp11::safe[Rf_allocVector](CPLXSXP, n);
+      std::transform(x.cbegin(), x.cend(), COMPLEX(data),
+                     [](const std::complex<double>& y) { return Rcomplex{ y.real(), y.imag()}; });
+    } else {
+      data = cpp11::safe[Rf_allocVector](VECSXP, n);
+      PROTECT(data);
+      for (R_xlen_t i = 0; i < n; ++i) {
+        SET_VECTOR_ELT(data, i, as_sexp(x[i]));
+      }
+      UNPROTECT(1);
+    }
+    return data;
   }
 }
 
